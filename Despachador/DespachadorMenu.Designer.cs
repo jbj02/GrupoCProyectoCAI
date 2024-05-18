@@ -1,6 +1,6 @@
-﻿namespace GrupoCProyectoCAI.Preparador
+﻿namespace GrupoCProyectoCAI.Despachador
 {
-    partial class Modificar
+    partial class DespachadorMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Modificar";
+            this.Text = "DespachadorMenu";
         }
 
         #endregion

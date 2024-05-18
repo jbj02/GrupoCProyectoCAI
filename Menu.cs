@@ -1,8 +1,8 @@
 namespace GrupoCProyectoCAI
 {
-    public partial class Menu : Form
+    public partial class MenuForm : Form
     {
-        public Menu()
+        public MenuForm()
         {
             InitializeComponent();
         }

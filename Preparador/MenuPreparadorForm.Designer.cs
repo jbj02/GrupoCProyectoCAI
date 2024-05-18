@@ -1,14 +1,14 @@
-﻿namespace GrupoCProyectoCAI
+﻿namespace GrupoCProyectoCAI.Preparador
 {
-    partial class MenuForm
+    partial class MenuPreparadorForm
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,8 +23,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -35,32 +35,32 @@
             // 
             // button1
             // 
-            button1.Location = new Point(307, 159);
+            button1.Location = new Point(354, 69);
             button1.Name = "button1";
-            button1.Size = new Size(152, 23);
+            button1.Size = new Size(115, 23);
             button1.TabIndex = 0;
-            button1.Text = "Estibador";
+            button1.Text = "Modificar";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            button2.Location = new Point(307, 188);
+            button2.Location = new Point(354, 98);
             button2.Name = "button2";
-            button2.Size = new Size(152, 23);
-            button2.TabIndex = 3;
-            button2.Text = "Preparador";
+            button2.Size = new Size(115, 23);
+            button2.TabIndex = 1;
+            button2.Text = "Nueva Orden Int";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(307, 217);
+            button3.Location = new Point(354, 127);
             button3.Name = "button3";
-            button3.Size = new Size(152, 23);
-            button3.TabIndex = 4;
-            button3.Text = "Despachador";
+            button3.Size = new Size(115, 23);
+            button3.TabIndex = 2;
+            button3.Text = "Busqueda";
             button3.UseVisualStyleBackColor = true;
             // 
-            // MenuForm
+            // MenuPreparadorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -68,12 +68,13 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "MenuForm";
-            Text = "MenuForm";
+            Name = "MenuPreparadorForm";
+            Text = "MenuPreparadorForm";
             ResumeLayout(false);
         }
 
         #endregion
+
         private Button button1;
         private Button button2;
         private Button button3;
