@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoCProyectoCAI.Despachador.Modificar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace GrupoCProyectoCAI.Despachador
         public DespachadorMenuForm()
         {
             InitializeComponent();
+        }
+
+        private void ModificarOrdenBtn_Click(object sender, EventArgs e)
+        {
+            ModificarDespachadorForm modificarDespachadorForm = new();
+            modificarDespachadorForm.ShowDialog();
         }
     }
 }

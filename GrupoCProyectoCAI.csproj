@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Despachador\" />
+    <Folder Include="Despachador\GenerarRemito\" />
   </ItemGroup>
 
 </Project>

@@ -28,18 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ModificarOrdenBtn = new Button();
+            GenerarRemitoBtn = new Button();
             SuspendLayout();
+            // 
+            // ModificarOrdenBtn
+            // 
+            ModificarOrdenBtn.Location = new Point(12, 32);
+            ModificarOrdenBtn.Name = "ModificarOrdenBtn";
+            ModificarOrdenBtn.Size = new Size(244, 27);
+            ModificarOrdenBtn.TabIndex = 0;
+            ModificarOrdenBtn.Text = "Modificar órden";
+            ModificarOrdenBtn.UseVisualStyleBackColor = true;
+            ModificarOrdenBtn.Click += ModificarOrdenBtn_Click;
+            // 
+            // GenerarRemitoBtn
+            // 
+            GenerarRemitoBtn.Location = new Point(12, 65);
+            GenerarRemitoBtn.Name = "GenerarRemitoBtn";
+            GenerarRemitoBtn.Size = new Size(244, 27);
+            GenerarRemitoBtn.TabIndex = 1;
+            GenerarRemitoBtn.Text = "Generar remito";
+            GenerarRemitoBtn.UseVisualStyleBackColor = true;
             // 
             // DespachadorMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(268, 135);
+            Controls.Add(GenerarRemitoBtn);
+            Controls.Add(ModificarOrdenBtn);
             Name = "DespachadorMenuForm";
             Text = "DespachadorMenuForm";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button ModificarOrdenBtn;
+        private Button GenerarRemitoBtn;
     }
 }
