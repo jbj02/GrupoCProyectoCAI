@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GrupoCProyectoCAI.Despachador
 {
-    public partial class DespachadorMenu : Form
+    public partial class DespachadorMenuForm : Form
     {
-        public DespachadorMenu()
+        public DespachadorMenuForm()
         {
             InitializeComponent();
         }

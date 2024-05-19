@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GrupoCProyectoCAI.Estibador
 {
-    public partial class EstibadorMenu : Form
+    public partial class EstibadorMenuForm : Form
     {
-        public EstibadorMenu()
+        public EstibadorMenuForm()
         {
             InitializeComponent();
         }

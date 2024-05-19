@@ -28,54 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            EstibadorBtn = new Button();
+            PreparadorBtn = new Button();
+            DespachadorBtn = new Button();
             SuspendLayout();
             // 
-            // button1
+            // EstibadorBtn
             // 
-            button1.Location = new Point(307, 159);
-            button1.Name = "button1";
-            button1.Size = new Size(152, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Estibador";
-            button1.UseVisualStyleBackColor = true;
+            EstibadorBtn.Location = new Point(307, 159);
+            EstibadorBtn.Name = "EstibadorBtn";
+            EstibadorBtn.Size = new Size(152, 23);
+            EstibadorBtn.TabIndex = 0;
+            EstibadorBtn.Text = "Estibador";
+            EstibadorBtn.UseVisualStyleBackColor = true;
+            EstibadorBtn.Click += EstibadorBtn_Click;
             // 
-            // button2
+            // PreparadorBtn
             // 
-            button2.Location = new Point(307, 188);
-            button2.Name = "button2";
-            button2.Size = new Size(152, 23);
-            button2.TabIndex = 3;
-            button2.Text = "Preparador";
-            button2.UseVisualStyleBackColor = true;
+            PreparadorBtn.Location = new Point(307, 188);
+            PreparadorBtn.Name = "PreparadorBtn";
+            PreparadorBtn.Size = new Size(152, 23);
+            PreparadorBtn.TabIndex = 3;
+            PreparadorBtn.Text = "Preparador";
+            PreparadorBtn.UseVisualStyleBackColor = true;
+            PreparadorBtn.Click += PreparadorBtn_Click;
             // 
-            // button3
+            // DespachadorBtn
             // 
-            button3.Location = new Point(307, 217);
-            button3.Name = "button3";
-            button3.Size = new Size(152, 23);
-            button3.TabIndex = 4;
-            button3.Text = "Despachador";
-            button3.UseVisualStyleBackColor = true;
+            DespachadorBtn.Location = new Point(307, 217);
+            DespachadorBtn.Name = "DespachadorBtn";
+            DespachadorBtn.Size = new Size(152, 23);
+            DespachadorBtn.TabIndex = 4;
+            DespachadorBtn.Text = "Despachador";
+            DespachadorBtn.UseVisualStyleBackColor = true;
+            DespachadorBtn.Click += DespachadorBtn_Click;
             // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(DespachadorBtn);
+            Controls.Add(PreparadorBtn);
+            Controls.Add(EstibadorBtn);
             Name = "MenuForm";
             Text = "MenuForm";
             ResumeLayout(false);
         }
 
         #endregion
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button EstibadorBtn;
+        private Button PreparadorBtn;
+        private Button DespachadorBtn;
     }
 }
