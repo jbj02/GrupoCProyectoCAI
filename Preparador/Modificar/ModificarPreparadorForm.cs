@@ -72,6 +72,7 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
             TipoDeProductoText.Text = ordenSeleccionada.TipoProducto;
             CantidadText.Text = ordenSeleccionada.Cantidad.ToString();
             ClienteText.Text = ordenSeleccionada.Cliente;
+            PrioridadText.Text = ordenSeleccionada.Prioridad;
             FechaCreacionDT.Text = ordenSeleccionada.FechaCreacion.ToString("dd/MM/yyyy");
             FechaModificacionDT.Text = ordenSeleccionada.FechaModificacion.ToString("dd/MM/yyyy");
             EstadoCB.SelectedItem = ordenSeleccionada.Estado.ToString();
