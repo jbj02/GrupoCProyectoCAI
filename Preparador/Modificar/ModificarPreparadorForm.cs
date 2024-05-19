@@ -14,7 +14,7 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
     public partial class ModificarPreparadorForm : Form
     {
         // Creamos el modelos del forms
-        ModificarPreparadorModelo modificarModelo = new();
+        ModificarPreparadorModelo modificarModelo = new(); 
 
         public ModificarPreparadorForm()
         {
