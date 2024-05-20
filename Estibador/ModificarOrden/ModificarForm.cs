@@ -76,7 +76,13 @@ namespace GrupoCProyectoCAI
                 {
                     OrdenInternatxt.Text = ordenInterna.NumOrdenInt.ToString();
                     OrdenExternatxt.Text = ordenInterna.NumOrdenExt.ToString();
-                    // termina romi
+                    TipoDeProductotxt.Text = ordenInterna.TipoProducto;
+                    Cantidadtxt.Text = ordenInterna.Cantidad.ToString();
+                    Clientetxt.Text = ordenInterna.Cliente;
+                    Prioridadtxt.Text = ordenInterna.Prioridad;
+                    Estadocmb.SelectedItem = ordenInterna.Estado;
+                    FechaDeModificartxt.Text = ordenInterna.FechaModificacion.ToString();
+                    FechaDeCreaciontxt.Text = ordenInterna.FechaCreacion.ToString();
                 }
             }
             if (!validarOrden)
@@ -92,7 +98,13 @@ namespace GrupoCProyectoCAI
                 var orden = (OrdenInt)ordenesInternas_lst.SelectedItems[0].Tag;
                 OrdenInternatxt.Text = orden.NumOrdenInt.ToString();
                 OrdenExternatxt.Text = orden.NumOrdenExt.ToString();
-                //termina romi
+                TipoDeProductotxt.Text = orden.TipoProducto; 
+                Cantidadtxt.Text = orden.Cantidad.ToString();
+                Clientetxt.Text = orden.Cliente;
+                Estadocmb.SelectedItem = orden.Estado;
+                FechaDeCreaciontxt.Text =orden.FechaCreacion.ToString();
+                FechaDeModificartxt.Text = orden.FechaModificacion.ToString();
+                Prioridadtxt.Text = orden.Prioridad;
             }
             else
             {
@@ -108,7 +120,14 @@ namespace GrupoCProyectoCAI
         private void Cancelarbtn_Click(object sender, EventArgs e)
         {
             OrdenInternatxt.Clear();
-            // termina romi
+            OrdenExternatxt.Clear();
+            TipoDeProductotxt.Clear();
+            Cantidadtxt.Clear();
+            Prioridadtxt.Clear();
+            Estadocmb.SelectedIndex = -1; //por ser cmb Estado.SelectedItem = "";
+            FechaDeCreaciontxt.Clear();
+            FechaDeModificartxt.Clear();
+            Clientetxt.Clear();
         }
     }
 }
