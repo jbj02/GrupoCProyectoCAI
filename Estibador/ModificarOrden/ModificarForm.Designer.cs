@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             ordenesInternas_lst = new ListView();
-            numero_orden_externa = new ColumnHeader();
             numero_orden_interna = new ColumnHeader();
+            numero_orden_externa = new ColumnHeader();
             tipo_producto = new ColumnHeader();
             Cantidades = new ColumnHeader();
             Prioridad = new ColumnHeader();
@@ -38,6 +38,10 @@
             fecha_creacion = new ColumnHeader();
             fecha_modificacion = new ColumnHeader();
             groupBox1 = new GroupBox();
+            Cancelarbtn = new Button();
+            Aceptarbtn = new Button();
+            label10 = new Label();
+            Estadocmb = new ComboBox();
             label9 = new Label();
             FechaDeModificartxt = new TextBox();
             label8 = new Label();
@@ -55,40 +59,38 @@
             OrdenExternatxt = new TextBox();
             label1 = new Label();
             OrdenInternatxt = new TextBox();
-            Estadocmb = new ComboBox();
-            label10 = new Label();
-            Aceptarbtn = new Button();
-            Cancelarbtn = new Button();
             FormCancelarbtn = new Button();
             groupBox2 = new GroupBox();
-            label11 = new Label();
-            BuscarOrdentxt = new TextBox();
             Buscarbtn = new Button();
+            BuscarOrdentxt = new TextBox();
+            label11 = new Label();
+            seleccionarbtn = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // ordenesInternas_lst
             // 
-            ordenesInternas_lst.Columns.AddRange(new ColumnHeader[] { numero_orden_externa, numero_orden_interna, tipo_producto, Cantidades, Prioridad, Estado, fecha_creacion, fecha_modificacion });
-            ordenesInternas_lst.Location = new Point(13, 14);
-            ordenesInternas_lst.Margin = new Padding(4, 5, 4, 5);
+            ordenesInternas_lst.Columns.AddRange(new ColumnHeader[] { numero_orden_interna, numero_orden_externa, tipo_producto, Cantidades, Prioridad, Estado, fecha_creacion, fecha_modificacion });
+            ordenesInternas_lst.Location = new Point(11, 12);
             ordenesInternas_lst.MultiSelect = false;
             ordenesInternas_lst.Name = "ordenesInternas_lst";
-            ordenesInternas_lst.Size = new Size(1149, 488);
+            ordenesInternas_lst.Size = new Size(806, 294);
             ordenesInternas_lst.TabIndex = 0;
             ordenesInternas_lst.UseCompatibleStateImageBehavior = false;
             ordenesInternas_lst.View = View.Details;
             // 
-            // numero_orden_externa
-            // 
-            numero_orden_externa.Text = "N° Orden Ext";
-            numero_orden_externa.Width = 150;
-            // 
             // numero_orden_interna
             // 
+            numero_orden_interna.DisplayIndex = 1;
             numero_orden_interna.Text = "N° Orden Int";
             numero_orden_interna.Width = 150;
+            // 
+            // numero_orden_externa
+            // 
+            numero_orden_externa.DisplayIndex = 0;
+            numero_orden_externa.Text = "N° Orden Ext";
+            numero_orden_externa.Width = 150;
             // 
             // tipo_producto
             // 
@@ -143,252 +145,296 @@
             groupBox1.Controls.Add(OrdenExternatxt);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(OrdenInternatxt);
-            groupBox1.Location = new Point(1169, 14);
+            groupBox1.Location = new Point(818, 8);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(399, 757);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(279, 454);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // Cancelarbtn
+            // 
+            Cancelarbtn.Location = new Point(122, 422);
+            Cancelarbtn.Margin = new Padding(2);
+            Cancelarbtn.Name = "Cancelarbtn";
+            Cancelarbtn.Size = new Size(78, 20);
+            Cancelarbtn.TabIndex = 20;
+            Cancelarbtn.Text = "Cancelar";
+            Cancelarbtn.UseVisualStyleBackColor = true;
+            Cancelarbtn.Click += Cancelarbtn_Click;
+            // 
+            // Aceptarbtn
+            // 
+            Aceptarbtn.Location = new Point(8, 422);
+            Aceptarbtn.Margin = new Padding(2);
+            Aceptarbtn.Name = "Aceptarbtn";
+            Aceptarbtn.Size = new Size(78, 20);
+            Aceptarbtn.TabIndex = 19;
+            Aceptarbtn.Text = "Aceptar";
+            Aceptarbtn.UseVisualStyleBackColor = true;
+            Aceptarbtn.Click += Aceptarbtn_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(4, 410);
+            label10.Margin = new Padding(2, 0, 2, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(0, 15);
+            label10.TabIndex = 18;
+            // 
+            // Estadocmb
+            // 
+            Estadocmb.FormattingEnabled = true;
+            Estadocmb.Location = new Point(4, 382);
+            Estadocmb.Margin = new Padding(2);
+            Estadocmb.Name = "Estadocmb";
+            Estadocmb.Size = new Size(129, 23);
+            Estadocmb.TabIndex = 17;
+            // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(6, 609);
+            label9.Location = new Point(4, 365);
+            label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
-            label9.Size = new Size(66, 25);
+            label9.Size = new Size(42, 15);
             label9.TabIndex = 16;
             label9.Text = "Estado";
             label9.Click += label9_Click;
             // 
             // FechaDeModificartxt
             // 
-            FechaDeModificartxt.Location = new Point(6, 563);
+            FechaDeModificartxt.Location = new Point(4, 338);
+            FechaDeModificartxt.Margin = new Padding(2);
             FechaDeModificartxt.Name = "FechaDeModificartxt";
             FechaDeModificartxt.ReadOnly = true;
-            FechaDeModificartxt.Size = new Size(210, 31);
+            FechaDeModificartxt.Size = new Size(148, 23);
             FechaDeModificartxt.TabIndex = 15;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(6, 535);
+            label8.Location = new Point(4, 321);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(162, 25);
+            label8.Size = new Size(108, 15);
             label8.TabIndex = 14;
             label8.Text = "Fecha de Modificar";
             // 
             // FechaDeCreaciontxt
             // 
-            FechaDeCreaciontxt.Location = new Point(6, 491);
+            FechaDeCreaciontxt.Location = new Point(4, 295);
+            FechaDeCreaciontxt.Margin = new Padding(2);
             FechaDeCreaciontxt.Name = "FechaDeCreaciontxt";
             FechaDeCreaciontxt.ReadOnly = true;
-            FechaDeCreaciontxt.Size = new Size(210, 31);
+            FechaDeCreaciontxt.Size = new Size(148, 23);
             FechaDeCreaciontxt.TabIndex = 13;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(6, 463);
+            label7.Location = new Point(4, 278);
+            label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(152, 25);
+            label7.Size = new Size(102, 15);
             label7.TabIndex = 12;
             label7.Text = "Fecha de creacion";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(6, 380);
+            label6.Location = new Point(4, 228);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(84, 25);
+            label6.Size = new Size(55, 15);
             label6.TabIndex = 11;
             label6.Text = "Prioridad";
             // 
             // Prioridadtxt
             // 
-            Prioridadtxt.Location = new Point(6, 420);
+            Prioridadtxt.Location = new Point(4, 252);
+            Prioridadtxt.Margin = new Padding(2);
             Prioridadtxt.Name = "Prioridadtxt";
             Prioridadtxt.ReadOnly = true;
-            Prioridadtxt.Size = new Size(210, 31);
+            Prioridadtxt.Size = new Size(148, 23);
             Prioridadtxt.TabIndex = 10;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 296);
+            label5.Location = new Point(4, 178);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(65, 25);
+            label5.Size = new Size(44, 15);
             label5.TabIndex = 9;
             label5.Text = "Cliente";
             // 
             // Clientetxt
             // 
-            Clientetxt.Location = new Point(6, 337);
+            Clientetxt.Location = new Point(4, 202);
+            Clientetxt.Margin = new Padding(2);
             Clientetxt.Name = "Clientetxt";
             Clientetxt.ReadOnly = true;
-            Clientetxt.Size = new Size(210, 31);
+            Clientetxt.Size = new Size(148, 23);
             Clientetxt.TabIndex = 8;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 224);
+            label4.Location = new Point(4, 134);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(83, 25);
+            label4.Size = new Size(55, 15);
             label4.TabIndex = 7;
             label4.Text = "Cantidad";
             // 
             // Cantidadtxt
             // 
-            Cantidadtxt.Location = new Point(6, 262);
+            Cantidadtxt.Location = new Point(4, 157);
+            Cantidadtxt.Margin = new Padding(2);
             Cantidadtxt.Name = "Cantidadtxt";
-            Cantidadtxt.Size = new Size(210, 31);
+            Cantidadtxt.Size = new Size(148, 23);
             Cantidadtxt.TabIndex = 6;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 162);
+            label3.Location = new Point(4, 97);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(151, 25);
+            label3.Size = new Size(98, 15);
             label3.TabIndex = 5;
             label3.Text = "Tipo de producto";
             // 
             // TipoDeProductotxt
             // 
-            TipoDeProductotxt.Location = new Point(6, 190);
+            TipoDeProductotxt.Location = new Point(4, 114);
+            TipoDeProductotxt.Margin = new Padding(2);
             TipoDeProductotxt.Name = "TipoDeProductotxt";
             TipoDeProductotxt.ReadOnly = true;
-            TipoDeProductotxt.Size = new Size(210, 31);
+            TipoDeProductotxt.Size = new Size(148, 23);
             TipoDeProductotxt.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 100);
+            label2.Location = new Point(4, 60);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(171, 25);
+            label2.Size = new Size(113, 15);
             label2.TabIndex = 3;
             label2.Text = "N° de orden externa";
             label2.Click += label2_Click;
             // 
             // OrdenExternatxt
             // 
-            OrdenExternatxt.Location = new Point(6, 128);
+            OrdenExternatxt.Location = new Point(4, 77);
+            OrdenExternatxt.Margin = new Padding(2);
             OrdenExternatxt.Name = "OrdenExternatxt";
             OrdenExternatxt.ReadOnly = true;
-            OrdenExternatxt.Size = new Size(210, 31);
+            OrdenExternatxt.Size = new Size(148, 23);
             OrdenExternatxt.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 38);
+            label1.Location = new Point(4, 23);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(168, 25);
+            label1.Size = new Size(111, 15);
             label1.TabIndex = 1;
             label1.Text = "N° de orden interna";
             // 
             // OrdenInternatxt
             // 
-            OrdenInternatxt.Location = new Point(6, 66);
+            OrdenInternatxt.Location = new Point(4, 40);
+            OrdenInternatxt.Margin = new Padding(2);
             OrdenInternatxt.Name = "OrdenInternatxt";
             OrdenInternatxt.ReadOnly = true;
-            OrdenInternatxt.Size = new Size(210, 31);
+            OrdenInternatxt.Size = new Size(148, 23);
             OrdenInternatxt.TabIndex = 0;
-            // 
-            // Estadocmb
-            // 
-            Estadocmb.FormattingEnabled = true;
-            Estadocmb.Location = new Point(6, 637);
-            Estadocmb.Name = "Estadocmb";
-            Estadocmb.Size = new Size(182, 33);
-            Estadocmb.TabIndex = 17;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(6, 683);
-            label10.Name = "label10";
-            label10.Size = new Size(0, 25);
-            label10.TabIndex = 18;
-            // 
-            // Aceptarbtn
-            // 
-            Aceptarbtn.Location = new Point(12, 704);
-            Aceptarbtn.Name = "Aceptarbtn";
-            Aceptarbtn.Size = new Size(112, 34);
-            Aceptarbtn.TabIndex = 19;
-            Aceptarbtn.Text = "Aceptar";
-            Aceptarbtn.UseVisualStyleBackColor = true;
-            // 
-            // Cancelarbtn
-            // 
-            Cancelarbtn.Location = new Point(174, 704);
-            Cancelarbtn.Name = "Cancelarbtn";
-            Cancelarbtn.Size = new Size(112, 34);
-            Cancelarbtn.TabIndex = 20;
-            Cancelarbtn.Text = "Cancelar";
-            Cancelarbtn.UseVisualStyleBackColor = true;
             // 
             // FormCancelarbtn
             // 
-            FormCancelarbtn.Location = new Point(1449, 786);
+            FormCancelarbtn.Location = new Point(1014, 472);
+            FormCancelarbtn.Margin = new Padding(2);
             FormCancelarbtn.Name = "FormCancelarbtn";
-            FormCancelarbtn.Size = new Size(112, 34);
+            FormCancelarbtn.Size = new Size(78, 20);
             FormCancelarbtn.TabIndex = 21;
             FormCancelarbtn.Text = "Cancelar";
             FormCancelarbtn.UseVisualStyleBackColor = true;
+            FormCancelarbtn.Click += FormCancelarbtn_Click;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(Buscarbtn);
             groupBox2.Controls.Add(BuscarOrdentxt);
             groupBox2.Controls.Add(label11);
-            groupBox2.Location = new Point(28, 543);
+            groupBox2.Location = new Point(20, 326);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1105, 242);
+            groupBox2.Padding = new Padding(2);
+            groupBox2.Size = new Size(774, 145);
             groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(18, 58);
-            label11.Name = "label11";
-            label11.Size = new Size(168, 25);
-            label11.TabIndex = 21;
-            label11.Text = "N° de orden interna";
-            // 
-            // BuscarOrdentxt
-            // 
-            BuscarOrdentxt.Location = new Point(214, 58);
-            BuscarOrdentxt.Name = "BuscarOrdentxt";
-            BuscarOrdentxt.Size = new Size(210, 31);
-            BuscarOrdentxt.TabIndex = 22;
-            // 
             // Buscarbtn
             // 
-            Buscarbtn.Location = new Point(464, 58);
+            Buscarbtn.Location = new Point(325, 35);
+            Buscarbtn.Margin = new Padding(2);
             Buscarbtn.Name = "Buscarbtn";
-            Buscarbtn.Size = new Size(112, 34);
+            Buscarbtn.Size = new Size(78, 20);
             Buscarbtn.TabIndex = 23;
             Buscarbtn.Text = "Buscar";
             Buscarbtn.UseVisualStyleBackColor = true;
+            Buscarbtn.Click += Buscarbtn_Click;
+            // 
+            // BuscarOrdentxt
+            // 
+            BuscarOrdentxt.Location = new Point(150, 35);
+            BuscarOrdentxt.Margin = new Padding(2);
+            BuscarOrdentxt.Name = "BuscarOrdentxt";
+            BuscarOrdentxt.Size = new Size(148, 23);
+            BuscarOrdentxt.TabIndex = 22;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(13, 35);
+            label11.Margin = new Padding(2, 0, 2, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(111, 15);
+            label11.TabIndex = 21;
+            label11.Text = "N° de orden interna";
+            // 
+            // seleccionarbtn
+            // 
+            seleccionarbtn.Location = new Point(696, 310);
+            seleccionarbtn.Name = "seleccionarbtn";
+            seleccionarbtn.Size = new Size(122, 21);
+            seleccionarbtn.TabIndex = 23;
+            seleccionarbtn.Text = "Seleccionar";
+            seleccionarbtn.UseVisualStyleBackColor = true;
+            seleccionarbtn.Click += seleccionarbtn_Click;
             // 
             // ModificarForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1574, 827);
+            ClientSize = new Size(1102, 496);
+            Controls.Add(seleccionarbtn);
             Controls.Add(groupBox2);
             Controls.Add(FormCancelarbtn);
             Controls.Add(groupBox1);
             Controls.Add(ordenesInternas_lst);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "ModificarForm";
             Text = "ModificarForm";
+            Load += ModificarForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -434,5 +480,6 @@
         private Button Buscarbtn;
         private TextBox BuscarOrdentxt;
         private Label label11;
+        private Button seleccionarbtn;
     }
 }

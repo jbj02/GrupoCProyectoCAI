@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoCProyectoCAI.Preparador.Modificar;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace GrupoCProyectoCAI.Estibador
         public EstibadorMenuForm()
         {
             InitializeComponent();
+        }
+
+        private void modificarbtn_Click(object sender, EventArgs e)
+        {
+           ModificarForm modificarOrdenEstibador = new();
+            modificarOrdenEstibador.ShowDialog();
         }
     }
 }

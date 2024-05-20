@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            modificarbtn = new Button();
             SuspendLayout();
+            // 
+            // modificarbtn
+            // 
+            modificarbtn.Location = new Point(277, 82);
+            modificarbtn.Name = "modificarbtn";
+            modificarbtn.Size = new Size(216, 37);
+            modificarbtn.TabIndex = 0;
+            modificarbtn.Text = "Modificar";
+            modificarbtn.UseVisualStyleBackColor = true;
+            modificarbtn.Click += modificarbtn_Click;
             // 
             // EstibadorMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(modificarbtn);
             Name = "EstibadorMenuForm";
             Text = "EstibadorMenuForm";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button modificarbtn;
     }
 }
