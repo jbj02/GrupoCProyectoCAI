@@ -34,9 +34,9 @@
             // 
             // ModificarBtn
             // 
-            ModificarBtn.Location = new Point(354, 69);
+            ModificarBtn.Location = new Point(44, 25);
             ModificarBtn.Name = "ModificarBtn";
-            ModificarBtn.Size = new Size(115, 23);
+            ModificarBtn.Size = new Size(144, 48);
             ModificarBtn.TabIndex = 0;
             ModificarBtn.Text = "Modificar";
             ModificarBtn.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@
             // 
             // NuevaOrdenBtn
             // 
-            NuevaOrdenBtn.Location = new Point(354, 98);
+            NuevaOrdenBtn.Location = new Point(44, 79);
             NuevaOrdenBtn.Name = "NuevaOrdenBtn";
-            NuevaOrdenBtn.Size = new Size(115, 23);
+            NuevaOrdenBtn.Size = new Size(144, 49);
             NuevaOrdenBtn.TabIndex = 1;
             NuevaOrdenBtn.Text = "Nueva Orden Int";
             NuevaOrdenBtn.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(222, 151);
             Controls.Add(NuevaOrdenBtn);
             Controls.Add(ModificarBtn);
             Name = "PreparadorMenuForm";

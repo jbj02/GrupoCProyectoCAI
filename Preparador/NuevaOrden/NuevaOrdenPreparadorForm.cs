@@ -21,7 +21,7 @@ namespace GrupoCProyectoCAI.Preparador.NuevaOrden
             InitializeComponent();
         }
 
-        private void CancelarBoton_Click(object sender, EventArgs e)
+        private void VolverBoton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -64,7 +64,7 @@ namespace GrupoCProyectoCAI.Preparador.NuevaOrden
             var ordenSeleccionada = (OrdenExt)OrdenExt_List.SelectedItems[0].Tag;
 
             // Cargamos los datos ingresados
-            NumOrdenIntText.Text = GenerarNumeroOrdenInt().ToString();
+            NumOrdenIntText.Text = NuevaOrdenPreparadorModelo.GenerarNumeroOrdenInt().ToString();
             NumOrdExtText.Text = ordenSeleccionada.NumOrdenExt.ToString();
             TipoDeProductoText.Text = ordenSeleccionada.TipoProducto;
             CantidadText.Text = ordenSeleccionada.Cantidad.ToString();
@@ -73,39 +73,6 @@ namespace GrupoCProyectoCAI.Preparador.NuevaOrden
             FechaCreacionDT.Text = ordenSeleccionada.FechaCreacion.ToString("dd/MM/yyyy");
 
             DatosNuevaOrdenInternaGroup.Enabled = true;
-        }
-
-        // Lista para almacenar los Números De Orden Interna generados previamente
-        static List<int> numeroOrdenIntGenerados = new List<int>();
-
-        // Método para generar el Npumero de Orden Interna
-        static int GenerarNumeroOrdenInt()
-        {
-            // Crear una instancia de la clase Random
-            Random random = new Random();
-
-            // Generar un nuevo N° de Orden Interna hasta que sea único
-            int NumOrdenInt;
-            do
-            {
-                // Generar 8 dígitos aleatorios
-                int numeros = GenerarNumeros(8);
-                NumOrdenInt = numeros;
-            } while (numeroOrdenIntGenerados.Contains(NumOrdenInt));
-
-            // Agregar el N° de orden interna generado a la lista
-            numeroOrdenIntGenerados.Add(NumOrdenInt);
-
-            // Devolver el N° de orden interna generado
-            return NumOrdenInt;
-        }
-
-        // Método para generar números aleatorios
-        static int GenerarNumeros(int cantidad)
-        {
-            // Crear una instancia de la clase Random
-            Random random = new Random();
-            return random.Next((int)Math.Pow(10, cantidad));
         }
 
         private void BuscarBtn_Click(object sender, EventArgs e)
@@ -117,7 +84,7 @@ namespace GrupoCProyectoCAI.Preparador.NuevaOrden
             {
                 if (NumeroOrdenExternaBuscarText.Text == ordenExterna.NumOrdenExt.ToString())
                 {
-                    NumOrdenIntText.Text = GenerarNumeroOrdenInt().ToString();
+                    NumOrdenIntText.Text = NuevaOrdenPreparadorModelo.GenerarNumeroOrdenInt().ToString();
                     NumOrdExtText.Text = ordenExterna.NumOrdenExt.ToString();
                     TipoDeProductoText.Text = ordenExterna.TipoProducto;
                     CantidadText.Text = ordenExterna.Cantidad.ToString();

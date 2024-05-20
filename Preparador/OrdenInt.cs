@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Preparador
 {
-    internal class OrdenInt
+    public class OrdenInt
     {
         public int NumOrdenInt { get; set; }
         public int NumOrdenExt { get; set; }

@@ -49,7 +49,7 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
             }
         }
 
-        private void CancelarBoton_Click(object sender, EventArgs e)
+        private void VolverBoton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

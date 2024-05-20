@@ -31,11 +31,10 @@
             FechaModificacionDT = new DateTimePicker();
             FechaCreacionDT = new DateTimePicker();
             EstadoCB = new ComboBox();
-            CancelarBoton = new Button();
+            VolverBoton = new Button();
             AceptarDatosOrdenBtn = new Button();
             ClienteText = new TextBox();
             label8 = new Label();
-            checkBox1 = new CheckBox();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -99,21 +98,21 @@
             EstadoCB.Size = new Size(121, 23);
             EstadoCB.TabIndex = 97;
             // 
-            // CancelarBoton
+            // VolverBoton
             // 
-            CancelarBoton.Location = new Point(1229, 547);
-            CancelarBoton.Name = "CancelarBoton";
-            CancelarBoton.Size = new Size(75, 23);
-            CancelarBoton.TabIndex = 96;
-            CancelarBoton.Text = "Cancelar";
-            CancelarBoton.UseVisualStyleBackColor = true;
-            CancelarBoton.Click += CancelarBoton_Click;
+            VolverBoton.Location = new Point(937, 530);
+            VolverBoton.Name = "VolverBoton";
+            VolverBoton.Size = new Size(86, 31);
+            VolverBoton.TabIndex = 96;
+            VolverBoton.Text = "Volver";
+            VolverBoton.UseVisualStyleBackColor = true;
+            VolverBoton.Click += VolverBoton_Click;
             // 
             // AceptarDatosOrdenBtn
             // 
-            AceptarDatosOrdenBtn.Location = new Point(90, 480);
+            AceptarDatosOrdenBtn.Location = new Point(90, 472);
             AceptarDatosOrdenBtn.Name = "AceptarDatosOrdenBtn";
-            AceptarDatosOrdenBtn.Size = new Size(75, 23);
+            AceptarDatosOrdenBtn.Size = new Size(86, 31);
             AceptarDatosOrdenBtn.TabIndex = 95;
             AceptarDatosOrdenBtn.Text = "Aceptar";
             AceptarDatosOrdenBtn.UseVisualStyleBackColor = true;
@@ -135,16 +134,6 @@
             label8.Size = new Size(44, 15);
             label8.TabIndex = 93;
             label8.Text = "Cliente";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(6, 456);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(120, 19);
-            checkBox1.TabIndex = 92;
-            checkBox1.Text = "Listo para Entrega";
-            checkBox1.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -245,7 +234,7 @@
             OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden_Ext, N_Orden_In, Tipo_Producto, Cantidades, Cliente, Prioridad, Estado, Fecha_Creacion, Fecha_Modificacion });
             OrdenInt_List.FullRowSelect = true;
             OrdenInt_List.GridLines = true;
-            OrdenInt_List.Location = new Point(12, 12);
+            OrdenInt_List.Location = new Point(26, 83);
             OrdenInt_List.MultiSelect = false;
             OrdenInt_List.Name = "OrdenInt_List";
             OrdenInt_List.Size = new Size(997, 441);
@@ -300,9 +289,9 @@
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.Location = new Point(934, 459);
+            SeleccionarBtn.Location = new Point(814, 530);
             SeleccionarBtn.Name = "SeleccionarBtn";
-            SeleccionarBtn.Size = new Size(75, 23);
+            SeleccionarBtn.Size = new Size(86, 31);
             SeleccionarBtn.TabIndex = 101;
             SeleccionarBtn.Text = "Seleccionar";
             SeleccionarBtn.UseVisualStyleBackColor = true;
@@ -315,6 +304,7 @@
             DatosOrdenGroup.Controls.Add(CancelarDatosOrdenBtn);
             DatosOrdenGroup.Controls.Add(label1);
             DatosOrdenGroup.Controls.Add(NumOrdenIntText);
+            DatosOrdenGroup.Controls.Add(AceptarDatosOrdenBtn);
             DatosOrdenGroup.Controls.Add(FechaModificacionDT);
             DatosOrdenGroup.Controls.Add(label2);
             DatosOrdenGroup.Controls.Add(FechaCreacionDT);
@@ -322,13 +312,11 @@
             DatosOrdenGroup.Controls.Add(EstadoCB);
             DatosOrdenGroup.Controls.Add(label3);
             DatosOrdenGroup.Controls.Add(CantidadText);
-            DatosOrdenGroup.Controls.Add(AceptarDatosOrdenBtn);
             DatosOrdenGroup.Controls.Add(label4);
             DatosOrdenGroup.Controls.Add(ClienteText);
             DatosOrdenGroup.Controls.Add(TipoDeProductoText);
             DatosOrdenGroup.Controls.Add(label8);
             DatosOrdenGroup.Controls.Add(label5);
-            DatosOrdenGroup.Controls.Add(checkBox1);
             DatosOrdenGroup.Controls.Add(label6);
             DatosOrdenGroup.Controls.Add(label7);
             DatosOrdenGroup.Enabled = false;
@@ -358,9 +346,9 @@
             // 
             // CancelarDatosOrdenBtn
             // 
-            CancelarDatosOrdenBtn.Location = new Point(219, 480);
+            CancelarDatosOrdenBtn.Location = new Point(215, 472);
             CancelarDatosOrdenBtn.Name = "CancelarDatosOrdenBtn";
-            CancelarDatosOrdenBtn.Size = new Size(75, 23);
+            CancelarDatosOrdenBtn.Size = new Size(86, 31);
             CancelarDatosOrdenBtn.TabIndex = 108;
             CancelarDatosOrdenBtn.Text = "Cancelar";
             CancelarDatosOrdenBtn.UseVisualStyleBackColor = true;
@@ -371,9 +359,9 @@
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(NumeroOrdenInternaBuscarText);
             groupBox2.Controls.Add(BuscarBtn);
-            groupBox2.Location = new Point(12, 482);
+            groupBox2.Location = new Point(26, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(464, 65);
+            groupBox2.Size = new Size(470, 65);
             groupBox2.TabIndex = 103;
             groupBox2.TabStop = false;
             groupBox2.Text = "Busqueda";
@@ -396,9 +384,9 @@
             // 
             // BuscarBtn
             // 
-            BuscarBtn.Location = new Point(376, 27);
+            BuscarBtn.Location = new Point(373, 22);
             BuscarBtn.Name = "BuscarBtn";
-            BuscarBtn.Size = new Size(75, 23);
+            BuscarBtn.Size = new Size(86, 31);
             BuscarBtn.TabIndex = 106;
             BuscarBtn.Text = "Buscar";
             BuscarBtn.UseVisualStyleBackColor = true;
@@ -408,12 +396,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1456, 573);
+            ClientSize = new Size(1456, 567);
             Controls.Add(groupBox2);
             Controls.Add(DatosOrdenGroup);
             Controls.Add(SeleccionarBtn);
             Controls.Add(OrdenInt_List);
-            Controls.Add(CancelarBoton);
+            Controls.Add(VolverBoton);
             Name = "ModificarPreparadorForm";
             Text = "ModificarPreparadorForm";
             Load += ModificarPreparadorForm_Load;
@@ -429,11 +417,10 @@
         private DateTimePicker FechaModificacionDT;
         private DateTimePicker FechaCreacionDT;
         private ComboBox EstadoCB;
-        private Button CancelarBoton;
+        private Button VolverBoton;
         private Button AceptarDatosOrdenBtn;
         private TextBox ClienteText;
         private Label label8;
-        private CheckBox checkBox1;
         private Label label7;
         private Label label6;
         private Label label5;

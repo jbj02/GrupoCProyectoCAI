@@ -30,7 +30,7 @@
         {
             SeleccionarBtn = new Button();
             FechaCreacionDT = new DateTimePicker();
-            CancelarBoton = new Button();
+            VovlerBoton = new Button();
             AceptarDatosNuevaOrdenInternaBtn = new Button();
             ClienteText = new TextBox();
             label8 = new Label();
@@ -65,9 +65,9 @@
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.Location = new Point(629, 446);
+            SeleccionarBtn.Location = new Point(478, 508);
             SeleccionarBtn.Name = "SeleccionarBtn";
-            SeleccionarBtn.Size = new Size(79, 23);
+            SeleccionarBtn.Size = new Size(97, 32);
             SeleccionarBtn.TabIndex = 122;
             SeleccionarBtn.Text = "Seleccionar";
             SeleccionarBtn.UseVisualStyleBackColor = true;
@@ -83,21 +83,21 @@
             FechaCreacionDT.TabIndex = 120;
             FechaCreacionDT.Value = new DateTime(2024, 5, 15, 0, 0, 0, 0);
             // 
-            // CancelarBoton
+            // VovlerBoton
             // 
-            CancelarBoton.Location = new Point(1059, 540);
-            CancelarBoton.Name = "CancelarBoton";
-            CancelarBoton.Size = new Size(75, 23);
-            CancelarBoton.TabIndex = 118;
-            CancelarBoton.Text = "Cancelar";
-            CancelarBoton.UseVisualStyleBackColor = true;
-            CancelarBoton.Click += CancelarBoton_Click;
+            VovlerBoton.Location = new Point(610, 508);
+            VovlerBoton.Name = "VovlerBoton";
+            VovlerBoton.Size = new Size(97, 32);
+            VovlerBoton.TabIndex = 118;
+            VovlerBoton.Text = "Volver";
+            VovlerBoton.UseVisualStyleBackColor = true;
+            VovlerBoton.Click += VolverBoton_Click;
             // 
             // AceptarDatosNuevaOrdenInternaBtn
             // 
-            AceptarDatosNuevaOrdenInternaBtn.Location = new Point(87, 381);
+            AceptarDatosNuevaOrdenInternaBtn.Location = new Point(80, 372);
             AceptarDatosNuevaOrdenInternaBtn.Name = "AceptarDatosNuevaOrdenInternaBtn";
-            AceptarDatosNuevaOrdenInternaBtn.Size = new Size(75, 23);
+            AceptarDatosNuevaOrdenInternaBtn.Size = new Size(97, 32);
             AceptarDatosNuevaOrdenInternaBtn.TabIndex = 117;
             AceptarDatosNuevaOrdenInternaBtn.Text = "Aceptar";
             AceptarDatosNuevaOrdenInternaBtn.UseVisualStyleBackColor = true;
@@ -201,7 +201,7 @@
             OrdenExt_List.Columns.AddRange(new ColumnHeader[] { Num_Orden_Ext, Tipo_Producto, Cantidad, Cliente, Prioridad, Fecha_Creacion });
             OrdenExt_List.FullRowSelect = true;
             OrdenExt_List.GridLines = true;
-            OrdenExt_List.Location = new Point(39, 21);
+            OrdenExt_List.Location = new Point(38, 83);
             OrdenExt_List.MultiSelect = false;
             OrdenExt_List.Name = "OrdenExt_List";
             OrdenExt_List.Size = new Size(669, 419);
@@ -271,6 +271,7 @@
             DatosNuevaOrdenInternaGroup.Controls.Add(PrioridadText);
             DatosNuevaOrdenInternaGroup.Controls.Add(NumOrdenIntText);
             DatosNuevaOrdenInternaGroup.Controls.Add(label6);
+            DatosNuevaOrdenInternaGroup.Controls.Add(AceptarDatosNuevaOrdenInternaBtn);
             DatosNuevaOrdenInternaGroup.Controls.Add(label2);
             DatosNuevaOrdenInternaGroup.Controls.Add(NumOrdExtText);
             DatosNuevaOrdenInternaGroup.Controls.Add(label3);
@@ -278,11 +279,10 @@
             DatosNuevaOrdenInternaGroup.Controls.Add(FechaCreacionDT);
             DatosNuevaOrdenInternaGroup.Controls.Add(label4);
             DatosNuevaOrdenInternaGroup.Controls.Add(label5);
-            DatosNuevaOrdenInternaGroup.Controls.Add(AceptarDatosNuevaOrdenInternaBtn);
             DatosNuevaOrdenInternaGroup.Controls.Add(label8);
             DatosNuevaOrdenInternaGroup.Controls.Add(ClienteText);
             DatosNuevaOrdenInternaGroup.Enabled = false;
-            DatosNuevaOrdenInternaGroup.Location = new Point(754, 24);
+            DatosNuevaOrdenInternaGroup.Location = new Point(754, 83);
             DatosNuevaOrdenInternaGroup.Name = "DatosNuevaOrdenInternaGroup";
             DatosNuevaOrdenInternaGroup.Size = new Size(380, 416);
             DatosNuevaOrdenInternaGroup.TabIndex = 128;
@@ -291,9 +291,9 @@
             // 
             // CancelarDatosNuevaOrdenInternaBtn
             // 
-            CancelarDatosNuevaOrdenInternaBtn.Location = new Point(219, 381);
+            CancelarDatosNuevaOrdenInternaBtn.Location = new Point(206, 372);
             CancelarDatosNuevaOrdenInternaBtn.Name = "CancelarDatosNuevaOrdenInternaBtn";
-            CancelarDatosNuevaOrdenInternaBtn.Size = new Size(75, 23);
+            CancelarDatosNuevaOrdenInternaBtn.Size = new Size(97, 32);
             CancelarDatosNuevaOrdenInternaBtn.TabIndex = 129;
             CancelarDatosNuevaOrdenInternaBtn.Text = "Cancelar";
             CancelarDatosNuevaOrdenInternaBtn.UseVisualStyleBackColor = true;
@@ -304,7 +304,7 @@
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(NumeroOrdenExternaBuscarText);
             groupBox1.Controls.Add(BuscarBtn);
-            groupBox1.Location = new Point(39, 473);
+            groupBox1.Location = new Point(38, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(464, 65);
             groupBox1.TabIndex = 129;
@@ -341,13 +341,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1146, 575);
+            ClientSize = new Size(1172, 548);
             Controls.Add(groupBox1);
             Controls.Add(DatosNuevaOrdenInternaGroup);
             Controls.Add(label9);
             Controls.Add(OrdenExt_List);
             Controls.Add(SeleccionarBtn);
-            Controls.Add(CancelarBoton);
+            Controls.Add(VovlerBoton);
             Name = "NuevaOrdenPreparadorForm";
             Text = "NuevaOrdenPreparadorForm";
             Load += NuevaOrdenPreparadorForm_Load;
@@ -363,7 +363,7 @@
 
         private Button SeleccionarBtn;
         private DateTimePicker FechaCreacionDT;
-        private Button CancelarBoton;
+        private Button VovlerBoton;
         private Button AceptarDatosNuevaOrdenInternaBtn;
         private TextBox ClienteText;
         private Label label8;
