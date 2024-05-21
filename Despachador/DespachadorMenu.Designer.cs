@@ -34,9 +34,10 @@
             // 
             // ModificarOrdenBtn
             // 
-            ModificarOrdenBtn.Location = new Point(12, 32);
+            ModificarOrdenBtn.Location = new Point(14, 41);
+            ModificarOrdenBtn.Margin = new Padding(3, 4, 3, 4);
             ModificarOrdenBtn.Name = "ModificarOrdenBtn";
-            ModificarOrdenBtn.Size = new Size(244, 27);
+            ModificarOrdenBtn.Size = new Size(279, 34);
             ModificarOrdenBtn.TabIndex = 0;
             ModificarOrdenBtn.Text = "Modificar órden";
             ModificarOrdenBtn.UseVisualStyleBackColor = true;
@@ -44,20 +45,23 @@
             // 
             // GenerarRemitoBtn
             // 
-            GenerarRemitoBtn.Location = new Point(12, 65);
+            GenerarRemitoBtn.Location = new Point(14, 82);
+            GenerarRemitoBtn.Margin = new Padding(3, 4, 3, 4);
             GenerarRemitoBtn.Name = "GenerarRemitoBtn";
-            GenerarRemitoBtn.Size = new Size(244, 27);
+            GenerarRemitoBtn.Size = new Size(279, 34);
             GenerarRemitoBtn.TabIndex = 1;
             GenerarRemitoBtn.Text = "Generar remito";
             GenerarRemitoBtn.UseVisualStyleBackColor = true;
+            GenerarRemitoBtn.Click += GenerarRemitoBtn_Click;
             // 
             // DespachadorMenuForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(268, 135);
+            ClientSize = new Size(306, 171);
             Controls.Add(GenerarRemitoBtn);
             Controls.Add(ModificarOrdenBtn);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "DespachadorMenuForm";
             Text = "DespachadorMenuForm";
             ResumeLayout(false);

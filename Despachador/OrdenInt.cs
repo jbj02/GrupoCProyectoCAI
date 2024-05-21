@@ -17,5 +17,7 @@ namespace GrupoCProyectoCAI.Despachador
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string Estado { get; set; }
+
+        public string Deposito { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using GrupoCProyectoCAI.Despachador.Modificar;
+﻿using GrupoCProyectoCAI.Despachador.GenerarRemito;
+using GrupoCProyectoCAI.Despachador.Modificar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,12 @@ namespace GrupoCProyectoCAI.Despachador
         {
             ModificarDespachadorForm modificarDespachadorForm = new();
             modificarDespachadorForm.ShowDialog();
+        }
+
+        private void GenerarRemitoBtn_Click(object sender, EventArgs e)
+        {
+            GenerarRemitoForm generarRemitoForm = new GenerarRemitoForm();
+            generarRemitoForm.ShowDialog();
         }
     }
 }
