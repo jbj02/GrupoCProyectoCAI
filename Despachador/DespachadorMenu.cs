@@ -21,7 +21,7 @@ namespace GrupoCProyectoCAI.Despachador
 
         private void ModificarOrdenBtn_Click(object sender, EventArgs e)
         {
-            ModificarDespachadorForm modificarDespachadorForm = new();
+            CambiarOrdenADespachadaForm modificarDespachadorForm = new();
             modificarDespachadorForm.ShowDialog();
         }
 

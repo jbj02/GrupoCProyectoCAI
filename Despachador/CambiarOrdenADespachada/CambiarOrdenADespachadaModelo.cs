@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Despachador.Modificar
 {
-    internal class ModificarDespachadorModelo
+    internal class CambiarOrdenADespachadaModelo
     {
         public List<OrdenInt> OrdenesInternas { get; set; }
 
         // Creamos un constructor para cargarle datos y probar el prototipo de forma aislada
-        public ModificarDespachadorModelo()
+        public CambiarOrdenADespachadaModelo()
         {
             OrdenesInternas = new List<OrdenInt>()
             {

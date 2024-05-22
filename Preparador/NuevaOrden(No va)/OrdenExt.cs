@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrupoCProyectoCAI.Despachador
+namespace GrupoCProyectoCAI.Preparador.Modificar
 {
-    internal class OrdenExt
+    public class OrdenExt
     {
         public int NumOrdenExt { get; set; }
         public string TipoProducto { get; set; }

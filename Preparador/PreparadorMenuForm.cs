@@ -23,7 +23,7 @@ namespace GrupoCProyectoCAI.Preparador
         private void ModificarBtn_Click(object sender, EventArgs e)
         {
             // Abre el Formulario ModificarPreparadorForm
-            ModificarPreparadorForm modificarPreparadorForm = new();
+            CambiarOrdenAPreparadaForm modificarPreparadorForm = new();
             modificarPreparadorForm.ShowDialog();
         }
 

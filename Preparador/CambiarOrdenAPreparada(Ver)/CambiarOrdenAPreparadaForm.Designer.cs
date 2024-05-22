@@ -1,6 +1,6 @@
 ﻿namespace GrupoCProyectoCAI.Preparador.Modificar
 {
-    partial class ModificarPreparadorForm
+    partial class CambiarOrdenAPreparadaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,33 +31,26 @@
             FechaModificacionDT = new DateTimePicker();
             FechaCreacionDT = new DateTimePicker();
             EstadoCB = new ComboBox();
-            VolverBoton = new Button();
-            AceptarDatosOrdenBtn = new Button();
+            ConfirmarDatosOrdenBtn = new Button();
             ClienteText = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
-            TipoDeProductoText = new TextBox();
-            label4 = new Label();
-            CantidadText = new TextBox();
-            label3 = new Label();
-            NumOrdExtText = new TextBox();
-            label2 = new Label();
-            NumOrdenIntText = new TextBox();
+            NumOrdenText = new TextBox();
             label1 = new Label();
             OrdenInt_List = new ListView();
-            N_Orden_Ext = new ColumnHeader();
-            N_Orden_In = new ColumnHeader();
-            Tipo_Producto = new ColumnHeader();
-            Cantidades = new ColumnHeader();
+            N_Orden = new ColumnHeader();
+            Estado = new ColumnHeader();
             Cliente = new ColumnHeader();
             Prioridad = new ColumnHeader();
-            Estado = new ColumnHeader();
             Fecha_Creacion = new ColumnHeader();
-            Fecha_Modificacion = new ColumnHeader();
+            Fecha_Entrega = new ColumnHeader();
             SeleccionarBtn = new Button();
             DatosOrdenGroup = new GroupBox();
+            listView1 = new ListView();
+            TipoProducto = new ColumnHeader();
+            Cantidad = new ColumnHeader();
             PrioridadText = new TextBox();
             label10 = new Label();
             CancelarDatosOrdenBtn = new Button();
@@ -73,7 +66,7 @@
             // 
             FechaModificacionDT.Enabled = false;
             FechaModificacionDT.Format = DateTimePickerFormat.Short;
-            FechaModificacionDT.Location = new Point(6, 380);
+            FechaModificacionDT.Location = new Point(283, 96);
             FechaModificacionDT.Name = "FechaModificacionDT";
             FechaModificacionDT.Size = new Size(82, 23);
             FechaModificacionDT.TabIndex = 99;
@@ -83,7 +76,7 @@
             // 
             FechaCreacionDT.Enabled = false;
             FechaCreacionDT.Format = DateTimePickerFormat.Short;
-            FechaCreacionDT.Location = new Point(6, 332);
+            FechaCreacionDT.Location = new Point(283, 48);
             FechaCreacionDT.Name = "FechaCreacionDT";
             FechaCreacionDT.Size = new Size(82, 23);
             FechaCreacionDT.TabIndex = 98;
@@ -93,43 +86,33 @@
             // 
             EstadoCB.FormattingEnabled = true;
             EstadoCB.Items.AddRange(new object[] { "EnSeleccion", "Seleccionada", "Preparada", "Despachada" });
-            EstadoCB.Location = new Point(6, 428);
+            EstadoCB.Location = new Point(147, 50);
             EstadoCB.Name = "EstadoCB";
             EstadoCB.Size = new Size(121, 23);
             EstadoCB.TabIndex = 97;
             // 
-            // VolverBoton
+            // ConfirmarDatosOrdenBtn
             // 
-            VolverBoton.Location = new Point(937, 530);
-            VolverBoton.Name = "VolverBoton";
-            VolverBoton.Size = new Size(86, 31);
-            VolverBoton.TabIndex = 96;
-            VolverBoton.Text = "Volver";
-            VolverBoton.UseVisualStyleBackColor = true;
-            VolverBoton.Click += VolverBoton_Click;
-            // 
-            // AceptarDatosOrdenBtn
-            // 
-            AceptarDatosOrdenBtn.Location = new Point(90, 472);
-            AceptarDatosOrdenBtn.Name = "AceptarDatosOrdenBtn";
-            AceptarDatosOrdenBtn.Size = new Size(86, 31);
-            AceptarDatosOrdenBtn.TabIndex = 95;
-            AceptarDatosOrdenBtn.Text = "Aceptar";
-            AceptarDatosOrdenBtn.UseVisualStyleBackColor = true;
-            AceptarDatosOrdenBtn.Click += AceptarDatosOrdenBtn_Click;
+            ConfirmarDatosOrdenBtn.Location = new Point(76, 170);
+            ConfirmarDatosOrdenBtn.Name = "ConfirmarDatosOrdenBtn";
+            ConfirmarDatosOrdenBtn.Size = new Size(86, 31);
+            ConfirmarDatosOrdenBtn.TabIndex = 95;
+            ConfirmarDatosOrdenBtn.Text = "Confirmar";
+            ConfirmarDatosOrdenBtn.UseVisualStyleBackColor = true;
+            ConfirmarDatosOrdenBtn.Click += AceptarDatosOrdenBtn_Click;
             // 
             // ClienteText
             // 
-            ClienteText.Location = new Point(6, 242);
+            ClienteText.Location = new Point(6, 99);
             ClienteText.Name = "ClienteText";
             ClienteText.ReadOnly = true;
-            ClienteText.Size = new Size(361, 23);
+            ClienteText.Size = new Size(121, 23);
             ClienteText.TabIndex = 94;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(6, 222);
+            label8.Location = new Point(6, 79);
             label8.Name = "label8";
             label8.Size = new Size(44, 15);
             label8.TabIndex = 93;
@@ -138,7 +121,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(6, 408);
+            label7.Location = new Point(147, 30);
             label7.Name = "label7";
             label7.Size = new Size(42, 15);
             label7.TabIndex = 91;
@@ -147,120 +130,60 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(6, 360);
+            label6.Location = new Point(283, 76);
             label6.Name = "label6";
-            label6.Size = new Size(127, 15);
+            label6.Size = new Size(97, 15);
             label6.TabIndex = 90;
-            label6.Text = "Fecha de Modificación";
+            label6.Text = "Fecha de Entrega";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 312);
+            label5.Location = new Point(283, 30);
             label5.Name = "label5";
             label5.Size = new Size(104, 15);
             label5.TabIndex = 89;
             label5.Text = "Fecha de Creación";
             // 
-            // TipoDeProductoText
+            // NumOrdenText
             // 
-            TipoDeProductoText.Location = new Point(6, 146);
-            TipoDeProductoText.Name = "TipoDeProductoText";
-            TipoDeProductoText.ReadOnly = true;
-            TipoDeProductoText.Size = new Size(361, 23);
-            TipoDeProductoText.TabIndex = 88;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(6, 126);
-            label4.Name = "label4";
-            label4.Size = new Size(98, 15);
-            label4.TabIndex = 87;
-            label4.Text = "Tipo de Producto";
-            // 
-            // CantidadText
-            // 
-            CantidadText.Location = new Point(6, 194);
-            CantidadText.Name = "CantidadText";
-            CantidadText.Size = new Size(361, 23);
-            CantidadText.TabIndex = 86;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 174);
-            label3.Name = "label3";
-            label3.Size = new Size(55, 15);
-            label3.TabIndex = 85;
-            label3.Text = "Cantidad";
-            // 
-            // NumOrdExtText
-            // 
-            NumOrdExtText.Location = new Point(6, 98);
-            NumOrdExtText.Name = "NumOrdExtText";
-            NumOrdExtText.ReadOnly = true;
-            NumOrdExtText.Size = new Size(361, 23);
-            NumOrdExtText.TabIndex = 84;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 78);
-            label2.Name = "label2";
-            label2.Size = new Size(115, 15);
-            label2.TabIndex = 83;
-            label2.Text = "N° de Orden Externa";
-            // 
-            // NumOrdenIntText
-            // 
-            NumOrdenIntText.Location = new Point(6, 50);
-            NumOrdenIntText.Name = "NumOrdenIntText";
-            NumOrdenIntText.ReadOnly = true;
-            NumOrdenIntText.Size = new Size(361, 23);
-            NumOrdenIntText.TabIndex = 82;
+            NumOrdenText.Location = new Point(6, 50);
+            NumOrdenText.Name = "NumOrdenText";
+            NumOrdenText.ReadOnly = true;
+            NumOrdenText.Size = new Size(121, 23);
+            NumOrdenText.TabIndex = 82;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(6, 30);
             label1.Name = "label1";
-            label1.Size = new Size(113, 15);
+            label1.Size = new Size(73, 15);
             label1.TabIndex = 81;
-            label1.Text = "N° de Orden Interna";
+            label1.Text = "N° de Orden";
             // 
             // OrdenInt_List
             // 
-            OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden_Ext, N_Orden_In, Tipo_Producto, Cantidades, Cliente, Prioridad, Estado, Fecha_Creacion, Fecha_Modificacion });
+            OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, Fecha_Creacion, Fecha_Entrega });
             OrdenInt_List.FullRowSelect = true;
             OrdenInt_List.GridLines = true;
             OrdenInt_List.Location = new Point(26, 83);
             OrdenInt_List.MultiSelect = false;
             OrdenInt_List.Name = "OrdenInt_List";
-            OrdenInt_List.Size = new Size(997, 441);
+            OrdenInt_List.Size = new Size(738, 202);
             OrdenInt_List.TabIndex = 80;
             OrdenInt_List.UseCompatibleStateImageBehavior = false;
             OrdenInt_List.View = View.Details;
             // 
-            // N_Orden_Ext
+            // N_Orden
             // 
-            N_Orden_Ext.Text = "N° Orden Ext";
-            N_Orden_Ext.Width = 90;
+            N_Orden.Text = "N° Orden";
+            N_Orden.Width = 90;
             // 
-            // N_Orden_In
+            // Estado
             // 
-            N_Orden_In.Text = "N° Orden Int";
-            N_Orden_In.Width = 90;
-            // 
-            // Tipo_Producto
-            // 
-            Tipo_Producto.Text = "Tipo Producto";
-            Tipo_Producto.Width = 90;
-            // 
-            // Cantidades
-            // 
-            Cantidades.Text = "Cantidades";
-            Cantidades.Width = 80;
+            Estado.Text = "Estado";
+            Estado.Width = 140;
             // 
             // Cliente
             // 
@@ -272,24 +195,19 @@
             Prioridad.Text = "Prioridad";
             Prioridad.Width = 100;
             // 
-            // Estado
-            // 
-            Estado.Text = "Estado";
-            Estado.Width = 140;
-            // 
             // Fecha_Creacion
             // 
             Fecha_Creacion.Text = "Fecha de Creación";
             Fecha_Creacion.Width = 140;
             // 
-            // Fecha_Modificacion
+            // Fecha_Entrega
             // 
-            Fecha_Modificacion.Text = " Fecha de Modificacion";
-            Fecha_Modificacion.Width = 140;
+            Fecha_Entrega.Text = " Fecha de Entrega";
+            Fecha_Entrega.Width = 140;
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.Location = new Point(814, 530);
+            SeleccionarBtn.Location = new Point(678, 291);
             SeleccionarBtn.Name = "SeleccionarBtn";
             SeleccionarBtn.Size = new Size(86, 31);
             SeleccionarBtn.TabIndex = 101;
@@ -299,37 +217,55 @@
             // 
             // DatosOrdenGroup
             // 
+            DatosOrdenGroup.Controls.Add(listView1);
             DatosOrdenGroup.Controls.Add(PrioridadText);
             DatosOrdenGroup.Controls.Add(label10);
             DatosOrdenGroup.Controls.Add(CancelarDatosOrdenBtn);
             DatosOrdenGroup.Controls.Add(label1);
-            DatosOrdenGroup.Controls.Add(NumOrdenIntText);
-            DatosOrdenGroup.Controls.Add(AceptarDatosOrdenBtn);
+            DatosOrdenGroup.Controls.Add(NumOrdenText);
+            DatosOrdenGroup.Controls.Add(ConfirmarDatosOrdenBtn);
             DatosOrdenGroup.Controls.Add(FechaModificacionDT);
-            DatosOrdenGroup.Controls.Add(label2);
             DatosOrdenGroup.Controls.Add(FechaCreacionDT);
-            DatosOrdenGroup.Controls.Add(NumOrdExtText);
             DatosOrdenGroup.Controls.Add(EstadoCB);
-            DatosOrdenGroup.Controls.Add(label3);
-            DatosOrdenGroup.Controls.Add(CantidadText);
-            DatosOrdenGroup.Controls.Add(label4);
             DatosOrdenGroup.Controls.Add(ClienteText);
-            DatosOrdenGroup.Controls.Add(TipoDeProductoText);
             DatosOrdenGroup.Controls.Add(label8);
             DatosOrdenGroup.Controls.Add(label5);
             DatosOrdenGroup.Controls.Add(label6);
             DatosOrdenGroup.Controls.Add(label7);
             DatosOrdenGroup.Enabled = false;
-            DatosOrdenGroup.Location = new Point(1041, 12);
+            DatosOrdenGroup.Location = new Point(26, 328);
             DatosOrdenGroup.Name = "DatosOrdenGroup";
-            DatosOrdenGroup.Size = new Size(380, 515);
+            DatosOrdenGroup.Size = new Size(738, 227);
             DatosOrdenGroup.TabIndex = 102;
             DatosOrdenGroup.TabStop = false;
             DatosOrdenGroup.Text = "Datos de la Orden";
             // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { TipoProducto, Cantidad });
+            listView1.FullRowSelect = true;
+            listView1.GridLines = true;
+            listView1.Location = new Point(438, 30);
+            listView1.MultiSelect = false;
+            listView1.Name = "listView1";
+            listView1.Size = new Size(237, 171);
+            listView1.TabIndex = 104;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // TipoProducto
+            // 
+            TipoProducto.Text = "Tipo de Producto";
+            TipoProducto.Width = 110;
+            // 
+            // Cantidad
+            // 
+            Cantidad.Text = "Cantidad";
+            Cantidad.Width = 140;
+            // 
             // PrioridadText
             // 
-            PrioridadText.Location = new Point(6, 286);
+            PrioridadText.Location = new Point(147, 99);
             PrioridadText.Name = "PrioridadText";
             PrioridadText.ReadOnly = true;
             PrioridadText.Size = new Size(120, 23);
@@ -338,7 +274,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(6, 266);
+            label10.Location = new Point(146, 81);
             label10.Name = "label10";
             label10.Size = new Size(55, 15);
             label10.TabIndex = 127;
@@ -346,7 +282,7 @@
             // 
             // CancelarDatosOrdenBtn
             // 
-            CancelarDatosOrdenBtn.Location = new Point(215, 472);
+            CancelarDatosOrdenBtn.Location = new Point(219, 170);
             CancelarDatosOrdenBtn.Name = "CancelarDatosOrdenBtn";
             CancelarDatosOrdenBtn.Size = new Size(86, 31);
             CancelarDatosOrdenBtn.TabIndex = 108;
@@ -361,7 +297,7 @@
             groupBox2.Controls.Add(BuscarBtn);
             groupBox2.Location = new Point(26, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(470, 65);
+            groupBox2.Size = new Size(428, 65);
             groupBox2.TabIndex = 103;
             groupBox2.TabStop = false;
             groupBox2.Text = "Busqueda";
@@ -371,20 +307,20 @@
             label9.AutoSize = true;
             label9.Location = new Point(22, 30);
             label9.Name = "label9";
-            label9.Size = new Size(143, 15);
+            label9.Size = new Size(103, 15);
             label9.TabIndex = 105;
-            label9.Text = "Número de Orden Interna";
+            label9.Text = "Número de Orden";
             // 
             // NumeroOrdenInternaBuscarText
             // 
-            NumeroOrdenInternaBuscarText.Location = new Point(171, 27);
+            NumeroOrdenInternaBuscarText.Location = new Point(131, 27);
             NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
             NumeroOrdenInternaBuscarText.Size = new Size(196, 23);
             NumeroOrdenInternaBuscarText.TabIndex = 104;
             // 
             // BuscarBtn
             // 
-            BuscarBtn.Location = new Point(373, 22);
+            BuscarBtn.Location = new Point(333, 22);
             BuscarBtn.Name = "BuscarBtn";
             BuscarBtn.Size = new Size(86, 31);
             BuscarBtn.TabIndex = 106;
@@ -392,18 +328,17 @@
             BuscarBtn.UseVisualStyleBackColor = true;
             BuscarBtn.Click += BuscarBtn_Click;
             // 
-            // ModificarPreparadorForm
+            // CambiarOrdenAPreparadaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1456, 567);
+            ClientSize = new Size(773, 567);
             Controls.Add(groupBox2);
             Controls.Add(DatosOrdenGroup);
             Controls.Add(SeleccionarBtn);
             Controls.Add(OrdenInt_List);
-            Controls.Add(VolverBoton);
-            Name = "ModificarPreparadorForm";
-            Text = "ModificarPreparadorForm";
+            Name = "CambiarOrdenAPreparadaForm";
+            Text = "CambiarOrdenAPreparadaForm";
             Load += ModificarPreparadorForm_Load;
             DatosOrdenGroup.ResumeLayout(false);
             DatosOrdenGroup.PerformLayout();
@@ -417,26 +352,17 @@
         private DateTimePicker FechaModificacionDT;
         private DateTimePicker FechaCreacionDT;
         private ComboBox EstadoCB;
-        private Button VolverBoton;
-        private Button AceptarDatosOrdenBtn;
+        private Button ConfirmarDatosOrdenBtn;
         private TextBox ClienteText;
         private Label label8;
         private Label label7;
         private Label label6;
         private Label label5;
-        private TextBox TipoDeProductoText;
-        private Label label4;
-        private TextBox CantidadText;
-        private Label label3;
-        private TextBox NumOrdExtText;
-        private Label label2;
-        private TextBox NumOrdenIntText;
+        private TextBox NumOrdenText;
         private Label label1;
         private ListView OrdenInt_List;
         private ColumnHeader N_Orden_Ext;
-        private ColumnHeader N_Orden_In;
-        private ColumnHeader Tipo_Producto;
-        private ColumnHeader Cantidades;
+        private ColumnHeader N_Orden;
         private ColumnHeader Cliente;
         private ColumnHeader Prioridad;
         private ColumnHeader Estado;
@@ -451,6 +377,9 @@
         private Button CancelarDatosOrdenBtn;
         private TextBox PrioridadText;
         private Label label10;
-        private ColumnHeader Fecha_Modificacion;
+        private ColumnHeader Fecha_Entrega;
+        private ListView listView1;
+        private ColumnHeader TipoProducto;
+        private ColumnHeader Cantidad;
     }
 }

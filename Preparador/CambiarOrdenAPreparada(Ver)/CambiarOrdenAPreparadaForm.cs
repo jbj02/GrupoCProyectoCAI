@@ -4,23 +4,24 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GrupoCProyectoCAI.Despachador.Modificar
+namespace GrupoCProyectoCAI.Preparador.Modificar
 {
-    public partial class ModificarDespachadorForm : Form
+    public partial class CambiarOrdenAPreparadaForm : Form
     {
+        // Creamos el modelos del forms
+        CambiarOrdenAPreparadaModelo modificarModelo = new(); 
 
-        ModificarDespachadorModelo modificarModelo = new();
-
-        public ModificarDespachadorForm()
+        public CambiarOrdenAPreparadaForm()
         {
             InitializeComponent();
         }
 
-        private void ModificarDespachadorForm_Load(object sender, EventArgs e)
+        private void ModificarPreparadorForm_Load(object sender, EventArgs e)
         {
             CargarListaOrdenesInternas();
         }
@@ -48,7 +49,7 @@ namespace GrupoCProyectoCAI.Despachador.Modificar
             }
         }
 
-        private void CancelarBoton_Click(object sender, EventArgs e)
+        private void VolverBoton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -66,7 +67,7 @@ namespace GrupoCProyectoCAI.Despachador.Modificar
             var ordenSeleccionada = (OrdenInt)OrdenInt_List.SelectedItems[0].Tag;
 
             // Cargamos los datos ingresados
-            NumOrdenIntText.Text = ordenSeleccionada.NumOrdenInt.ToString();
+            NumOrdenText.Text = ordenSeleccionada.NumOrdenInt.ToString();
             NumOrdExtText.Text = ordenSeleccionada.NumOrdenExt.ToString();
             TipoDeProductoText.Text = ordenSeleccionada.TipoProducto;
             CantidadText.Text = ordenSeleccionada.Cantidad.ToString();
@@ -88,7 +89,7 @@ namespace GrupoCProyectoCAI.Despachador.Modificar
             {
                 if (NumeroOrdenInternaBuscarText.Text == ordenInterna.NumOrdenInt.ToString())
                 {
-                    NumOrdenIntText.Text = ordenInterna.NumOrdenInt.ToString();
+                    NumOrdenText.Text = ordenInterna.NumOrdenInt.ToString();
                     NumOrdExtText.Text = ordenInterna.NumOrdenExt.ToString();
                     TipoDeProductoText.Text = ordenInterna.TipoProducto;
                     CantidadText.Text = ordenInterna.Cantidad.ToString();
@@ -118,7 +119,7 @@ namespace GrupoCProyectoCAI.Despachador.Modificar
 
         private void CancelarDatosOrdenBtn_Click(object sender, EventArgs e)
         {
-            NumOrdenIntText.Text = string.Empty;
+            NumOrdenText.Text = string.Empty;
             NumOrdExtText.Text = string.Empty;
             TipoDeProductoText.Text = string.Empty;
             CantidadText.Text = string.Empty;

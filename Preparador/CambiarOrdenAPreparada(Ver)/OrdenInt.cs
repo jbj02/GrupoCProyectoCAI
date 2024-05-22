@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrupoCProyectoCAI.Preparador
+namespace GrupoCProyectoCAI.Preparador.Modificar
 {
     public class OrdenInt
     {

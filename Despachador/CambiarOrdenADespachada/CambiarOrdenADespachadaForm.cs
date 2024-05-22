@@ -4,24 +4,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GrupoCProyectoCAI.Preparador.Modificar
+namespace GrupoCProyectoCAI.Despachador.Modificar
 {
-    public partial class ModificarPreparadorForm : Form
+    public partial class CambiarOrdenADespachadaForm : Form
     {
-        // Creamos el modelos del forms
-        ModificarPreparadorModelo modificarModelo = new(); 
 
-        public ModificarPreparadorForm()
+        CambiarOrdenADespachadaModelo modificarModelo = new();
+
+        public CambiarOrdenADespachadaForm()
         {
             InitializeComponent();
         }
 
-        private void ModificarPreparadorForm_Load(object sender, EventArgs e)
+        private void ModificarDespachadorForm_Load(object sender, EventArgs e)
         {
             CargarListaOrdenesInternas();
         }
@@ -49,7 +48,7 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
             }
         }
 
-        private void VolverBoton_Click(object sender, EventArgs e)
+        private void CancelarBoton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
