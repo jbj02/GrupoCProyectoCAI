@@ -43,6 +43,8 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // OrdenInt_List
@@ -50,7 +52,7 @@
             OrdenInt_List.Columns.AddRange(new ColumnHeader[] { NumOrden, Cliente, FechaEntrega, Prioridad });
             OrdenInt_List.FullRowSelect = true;
             OrdenInt_List.GridLines = true;
-            OrdenInt_List.Location = new Point(24, 18);
+            OrdenInt_List.Location = new Point(24, 30);
             OrdenInt_List.MultiSelect = false;
             OrdenInt_List.Name = "OrdenInt_List";
             OrdenInt_List.Size = new Size(435, 276);
@@ -79,7 +81,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(243, 298);
+            button1.Location = new Point(243, 310);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(95, 32);
@@ -92,7 +94,7 @@
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Location = new Point(523, 18);
+            listView1.Location = new Point(523, 30);
             listView1.MultiSelect = false;
             listView1.Name = "listView1";
             listView1.Size = new Size(439, 276);
@@ -121,7 +123,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(364, 298);
+            button2.Location = new Point(364, 310);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
             button2.Size = new Size(95, 32);
@@ -131,7 +133,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(750, 350);
+            button3.Location = new Point(750, 355);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
             button3.Size = new Size(95, 32);
@@ -141,7 +143,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(856, 299);
+            button4.Location = new Point(856, 311);
             button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
             button4.Size = new Size(106, 32);
@@ -151,7 +153,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(867, 350);
+            button5.Location = new Point(867, 355);
             button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
             button5.Size = new Size(95, 32);
@@ -159,11 +161,31 @@
             button5.Text = "Cancelar";
             button5.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(24, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 15);
+            label1.TabIndex = 88;
+            label1.Text = "Ordenes de Preparación";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(523, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(120, 15);
+            label2.TabIndex = 89;
+            label2.Text = "Ordenes de Selección";
+            // 
             // AltaOrdenSeleccionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1002, 393);
+            ClientSize = new Size(1002, 398);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -175,6 +197,7 @@
             Name = "AltaOrdenSeleccionForm";
             Text = "AltaOrdenSeleccion";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -194,5 +217,7 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private Label label1;
+        private Label label2;
     }
 }

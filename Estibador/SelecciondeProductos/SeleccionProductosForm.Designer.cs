@@ -34,10 +34,12 @@
             Ubicacion = new ColumnHeader();
             button1 = new Button();
             button2 = new Button();
+            button5 = new Button();
             SuspendLayout();
             // 
             // OrdenExt_List
             // 
+            OrdenExt_List.CheckBoxes = true;
             OrdenExt_List.Columns.AddRange(new ColumnHeader[] { Tipo_Producto, Cantidad, Ubicacion });
             OrdenExt_List.FullRowSelect = true;
             OrdenExt_List.GridLines = true;
@@ -84,11 +86,22 @@
             button2.Text = "Confirmar Todo";
             button2.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            button5.Location = new Point(369, 332);
+            button5.Margin = new Padding(3, 2, 3, 2);
+            button5.Name = "button5";
+            button5.Size = new Size(95, 32);
+            button5.TabIndex = 137;
+            button5.Text = "Cancelar";
+            button5.UseVisualStyleBackColor = true;
+            // 
             // SeleccionProductosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(476, 391);
+            ClientSize = new Size(476, 374);
+            Controls.Add(button5);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(OrdenExt_List);
@@ -106,5 +119,6 @@
         private ColumnHeader Ubicacion;
         private Button button1;
         private Button button2;
+        private Button button5;
     }
 }

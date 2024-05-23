@@ -44,11 +44,12 @@
             NumeroOrdenInternaBuscarText = new TextBox();
             label1 = new Label();
             button1 = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // ConfirmarDatosOrdenBtn
             // 
-            ConfirmarDatosOrdenBtn.Location = new Point(849, 260);
+            ConfirmarDatosOrdenBtn.Location = new Point(823, 260);
             ConfirmarDatosOrdenBtn.Name = "ConfirmarDatosOrdenBtn";
             ConfirmarDatosOrdenBtn.Size = new Size(86, 31);
             ConfirmarDatosOrdenBtn.TabIndex = 95;
@@ -114,7 +115,7 @@
             listView1.Columns.AddRange(new ColumnHeader[] { TipoProducto, Cantidad });
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-            listView1.Location = new Point(849, 83);
+            listView1.Location = new Point(823, 83);
             listView1.MultiSelect = false;
             listView1.Name = "listView1";
             listView1.Size = new Size(237, 171);
@@ -134,7 +135,7 @@
             // 
             // CancelarDatosOrdenBtn
             // 
-            CancelarDatosOrdenBtn.Location = new Point(1000, 260);
+            CancelarDatosOrdenBtn.Location = new Point(974, 260);
             CancelarDatosOrdenBtn.Name = "CancelarDatosOrdenBtn";
             CancelarDatosOrdenBtn.Size = new Size(86, 31);
             CancelarDatosOrdenBtn.TabIndex = 108;
@@ -144,15 +145,15 @@
             // 
             // NumeroOrdenInternaBuscarText
             // 
-            NumeroOrdenInternaBuscarText.Location = new Point(849, 54);
+            NumeroOrdenInternaBuscarText.Location = new Point(823, 54);
             NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
-            NumeroOrdenInternaBuscarText.Size = new Size(168, 23);
+            NumeroOrdenInternaBuscarText.Size = new Size(157, 23);
             NumeroOrdenInternaBuscarText.TabIndex = 104;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(849, 36);
+            label1.Location = new Point(823, 36);
             label1.Name = "label1";
             label1.Size = new Size(57, 15);
             label1.TabIndex = 109;
@@ -160,18 +161,28 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1027, 54);
+            button1.Location = new Point(985, 53);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 110;
             button1.Text = "Buscar";
             button1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(26, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(120, 15);
+            label2.TabIndex = 111;
+            label2.Text = "Ordenes de Selección";
+            // 
             // PrepararOrdenForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1114, 299);
+            ClientSize = new Size(1074, 299);
+            Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(NumeroOrdenInternaBuscarText);
@@ -206,5 +217,6 @@
         private ColumnHeader Cantidad;
         private Label label1;
         private Button button1;
+        private Label label2;
     }
 }

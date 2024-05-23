@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            button1 = new Button();
             label9 = new Label();
             NumeroOrdenInternaBuscarText = new TextBox();
             BuscarBtn = new Button();
@@ -37,11 +40,10 @@
             N_Orden = new ColumnHeader();
             Estado = new ColumnHeader();
             Cliente = new ColumnHeader();
-            FechaEntrega = new ColumnHeader();
             Transportista = new ColumnHeader();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            FechaEntrega = new ColumnHeader();
+            button2 = new Button();
+            label2 = new Label();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,10 +57,35 @@
             groupBox2.Controls.Add(BuscarBtn);
             groupBox2.Location = new Point(12, 18);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(574, 79);
+            groupBox2.Size = new Size(589, 79);
             groupBox2.TabIndex = 107;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filtrar";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(341, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(97, 15);
+            label1.TabIndex = 108;
+            label1.Text = "Fecha de Entrega";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(341, 37);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(132, 23);
+            textBox1.TabIndex = 107;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(492, 33);
+            button1.Name = "button1";
+            button1.Size = new Size(80, 28);
+            button1.TabIndex = 109;
+            button1.Text = "Buscar";
+            button1.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -87,7 +114,7 @@
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.Location = new Point(515, 311);
+            SeleccionarBtn.Location = new Point(515, 327);
             SeleccionarBtn.Name = "SeleccionarBtn";
             SeleccionarBtn.Size = new Size(86, 31);
             SeleccionarBtn.TabIndex = 105;
@@ -99,7 +126,7 @@
             OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Transportista, FechaEntrega });
             OrdenInt_List.FullRowSelect = true;
             OrdenInt_List.GridLines = true;
-            OrdenInt_List.Location = new Point(12, 103);
+            OrdenInt_List.Location = new Point(12, 119);
             OrdenInt_List.MultiSelect = false;
             OrdenInt_List.Name = "OrdenInt_List";
             OrdenInt_List.Size = new Size(589, 202);
@@ -122,55 +149,51 @@
             Cliente.Text = "Cliente";
             Cliente.Width = 120;
             // 
-            // FechaEntrega
-            // 
-            FechaEntrega.Text = "Fecha de Entrega";
-            FechaEntrega.Width = 140;
-            // 
             // Transportista
             // 
             Transportista.Text = "Transportista";
             Transportista.Width = 90;
             // 
-            // label1
+            // FechaEntrega
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(281, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(97, 15);
-            label1.TabIndex = 108;
-            label1.Text = "Fecha de Entrega";
+            FechaEntrega.Text = "Fecha de Entrega";
+            FechaEntrega.Width = 140;
             // 
-            // textBox1
+            // button2
             // 
-            textBox1.Location = new Point(281, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(132, 23);
-            textBox1.TabIndex = 107;
+            button2.Location = new Point(515, 391);
+            button2.Name = "button2";
+            button2.Size = new Size(86, 31);
+            button2.TabIndex = 108;
+            button2.Text = "Cancelar";
+            button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // label2
             // 
-            button1.Location = new Point(432, 33);
-            button1.Name = "button1";
-            button1.Size = new Size(80, 28);
-            button1.TabIndex = 109;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 100);
+            label2.Name = "label2";
+            label2.Size = new Size(112, 15);
+            label2.TabIndex = 109;
+            label2.Text = "Ordenes Preparadas";
             // 
             // DespacharOrdenForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(755, 469);
+            ClientSize = new Size(622, 434);
+            Controls.Add(label2);
+            Controls.Add(button2);
             Controls.Add(groupBox2);
             Controls.Add(SeleccionarBtn);
             Controls.Add(OrdenInt_List);
             Name = "DespacharOrdenForm";
-            Text = "CambiarOrdenADespachadaForm";
+            Text = "DespacharOrdenForm";
             Load += ModificarDespachadorForm_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -206,5 +229,7 @@
         private Label label1;
         private TextBox textBox1;
         private Button button1;
+        private Button button2;
+        private Label label2;
     }
 }

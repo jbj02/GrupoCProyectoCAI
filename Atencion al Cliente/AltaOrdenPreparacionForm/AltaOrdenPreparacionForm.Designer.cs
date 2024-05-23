@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DatosNuevaOrdenInternaGroup = new GroupBox();
+            DatosAltaOrdenSeleccionGroup = new GroupBox();
             dateTimePicker1 = new DateTimePicker();
             label6 = new Label();
             textBox1 = new TextBox();
@@ -39,8 +39,6 @@
             label5 = new Label();
             label8 = new Label();
             ClienteText = new TextBox();
-            CancelarDatosNuevaOrdenInternaBtn = new Button();
-            AceptarDatosNuevaOrdenInternaBtn = new Button();
             TipoDeProductoText = new TextBox();
             label3 = new Label();
             CantidadText = new TextBox();
@@ -52,28 +50,37 @@
             SeleccionarBtn = new Button();
             button1 = new Button();
             button2 = new Button();
-            DatosNuevaOrdenInternaGroup.SuspendLayout();
+            CancelarDatosNuevaOrdenInternaBtn = new Button();
+            AceptarDatosNuevaOrdenInternaBtn = new Button();
+            DatosAltaOrdenSeleccionGroup.SuspendLayout();
             SuspendLayout();
             // 
-            // DatosNuevaOrdenInternaGroup
+            // DatosAltaOrdenSeleccionGroup
             // 
-            DatosNuevaOrdenInternaGroup.Controls.Add(dateTimePicker1);
-            DatosNuevaOrdenInternaGroup.Controls.Add(label6);
-            DatosNuevaOrdenInternaGroup.Controls.Add(textBox1);
-            DatosNuevaOrdenInternaGroup.Controls.Add(label2);
-            DatosNuevaOrdenInternaGroup.Controls.Add(label1);
-            DatosNuevaOrdenInternaGroup.Controls.Add(NumOrdenIntText);
-            DatosNuevaOrdenInternaGroup.Controls.Add(FechaCreacionDT);
-            DatosNuevaOrdenInternaGroup.Controls.Add(label5);
-            DatosNuevaOrdenInternaGroup.Controls.Add(label8);
-            DatosNuevaOrdenInternaGroup.Controls.Add(ClienteText);
-            DatosNuevaOrdenInternaGroup.Enabled = false;
-            DatosNuevaOrdenInternaGroup.Location = new Point(113, 21);
-            DatosNuevaOrdenInternaGroup.Name = "DatosNuevaOrdenInternaGroup";
-            DatosNuevaOrdenInternaGroup.Size = new Size(394, 244);
-            DatosNuevaOrdenInternaGroup.TabIndex = 134;
-            DatosNuevaOrdenInternaGroup.TabStop = false;
-            DatosNuevaOrdenInternaGroup.Text = "Datos para alta de orden";
+            DatosAltaOrdenSeleccionGroup.Controls.Add(dateTimePicker1);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(OrdenExt_List);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(button1);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(label6);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(textBox1);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(TipoDeProductoText);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(label2);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(label1);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(NumOrdenIntText);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(SeleccionarBtn);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(FechaCreacionDT);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(label5);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(label3);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(label8);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(label4);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(ClienteText);
+            DatosAltaOrdenSeleccionGroup.Controls.Add(CantidadText);
+            DatosAltaOrdenSeleccionGroup.Enabled = false;
+            DatosAltaOrdenSeleccionGroup.Location = new Point(68, 12);
+            DatosAltaOrdenSeleccionGroup.Name = "DatosAltaOrdenSeleccionGroup";
+            DatosAltaOrdenSeleccionGroup.Size = new Size(500, 474);
+            DatosAltaOrdenSeleccionGroup.TabIndex = 134;
+            DatosAltaOrdenSeleccionGroup.TabStop = false;
+            DatosAltaOrdenSeleccionGroup.Text = "Datos para alta de orden selección";
             // 
             // dateTimePicker1
             // 
@@ -161,27 +168,9 @@
             ClienteText.Size = new Size(361, 23);
             ClienteText.TabIndex = 116;
             // 
-            // CancelarDatosNuevaOrdenInternaBtn
-            // 
-            CancelarDatosNuevaOrdenInternaBtn.Location = new Point(548, 572);
-            CancelarDatosNuevaOrdenInternaBtn.Name = "CancelarDatosNuevaOrdenInternaBtn";
-            CancelarDatosNuevaOrdenInternaBtn.Size = new Size(97, 32);
-            CancelarDatosNuevaOrdenInternaBtn.TabIndex = 129;
-            CancelarDatosNuevaOrdenInternaBtn.Text = "Cancelar";
-            CancelarDatosNuevaOrdenInternaBtn.UseVisualStyleBackColor = true;
-            // 
-            // AceptarDatosNuevaOrdenInternaBtn
-            // 
-            AceptarDatosNuevaOrdenInternaBtn.Location = new Point(234, 572);
-            AceptarDatosNuevaOrdenInternaBtn.Name = "AceptarDatosNuevaOrdenInternaBtn";
-            AceptarDatosNuevaOrdenInternaBtn.Size = new Size(97, 32);
-            AceptarDatosNuevaOrdenInternaBtn.TabIndex = 117;
-            AceptarDatosNuevaOrdenInternaBtn.Text = "Confirmar";
-            AceptarDatosNuevaOrdenInternaBtn.UseVisualStyleBackColor = true;
-            // 
             // TipoDeProductoText
             // 
-            TipoDeProductoText.Location = new Point(360, 328);
+            TipoDeProductoText.Location = new Point(247, 267);
             TipoDeProductoText.Name = "TipoDeProductoText";
             TipoDeProductoText.Size = new Size(245, 23);
             TipoDeProductoText.TabIndex = 110;
@@ -189,7 +178,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(360, 356);
+            label3.Location = new Point(247, 295);
             label3.Name = "label3";
             label3.Size = new Size(55, 15);
             label3.TabIndex = 107;
@@ -197,7 +186,7 @@
             // 
             // CantidadText
             // 
-            CantidadText.Location = new Point(360, 375);
+            CantidadText.Location = new Point(247, 314);
             CantidadText.Name = "CantidadText";
             CantidadText.Size = new Size(245, 23);
             CantidadText.TabIndex = 108;
@@ -205,7 +194,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(360, 309);
+            label4.Location = new Point(247, 248);
             label4.Name = "label4";
             label4.Size = new Size(98, 15);
             label4.TabIndex = 109;
@@ -224,7 +213,7 @@
             OrdenExt_List.Columns.AddRange(new ColumnHeader[] { Tipo_Producto, Cantidad });
             OrdenExt_List.FullRowSelect = true;
             OrdenExt_List.GridLines = true;
-            OrdenExt_List.Location = new Point(119, 304);
+            OrdenExt_List.Location = new Point(6, 243);
             OrdenExt_List.MultiSelect = false;
             OrdenExt_List.Name = "OrdenExt_List";
             OrdenExt_List.Size = new Size(212, 190);
@@ -244,7 +233,7 @@
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.Location = new Point(413, 416);
+            SeleccionarBtn.Location = new Point(300, 355);
             SeleccionarBtn.Name = "SeleccionarBtn";
             SeleccionarBtn.Size = new Size(138, 32);
             SeleccionarBtn.TabIndex = 131;
@@ -253,7 +242,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(149, 500);
+            button1.Location = new Point(36, 439);
             button1.Name = "button1";
             button1.Size = new Size(144, 32);
             button1.TabIndex = 135;
@@ -262,46 +251,55 @@
             // 
             // button2
             // 
-            button2.Location = new Point(383, 572);
+            button2.Location = new Point(355, 492);
             button2.Name = "button2";
             button2.Size = new Size(97, 32);
-            button2.TabIndex = 136;
+            button2.TabIndex = 139;
             button2.Text = "Reestablecer";
             button2.UseVisualStyleBackColor = true;
+            // 
+            // CancelarDatosNuevaOrdenInternaBtn
+            // 
+            CancelarDatosNuevaOrdenInternaBtn.Location = new Point(527, 528);
+            CancelarDatosNuevaOrdenInternaBtn.Name = "CancelarDatosNuevaOrdenInternaBtn";
+            CancelarDatosNuevaOrdenInternaBtn.Size = new Size(97, 32);
+            CancelarDatosNuevaOrdenInternaBtn.TabIndex = 138;
+            CancelarDatosNuevaOrdenInternaBtn.Text = "Cancelar";
+            CancelarDatosNuevaOrdenInternaBtn.UseVisualStyleBackColor = true;
+            // 
+            // AceptarDatosNuevaOrdenInternaBtn
+            // 
+            AceptarDatosNuevaOrdenInternaBtn.Location = new Point(196, 492);
+            AceptarDatosNuevaOrdenInternaBtn.Name = "AceptarDatosNuevaOrdenInternaBtn";
+            AceptarDatosNuevaOrdenInternaBtn.Size = new Size(97, 32);
+            AceptarDatosNuevaOrdenInternaBtn.TabIndex = 137;
+            AceptarDatosNuevaOrdenInternaBtn.Text = "Confirmar";
+            AceptarDatosNuevaOrdenInternaBtn.UseVisualStyleBackColor = true;
             // 
             // AltaOrdenPreparacionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(673, 616);
+            ClientSize = new Size(636, 572);
             Controls.Add(button2);
-            Controls.Add(OrdenExt_List);
-            Controls.Add(button1);
-            Controls.Add(DatosNuevaOrdenInternaGroup);
-            Controls.Add(TipoDeProductoText);
-            Controls.Add(label9);
             Controls.Add(CancelarDatosNuevaOrdenInternaBtn);
-            Controls.Add(SeleccionarBtn);
             Controls.Add(AceptarDatosNuevaOrdenInternaBtn);
-            Controls.Add(label3);
-            Controls.Add(label4);
-            Controls.Add(CantidadText);
+            Controls.Add(DatosAltaOrdenSeleccionGroup);
+            Controls.Add(label9);
             Margin = new Padding(3, 2, 3, 2);
             Name = "AltaOrdenPreparacionForm";
             Text = "AltaOrdenPreparacionForm";
-            DatosNuevaOrdenInternaGroup.ResumeLayout(false);
-            DatosNuevaOrdenInternaGroup.PerformLayout();
+            DatosAltaOrdenSeleccionGroup.ResumeLayout(false);
+            DatosAltaOrdenSeleccionGroup.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private GroupBox DatosNuevaOrdenInternaGroup;
-        private Button CancelarDatosNuevaOrdenInternaBtn;
+        private GroupBox DatosAltaOrdenSeleccionGroup;
         private Label label1;
         private TextBox NumOrdenIntText;
-        private Button AceptarDatosNuevaOrdenInternaBtn;
         private Label label3;
         private TextBox CantidadText;
         private DateTimePicker FechaCreacionDT;
@@ -321,5 +319,7 @@
         private Button SeleccionarBtn;
         private Button button1;
         private Button button2;
+        private Button CancelarDatosNuevaOrdenInternaBtn;
+        private Button AceptarDatosNuevaOrdenInternaBtn;
     }
 }
