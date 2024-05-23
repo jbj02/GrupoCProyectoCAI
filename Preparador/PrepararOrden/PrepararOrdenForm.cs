@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace GrupoCProyectoCAI.Preparador.Modificar
 {
-    public partial class CambiarOrdenAPreparadaForm : Form
+    public partial class PrepararOrdenForm : Form
     {
         // Creamos el modelos del forms
-        CambiarOrdenAPreparadaModelo modificarModelo = new(); 
+        PrepararOrdenModelo modificarModelo = new(); 
 
-        public CambiarOrdenAPreparadaForm()
+        public PrepararOrdenForm()
         {
             InitializeComponent();
         }

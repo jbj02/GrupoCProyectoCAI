@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrupoCProyectoCAI.Preparador.Modificar
+namespace GrupoCProyectoCAI.Despachador.Modificar
 {
-    internal class CambiarOrdenAPreparadaModelo
+    internal class DespacharOrdenModelo
     {
         public List<OrdenInt> OrdenesInternas { get; set; }
 
         // Creamos un constructor para cargarle datos y probar el prototipo de forma aislada
-        public CambiarOrdenAPreparadaModelo()
+        public DespacharOrdenModelo()
         {
             OrdenesInternas = new List<OrdenInt>()
             {
@@ -25,7 +25,7 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
                     Prioridad = "Alta",
                     FechaCreacion = new DateTime(2024,5,15),
                     FechaModificacion = new DateTime(2024,5,16),
-                    Estado = "Seleccionada"
+                    Estado = "Preparada"
                 },
                 new OrdenInt
                 {
@@ -37,7 +37,7 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
                     Prioridad = "Media",
                     FechaCreacion = new DateTime(2024, 5, 16),
                     FechaModificacion = new DateTime(2024,5,17),
-                    Estado = "Seleccionada"
+                    Estado = "Preparada"
                 },
                 new OrdenInt
                 {
@@ -49,7 +49,7 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
                     Prioridad = "Baja",
                     FechaCreacion = new DateTime(2024, 5, 17),
                     FechaModificacion = new DateTime(2024,5,17),
-                    Estado = "Seleccionada"
+                    Estado = "Preparada"
                 }
             };
         }

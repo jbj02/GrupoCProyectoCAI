@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace GrupoCProyectoCAI.Despachador.Modificar
 {
-    public partial class CambiarOrdenADespachadaForm : Form
+    public partial class DespacharOrdenForm : Form
     {
 
-        CambiarOrdenADespachadaModelo modificarModelo = new();
+        DespacharOrdenModelo modificarModelo = new();
 
-        public CambiarOrdenADespachadaForm()
+        public DespacharOrdenForm()
         {
             InitializeComponent();
         }
