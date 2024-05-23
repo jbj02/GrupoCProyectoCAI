@@ -38,7 +38,7 @@
             Fecha_Entrega = new ColumnHeader();
             SeleccionarBtn = new Button();
             listView1 = new ListView();
-            TipoProducto = new ColumnHeader();
+            Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
             CancelarDatosOrdenBtn = new Button();
             NumeroOrdenInternaBuscarText = new TextBox();
@@ -112,7 +112,7 @@
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { TipoProducto, Cantidad });
+            listView1.Columns.AddRange(new ColumnHeader[] { Producto, Cantidad });
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
             listView1.Location = new Point(823, 83);
@@ -123,10 +123,10 @@
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
             // 
-            // TipoProducto
+            // Producto
             // 
-            TipoProducto.Text = "Tipo de Producto";
-            TipoProducto.Width = 110;
+            Producto.Text = "Producto";
+            Producto.Width = 110;
             // 
             // Cantidad
             // 
@@ -213,7 +213,7 @@
         private Button CancelarDatosOrdenBtn;
         private ColumnHeader Fecha_Entrega;
         private ListView listView1;
-        private ColumnHeader TipoProducto;
+        private ColumnHeader Producto;
         private ColumnHeader Cantidad;
         private Label label1;
         private Button button1;

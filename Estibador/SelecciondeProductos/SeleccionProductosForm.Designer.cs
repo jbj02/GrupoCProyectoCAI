@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             OrdenExt_List = new ListView();
-            Tipo_Producto = new ColumnHeader();
+            Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Ubicacion = new ColumnHeader();
             button1 = new Button();
@@ -40,7 +40,7 @@
             // OrdenExt_List
             // 
             OrdenExt_List.CheckBoxes = true;
-            OrdenExt_List.Columns.AddRange(new ColumnHeader[] { Tipo_Producto, Cantidad, Ubicacion });
+            OrdenExt_List.Columns.AddRange(new ColumnHeader[] { Producto, Cantidad, Ubicacion });
             OrdenExt_List.FullRowSelect = true;
             OrdenExt_List.GridLines = true;
             OrdenExt_List.Location = new Point(51, 12);
@@ -51,10 +51,10 @@
             OrdenExt_List.UseCompatibleStateImageBehavior = false;
             OrdenExt_List.View = View.Details;
             // 
-            // Tipo_Producto
+            // Producto
             // 
-            Tipo_Producto.Text = "Tipo Producto";
-            Tipo_Producto.Width = 120;
+            Producto.Text = "Producto";
+            Producto.Width = 120;
             // 
             // Cantidad
             // 
@@ -114,7 +114,7 @@
         #endregion
 
         private ListView OrdenExt_List;
-        private ColumnHeader Tipo_Producto;
+        private ColumnHeader Producto;
         private ColumnHeader Cantidad;
         private ColumnHeader Ubicacion;
         private Button button1;

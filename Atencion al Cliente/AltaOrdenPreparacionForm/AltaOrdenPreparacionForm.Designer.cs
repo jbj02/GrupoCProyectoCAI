@@ -45,7 +45,7 @@
             label4 = new Label();
             label9 = new Label();
             OrdenExt_List = new ListView();
-            Tipo_Producto = new ColumnHeader();
+            Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
             SeleccionarBtn = new Button();
             button1 = new Button();
@@ -196,9 +196,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(247, 248);
             label4.Name = "label4";
-            label4.Size = new Size(98, 15);
+            label4.Size = new Size(56, 15);
             label4.TabIndex = 109;
-            label4.Text = "Tipo de Producto";
+            label4.Text = "Producto";
             // 
             // label9
             // 
@@ -210,7 +210,7 @@
             // 
             // OrdenExt_List
             // 
-            OrdenExt_List.Columns.AddRange(new ColumnHeader[] { Tipo_Producto, Cantidad });
+            OrdenExt_List.Columns.AddRange(new ColumnHeader[] { Producto, Cantidad });
             OrdenExt_List.FullRowSelect = true;
             OrdenExt_List.GridLines = true;
             OrdenExt_List.Location = new Point(6, 243);
@@ -221,10 +221,10 @@
             OrdenExt_List.UseCompatibleStateImageBehavior = false;
             OrdenExt_List.View = View.Details;
             // 
-            // Tipo_Producto
+            // Producto
             // 
-            Tipo_Producto.Text = "Tipo Producto";
-            Tipo_Producto.Width = 120;
+            Producto.Text = "Producto";
+            Producto.Width = 120;
             // 
             // Cantidad
             // 
@@ -310,7 +310,7 @@
         private Label label4;
         private Label label9;
         private ListView OrdenExt_List;
-        private ColumnHeader Tipo_Producto;
+        private ColumnHeader Producto;
         private ColumnHeader Cantidad;
         private DateTimePicker dateTimePicker1;
         private Label label6;
