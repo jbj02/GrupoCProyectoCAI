@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
             label9 = new Label();
             NumeroOrdenInternaBuscarText = new TextBox();
             BuscarBtn = new Button();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            button1 = new Button();
             SeleccionarBtn = new Button();
             OrdenInt_List = new ListView();
             N_Orden = new ColumnHeader();
@@ -60,38 +60,15 @@
             // 
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(NumeroOrdenInternaBuscarText);
+            groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(BuscarBtn);
+            groupBox2.Controls.Add(textBox1);
             groupBox2.Location = new Point(12, 18);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(317, 132);
+            groupBox2.Size = new Size(317, 129);
             groupBox2.TabIndex = 107;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filtrar";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(34, 72);
-            label1.Name = "label1";
-            label1.Size = new Size(97, 15);
-            label1.TabIndex = 108;
-            label1.Text = "Fecha de Entrega";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(34, 90);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(132, 23);
-            textBox1.TabIndex = 107;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(237, 404);
-            button1.Name = "button1";
-            button1.Size = new Size(80, 28);
-            button1.TabIndex = 109;
-            button1.Text = "Seleccionar";
-            button1.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -111,12 +88,37 @@
             // 
             // BuscarBtn
             // 
-            BuscarBtn.Location = new Point(173, 33);
+            BuscarBtn.Location = new Point(174, 57);
             BuscarBtn.Name = "BuscarBtn";
             BuscarBtn.Size = new Size(80, 28);
             BuscarBtn.TabIndex = 106;
-            BuscarBtn.Text = "Buscar";
+            BuscarBtn.Text = "Filtrar";
             BuscarBtn.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(22, 64);
+            label1.Name = "label1";
+            label1.Size = new Size(97, 15);
+            label1.TabIndex = 108;
+            label1.Text = "Fecha de Entrega";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(22, 82);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(132, 23);
+            textBox1.TabIndex = 107;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(237, 404);
+            button1.Name = "button1";
+            button1.Size = new Size(80, 28);
+            button1.TabIndex = 109;
+            button1.Text = "Seleccionar";
+            button1.UseVisualStyleBackColor = true;
             // 
             // SeleccionarBtn
             // 
@@ -255,9 +257,7 @@
             ClientSize = new Size(704, 574);
             Controls.Add(button4);
             Controls.Add(button3);
-            Controls.Add(label1);
             Controls.Add(label5);
-            Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(listView1);
             Controls.Add(label2);
