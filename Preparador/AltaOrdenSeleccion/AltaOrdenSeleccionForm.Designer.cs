@@ -33,7 +33,6 @@
             Cliente = new ColumnHeader();
             FechaEntrega = new ColumnHeader();
             Prioridad = new ColumnHeader();
-            button1 = new Button();
             listView1 = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
@@ -78,16 +77,6 @@
             // 
             Prioridad.Text = "Prioridad";
             Prioridad.Width = 80;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(243, 310);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(95, 32);
-            button1.TabIndex = 82;
-            button1.Text = "Ordenar";
-            button1.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
@@ -191,7 +180,6 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(listView1);
-            Controls.Add(button1);
             Controls.Add(OrdenInt_List);
             Margin = new Padding(3, 2, 3, 2);
             Name = "AltaOrdenSeleccionForm";
@@ -207,7 +195,6 @@
         private ColumnHeader Cliente;
         private ColumnHeader FechaEntrega;
         private ColumnHeader Prioridad;
-        private Button button1;
         private ListView listView1;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
