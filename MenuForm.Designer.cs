@@ -36,10 +36,9 @@
             // 
             // EstibadorBtn
             // 
-            EstibadorBtn.Location = new Point(351, 212);
-            EstibadorBtn.Margin = new Padding(3, 4, 3, 4);
+            EstibadorBtn.Location = new Point(307, 159);
             EstibadorBtn.Name = "EstibadorBtn";
-            EstibadorBtn.Size = new Size(174, 31);
+            EstibadorBtn.Size = new Size(152, 23);
             EstibadorBtn.TabIndex = 0;
             EstibadorBtn.Text = "Estibador";
             EstibadorBtn.UseVisualStyleBackColor = true;
@@ -47,10 +46,9 @@
             // 
             // PreparadorBtn
             // 
-            PreparadorBtn.Location = new Point(351, 251);
-            PreparadorBtn.Margin = new Padding(3, 4, 3, 4);
+            PreparadorBtn.Location = new Point(307, 188);
             PreparadorBtn.Name = "PreparadorBtn";
-            PreparadorBtn.Size = new Size(174, 31);
+            PreparadorBtn.Size = new Size(152, 23);
             PreparadorBtn.TabIndex = 3;
             PreparadorBtn.Text = "Preparador";
             PreparadorBtn.UseVisualStyleBackColor = true;
@@ -58,10 +56,9 @@
             // 
             // DespachadorBtn
             // 
-            DespachadorBtn.Location = new Point(351, 289);
-            DespachadorBtn.Margin = new Padding(3, 4, 3, 4);
+            DespachadorBtn.Location = new Point(307, 217);
             DespachadorBtn.Name = "DespachadorBtn";
-            DespachadorBtn.Size = new Size(174, 31);
+            DespachadorBtn.Size = new Size(152, 23);
             DespachadorBtn.TabIndex = 4;
             DespachadorBtn.Text = "Despachador";
             DespachadorBtn.UseVisualStyleBackColor = true;
@@ -69,24 +66,23 @@
             // 
             // button1
             // 
-            button1.Location = new Point(351, 328);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(307, 246);
             button1.Name = "button1";
-            button1.Size = new Size(174, 31);
+            button1.Size = new Size(152, 23);
             button1.TabIndex = 5;
             button1.Text = "Atención al Cliente";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += AtencionCliente_Click;
             // 
             // MenuForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(DespachadorBtn);
             Controls.Add(PreparadorBtn);
             Controls.Add(EstibadorBtn);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MenuForm";
             Text = "MenuForm";
             ResumeLayout(false);

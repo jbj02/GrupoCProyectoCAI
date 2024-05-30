@@ -1,5 +1,7 @@
 using GrupoCProyectoCAI.Despachador;
+using GrupoCProyectoCAI.Despachador.Modificar;
 using GrupoCProyectoCAI.Estibador;
+using GrupoCProyectoCAI.Estibador.SelecciondeProductos;
 using GrupoCProyectoCAI.Preparador;
 using System.Reflection;
 
@@ -14,23 +16,30 @@ namespace GrupoCProyectoCAI
 
         private void EstibadorBtn_Click(object sender, EventArgs e)
         {
-            // Abre el Formulario EstibadorForm
-            EstibadorMenuForm estibadorMenuForm = new();
-            estibadorMenuForm.ShowDialog();
+            // Abre el Formulario SeleccionProductosForm
+            SeleccionProductosForm seleccionProductosForm = new();
+            seleccionProductosForm.ShowDialog();
         }
 
         private void PreparadorBtn_Click(object sender, EventArgs e)
         {
-            // Abre el Formulario PreparadorForm
+            // Abre el Formulario PreparadorMenuForm
             PreparadorMenuForm peparadorMenuForm = new();
             peparadorMenuForm.ShowDialog();
         }
 
         private void DespachadorBtn_Click(object sender, EventArgs e)
         {
-            // Abre el Formulario DespachadorForm
-            DespachadorMenuForm despachadorMenuForm = new();
-            despachadorMenuForm.ShowDialog();
+            // Abre el Formulario DespacharOrdenForm
+            DespacharOrdenForm despacharOrdenForm = new();
+            despacharOrdenForm.ShowDialog();
+        }
+
+        private void AtencionCliente_Click(object sender, EventArgs e)
+        {
+            // Abre el Formulario AltaOrdenPreparacionForm
+            AltaOrdenPreparacionForm altaOrdenPreparacionForm = new();
+            altaOrdenPreparacionForm.ShowDialog();
         }
     }
 }

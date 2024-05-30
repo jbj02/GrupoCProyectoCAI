@@ -67,17 +67,17 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
             var ordenSeleccionada = (OrdenInt)OrdenInt_List.SelectedItems[0].Tag;
 
             // Cargamos los datos ingresados
-            NumOrdenText.Text = ordenSeleccionada.NumOrdenInt.ToString();
-            NumOrdExtText.Text = ordenSeleccionada.NumOrdenExt.ToString();
-            TipoDeProductoText.Text = ordenSeleccionada.TipoProducto;
-            CantidadText.Text = ordenSeleccionada.Cantidad.ToString();
-            ClienteText.Text = ordenSeleccionada.Cliente;
-            PrioridadText.Text = ordenSeleccionada.Prioridad;
-            FechaCreacionDT.Text = ordenSeleccionada.FechaCreacion.ToString("dd/MM/yyyy");
-            FechaModificacionDT.Text = ordenSeleccionada.FechaModificacion.ToString("dd/MM/yyyy");
-            EstadoCB.SelectedItem = ordenSeleccionada.Estado.ToString();
+            //NumOrdenText.Text = ordenSeleccionada.NumOrdenInt.ToString();
+            //NumOrdExtText.Text = ordenSeleccionada.NumOrdenExt.ToString();
+            //TipoDeProductoText.Text = ordenSeleccionada.TipoProducto;
+            //CantidadText.Text = ordenSeleccionada.Cantidad.ToString();
+            //ClienteText.Text = ordenSeleccionada.Cliente;
+            //PrioridadText.Text = ordenSeleccionada.Prioridad;
+            //FechaCreacionDT.Text = ordenSeleccionada.FechaCreacion.ToString("dd/MM/yyyy");
+            //FechaModificacionDT.Text = ordenSeleccionada.FechaModificacion.ToString("dd/MM/yyyy");
+            //EstadoCB.SelectedItem = ordenSeleccionada.Estado.ToString();
 
-            DatosOrdenGroup.Enabled = true;
+            //DatosOrdenGroup.Enabled = true;
         }
 
         private void BuscarBtn_Click(object sender, EventArgs e)
@@ -89,19 +89,19 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
             {
                 if (NumeroOrdenInternaBuscarText.Text == ordenInterna.NumOrdenInt.ToString())
                 {
-                    NumOrdenText.Text = ordenInterna.NumOrdenInt.ToString();
-                    NumOrdExtText.Text = ordenInterna.NumOrdenExt.ToString();
-                    TipoDeProductoText.Text = ordenInterna.TipoProducto;
-                    CantidadText.Text = ordenInterna.Cantidad.ToString();
-                    ClienteText.Text = ordenInterna.Cliente;
-                    PrioridadText.Text = ordenInterna.Prioridad;
-                    FechaCreacionDT.Text = ordenInterna.FechaCreacion.ToString("dd/MM/yyyy");
-                    FechaModificacionDT.Text = ordenInterna.FechaModificacion.ToString("dd/MM/yyyy");
-                    EstadoCB.SelectedItem = ordenInterna.Estado.ToString();
+                    //NumOrdenText.Text = ordenInterna.NumOrdenInt.ToString();
+                    //NumOrdExtText.Text = ordenInterna.NumOrdenExt.ToString();
+                    //TipoDeProductoText.Text = ordenInterna.TipoProducto;
+                    //CantidadText.Text = ordenInterna.Cantidad.ToString();
+                    //ClienteText.Text = ordenInterna.Cliente;
+                    //PrioridadText.Text = ordenInterna.Prioridad;
+                    //FechaCreacionDT.Text = ordenInterna.FechaCreacion.ToString("dd/MM/yyyy");
+                    //FechaModificacionDT.Text = ordenInterna.FechaModificacion.ToString("dd/MM/yyyy");
+                    //EstadoCB.SelectedItem = ordenInterna.Estado.ToString();
 
-                    DatosOrdenGroup.Enabled = true;
-                    seEncontraronCoincidencias = true;
-                    break;
+                    //DatosOrdenGroup.Enabled = true;
+                    //seEncontraronCoincidencias = true;
+                    //break;
                 }
             }
 
@@ -119,17 +119,17 @@ namespace GrupoCProyectoCAI.Preparador.Modificar
 
         private void CancelarDatosOrdenBtn_Click(object sender, EventArgs e)
         {
-            NumOrdenText.Text = string.Empty;
-            NumOrdExtText.Text = string.Empty;
-            TipoDeProductoText.Text = string.Empty;
-            CantidadText.Text = string.Empty;
-            ClienteText.Text = string.Empty;
-            PrioridadText.Text = string.Empty;
-            FechaCreacionDT.Text = string.Empty;
-            FechaModificacionDT.Text = string.Empty;
-            EstadoCB.SelectedItem = string.Empty;
+            //NumOrdenText.Text = string.Empty;
+            //NumOrdExtText.Text = string.Empty;
+            //TipoDeProductoText.Text = string.Empty;
+            //CantidadText.Text = string.Empty;
+            //ClienteText.Text = string.Empty;
+            //PrioridadText.Text = string.Empty;
+            //FechaCreacionDT.Text = string.Empty;
+            //FechaModificacionDT.Text = string.Empty;
+            //EstadoCB.SelectedItem = string.Empty;
 
-            DatosOrdenGroup.Enabled = false;
+            //DatosOrdenGroup.Enabled = false;
         }
     }
 }

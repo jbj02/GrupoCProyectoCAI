@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ModificarBtn = new Button();
-            NuevaOrdenBtn = new Button();
+            AltaOrdenSeleccionBtn = new Button();
+            PrepararOrdenBtn = new Button();
             SuspendLayout();
             // 
-            // ModificarBtn
+            // AltaOrdenSeleccionBtn
             // 
-            ModificarBtn.Location = new Point(44, 25);
-            ModificarBtn.Name = "ModificarBtn";
-            ModificarBtn.Size = new Size(144, 48);
-            ModificarBtn.TabIndex = 0;
-            ModificarBtn.Text = "Modificar";
-            ModificarBtn.UseVisualStyleBackColor = true;
-            ModificarBtn.Click += ModificarBtn_Click;
+            AltaOrdenSeleccionBtn.Location = new Point(44, 25);
+            AltaOrdenSeleccionBtn.Name = "AltaOrdenSeleccionBtn";
+            AltaOrdenSeleccionBtn.Size = new Size(144, 48);
+            AltaOrdenSeleccionBtn.TabIndex = 0;
+            AltaOrdenSeleccionBtn.Text = "Alta Orden Seleccion";
+            AltaOrdenSeleccionBtn.UseVisualStyleBackColor = true;
+            AltaOrdenSeleccionBtn.Click += AltaOrdenSeleccionBtn_Click;
             // 
-            // NuevaOrdenBtn
+            // PrepararOrdenBtn
             // 
-            NuevaOrdenBtn.Location = new Point(44, 79);
-            NuevaOrdenBtn.Name = "NuevaOrdenBtn";
-            NuevaOrdenBtn.Size = new Size(144, 49);
-            NuevaOrdenBtn.TabIndex = 1;
-            NuevaOrdenBtn.Text = "Nueva Orden Int";
-            NuevaOrdenBtn.UseVisualStyleBackColor = true;
-            NuevaOrdenBtn.Click += NuevaOrdenBtn_Click;
+            PrepararOrdenBtn.Location = new Point(44, 79);
+            PrepararOrdenBtn.Name = "PrepararOrdenBtn";
+            PrepararOrdenBtn.Size = new Size(144, 49);
+            PrepararOrdenBtn.TabIndex = 1;
+            PrepararOrdenBtn.Text = "Preparar Orden";
+            PrepararOrdenBtn.UseVisualStyleBackColor = true;
+            PrepararOrdenBtn.Click += PrepararOrdenBtn_Click;
             // 
             // PreparadorMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(222, 151);
-            Controls.Add(NuevaOrdenBtn);
-            Controls.Add(ModificarBtn);
+            Controls.Add(PrepararOrdenBtn);
+            Controls.Add(AltaOrdenSeleccionBtn);
             Name = "PreparadorMenuForm";
             Text = "PreparadorMenuForm";
             ResumeLayout(false);
@@ -66,7 +66,7 @@
 
         #endregion
 
-        private Button ModificarBtn;
-        private Button NuevaOrdenBtn;
+        private Button AltaOrdenSeleccionBtn;
+        private Button PrepararOrdenBtn;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using GrupoCProyectoCAI.Despachador;
+using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
 using GrupoCProyectoCAI.Preparador.Modificar;
-using GrupoCProyectoCAI.Preparador.NuevaOrden;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,18 +20,18 @@ namespace GrupoCProyectoCAI.Preparador
             InitializeComponent();
         }
 
-        private void ModificarBtn_Click(object sender, EventArgs e)
+        private void AltaOrdenSeleccionBtn_Click(object sender, EventArgs e)
         {
             // Abre el Formulario ModificarPreparadorForm
-            PrepararOrdenForm modificarPreparadorForm = new();
-            modificarPreparadorForm.ShowDialog();
+            AltaOrdenSeleccionForm altaOrdenSeleccionForm = new();
+            altaOrdenSeleccionForm.ShowDialog();
         }
 
-        private void NuevaOrdenBtn_Click(object sender, EventArgs e)
+        private void PrepararOrdenBtn_Click(object sender, EventArgs e)
         {
             // Abre el Formulario ModificarPreparadorForm
-            NuevaOrdenPreparadorForm nuevaOrdenPreparadorForm = new();
-            nuevaOrdenPreparadorForm.ShowDialog();
+            PrepararOrdenForm prepararOrdenForm = new();
+            prepararOrdenForm.ShowDialog();
         }
     }
 }
