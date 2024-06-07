@@ -1,3 +1,4 @@
+using GrupoCProyectoCAI.Despachador.DespacharOrden;
 using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
 
 namespace GrupoCProyectoCAI
@@ -13,7 +14,7 @@ namespace GrupoCProyectoCAI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new AltaOrdenSeleccionForm());
+            Application.Run(new MenuForm());
         }
     }
 }

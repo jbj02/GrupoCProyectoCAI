@@ -34,17 +34,17 @@
             Estado = new ColumnHeader();
             Cliente = new ColumnHeader();
             Prioridad = new ColumnHeader();
-            Fecha_Creacion = new ColumnHeader();
-            Fecha_Entrega = new ColumnHeader();
+            FechaAlta = new ColumnHeader();
+            FechaDespacho = new ColumnHeader();
             SeleccionarBtn = new Button();
             listView1 = new ListView();
             Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
             CancelarDatosOrdenBtn = new Button();
-            NumeroOrdenInternaBuscarText = new TextBox();
-            label1 = new Label();
-            button1 = new Button();
             label2 = new Label();
+            button1 = new Button();
+            label1 = new Label();
+            NumeroOrdenInternaBuscarText = new TextBox();
             SuspendLayout();
             // 
             // ConfirmarDatosOrdenBtn
@@ -59,7 +59,7 @@
             // 
             // OrdenInt_List
             // 
-            OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, Fecha_Creacion, Fecha_Entrega });
+            OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, FechaAlta, FechaDespacho });
             OrdenInt_List.FullRowSelect = true;
             OrdenInt_List.GridLines = true;
             OrdenInt_List.Location = new Point(26, 52);
@@ -90,15 +90,15 @@
             Prioridad.Text = "Prioridad";
             Prioridad.Width = 100;
             // 
-            // Fecha_Creacion
+            // FechaAlta
             // 
-            Fecha_Creacion.Text = "Fecha de Creación";
-            Fecha_Creacion.Width = 140;
+            FechaAlta.Text = "Fecha de Alta";
+            FechaAlta.Width = 140;
             // 
-            // Fecha_Entrega
+            // FechaDespacho
             // 
-            Fecha_Entrega.Text = " Fecha de Entrega";
-            Fecha_Entrega.Width = 140;
+            FechaDespacho.Text = " Fecha de Despacho";
+            FechaDespacho.Width = 140;
             // 
             // SeleccionarBtn
             // 
@@ -143,21 +143,14 @@
             CancelarDatosOrdenBtn.UseVisualStyleBackColor = true;
             CancelarDatosOrdenBtn.Click += CancelarDatosOrdenBtn_Click;
             // 
-            // NumeroOrdenInternaBuscarText
+            // label2
             // 
-            NumeroOrdenInternaBuscarText.Location = new Point(823, 54);
-            NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
-            NumeroOrdenInternaBuscarText.Size = new Size(157, 23);
-            NumeroOrdenInternaBuscarText.TabIndex = 104;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(823, 36);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 15);
-            label1.TabIndex = 109;
-            label1.Text = "N° Orden";
+            label2.AutoSize = true;
+            label2.Location = new Point(26, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(133, 15);
+            label2.TabIndex = 111;
+            label2.Text = "Ordenes de Preparación";
             // 
             // button1
             // 
@@ -168,14 +161,21 @@
             button1.Text = "Buscar";
             button1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label1
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(26, 34);
-            label2.Name = "label2";
-            label2.Size = new Size(120, 15);
-            label2.TabIndex = 111;
-            label2.Text = "Ordenes de Selección";
+            label1.AutoSize = true;
+            label1.Location = new Point(823, 36);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 15);
+            label1.TabIndex = 109;
+            label1.Text = "N° Orden";
+            // 
+            // NumeroOrdenInternaBuscarText
+            // 
+            NumeroOrdenInternaBuscarText.Location = new Point(823, 54);
+            NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
+            NumeroOrdenInternaBuscarText.Size = new Size(157, 23);
+            NumeroOrdenInternaBuscarText.TabIndex = 104;
             // 
             // PrepararOrdenForm
             // 
@@ -206,17 +206,17 @@
         private ColumnHeader Cliente;
         private ColumnHeader Prioridad;
         private ColumnHeader Estado;
-        private ColumnHeader Fecha_Creacion;
+        private ColumnHeader FechaAlta;
         private Button SeleccionarBtn;
         private Button CancelarBusquedaBtn;
-        private TextBox NumeroOrdenInternaBuscarText;
         private Button CancelarDatosOrdenBtn;
-        private ColumnHeader Fecha_Entrega;
+        private ColumnHeader FechaDespacho;
         private ListView listView1;
         private ColumnHeader Producto;
         private ColumnHeader Cantidad;
-        private Label label1;
-        private Button button1;
         private Label label2;
+        private Button button1;
+        private Label label1;
+        private TextBox NumeroOrdenInternaBuscarText;
     }
 }
