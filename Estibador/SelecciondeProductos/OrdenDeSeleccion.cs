@@ -9,9 +9,13 @@ namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
     internal class OrdenDeSeleccion
     {
         public int NumeroOrden {  get; set; }
-        public string Producto { get; set; }
-        public int Cantidades { get; set; }
+        public List <Productos> productosAsociados { get; set; }
         public string Estado { get; set; }
-        public Ubicacion Ubicacion { get; set; }
+        public OrdenDeSeleccion()
+        {
+           
+            productosAsociados = new List<Productos>();
+        }
+
     }
 }

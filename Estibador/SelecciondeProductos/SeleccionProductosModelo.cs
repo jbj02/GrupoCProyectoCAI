@@ -16,39 +16,52 @@ namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
         public SeleccionProductosModelo()
         {
             ordenSeleccion = new List<OrdenDeSeleccion>()
+            
             {
                 new OrdenDeSeleccion
                 {
                     NumeroOrden = 25462357,
-                    Producto = "Mochilas",
-                    Cantidades = 5,
                     Estado = "Pendiente",
-                    Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
+                    productosAsociados = new List<Productos>()
+                    {
+                        new Productos
+                        {
+                            Producto = "Mochila",
+                            Cantidades = 10,
+                            Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
+                        },
+                        new Productos
+                        {
+                            Producto = "Bolso",
+                            Cantidades = 5,
+                            Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
+                        }
+                    }
+                    //Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
                 } ,
                 new OrdenDeSeleccion
                 {
-                    NumeroOrden = 25462357,
-                    Producto = "Bolso",
-                    Cantidades = 10,
-                    Estado = "Pendiente",
-                    Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
-                },
-                new OrdenDeSeleccion
-                {
                     NumeroOrden = 25462359,
-                    Producto = "Mesas",
-                    Cantidades = 3,
                     Estado = "Pendiente",
-                    Ubicacion = new Ubicacion { X = "pasillo2", Y = "almacen2", Z = "sector2" }
+                    productosAsociados= new List<Productos>()
+                    {
+                        new Productos
+                        {
+                            Producto = "Silla", 
+                            Cantidades = 4,
+                            Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
+                        }
+                    }
                 }
             };
 
             
         }
-        public void Buscar(string  orden)
+        public OrdenDeSeleccion Buscar(int  orden)
         {
-            int numero = Convert.ToInt32(orden);
-            ordenSeleccion.Find(o => o.NumeroOrden == numero);
+            //int numero = Convert.ToInt32(orden);
+            OrdenDeSeleccion ord = ordenSeleccion.Find(o => o.NumeroOrden == orden);
+            return ord;
         }
         public void ActualizarOrden(string orden)
         {

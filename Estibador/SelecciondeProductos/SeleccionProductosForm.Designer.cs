@@ -47,7 +47,7 @@
             OrdenExt_List.Location = new Point(47, 86);
             OrdenExt_List.MultiSelect = false;
             OrdenExt_List.Name = "OrdenExt_List";
-            OrdenExt_List.Size = new Size(345, 266);
+            OrdenExt_List.Size = new Size(396, 266);
             OrdenExt_List.TabIndex = 133;
             OrdenExt_List.UseCompatibleStateImageBehavior = false;
             OrdenExt_List.View = View.Details;
@@ -65,11 +65,11 @@
             // Ubicacion
             // 
             Ubicacion.Text = "Ubicación";
-            Ubicacion.Width = 100;
+            Ubicacion.Width = 150;
             // 
             // ConfirmarBtn
             // 
-            ConfirmarBtn.Location = new Point(276, 357);
+            ConfirmarBtn.Location = new Point(327, 357);
             ConfirmarBtn.Margin = new Padding(3, 2, 3, 2);
             ConfirmarBtn.Name = "ConfirmarBtn";
             ConfirmarBtn.Size = new Size(116, 31);
@@ -80,7 +80,7 @@
             // 
             // CancelarBtn
             // 
-            CancelarBtn.Location = new Point(369, 425);
+            CancelarBtn.Location = new Point(348, 414);
             CancelarBtn.Margin = new Padding(3, 2, 3, 2);
             CancelarBtn.Name = "CancelarBtn";
             CancelarBtn.Size = new Size(95, 32);
@@ -94,7 +94,7 @@
             OrdenSeleccionCmb.FormattingEnabled = true;
             OrdenSeleccionCmb.Location = new Point(49, 38);
             OrdenSeleccionCmb.Name = "OrdenSeleccionCmb";
-            OrdenSeleccionCmb.Size = new Size(343, 23);
+            OrdenSeleccionCmb.Size = new Size(394, 23);
             OrdenSeleccionCmb.TabIndex = 138;
             OrdenSeleccionCmb.SelectedIndexChanged += OrdenSeleccionCmb_SelectedIndexChanged;
             // 
@@ -111,7 +111,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(476, 468);
+            ClientSize = new Size(500, 467);
             Controls.Add(label1);
             Controls.Add(OrdenSeleccionCmb);
             Controls.Add(CancelarBtn);

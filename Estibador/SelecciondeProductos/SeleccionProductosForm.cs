@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,16 +46,14 @@ namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
             {
                 string num = OrdenSeleccionCmb.SelectedItem.ToString();
                 int numero = Convert.ToInt32(num);
-                foreach (var ord in modelo.ordenSeleccion)
+                var orden = modelo.Buscar(numero);
+                foreach (var detalle in orden.productosAsociados)
                 {
-                    if (numero == ord.NumeroOrden)
-                    {
-                        var fila = new ListViewItem();
-                        fila.Text = ord.Producto;
-                        fila.SubItems.Add(ord.Cantidades.ToString());
-                        fila.SubItems.Add(ord.Ubicacion.Ubi());
-                        OrdenExt_List.Items.Add(fila);
-                    }
+                    var fila = new ListViewItem();
+                    fila.Text = detalle.Producto;
+                    fila.SubItems.Add(detalle.Cantidades.ToString());
+                    fila.SubItems.Add(detalle.Ubicacion.Ubi());
+                    OrdenExt_List.Items.Add(fila);
                 }
             }
         }
