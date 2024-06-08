@@ -12,7 +12,7 @@ namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
     {
         
         public List<OrdenDeSeleccion> ordenSeleccion { get; set; }
-        public List<int> numeroOrden { get; set; }
+        //public List<int> numeroOrden { get; set; }
         public SeleccionProductosModelo()
         {
             ordenSeleccion = new List<OrdenDeSeleccion>()
@@ -35,6 +35,12 @@ namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
                             Producto = "Bolso",
                             Cantidades = 5,
                             Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
+                        }, 
+                        new Productos
+                        {
+                            Producto = "Valija",
+                            Cantidades = 15,
+                            Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
                         }
                     }
                     //Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
@@ -42,13 +48,27 @@ namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
                 new OrdenDeSeleccion
                 {
                     NumeroOrden = 25462359,
-                    Estado = "Pendiente",
+                    Estado = "Confirmada",
                     productosAsociados= new List<Productos>()
                     {
                         new Productos
                         {
                             Producto = "Silla", 
                             Cantidades = 4,
+                            Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
+                        }
+                    }
+                },
+                 new OrdenDeSeleccion
+                {
+                    NumeroOrden = 25462360,
+                    Estado = "Pendiente",
+                    productosAsociados= new List<Productos>()
+                    {
+                        new Productos
+                        {
+                            Producto = "mesa",
+                            Cantidades = 2,
                             Ubicacion = new Ubicacion { X = "pasillo", Y = "almacen", Z = "sector" }
                         }
                     }
