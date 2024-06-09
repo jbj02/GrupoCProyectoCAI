@@ -32,9 +32,9 @@
             Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Ubicacion = new ColumnHeader();
-            button2 = new Button();
-            button5 = new Button();
-            comboBox1 = new ComboBox();
+            ConfirmarBtn = new Button();
+            CancelarBtn = new Button();
+            OrdenSeleccionCmb = new ComboBox();
             label1 = new Label();
             SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             OrdenExt_List.Location = new Point(47, 86);
             OrdenExt_List.MultiSelect = false;
             OrdenExt_List.Name = "OrdenExt_List";
-            OrdenExt_List.Size = new Size(345, 266);
+            OrdenExt_List.Size = new Size(396, 266);
             OrdenExt_List.TabIndex = 133;
             OrdenExt_List.UseCompatibleStateImageBehavior = false;
             OrdenExt_List.View = View.Details;
@@ -65,35 +65,38 @@
             // Ubicacion
             // 
             Ubicacion.Text = "Ubicación";
-            Ubicacion.Width = 100;
+            Ubicacion.Width = 150;
             // 
-            // button2
+            // ConfirmarBtn
             // 
-            button2.Location = new Point(276, 357);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(116, 31);
-            button2.TabIndex = 136;
-            button2.Text = "Confirmar Todo";
-            button2.UseVisualStyleBackColor = true;
+            ConfirmarBtn.Location = new Point(327, 357);
+            ConfirmarBtn.Margin = new Padding(3, 2, 3, 2);
+            ConfirmarBtn.Name = "ConfirmarBtn";
+            ConfirmarBtn.Size = new Size(116, 31);
+            ConfirmarBtn.TabIndex = 136;
+            ConfirmarBtn.Text = "Confirmar Todo";
+            ConfirmarBtn.UseVisualStyleBackColor = true;
+            ConfirmarBtn.Click += ConfirmarBtn_Click;
             // 
-            // button5
+            // CancelarBtn
             // 
-            button5.Location = new Point(369, 425);
-            button5.Margin = new Padding(3, 2, 3, 2);
-            button5.Name = "button5";
-            button5.Size = new Size(95, 32);
-            button5.TabIndex = 137;
-            button5.Text = "Cancelar";
-            button5.UseVisualStyleBackColor = true;
+            CancelarBtn.Location = new Point(348, 414);
+            CancelarBtn.Margin = new Padding(3, 2, 3, 2);
+            CancelarBtn.Name = "CancelarBtn";
+            CancelarBtn.Size = new Size(95, 32);
+            CancelarBtn.TabIndex = 137;
+            CancelarBtn.Text = "Cancelar";
+            CancelarBtn.UseVisualStyleBackColor = true;
+            CancelarBtn.Click += CancelarBtn_Click;
             // 
-            // comboBox1
+            // OrdenSeleccionCmb
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(49, 38);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(343, 23);
-            comboBox1.TabIndex = 138;
+            OrdenSeleccionCmb.FormattingEnabled = true;
+            OrdenSeleccionCmb.Location = new Point(49, 38);
+            OrdenSeleccionCmb.Name = "OrdenSeleccionCmb";
+            OrdenSeleccionCmb.Size = new Size(394, 23);
+            OrdenSeleccionCmb.TabIndex = 138;
+            OrdenSeleccionCmb.SelectedIndexChanged += OrdenSeleccionCmb_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -108,15 +111,16 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(476, 468);
+            ClientSize = new Size(500, 467);
             Controls.Add(label1);
-            Controls.Add(comboBox1);
-            Controls.Add(button5);
-            Controls.Add(button2);
+            Controls.Add(OrdenSeleccionCmb);
+            Controls.Add(CancelarBtn);
+            Controls.Add(ConfirmarBtn);
             Controls.Add(OrdenExt_List);
             Margin = new Padding(3, 2, 3, 2);
             Name = "SeleccionProductosForm";
             Text = "SeleccionProductosForm";
+            Load += SeleccionProductosForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -127,9 +131,9 @@
         private ColumnHeader Producto;
         private ColumnHeader Cantidad;
         private ColumnHeader Ubicacion;
-        private Button button2;
-        private Button button5;
-        private ComboBox comboBox1;
+        private Button ConfirmarBtn;
+        private Button CancelarBtn;
+        private ComboBox OrdenSeleccionCmb;
         private Label label1;
     }
 }

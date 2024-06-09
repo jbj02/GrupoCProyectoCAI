@@ -34,17 +34,24 @@
             Estado = new ColumnHeader();
             Cliente = new ColumnHeader();
             Prioridad = new ColumnHeader();
-            Fecha_Creacion = new ColumnHeader();
-            Fecha_Entrega = new ColumnHeader();
+            FechaAlta = new ColumnHeader();
+            FechaDespacho = new ColumnHeader();
             SeleccionarBtn = new Button();
             ProductoList = new ListView();
             Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
+<<<<<<< HEAD
             CancelarBtn = new Button();
             NumeroOrdenInternaBuscarText = new TextBox();
             label1 = new Label();
             button1 = new Button();
+=======
+            CancelarDatosOrdenBtn = new Button();
+>>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             label2 = new Label();
+            button1 = new Button();
+            label1 = new Label();
+            NumeroOrdenInternaBuscarText = new TextBox();
             SuspendLayout();
             // 
             // ConfirmarDatosOrdenBtn
@@ -64,6 +71,7 @@
             // 
             // OrdenesPreparacion_List
             // 
+<<<<<<< HEAD
             OrdenesPreparacion_List.BackColor = SystemColors.GradientActiveCaption;
             OrdenesPreparacion_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, Fecha_Creacion, Fecha_Entrega });
             OrdenesPreparacion_List.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -78,6 +86,18 @@
             OrdenesPreparacion_List.UseCompatibleStateImageBehavior = false;
             OrdenesPreparacion_List.UseWaitCursor = true;
             OrdenesPreparacion_List.View = View.Details;
+=======
+            OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, FechaAlta, FechaDespacho });
+            OrdenInt_List.FullRowSelect = true;
+            OrdenInt_List.GridLines = true;
+            OrdenInt_List.Location = new Point(26, 52);
+            OrdenInt_List.MultiSelect = false;
+            OrdenInt_List.Name = "OrdenInt_List";
+            OrdenInt_List.Size = new Size(738, 202);
+            OrdenInt_List.TabIndex = 80;
+            OrdenInt_List.UseCompatibleStateImageBehavior = false;
+            OrdenInt_List.View = View.Details;
+>>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
             // N_Orden
             // 
@@ -102,17 +122,27 @@
             Prioridad.TextAlign = HorizontalAlignment.Center;
             Prioridad.Width = 100;
             // 
-            // Fecha_Creacion
+            // FechaAlta
             // 
+<<<<<<< HEAD
             Fecha_Creacion.Text = "Fecha de Alta";
             Fecha_Creacion.TextAlign = HorizontalAlignment.Center;
             Fecha_Creacion.Width = 140;
+=======
+            FechaAlta.Text = "Fecha de Alta";
+            FechaAlta.Width = 140;
+>>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
-            // Fecha_Entrega
+            // FechaDespacho
             // 
+<<<<<<< HEAD
             Fecha_Entrega.Text = " Fecha de Despacho";
             Fecha_Entrega.TextAlign = HorizontalAlignment.Center;
             Fecha_Entrega.Width = 180;
+=======
+            FechaDespacho.Text = " Fecha de Despacho";
+            FechaDespacho.Width = 140;
+>>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
             // SeleccionarBtn
             // 
@@ -174,8 +204,9 @@
             CancelarBtn.UseWaitCursor = true;
             CancelarBtn.Click += CancelarBtn_Click;
             // 
-            // NumeroOrdenInternaBuscarText
+            // label2
             // 
+<<<<<<< HEAD
             NumeroOrdenInternaBuscarText.Location = new Point(755, 523);
             NumeroOrdenInternaBuscarText.Margin = new Padding(3, 4, 3, 4);
             NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
@@ -192,6 +223,14 @@
             label1.TabIndex = 109;
             label1.Text = "N° Orden";
             label1.UseWaitCursor = true;
+=======
+            label2.AutoSize = true;
+            label2.Location = new Point(26, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(133, 15);
+            label2.TabIndex = 111;
+            label2.Text = "Ordenes de Preparación";
+>>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
             // button1
             // 
@@ -204,8 +243,9 @@
             button1.UseVisualStyleBackColor = true;
             button1.UseWaitCursor = true;
             // 
-            // label2
+            // label1
             // 
+<<<<<<< HEAD
             label2.AutoSize = true;
             label2.BackColor = Color.LightBlue;
             label2.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
@@ -215,6 +255,21 @@
             label2.TabIndex = 111;
             label2.Text = "Ordenes de Preparación";
             label2.UseWaitCursor = true;
+=======
+            label1.AutoSize = true;
+            label1.Location = new Point(823, 36);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 15);
+            label1.TabIndex = 109;
+            label1.Text = "N° Orden";
+            // 
+            // NumeroOrdenInternaBuscarText
+            // 
+            NumeroOrdenInternaBuscarText.Location = new Point(823, 54);
+            NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
+            NumeroOrdenInternaBuscarText.Size = new Size(157, 23);
+            NumeroOrdenInternaBuscarText.TabIndex = 104;
+>>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
             // PrepararOrdenForm
             // 
@@ -249,17 +304,24 @@
         private ColumnHeader Cliente;
         private ColumnHeader Prioridad;
         private ColumnHeader Estado;
-        private ColumnHeader Fecha_Creacion;
+        private ColumnHeader FechaAlta;
         private Button SeleccionarBtn;
         private Button CancelarBusquedaBtn;
+<<<<<<< HEAD
         private TextBox NumeroOrdenInternaBuscarText;
         private Button CancelarBtn;
         private ColumnHeader Fecha_Entrega;
         private ListView ProductoList;
+=======
+        private Button CancelarDatosOrdenBtn;
+        private ColumnHeader FechaDespacho;
+        private ListView listView1;
+>>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
         private ColumnHeader Producto;
         private ColumnHeader Cantidad;
-        private Label label1;
-        private Button button1;
         private Label label2;
+        private Button button1;
+        private Label label1;
+        private TextBox NumeroOrdenInternaBuscarText;
     }
 }

@@ -129,9 +129,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(143, 185);
             label6.Name = "label6";
-            label6.Size = new Size(97, 15);
+            label6.Size = new Size(108, 15);
             label6.TabIndex = 132;
-            label6.Text = "Fecha de entrega";
+            label6.Text = "Fecha de despacho";
             // 
             // textBox1
             // 
@@ -196,9 +196,9 @@
             label5.AutoSize = true;
             label5.Location = new Point(5, 185);
             label5.Name = "label5";
-            label5.Size = new Size(104, 15);
+            label5.Size = new Size(78, 15);
             label5.TabIndex = 111;
-            label5.Text = "Fecha de Creación";
+            label5.Text = "Fecha de Alta";
             // 
             // label3
             // 

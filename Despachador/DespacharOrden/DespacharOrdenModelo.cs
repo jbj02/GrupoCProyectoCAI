@@ -4,54 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrupoCProyectoCAI.Despachador.Modificar
+namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 {
     internal class DespacharOrdenModelo
     {
-        public List<OrdenInt> OrdenesInternas { get; set; }
+        public List<OrdenPreparacion> OrdenesPreparadas { get; set; }
 
         // Creamos un constructor para cargarle datos y probar el prototipo de forma aislada
         public DespacharOrdenModelo()
         {
-            OrdenesInternas = new List<OrdenInt>()
+            OrdenesPreparadas = new List<OrdenPreparacion>()
             {
-                new OrdenInt
+                new OrdenPreparacion
                 {
-                    NumOrdenInt = 65839573,
-                    NumOrdenExt = 25462357,
-                    TipoProducto = "Producto A",
-                    Cantidad = 2,
+                    NumOrden = 65839573,
                     Cliente = "Mercado Libre",
-                    Prioridad = "Alta",
-                    FechaCreacion = new DateTime(2024,5,15),
-                    FechaModificacion = new DateTime(2024,5,16),
-                    Estado = "Preparada"
+                    Transportista = "Andreani",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024,6,18)
                 },
-                new OrdenInt
+                new OrdenPreparacion
                 {
-                    NumOrdenInt = 74949275,
-                    NumOrdenExt = 98765432,
-                    TipoProducto = "Producto B",
-                    Cantidad = 5,
+                    NumOrden = 35673863,
                     Cliente = "Amazon",
-                    Prioridad = "Media",
-                    FechaCreacion = new DateTime(2024, 5, 16),
-                    FechaModificacion = new DateTime(2024,5,17),
-                    Estado = "Preparada"
+                    Transportista = "CorreoArgentino",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024,6,20)
                 },
-                new OrdenInt
+                new OrdenPreparacion
                 {
-                    NumOrdenInt = 67594852,
-                    NumOrdenExt = 12345678,
-                    TipoProducto = "Producto C",
-                    Cantidad = 3,
-                    Cliente = "Walmart",
-                    Prioridad = "Baja",
-                    FechaCreacion = new DateTime(2024, 5, 17),
-                    FechaModificacion = new DateTime(2024,5,17),
-                    Estado = "Preparada"
+                    NumOrden = 257843,
+                    Cliente = "Coto",
+                    Transportista = "Andreani",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024,6,20)
                 }
             };
+        }
+
+        public bool ValidarRangoFecha(DateTime fecha)
+        {
+            if(fecha < DateTime.Now)
+            {
+                return false;
+            }else
+            {
+                return true;
+            }
         }
     }
 }

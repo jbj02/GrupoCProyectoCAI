@@ -1,4 +1,4 @@
-﻿namespace GrupoCProyectoCAI.Despachador.Modificar
+﻿namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 {
     partial class DespacharOrdenForm
     {
@@ -30,42 +30,41 @@
         {
             groupBox2 = new GroupBox();
             label9 = new Label();
-            NumeroOrdenInternaBuscarText = new TextBox();
-            BuscarBtn = new Button();
+            TransportistaTxt = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
-            SeleccionarBtn = new Button();
-            OrdenInt_List = new ListView();
+            FiltrarBtn = new Button();
+            FechaDespachoTxt = new TextBox();
+            SelecionarBtn = new Button();
+            ConfirmarYRemitoBtn = new Button();
+            OrdenesPreparadasList = new ListView();
             N_Orden = new ColumnHeader();
-            Estado = new ColumnHeader();
             Cliente = new ColumnHeader();
             Transportista = new ColumnHeader();
-            FechaEntrega = new ColumnHeader();
-            button2 = new Button();
+            FechaDespacho = new ColumnHeader();
+            CancelarBtn = new Button();
             label2 = new Label();
             label5 = new Label();
-            listView1 = new ListView();
+            OrdenesDespachadasList = new ListView();
             columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
             columnHeader5 = new ColumnHeader();
-            button3 = new Button();
-            button4 = new Button();
+            DesseleccionarBtn = new Button();
+            SeleccionarTodasBtn = new Button();
+            ReestablecerBtn = new Button();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(NumeroOrdenInternaBuscarText);
+            groupBox2.Controls.Add(TransportistaTxt);
             groupBox2.Controls.Add(label1);
-            groupBox2.Controls.Add(BuscarBtn);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(FiltrarBtn);
+            groupBox2.Controls.Add(FechaDespachoTxt);
             groupBox2.Location = new Point(12, 18);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(317, 129);
+            groupBox2.Size = new Size(305, 129);
             groupBox2.TabIndex = 107;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filtrar";
@@ -79,78 +78,76 @@
             label9.TabIndex = 105;
             label9.Text = "Transportista";
             // 
-            // NumeroOrdenInternaBuscarText
+            // TransportistaTxt
             // 
-            NumeroOrdenInternaBuscarText.Location = new Point(22, 37);
-            NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
-            NumeroOrdenInternaBuscarText.Size = new Size(132, 23);
-            NumeroOrdenInternaBuscarText.TabIndex = 104;
-            // 
-            // BuscarBtn
-            // 
-            BuscarBtn.Location = new Point(174, 57);
-            BuscarBtn.Name = "BuscarBtn";
-            BuscarBtn.Size = new Size(80, 28);
-            BuscarBtn.TabIndex = 106;
-            BuscarBtn.Text = "Filtrar";
-            BuscarBtn.UseVisualStyleBackColor = true;
+            TransportistaTxt.Location = new Point(22, 37);
+            TransportistaTxt.Name = "TransportistaTxt";
+            TransportistaTxt.Size = new Size(132, 23);
+            TransportistaTxt.TabIndex = 104;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(22, 64);
             label1.Name = "label1";
-            label1.Size = new Size(97, 15);
+            label1.Size = new Size(109, 15);
             label1.TabIndex = 108;
-            label1.Text = "Fecha de Entrega";
+            label1.Text = "Fecha de Despacho";
             // 
-            // textBox1
+            // FiltrarBtn
             // 
-            textBox1.Location = new Point(22, 82);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(132, 23);
-            textBox1.TabIndex = 107;
+            FiltrarBtn.Location = new Point(174, 57);
+            FiltrarBtn.Name = "FiltrarBtn";
+            FiltrarBtn.Size = new Size(80, 28);
+            FiltrarBtn.TabIndex = 106;
+            FiltrarBtn.Text = "Filtrar";
+            FiltrarBtn.UseVisualStyleBackColor = true;
+            FiltrarBtn.Click += FiltrarBtn_Click;
             // 
-            // button1
+            // FechaDespachoTxt
             // 
-            button1.Location = new Point(237, 404);
-            button1.Name = "button1";
-            button1.Size = new Size(80, 28);
-            button1.TabIndex = 109;
-            button1.Text = "Seleccionar";
-            button1.UseVisualStyleBackColor = true;
+            FechaDespachoTxt.Location = new Point(22, 82);
+            FechaDespachoTxt.Name = "FechaDespachoTxt";
+            FechaDespachoTxt.Size = new Size(132, 23);
+            FechaDespachoTxt.TabIndex = 107;
             // 
-            // SeleccionarBtn
+            // SelecionarBtn
             // 
-            SeleccionarBtn.Location = new Point(355, 471);
-            SeleccionarBtn.Name = "SeleccionarBtn";
-            SeleccionarBtn.Size = new Size(308, 31);
-            SeleccionarBtn.TabIndex = 105;
-            SeleccionarBtn.Text = "Confirmar + Generar remito (en archivo)";
-            SeleccionarBtn.UseVisualStyleBackColor = true;
+            SelecionarBtn.Location = new Point(350, 404);
+            SelecionarBtn.Name = "SelecionarBtn";
+            SelecionarBtn.Size = new Size(80, 28);
+            SelecionarBtn.TabIndex = 109;
+            SelecionarBtn.Text = "Seleccionar";
+            SelecionarBtn.UseVisualStyleBackColor = true;
+            SelecionarBtn.Click += SeleccionarBtn_Click;
             // 
-            // OrdenInt_List
+            // ConfirmarYRemitoBtn
             // 
-            OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Transportista, FechaEntrega });
-            OrdenInt_List.FullRowSelect = true;
-            OrdenInt_List.GridLines = true;
-            OrdenInt_List.Location = new Point(12, 185);
-            OrdenInt_List.MultiSelect = false;
-            OrdenInt_List.Name = "OrdenInt_List";
-            OrdenInt_List.Size = new Size(317, 202);
-            OrdenInt_List.TabIndex = 104;
-            OrdenInt_List.UseCompatibleStateImageBehavior = false;
-            OrdenInt_List.View = View.Details;
+            ConfirmarYRemitoBtn.Location = new Point(585, 463);
+            ConfirmarYRemitoBtn.Name = "ConfirmarYRemitoBtn";
+            ConfirmarYRemitoBtn.Size = new Size(308, 31);
+            ConfirmarYRemitoBtn.TabIndex = 105;
+            ConfirmarYRemitoBtn.Text = "Confirmar + Generar remito (en archivo)";
+            ConfirmarYRemitoBtn.UseVisualStyleBackColor = true;
+            ConfirmarYRemitoBtn.Click += ConfirmarYRemitoBtn_Click;
+            // 
+            // OrdenesPreparadasList
+            // 
+            OrdenesPreparadasList.Columns.AddRange(new ColumnHeader[] { N_Orden, Cliente, Transportista, FechaDespacho });
+            OrdenesPreparadasList.FullRowSelect = true;
+            OrdenesPreparadasList.GridLines = true;
+            OrdenesPreparadasList.Location = new Point(12, 196);
+            OrdenesPreparadasList.MultiSelect = false;
+            OrdenesPreparadasList.Name = "OrdenesPreparadasList";
+            OrdenesPreparadasList.Size = new Size(418, 202);
+            OrdenesPreparadasList.TabIndex = 104;
+            OrdenesPreparadasList.UseCompatibleStateImageBehavior = false;
+            OrdenesPreparadasList.View = View.Details;
             // 
             // N_Orden
             // 
             N_Orden.Text = "N° Orden";
             N_Orden.Width = 90;
-            // 
-            // Estado
-            // 
-            Estado.Text = "Estado";
-            Estado.Width = 140;
             // 
             // Cliente
             // 
@@ -162,19 +159,20 @@
             Transportista.Text = "Transportista";
             Transportista.Width = 90;
             // 
-            // FechaEntrega
+            // FechaDespacho
             // 
-            FechaEntrega.Text = "Fecha de Entrega";
-            FechaEntrega.Width = 140;
+            FechaDespacho.Text = "Fecha de Despacho";
+            FechaDespacho.Width = 140;
             // 
-            // button2
+            // CancelarBtn
             // 
-            button2.Location = new Point(439, 518);
-            button2.Name = "button2";
-            button2.Size = new Size(224, 31);
-            button2.TabIndex = 108;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = true;
+            CancelarBtn.Location = new Point(669, 510);
+            CancelarBtn.Name = "CancelarBtn";
+            CancelarBtn.Size = new Size(224, 31);
+            CancelarBtn.TabIndex = 108;
+            CancelarBtn.Text = "Cancelar";
+            CancelarBtn.UseVisualStyleBackColor = true;
+            CancelarBtn.Click += CancelarBtn_Click;
             // 
             // label2
             // 
@@ -188,34 +186,29 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(355, 166);
+            label5.Location = new Point(473, 166);
             label5.Name = "label5";
-            label5.Size = new Size(122, 15);
+            label5.Size = new Size(123, 15);
             label5.TabIndex = 111;
-            label5.Text = "Ordenes despachadas";
+            label5.Text = "Ordenes Despachadas";
             // 
-            // listView1
+            // OrdenesDespachadasList
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(355, 185);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new Size(317, 202);
-            listView1.TabIndex = 110;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            OrdenesDespachadasList.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader3, columnHeader4, columnHeader5 });
+            OrdenesDespachadasList.FullRowSelect = true;
+            OrdenesDespachadasList.GridLines = true;
+            OrdenesDespachadasList.Location = new Point(473, 196);
+            OrdenesDespachadasList.MultiSelect = false;
+            OrdenesDespachadasList.Name = "OrdenesDespachadasList";
+            OrdenesDespachadasList.Size = new Size(420, 202);
+            OrdenesDespachadasList.TabIndex = 110;
+            OrdenesDespachadasList.UseCompatibleStateImageBehavior = false;
+            OrdenesDespachadasList.View = View.Details;
             // 
             // columnHeader1
             // 
             columnHeader1.Text = "N° Orden";
             columnHeader1.Width = 90;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Estado";
-            columnHeader2.Width = 140;
             // 
             // columnHeader3
             // 
@@ -229,45 +222,58 @@
             // 
             // columnHeader5
             // 
-            columnHeader5.Text = "Fecha de Entrega";
+            columnHeader5.Text = "Fecha de Despacho";
             columnHeader5.Width = 140;
             // 
-            // button3
+            // DesseleccionarBtn
             // 
-            button3.Location = new Point(570, 404);
-            button3.Name = "button3";
-            button3.Size = new Size(102, 28);
-            button3.TabIndex = 112;
-            button3.Text = "Deseleccionar";
-            button3.UseVisualStyleBackColor = true;
+            DesseleccionarBtn.Location = new Point(791, 404);
+            DesseleccionarBtn.Name = "DesseleccionarBtn";
+            DesseleccionarBtn.Size = new Size(102, 28);
+            DesseleccionarBtn.TabIndex = 112;
+            DesseleccionarBtn.Text = "Deseleccionar";
+            DesseleccionarBtn.UseVisualStyleBackColor = true;
+            DesseleccionarBtn.Click += DesseleccionarBtn_Click;
             // 
-            // button4
+            // SeleccionarTodasBtn
             // 
-            button4.Location = new Point(103, 404);
-            button4.Name = "button4";
-            button4.Size = new Size(128, 28);
-            button4.TabIndex = 113;
-            button4.Text = "Seleccionar todas";
-            button4.UseVisualStyleBackColor = true;
+            SeleccionarTodasBtn.Location = new Point(216, 404);
+            SeleccionarTodasBtn.Name = "SeleccionarTodasBtn";
+            SeleccionarTodasBtn.Size = new Size(128, 28);
+            SeleccionarTodasBtn.TabIndex = 113;
+            SeleccionarTodasBtn.Text = "Seleccionar todas";
+            SeleccionarTodasBtn.UseVisualStyleBackColor = true;
+            SeleccionarTodasBtn.Click += SeleccionarTodasBtn_Click;
+            // 
+            // ReestablecerBtn
+            // 
+            ReestablecerBtn.Location = new Point(118, 404);
+            ReestablecerBtn.Name = "ReestablecerBtn";
+            ReestablecerBtn.Size = new Size(92, 28);
+            ReestablecerBtn.TabIndex = 114;
+            ReestablecerBtn.Text = "Reestablecer";
+            ReestablecerBtn.UseVisualStyleBackColor = true;
+            ReestablecerBtn.Click += ReestablecerBtn_Click;
             // 
             // DespacharOrdenForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(704, 574);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            ClientSize = new Size(915, 574);
+            Controls.Add(ReestablecerBtn);
+            Controls.Add(SeleccionarTodasBtn);
+            Controls.Add(DesseleccionarBtn);
             Controls.Add(label5);
-            Controls.Add(button1);
-            Controls.Add(listView1);
+            Controls.Add(SelecionarBtn);
+            Controls.Add(OrdenesDespachadasList);
             Controls.Add(label2);
-            Controls.Add(button2);
+            Controls.Add(CancelarBtn);
             Controls.Add(groupBox2);
-            Controls.Add(SeleccionarBtn);
-            Controls.Add(OrdenInt_List);
+            Controls.Add(ConfirmarYRemitoBtn);
+            Controls.Add(OrdenesPreparadasList);
             Name = "DespacharOrdenForm";
             Text = "DespacharOrdenForm";
-            Load += ModificarDespachadorForm_Load;
+            Load += DespacharOrdenForm_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
@@ -278,8 +284,8 @@
 
         private GroupBox groupBox2;
         private Label label9;
-        private TextBox NumeroOrdenInternaBuscarText;
-        private Button BuscarBtn;
+        private TextBox TransportistaTxt;
+        private Button FiltrarBtn;
         private TextBox NumOrdenIntText;
         private TextBox NumOrdExtText;
         private Label label3;
@@ -288,8 +294,8 @@
         private Label label4;
         private TextBox TipoDeProductoText;
         private CheckBox checkBox1;
-        private Button SeleccionarBtn;
-        private ListView OrdenInt_List;
+        private Button ConfirmarYRemitoBtn;
+        private ListView OrdenesPreparadasList;
         private ColumnHeader N_Orden;
         private ColumnHeader N_Orden_Ext;
         private ColumnHeader N_Orden_In;
@@ -297,7 +303,7 @@
         private ColumnHeader Cantidades;
         private ColumnHeader Cliente;
         private ColumnHeader Estado;
-        private ColumnHeader FechaEntrega;
+        private ColumnHeader FechaDespacho;
 
         public ColumnHeader Fecha_Entrega { get; private set; }
 
@@ -305,18 +311,19 @@
         private Button CancelarBoton;
         private ColumnHeader Transportista;
         private Label label1;
-        private TextBox textBox1;
-        private Button button1;
-        private Button button2;
+        private TextBox FechaDespachoTxt;
+        private Button SelecionarBtn;
         private Label label2;
         private Label label5;
-        private ListView listView1;
+        private ListView OrdenesDespachadasList;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
-        private Button button3;
-        private Button button4;
+        private Button DesseleccionarBtn;
+        private Button SeleccionarTodasBtn;
+        private Button CancelarBtn;
+        private Button ReestablecerBtn;
     }
 }

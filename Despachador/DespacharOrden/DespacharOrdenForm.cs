@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,127 +9,209 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GrupoCProyectoCAI.Despachador.Modificar
+namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 {
     public partial class DespacharOrdenForm : Form
     {
 
-        DespacharOrdenModelo modificarModelo = new();
+        DespacharOrdenModelo despacharOrdenModelo = new();
 
         public DespacharOrdenForm()
         {
             InitializeComponent();
         }
 
-        private void ModificarDespachadorForm_Load(object sender, EventArgs e)
+        private void DespacharOrdenForm_Load(object sender, EventArgs e)
         {
-            CargarListaOrdenesInternas();
+            CargarListaOrdenesPreparadas();
         }
 
-        private void CargarListaOrdenesInternas()
+        private void CargarListaOrdenesPreparadas()
         {
-            OrdenInt_List.Items.Clear();
+            OrdenesPreparadasList.Items.Clear();
 
-            foreach (var ordenInterna in modificarModelo.OrdenesInternas)
+            foreach (var ordenpreparada in despacharOrdenModelo.OrdenesPreparadas)
             {
                 var fila = new ListViewItem();
                 // le cargamos los datos a la fila
-                fila.Text = ordenInterna.NumOrdenExt.ToString();
-                fila.SubItems.Add(ordenInterna.NumOrdenInt.ToString());
-                fila.SubItems.Add(ordenInterna.TipoProducto);
-                fila.SubItems.Add(ordenInterna.Cantidad.ToString());
-                fila.SubItems.Add(ordenInterna.Cliente);
-                fila.SubItems.Add(ordenInterna.Prioridad);
-                fila.SubItems.Add(ordenInterna.Estado);
-                fila.SubItems.Add(ordenInterna.FechaCreacion.ToString("dd/MM/yyyy"));
-                fila.SubItems.Add(ordenInterna.FechaModificacion.ToString("dd/MM/yyyy"));
-                fila.Tag = ordenInterna; // Permite identificar cuál objeto se está utilizando
+                fila.Text = ordenpreparada.NumOrden.ToString();
+                fila.SubItems.Add(ordenpreparada.Cliente);
+                fila.SubItems.Add(ordenpreparada.Transportista);
+                fila.SubItems.Add(ordenpreparada.FechaDespacho.ToString("dd/MM/yyyy"));
+                fila.Tag = ordenpreparada; // Permite identificar cuál objeto se está utilizando
                 // agregamops fila a la lista
-                OrdenInt_List.Items.Add(fila);
+                OrdenesPreparadasList.Items.Add(fila);
             }
         }
 
-        private void CancelarBoton_Click(object sender, EventArgs e)
+        private void FiltrarBtn_Click(object sender, EventArgs e)
+        {
+            string transportistaFiltro = TransportistaTxt.Text.Trim();
+            DateTime fechaDespachoFiltro = DateTime.MinValue;
+            bool fechaDespachoValida = false;
+
+            // Verificar si ambos campos están vacíos
+            if (string.IsNullOrEmpty(transportistaFiltro) && string.IsNullOrWhiteSpace(FechaDespachoTxt.Text))
+            {
+                MessageBox.Show("Debe ingresar al menos uno de los campos: Transportista o Fecha de Despacho.");
+                return;
+            }
+
+            // Validar y convertir el campo de fecha
+            if (!string.IsNullOrWhiteSpace(FechaDespachoTxt.Text))
+            {
+                if (!DateTime.TryParse(FechaDespachoTxt.Text, out fechaDespachoFiltro))
+                {
+                    MessageBox.Show("Fecha de despacho inválida. Ingrese una fecha válida (ejemplo: 01/01/2024).");
+                    return;
+                }
+
+                bool flagRangoFecha = despacharOrdenModelo.ValidarRangoFecha(fechaDespachoFiltro);
+
+                if (!flagRangoFecha)
+                {
+                    MessageBox.Show("La fecha no puede ser menor a hoy.");
+                    return;
+                }
+            }        
+
+            // Filtra las órdenes según los valores ingresados
+            var ordenesFiltradas = despacharOrdenModelo.OrdenesPreparadas.Where(o => (string.IsNullOrWhiteSpace(transportistaFiltro) || o.Transportista.Contains(transportistaFiltro)) &&
+                            (string.IsNullOrWhiteSpace(FechaDespachoTxt.Text) || o.FechaDespacho.Date == fechaDespachoFiltro.Date)).ToList();
+
+            // Actualiza la ListView con las órdenes filtradas
+            OrdenesPreparadasList.Items.Clear();
+
+            foreach (var orden in ordenesFiltradas)
+            {
+                var item = new ListViewItem(new[]
+                {
+                    orden.NumOrden.ToString(),
+                    orden.Cliente,
+                    orden.Transportista,
+                    orden.FechaDespacho.ToString("dd/MM/yyyy"),
+                });
+
+                item.Tag = orden; // Asignar el objeto OrdenPreparacion al Tag
+                OrdenesPreparadasList.Items.Add(item);
+            }
+
+            if(OrdenesPreparadasList.Items.Count == 0)
+            {
+                MessageBox.Show("No se encontró ninguna órden.");
+            }
+        }
+
+        private void CancelarBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ConfirmarYRemitoBtn_Click(object sender, EventArgs e)
+        {
+            if (OrdenesDespachadasList.Items.Count == 0)
+            {
+                MessageBox.Show("Debe haber por lo menos una órden despachada para confirmarla y generar su remito.");
+            }
+            else
+            {
+                MessageBox.Show("¿Estás seguro que deseas confirmar la orden y generar el/los remito/s?", "Confirmación de orden", MessageBoxButtons.YesNo);
+            }
         }
 
         private void SeleccionarBtn_Click(object sender, EventArgs e)
         {
             // Mensaje en caso de que no seleccione ninguna fila a editar
-            if (OrdenInt_List.SelectedItems.Count == 0)
+            if (OrdenesPreparadasList.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Seleccione un item de la lista primero.");
                 return;
             }
 
-            // Creamos variable que apunte a la orden interna de la fila seleccionada
-            var ordenSeleccionada = (OrdenInt)OrdenInt_List.SelectedItems[0].Tag;
+            // Creamos variable que apunte a la orden de la fila seleccionada
+            var ordenSeleccionada = (OrdenPreparacion)OrdenesPreparadasList.SelectedItems[0].Tag;
 
-            // Cargamos los datos ingresados
-            NumOrdenIntText.Text = ordenSeleccionada.NumOrdenInt.ToString();
-            NumOrdExtText.Text = ordenSeleccionada.NumOrdenExt.ToString();
-            TipoDeProductoText.Text = ordenSeleccionada.TipoProducto;
-            CantidadText.Text = ordenSeleccionada.Cantidad.ToString();
-            //ClienteText.Text = ordenSeleccionada.Cliente;
-            //PrioridadText.Text = ordenSeleccionada.Prioridad;
-            //FechaCreacionDT.Text = ordenSeleccionada.FechaCreacion.ToString("dd/MM/yyyy");
-            //FechaModificacionDT.Text = ordenSeleccionada.FechaModificacion.ToString("dd/MM/yyyy");
-            //EstadoCB.SelectedItem = ordenSeleccionada.Estado.ToString();
+            OrdenPreparacion orden = new OrdenPreparacion
+            {
+                NumOrden = ordenSeleccionada.NumOrden,
+                Cliente = ordenSeleccionada.Cliente,
+                Transportista = ordenSeleccionada.Transportista,
+                Estado = "Despachada",
+                FechaDespacho = ordenSeleccionada.FechaDespacho
+            };
 
-            //DatosOrdenGroup.Enabled = true;
+            ListViewItem ordenLV = OrdenesPreparadasList.SelectedItems[0];
+            OrdenesPreparadasList.Items.Remove(ordenLV);
+
+            // Asignar el objeto OrdenPreparacion actualizado al Tag
+            ordenLV.Tag = orden;
+
+            // agregamops fila a la lista
+            OrdenesDespachadasList.Items.Add(ordenLV);
         }
 
-        private void BuscarBtn_Click(object sender, EventArgs e)
+        private void SeleccionarTodasBtn_Click(object sender, EventArgs e)
         {
-            // Busca si se encuentran coincidencias con el número de orden interna ingresada, genera un mensaje si no encuentra coincidencias
-            bool seEncontraronCoincidencias = false; // creamos una flag que verifique que se encuentre coincidencias
-
-            foreach (var ordenInterna in modificarModelo.OrdenesInternas)
+            foreach (ListViewItem orden in OrdenesPreparadasList.Items)
             {
-                if (NumeroOrdenInternaBuscarText.Text == ordenInterna.NumOrdenInt.ToString())
+                // Crear un objeto OrdenPreparada
+                OrdenPreparacion ordenPreparada = new OrdenPreparacion
                 {
-                    NumOrdenIntText.Text = ordenInterna.NumOrdenInt.ToString();
-                    NumOrdExtText.Text = ordenInterna.NumOrdenExt.ToString();
-                    TipoDeProductoText.Text = ordenInterna.TipoProducto;
-                    CantidadText.Text = ordenInterna.Cantidad.ToString();
-                    //ClienteText.Text = ordenInterna.Cliente;
-                    //PrioridadText.Text = ordenInterna.Prioridad;
-                    //FechaCreacionDT.Text = ordenInterna.FechaCreacion.ToString("dd/MM/yyyy");
-                    //FechaModificacionDT.Text = ordenInterna.FechaModificacion.ToString("dd/MM/yyyy");
-                    //EstadoCB.SelectedItem = ordenInterna.Estado.ToString();
+                    NumOrden = int.Parse(orden.SubItems[0].Text),
+                    Cliente = orden.SubItems[1].Text,
+                    Transportista = orden.SubItems[2].Text,
+                    Estado = "Despachada",
+                    FechaDespacho = DateTime.Parse(orden.SubItems[3].Text)
+                };
 
-                    //DatosOrdenGroup.Enabled = true;
-                    seEncontraronCoincidencias = true;
-                    break;
-                }
+                // Asignar el objeto OrdenPreparacion actualizado al Tag
+                orden.Tag = ordenPreparada;
+
+                // Se eliminan de la lista OrdenesPreparacionList
+                OrdenesPreparadasList.Items.Remove(orden);
+
+                // Se agrega a la lista OrdenesDespachadasList
+                OrdenesDespachadasList.Items.Add(orden);
             }
+        }
 
-            if (!seEncontraronCoincidencias)
+        private void DesseleccionarBtn_Click(Object sender, EventArgs e)
+        {
+            // Mensaje en caso de que no seleccione ninguna fila
+            if (OrdenesDespachadasList.SelectedItems.Count == 0)
             {
-                MessageBox.Show("No se encontró ninguna coincidencia");
+                MessageBox.Show("Seleccione un item de la lista primero.");
                 return;
             }
+
+            // Creamos variable que apunte a la orden de la fila seleccionada
+            var ordenSeleccionada = (OrdenPreparacion)OrdenesDespachadasList.SelectedItems[0].Tag;
+
+            OrdenPreparacion orden = new OrdenPreparacion
+            {
+                NumOrden = ordenSeleccionada.NumOrden,
+                Cliente = ordenSeleccionada.Cliente,
+                Transportista = ordenSeleccionada.Transportista,
+                Estado = "Preparada",
+                FechaDespacho = ordenSeleccionada.FechaDespacho
+            };
+
+            ListViewItem ordenLV = OrdenesDespachadasList.SelectedItems[0];
+            OrdenesDespachadasList.Items.Remove(ordenLV);
+
+            // Asignar el objeto OrdenPreparacion actualizado al Tag
+            ordenLV.Tag = orden;
+
+            // agregamops fila a la lista
+            OrdenesPreparadasList.Items.Add(ordenLV);
         }
 
-        private void AceptarDatosOrdenBtn_Click(object sender, EventArgs e)
+        private void ReestablecerBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("¿Estás seguro que deseas modificar la orden?", "Confirmación modifiación", MessageBoxButtons.YesNo);
-        }
-
-        private void CancelarDatosOrdenBtn_Click(object sender, EventArgs e)
-        {
-            NumOrdenIntText.Text = string.Empty;
-            NumOrdExtText.Text = string.Empty;
-            TipoDeProductoText.Text = string.Empty;
-            CantidadText.Text = string.Empty;
-            //ClienteText.Text = string.Empty;
-            //PrioridadText.Text = string.Empty;
-            //FechaCreacionDT.Text = string.Empty;
-            //FechaModificacionDT.Text = string.Empty;
-            //EstadoCB.SelectedItem = string.Empty;
-
-            //DatosOrdenGroup.Enabled = false;
-        }
+            CargarListaOrdenesPreparadas();
+            
+            TransportistaTxt.Clear();
+            FechaDespachoTxt.Clear();
+        }        
     }
 }
