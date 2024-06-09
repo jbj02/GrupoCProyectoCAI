@@ -1,4 +1,4 @@
-﻿namespace GrupoCProyectoCAI.Preparador.Modificar
+﻿namespace GrupoCProyectoCAI.Preparador.PrepararOrden
 {
     partial class PrepararOrdenForm
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             ConfirmarDatosOrdenBtn = new Button();
-            OrdenInt_List = new ListView();
+            OrdenesPreparacion_List = new ListView();
             N_Orden = new ColumnHeader();
             Estado = new ColumnHeader();
             Cliente = new ColumnHeader();
@@ -37,10 +37,10 @@
             Fecha_Creacion = new ColumnHeader();
             Fecha_Entrega = new ColumnHeader();
             SeleccionarBtn = new Button();
-            listView1 = new ListView();
+            ProductoList = new ListView();
             Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
-            CancelarDatosOrdenBtn = new Button();
+            CancelarBtn = new Button();
             NumeroOrdenInternaBuscarText = new TextBox();
             label1 = new Label();
             button1 = new Button();
@@ -49,26 +49,35 @@
             // 
             // ConfirmarDatosOrdenBtn
             // 
-            ConfirmarDatosOrdenBtn.Location = new Point(823, 260);
+            ConfirmarDatosOrdenBtn.BackColor = Color.PaleGreen;
+            ConfirmarDatosOrdenBtn.FlatStyle = FlatStyle.Popup;
+            ConfirmarDatosOrdenBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            ConfirmarDatosOrdenBtn.Location = new Point(912, 346);
+            ConfirmarDatosOrdenBtn.Margin = new Padding(3, 4, 3, 4);
             ConfirmarDatosOrdenBtn.Name = "ConfirmarDatosOrdenBtn";
-            ConfirmarDatosOrdenBtn.Size = new Size(86, 31);
+            ConfirmarDatosOrdenBtn.Size = new Size(98, 41);
             ConfirmarDatosOrdenBtn.TabIndex = 95;
             ConfirmarDatosOrdenBtn.Text = "Confirmar";
-            ConfirmarDatosOrdenBtn.UseVisualStyleBackColor = true;
-            ConfirmarDatosOrdenBtn.Click += AceptarDatosOrdenBtn_Click;
+            ConfirmarDatosOrdenBtn.UseVisualStyleBackColor = false;
+            ConfirmarDatosOrdenBtn.UseWaitCursor = true;
+            ConfirmarDatosOrdenBtn.Click += ConfirmarDatosOrdenBtn_Click;
             // 
-            // OrdenInt_List
+            // OrdenesPreparacion_List
             // 
-            OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, Fecha_Creacion, Fecha_Entrega });
-            OrdenInt_List.FullRowSelect = true;
-            OrdenInt_List.GridLines = true;
-            OrdenInt_List.Location = new Point(26, 52);
-            OrdenInt_List.MultiSelect = false;
-            OrdenInt_List.Name = "OrdenInt_List";
-            OrdenInt_List.Size = new Size(738, 202);
-            OrdenInt_List.TabIndex = 80;
-            OrdenInt_List.UseCompatibleStateImageBehavior = false;
-            OrdenInt_List.View = View.Details;
+            OrdenesPreparacion_List.BackColor = SystemColors.GradientActiveCaption;
+            OrdenesPreparacion_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, Fecha_Creacion, Fecha_Entrega });
+            OrdenesPreparacion_List.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            OrdenesPreparacion_List.FullRowSelect = true;
+            OrdenesPreparacion_List.GridLines = true;
+            OrdenesPreparacion_List.Location = new Point(30, 69);
+            OrdenesPreparacion_List.Margin = new Padding(3, 4, 3, 4);
+            OrdenesPreparacion_List.MultiSelect = false;
+            OrdenesPreparacion_List.Name = "OrdenesPreparacion_List";
+            OrdenesPreparacion_List.Size = new Size(835, 268);
+            OrdenesPreparacion_List.TabIndex = 80;
+            OrdenesPreparacion_List.UseCompatibleStateImageBehavior = false;
+            OrdenesPreparacion_List.UseWaitCursor = true;
+            OrdenesPreparacion_List.View = View.Details;
             // 
             // N_Orden
             // 
@@ -78,129 +87,163 @@
             // Estado
             // 
             Estado.Text = "Estado";
+            Estado.TextAlign = HorizontalAlignment.Center;
             Estado.Width = 140;
             // 
             // Cliente
             // 
             Cliente.Text = "Cliente";
-            Cliente.Width = 120;
+            Cliente.TextAlign = HorizontalAlignment.Center;
+            Cliente.Width = 180;
             // 
             // Prioridad
             // 
             Prioridad.Text = "Prioridad";
+            Prioridad.TextAlign = HorizontalAlignment.Center;
             Prioridad.Width = 100;
             // 
             // Fecha_Creacion
             // 
-            Fecha_Creacion.Text = "Fecha de Creación";
+            Fecha_Creacion.Text = "Fecha de Alta";
+            Fecha_Creacion.TextAlign = HorizontalAlignment.Center;
             Fecha_Creacion.Width = 140;
             // 
             // Fecha_Entrega
             // 
-            Fecha_Entrega.Text = " Fecha de Entrega";
-            Fecha_Entrega.Width = 140;
+            Fecha_Entrega.Text = " Fecha de Despacho";
+            Fecha_Entrega.TextAlign = HorizontalAlignment.Center;
+            Fecha_Entrega.Width = 180;
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.Location = new Point(678, 260);
+            SeleccionarBtn.BackColor = Color.LightGray;
+            SeleccionarBtn.FlatStyle = FlatStyle.Popup;
+            SeleccionarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            SeleccionarBtn.ForeColor = SystemColors.ControlText;
+            SeleccionarBtn.Location = new Point(767, 345);
+            SeleccionarBtn.Margin = new Padding(3, 4, 3, 4);
             SeleccionarBtn.Name = "SeleccionarBtn";
-            SeleccionarBtn.Size = new Size(86, 31);
+            SeleccionarBtn.Size = new Size(98, 41);
             SeleccionarBtn.TabIndex = 101;
             SeleccionarBtn.Text = "Seleccionar";
-            SeleccionarBtn.UseVisualStyleBackColor = true;
+            SeleccionarBtn.UseVisualStyleBackColor = false;
+            SeleccionarBtn.UseWaitCursor = true;
             SeleccionarBtn.Click += SeleccionarBtn_Click;
             // 
-            // listView1
+            // ProductoList
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Producto, Cantidad });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(823, 83);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new Size(237, 171);
-            listView1.TabIndex = 104;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            ProductoList.BackColor = SystemColors.GradientActiveCaption;
+            ProductoList.Columns.AddRange(new ColumnHeader[] { Producto, Cantidad });
+            ProductoList.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ProductoList.FullRowSelect = true;
+            ProductoList.GridLines = true;
+            ProductoList.Location = new Point(912, 69);
+            ProductoList.Margin = new Padding(3, 4, 3, 4);
+            ProductoList.MultiSelect = false;
+            ProductoList.Name = "ProductoList";
+            ProductoList.Size = new Size(296, 268);
+            ProductoList.TabIndex = 104;
+            ProductoList.UseCompatibleStateImageBehavior = false;
+            ProductoList.UseWaitCursor = true;
+            ProductoList.View = View.Details;
             // 
             // Producto
             // 
             Producto.Text = "Producto";
-            Producto.Width = 110;
+            Producto.Width = 140;
             // 
             // Cantidad
             // 
             Cantidad.Text = "Cantidad";
-            Cantidad.Width = 140;
+            Cantidad.TextAlign = HorizontalAlignment.Center;
+            Cantidad.Width = 150;
             // 
-            // CancelarDatosOrdenBtn
+            // CancelarBtn
             // 
-            CancelarDatosOrdenBtn.Location = new Point(974, 260);
-            CancelarDatosOrdenBtn.Name = "CancelarDatosOrdenBtn";
-            CancelarDatosOrdenBtn.Size = new Size(86, 31);
-            CancelarDatosOrdenBtn.TabIndex = 108;
-            CancelarDatosOrdenBtn.Text = "Cancelar";
-            CancelarDatosOrdenBtn.UseVisualStyleBackColor = true;
-            CancelarDatosOrdenBtn.Click += CancelarDatosOrdenBtn_Click;
+            CancelarBtn.BackColor = Color.IndianRed;
+            CancelarBtn.FlatStyle = FlatStyle.Popup;
+            CancelarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            CancelarBtn.ForeColor = SystemColors.ButtonHighlight;
+            CancelarBtn.Location = new Point(1110, 346);
+            CancelarBtn.Margin = new Padding(3, 4, 3, 4);
+            CancelarBtn.Name = "CancelarBtn";
+            CancelarBtn.Size = new Size(98, 41);
+            CancelarBtn.TabIndex = 108;
+            CancelarBtn.Text = "Cancelar";
+            CancelarBtn.UseVisualStyleBackColor = false;
+            CancelarBtn.UseWaitCursor = true;
+            CancelarBtn.Click += CancelarBtn_Click;
             // 
             // NumeroOrdenInternaBuscarText
             // 
-            NumeroOrdenInternaBuscarText.Location = new Point(823, 54);
+            NumeroOrdenInternaBuscarText.Location = new Point(755, 523);
+            NumeroOrdenInternaBuscarText.Margin = new Padding(3, 4, 3, 4);
             NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
-            NumeroOrdenInternaBuscarText.Size = new Size(157, 23);
+            NumeroOrdenInternaBuscarText.Size = new Size(179, 27);
             NumeroOrdenInternaBuscarText.TabIndex = 104;
+            NumeroOrdenInternaBuscarText.UseWaitCursor = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(823, 36);
+            label1.Location = new Point(755, 499);
             label1.Name = "label1";
-            label1.Size = new Size(57, 15);
+            label1.Size = new Size(71, 20);
             label1.TabIndex = 109;
             label1.Text = "N° Orden";
+            label1.UseWaitCursor = true;
             // 
             // button1
             // 
-            button1.Location = new Point(985, 53);
+            button1.Location = new Point(953, 519);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(86, 31);
             button1.TabIndex = 110;
             button1.Text = "Buscar";
             button1.UseVisualStyleBackColor = true;
+            button1.UseWaitCursor = true;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(26, 34);
+            label2.BackColor = Color.LightBlue;
+            label2.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label2.Location = new Point(30, 41);
             label2.Name = "label2";
-            label2.Size = new Size(120, 15);
+            label2.Size = new Size(218, 21);
             label2.TabIndex = 111;
-            label2.Text = "Ordenes de Selección";
+            label2.Text = "Ordenes de Preparación";
+            label2.UseWaitCursor = true;
             // 
             // PrepararOrdenForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1074, 299);
+            BackColor = Color.Linen;
+            BackgroundImageLayout = ImageLayout.None;
+            ClientSize = new Size(1246, 405);
             Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(NumeroOrdenInternaBuscarText);
-            Controls.Add(CancelarDatosOrdenBtn);
-            Controls.Add(listView1);
+            Controls.Add(CancelarBtn);
+            Controls.Add(ProductoList);
             Controls.Add(ConfirmarDatosOrdenBtn);
             Controls.Add(SeleccionarBtn);
-            Controls.Add(OrdenInt_List);
+            Controls.Add(OrdenesPreparacion_List);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "PrepararOrdenForm";
             Text = "PrepararOrdenForm";
-            Load += ModificarPreparadorForm_Load;
+            UseWaitCursor = true;
+            Load += PrepararOrdenForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Button ConfirmarDatosOrdenBtn;
-        private ListView OrdenInt_List;
+        private ListView OrdenesPreparacion_List;
         private ColumnHeader N_Orden_Ext;
         private ColumnHeader N_Orden;
         private ColumnHeader Cliente;
@@ -210,9 +253,9 @@
         private Button SeleccionarBtn;
         private Button CancelarBusquedaBtn;
         private TextBox NumeroOrdenInternaBuscarText;
-        private Button CancelarDatosOrdenBtn;
+        private Button CancelarBtn;
         private ColumnHeader Fecha_Entrega;
-        private ListView listView1;
+        private ListView ProductoList;
         private ColumnHeader Producto;
         private ColumnHeader Cantidad;
         private Label label1;
