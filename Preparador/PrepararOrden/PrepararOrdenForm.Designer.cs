@@ -34,24 +34,17 @@
             Estado = new ColumnHeader();
             Cliente = new ColumnHeader();
             Prioridad = new ColumnHeader();
-            FechaAlta = new ColumnHeader();
-            FechaDespacho = new ColumnHeader();
+            Fecha_Creacion = new ColumnHeader();
+            Fecha_Entrega = new ColumnHeader();
             SeleccionarBtn = new Button();
             ProductoList = new ListView();
             Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
-<<<<<<< HEAD
             CancelarBtn = new Button();
             NumeroOrdenInternaBuscarText = new TextBox();
             label1 = new Label();
             button1 = new Button();
-=======
-            CancelarDatosOrdenBtn = new Button();
->>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             label2 = new Label();
-            button1 = new Button();
-            label1 = new Label();
-            NumeroOrdenInternaBuscarText = new TextBox();
             SuspendLayout();
             // 
             // ConfirmarDatosOrdenBtn
@@ -59,10 +52,9 @@
             ConfirmarDatosOrdenBtn.BackColor = Color.PaleGreen;
             ConfirmarDatosOrdenBtn.FlatStyle = FlatStyle.Popup;
             ConfirmarDatosOrdenBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            ConfirmarDatosOrdenBtn.Location = new Point(912, 346);
-            ConfirmarDatosOrdenBtn.Margin = new Padding(3, 4, 3, 4);
+            ConfirmarDatosOrdenBtn.Location = new Point(938, 260);
             ConfirmarDatosOrdenBtn.Name = "ConfirmarDatosOrdenBtn";
-            ConfirmarDatosOrdenBtn.Size = new Size(98, 41);
+            ConfirmarDatosOrdenBtn.Size = new Size(86, 31);
             ConfirmarDatosOrdenBtn.TabIndex = 95;
             ConfirmarDatosOrdenBtn.Text = "Confirmar";
             ConfirmarDatosOrdenBtn.UseVisualStyleBackColor = false;
@@ -71,33 +63,19 @@
             // 
             // OrdenesPreparacion_List
             // 
-<<<<<<< HEAD
             OrdenesPreparacion_List.BackColor = SystemColors.GradientActiveCaption;
             OrdenesPreparacion_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, Fecha_Creacion, Fecha_Entrega });
             OrdenesPreparacion_List.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
             OrdenesPreparacion_List.FullRowSelect = true;
             OrdenesPreparacion_List.GridLines = true;
-            OrdenesPreparacion_List.Location = new Point(30, 69);
-            OrdenesPreparacion_List.Margin = new Padding(3, 4, 3, 4);
+            OrdenesPreparacion_List.Location = new Point(26, 52);
             OrdenesPreparacion_List.MultiSelect = false;
             OrdenesPreparacion_List.Name = "OrdenesPreparacion_List";
-            OrdenesPreparacion_List.Size = new Size(835, 268);
+            OrdenesPreparacion_List.Size = new Size(836, 202);
             OrdenesPreparacion_List.TabIndex = 80;
             OrdenesPreparacion_List.UseCompatibleStateImageBehavior = false;
             OrdenesPreparacion_List.UseWaitCursor = true;
             OrdenesPreparacion_List.View = View.Details;
-=======
-            OrdenInt_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, FechaAlta, FechaDespacho });
-            OrdenInt_List.FullRowSelect = true;
-            OrdenInt_List.GridLines = true;
-            OrdenInt_List.Location = new Point(26, 52);
-            OrdenInt_List.MultiSelect = false;
-            OrdenInt_List.Name = "OrdenInt_List";
-            OrdenInt_List.Size = new Size(738, 202);
-            OrdenInt_List.TabIndex = 80;
-            OrdenInt_List.UseCompatibleStateImageBehavior = false;
-            OrdenInt_List.View = View.Details;
->>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
             // N_Orden
             // 
@@ -122,27 +100,17 @@
             Prioridad.TextAlign = HorizontalAlignment.Center;
             Prioridad.Width = 100;
             // 
-            // FechaAlta
+            // Fecha_Creacion
             // 
-<<<<<<< HEAD
             Fecha_Creacion.Text = "Fecha de Alta";
             Fecha_Creacion.TextAlign = HorizontalAlignment.Center;
             Fecha_Creacion.Width = 140;
-=======
-            FechaAlta.Text = "Fecha de Alta";
-            FechaAlta.Width = 140;
->>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
-            // FechaDespacho
+            // Fecha_Entrega
             // 
-<<<<<<< HEAD
             Fecha_Entrega.Text = " Fecha de Despacho";
             Fecha_Entrega.TextAlign = HorizontalAlignment.Center;
             Fecha_Entrega.Width = 180;
-=======
-            FechaDespacho.Text = " Fecha de Despacho";
-            FechaDespacho.Width = 140;
->>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
             // SeleccionarBtn
             // 
@@ -150,10 +118,9 @@
             SeleccionarBtn.FlatStyle = FlatStyle.Popup;
             SeleccionarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             SeleccionarBtn.ForeColor = SystemColors.ControlText;
-            SeleccionarBtn.Location = new Point(767, 345);
-            SeleccionarBtn.Margin = new Padding(3, 4, 3, 4);
+            SeleccionarBtn.Location = new Point(776, 260);
             SeleccionarBtn.Name = "SeleccionarBtn";
-            SeleccionarBtn.Size = new Size(98, 41);
+            SeleccionarBtn.Size = new Size(86, 31);
             SeleccionarBtn.TabIndex = 101;
             SeleccionarBtn.Text = "Seleccionar";
             SeleccionarBtn.UseVisualStyleBackColor = false;
@@ -167,11 +134,10 @@
             ProductoList.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ProductoList.FullRowSelect = true;
             ProductoList.GridLines = true;
-            ProductoList.Location = new Point(912, 69);
-            ProductoList.Margin = new Padding(3, 4, 3, 4);
+            ProductoList.Location = new Point(938, 52);
             ProductoList.MultiSelect = false;
             ProductoList.Name = "ProductoList";
-            ProductoList.Size = new Size(296, 268);
+            ProductoList.Size = new Size(260, 202);
             ProductoList.TabIndex = 104;
             ProductoList.UseCompatibleStateImageBehavior = false;
             ProductoList.UseWaitCursor = true;
@@ -194,90 +160,62 @@
             CancelarBtn.FlatStyle = FlatStyle.Popup;
             CancelarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             CancelarBtn.ForeColor = SystemColors.ButtonHighlight;
-            CancelarBtn.Location = new Point(1110, 346);
-            CancelarBtn.Margin = new Padding(3, 4, 3, 4);
+            CancelarBtn.Location = new Point(1111, 260);
             CancelarBtn.Name = "CancelarBtn";
-            CancelarBtn.Size = new Size(98, 41);
+            CancelarBtn.Size = new Size(86, 31);
             CancelarBtn.TabIndex = 108;
             CancelarBtn.Text = "Cancelar";
             CancelarBtn.UseVisualStyleBackColor = false;
             CancelarBtn.UseWaitCursor = true;
             CancelarBtn.Click += CancelarBtn_Click;
             // 
-            // label2
+            // NumeroOrdenInternaBuscarText
             // 
-<<<<<<< HEAD
-            NumeroOrdenInternaBuscarText.Location = new Point(755, 523);
-            NumeroOrdenInternaBuscarText.Margin = new Padding(3, 4, 3, 4);
+            NumeroOrdenInternaBuscarText.Location = new Point(661, 392);
             NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
-            NumeroOrdenInternaBuscarText.Size = new Size(179, 27);
+            NumeroOrdenInternaBuscarText.Size = new Size(157, 23);
             NumeroOrdenInternaBuscarText.TabIndex = 104;
             NumeroOrdenInternaBuscarText.UseWaitCursor = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(755, 499);
+            label1.Location = new Point(661, 374);
             label1.Name = "label1";
-            label1.Size = new Size(71, 20);
+            label1.Size = new Size(57, 15);
             label1.TabIndex = 109;
             label1.Text = "N° Orden";
             label1.UseWaitCursor = true;
-=======
-            label2.AutoSize = true;
-            label2.Location = new Point(26, 34);
-            label2.Name = "label2";
-            label2.Size = new Size(133, 15);
-            label2.TabIndex = 111;
-            label2.Text = "Ordenes de Preparación";
->>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
             // button1
             // 
-            button1.Location = new Point(953, 519);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(834, 389);
             button1.Name = "button1";
-            button1.Size = new Size(86, 31);
+            button1.Size = new Size(75, 23);
             button1.TabIndex = 110;
             button1.Text = "Buscar";
             button1.UseVisualStyleBackColor = true;
             button1.UseWaitCursor = true;
             // 
-            // label1
+            // label2
             // 
-<<<<<<< HEAD
             label2.AutoSize = true;
             label2.BackColor = Color.LightBlue;
             label2.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(30, 41);
+            label2.Location = new Point(26, 31);
             label2.Name = "label2";
-            label2.Size = new Size(218, 21);
+            label2.Size = new Size(178, 17);
             label2.TabIndex = 111;
             label2.Text = "Ordenes de Preparación";
             label2.UseWaitCursor = true;
-=======
-            label1.AutoSize = true;
-            label1.Location = new Point(823, 36);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 15);
-            label1.TabIndex = 109;
-            label1.Text = "N° Orden";
-            // 
-            // NumeroOrdenInternaBuscarText
-            // 
-            NumeroOrdenInternaBuscarText.Location = new Point(823, 54);
-            NumeroOrdenInternaBuscarText.Name = "NumeroOrdenInternaBuscarText";
-            NumeroOrdenInternaBuscarText.Size = new Size(157, 23);
-            NumeroOrdenInternaBuscarText.TabIndex = 104;
->>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
             // 
             // PrepararOrdenForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Linen;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1246, 405);
+            ClientSize = new Size(1210, 304);
             Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -287,7 +225,6 @@
             Controls.Add(ConfirmarDatosOrdenBtn);
             Controls.Add(SeleccionarBtn);
             Controls.Add(OrdenesPreparacion_List);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "PrepararOrdenForm";
             Text = "PrepararOrdenForm";
             UseWaitCursor = true;
@@ -304,24 +241,17 @@
         private ColumnHeader Cliente;
         private ColumnHeader Prioridad;
         private ColumnHeader Estado;
-        private ColumnHeader FechaAlta;
+        private ColumnHeader Fecha_Creacion;
         private Button SeleccionarBtn;
         private Button CancelarBusquedaBtn;
-<<<<<<< HEAD
         private TextBox NumeroOrdenInternaBuscarText;
         private Button CancelarBtn;
         private ColumnHeader Fecha_Entrega;
         private ListView ProductoList;
-=======
-        private Button CancelarDatosOrdenBtn;
-        private ColumnHeader FechaDespacho;
-        private ListView listView1;
->>>>>>> 4ffd2667fa969ced3b44142c68fae67d24cc873c
         private ColumnHeader Producto;
         private ColumnHeader Cantidad;
-        private Label label2;
-        private Button button1;
         private Label label1;
-        private TextBox NumeroOrdenInternaBuscarText;
+        private Button button1;
+        private Label label2;
     }
 }
