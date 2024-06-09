@@ -38,6 +38,41 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                     ClienteP = "Walmart",
                     PrioridadP = "Baja",
                     FechaDespacho = new DateTime(2024, 5, 17)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrdenP = 77778888,
+                    ClienteP = "Librería",
+                    PrioridadP = "Alta",
+                    FechaDespacho = new DateTime(2024, 5, 28)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrdenP = 99990000,
+                    ClienteP = "Joyería",
+                    PrioridadP = "Media",
+                    FechaDespacho = new DateTime(2024, 5, 30)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrdenP = 24681357,
+                    ClienteP = "Zapatería",
+                    PrioridadP = "Baja",
+                    FechaDespacho = new DateTime(2024, 6, 2)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrdenP = 13579246,
+                    ClienteP = "Electrohogar",
+                    PrioridadP = "Alta",
+                    FechaDespacho = new DateTime(2024, 6, 5)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrdenP = 12348765,
+                    ClienteP = "Mueblería ModernaP",
+                    PrioridadP = "MediaP",
+                    FechaDespacho = new DateTime(2024, 6, 10)
                 }
             };
         }
@@ -107,13 +142,6 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             {
                 return "";
             }
-        }
-
-        public int GenerarID()
-        {
-            int currentID = 0;
-            currentID++;
-            return currentID;
-        }            
+        }          
     }
 }

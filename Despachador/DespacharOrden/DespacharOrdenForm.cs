@@ -32,15 +32,25 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
             foreach (var ordenpreparada in despacharOrdenModelo.OrdenesPreparadas)
             {
-                var fila = new ListViewItem();
-                // le cargamos los datos a la fila
-                fila.Text = ordenpreparada.NumOrden.ToString();
-                fila.SubItems.Add(ordenpreparada.Cliente);
-                fila.SubItems.Add(ordenpreparada.Transportista);
-                fila.SubItems.Add(ordenpreparada.FechaDespacho.ToString("dd/MM/yyyy"));
-                fila.Tag = ordenpreparada; // Permite identificar cuál objeto se está utilizando
-                // agregamops fila a la lista
-                OrdenesPreparadasList.Items.Add(fila);
+                // Verifica si la orden no está en la lista de despachadas
+                bool noEstaEnDespachadas = !OrdenesDespachadasList.Items.Cast<ListViewItem>()
+                    .Any(item => ((OrdenPreparacion)item.Tag).NumOrden == ordenpreparada.NumOrden);
+
+                if(noEstaEnDespachadas)
+                {
+                    if (ordenpreparada.Estado == "Preparada")
+                    {
+                        var fila = new ListViewItem();
+                        // Cargamos los datos a la fila
+                        fila.Text = ordenpreparada.NumOrden.ToString();
+                        fila.SubItems.Add(ordenpreparada.Cliente);
+                        fila.SubItems.Add(ordenpreparada.Transportista);
+                        fila.SubItems.Add(ordenpreparada.FechaDespacho.ToString("dd/MM/yyyy"));
+                        fila.Tag = ordenpreparada; // Permite identificar cuál objeto se está utilizando
+                                                   // Agregamos la fila a la lista
+                        OrdenesPreparadasList.Items.Add(fila);
+                    }
+                }                
             }
         }
 
@@ -84,16 +94,23 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
             foreach (var orden in ordenesFiltradas)
             {
-                var item = new ListViewItem(new[]
-                {
-                    orden.NumOrden.ToString(),
-                    orden.Cliente,
-                    orden.Transportista,
-                    orden.FechaDespacho.ToString("dd/MM/yyyy"),
-                });
+                // Verifica si la orden ya está en la lista de despachadas
+                bool existeEnDespachadas = OrdenesDespachadasList.Items.Cast<ListViewItem>()
+                    .Any(item => ((OrdenPreparacion)item.Tag).NumOrden == orden.NumOrden);
 
-                item.Tag = orden; // Asignar el objeto OrdenPreparacion al Tag
-                OrdenesPreparadasList.Items.Add(item);
+                if (!existeEnDespachadas)
+                {
+                    var item = new ListViewItem(new[]
+                    {
+                orden.NumOrden.ToString(),
+                orden.Cliente,
+                orden.Transportista,
+                orden.FechaDespacho.ToString("dd/MM/yyyy"),
+            });
+
+                    item.Tag = orden; // Asignar el objeto OrdenPreparacion al Tag
+                    OrdenesPreparadasList.Items.Add(item);
+                }
             }
 
             if(OrdenesPreparadasList.Items.Count == 0)

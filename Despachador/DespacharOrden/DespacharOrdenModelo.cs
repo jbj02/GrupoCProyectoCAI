@@ -38,6 +38,62 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                     Transportista = "Andreani",
                     Estado = "Preparada",
                     FechaDespacho = new DateTime(2024,6,20)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrden = 12345678,
+                    Cliente = "Walmart",
+                    Transportista = "OCA",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024, 6, 21)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrden = 87654321,
+                    Cliente = "Falabella",
+                    Transportista = "CorreoArgentino",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024, 6, 22)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrden = 23456789,
+                    Cliente = "Garbarino",
+                    Transportista = "Andreani",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024, 6, 23)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrden = 98765432,
+                    Cliente = "Frávega",
+                    Transportista = "OCA",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024, 6, 24)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrden = 34567890,
+                    Cliente = "Musimundo",
+                    Transportista = "CorreoArgentino",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024, 6, 25)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrden = 98765431,
+                    Cliente = "Ribeiro",
+                    Transportista = "Andreani",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024, 6, 26)
+                },
+                new OrdenPreparacion
+                {
+                    NumOrden = 45678901,
+                    Cliente = "Compumundo",
+                    Transportista = "OCA",
+                    Estado = "Preparada",
+                    FechaDespacho = new DateTime(2024, 6, 27)
                 }
             };
         }
