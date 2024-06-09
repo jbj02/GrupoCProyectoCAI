@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -16,7 +15,6 @@ namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
 {
     public partial class SeleccionProductosForm : Form
     {
-        
         SeleccionProductosModelo modelo = new();
         public SeleccionProductosForm()
         {
@@ -35,18 +33,12 @@ namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
 
         private void SeleccionProductosForm_Load(object sender, EventArgs e)
         {
-            CargarCMB();
-        }
-        public void CargarCMB()
-        {
             foreach (var orden in modelo.ordenSeleccion)
             {
-                if (orden.Estado == "Pendiente")
-                {
-                    OrdenSeleccionCmb.Items.Add(orden.NumeroOrden);
-                }
+                OrdenSeleccionCmb.Items.Add(orden.NumeroOrden);
             }
         }
+
         private void OrdenSeleccionCmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             OrdenExt_List.Items.Clear();
