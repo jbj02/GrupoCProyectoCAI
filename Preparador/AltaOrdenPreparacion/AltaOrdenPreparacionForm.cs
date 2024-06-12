@@ -1,4 +1,4 @@
-﻿using GrupoCProyectoCAI.Atencion_al_Cliente.AltaOrdenPreparacionForm;
+﻿using GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

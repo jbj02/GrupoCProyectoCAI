@@ -23,6 +23,8 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
         private void DespacharOrdenForm_Load(object sender, EventArgs e)
         {
+            CargarComboBoxTranportista();
+            CargarComboBoxFechaDespacho();
             CargarListaOrdenesPreparadas();
         }
 
@@ -36,7 +38,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                 bool noEstaEnDespachadas = !OrdenesDespachadasList.Items.Cast<ListViewItem>()
                     .Any(item => ((OrdenPreparacion)item.Tag).NumOrden == ordenpreparada.NumOrden);
 
-                if(noEstaEnDespachadas)
+                if (noEstaEnDespachadas)
                 {
                     if (ordenpreparada.Estado == "Preparada")
                     {
@@ -50,27 +52,55 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                                                    // Agregamos la fila a la lista
                         OrdenesPreparadasList.Items.Add(fila);
                     }
+                }
+            }
+        }
+
+        private void CargarComboBoxTranportista()
+        {
+            HashSet<string> transportistasUnicos = new HashSet<string>();
+            TransportistaCB.Items.Clear();
+            TransportistaCB.Items.Add("");
+            foreach (var orden in despacharOrdenModelo.OrdenesPreparadas)
+            {
+                if (transportistasUnicos.Add(orden.Transportista))
+                {
+                    TransportistaCB.Items.Add(orden.Transportista);
+                }
+            }
+        }
+
+        private void CargarComboBoxFechaDespacho()
+        {
+            HashSet<string> fechasDespachoUnicos = new HashSet<string>();
+            FechaDespachoCB.Items.Clear();
+            FechaDespachoCB.Items.Add("");
+            foreach (var orden in despacharOrdenModelo.OrdenesPreparadas)
+            {
+                if (fechasDespachoUnicos.Add(orden.FechaDespacho.ToString("dd/MM/yyyy")))
+                {
+                    FechaDespachoCB.Items.Add(orden.FechaDespacho.ToString("dd/MM/yyyy"));
                 }                
             }
         }
 
         private void FiltrarBtn_Click(object sender, EventArgs e)
         {
-            string transportistaFiltro = TransportistaTxt.Text.Trim();
+            string transportistaFiltro = TransportistaCB.Text.Trim();
             DateTime fechaDespachoFiltro = DateTime.MinValue;
             bool fechaDespachoValida = false;
 
             // Verificar si ambos campos están vacíos
-            if (string.IsNullOrEmpty(transportistaFiltro) && string.IsNullOrWhiteSpace(FechaDespachoTxt.Text))
+            if (string.IsNullOrEmpty(transportistaFiltro) && string.IsNullOrWhiteSpace(FechaDespachoCB.Text))
             {
                 MessageBox.Show("Debe ingresar al menos uno de los campos: Transportista o Fecha de Despacho.");
                 return;
             }
 
             // Validar y convertir el campo de fecha
-            if (!string.IsNullOrWhiteSpace(FechaDespachoTxt.Text))
+            if (!string.IsNullOrWhiteSpace(FechaDespachoCB.Text))
             {
-                if (!DateTime.TryParse(FechaDespachoTxt.Text, out fechaDespachoFiltro))
+                if (!DateTime.TryParse(FechaDespachoCB.Text, out fechaDespachoFiltro))
                 {
                     MessageBox.Show("Fecha de despacho inválida. Ingrese una fecha válida (ejemplo: 01/01/2024).");
                     return;
@@ -83,11 +113,11 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                     MessageBox.Show("La fecha no puede ser menor a hoy.");
                     return;
                 }
-            }        
+            }
 
             // Filtra las órdenes según los valores ingresados
             var ordenesFiltradas = despacharOrdenModelo.OrdenesPreparadas.Where(o => (string.IsNullOrWhiteSpace(transportistaFiltro) || o.Transportista.Contains(transportistaFiltro)) &&
-                            (string.IsNullOrWhiteSpace(FechaDespachoTxt.Text) || o.FechaDespacho.Date == fechaDespachoFiltro.Date)).ToList();
+                            (string.IsNullOrWhiteSpace(FechaDespachoCB.Text) || o.FechaDespacho.Date == fechaDespachoFiltro.Date)).ToList();
 
             // Actualiza la ListView con las órdenes filtradas
             OrdenesPreparadasList.Items.Clear();
@@ -113,7 +143,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                 }
             }
 
-            if(OrdenesPreparadasList.Items.Count == 0)
+            if (OrdenesPreparadasList.Items.Count == 0)
             {
                 MessageBox.Show("No se encontró ninguna órden.");
             }
@@ -133,6 +163,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             else
             {
                 MessageBox.Show("¿Estás seguro que deseas confirmar la orden y generar el/los remito/s?", "Confirmación de orden", MessageBoxButtons.YesNo);
+                OrdenesDespachadasList.Items.Clear();
             }
         }
 
@@ -226,9 +257,9 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
         private void ReestablecerBtn_Click(object sender, EventArgs e)
         {
             CargarListaOrdenesPreparadas();
-            
-            TransportistaTxt.Clear();
-            FechaDespachoTxt.Clear();
-        }        
+
+            TransportistaCB.SelectedIndex = -1;
+            FechaDespachoCB.SelectedIndex = -1;
+        }
     }
 }

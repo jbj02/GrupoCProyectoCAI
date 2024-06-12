@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            EstibadorBtn = new Button();
+            AlmacenajeBtn = new Button();
             PreparadorBtn = new Button();
             DespachadorBtn = new Button();
-            button1 = new Button();
             SuspendLayout();
             // 
-            // EstibadorBtn
+            // AlmacenajeBtn
             // 
-            EstibadorBtn.Location = new Point(307, 159);
-            EstibadorBtn.Name = "EstibadorBtn";
-            EstibadorBtn.Size = new Size(152, 23);
-            EstibadorBtn.TabIndex = 0;
-            EstibadorBtn.Text = "Estibador";
-            EstibadorBtn.UseVisualStyleBackColor = true;
-            EstibadorBtn.Click += EstibadorBtn_Click;
+            AlmacenajeBtn.Location = new Point(307, 159);
+            AlmacenajeBtn.Name = "AlmacenajeBtn";
+            AlmacenajeBtn.Size = new Size(152, 23);
+            AlmacenajeBtn.TabIndex = 0;
+            AlmacenajeBtn.Text = "Almacenaje";
+            AlmacenajeBtn.UseVisualStyleBackColor = true;
+            AlmacenajeBtn.Click += AlmacenajeBtn_Click;
             // 
             // PreparadorBtn
             // 
@@ -64,34 +63,22 @@
             DespachadorBtn.UseVisualStyleBackColor = true;
             DespachadorBtn.Click += DespachadorBtn_Click;
             // 
-            // button1
-            // 
-            button1.Location = new Point(307, 246);
-            button1.Name = "button1";
-            button1.Size = new Size(152, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Atención al Cliente";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += AtencionCliente_Click;
-            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
             Controls.Add(DespachadorBtn);
             Controls.Add(PreparadorBtn);
-            Controls.Add(EstibadorBtn);
+            Controls.Add(AlmacenajeBtn);
             Name = "MenuForm";
             Text = "MenuForm";
             ResumeLayout(false);
         }
 
         #endregion
-        private Button EstibadorBtn;
+        private Button AlmacenajeBtn;
         private Button PreparadorBtn;
         private Button DespachadorBtn;
-        private Button button1;
     }
 }

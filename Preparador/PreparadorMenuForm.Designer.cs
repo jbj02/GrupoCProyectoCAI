@@ -30,21 +30,23 @@
         {
             AltaOrdenSeleccionBtn = new Button();
             PrepararOrdenBtn = new Button();
+            AltaOrdenPreparacionBtn = new Button();
+            VolverMenuBtn = new Button();
             SuspendLayout();
             // 
             // AltaOrdenSeleccionBtn
             // 
-            AltaOrdenSeleccionBtn.Location = new Point(44, 25);
+            AltaOrdenSeleccionBtn.Location = new Point(44, 73);
             AltaOrdenSeleccionBtn.Name = "AltaOrdenSeleccionBtn";
             AltaOrdenSeleccionBtn.Size = new Size(144, 48);
             AltaOrdenSeleccionBtn.TabIndex = 0;
-            AltaOrdenSeleccionBtn.Text = "Alta Orden Seleccion";
+            AltaOrdenSeleccionBtn.Text = "Alta Orden Selección";
             AltaOrdenSeleccionBtn.UseVisualStyleBackColor = true;
             AltaOrdenSeleccionBtn.Click += AltaOrdenSeleccionBtn_Click;
             // 
             // PrepararOrdenBtn
             // 
-            PrepararOrdenBtn.Location = new Point(44, 79);
+            PrepararOrdenBtn.Location = new Point(44, 127);
             PrepararOrdenBtn.Name = "PrepararOrdenBtn";
             PrepararOrdenBtn.Size = new Size(144, 49);
             PrepararOrdenBtn.TabIndex = 1;
@@ -52,11 +54,33 @@
             PrepararOrdenBtn.UseVisualStyleBackColor = true;
             PrepararOrdenBtn.Click += PrepararOrdenBtn_Click;
             // 
+            // AltaOrdenPreparacionBtn
+            // 
+            AltaOrdenPreparacionBtn.Location = new Point(44, 12);
+            AltaOrdenPreparacionBtn.Name = "AltaOrdenPreparacionBtn";
+            AltaOrdenPreparacionBtn.Size = new Size(144, 55);
+            AltaOrdenPreparacionBtn.TabIndex = 2;
+            AltaOrdenPreparacionBtn.Text = "Alta Orden Preparación";
+            AltaOrdenPreparacionBtn.UseVisualStyleBackColor = true;
+            AltaOrdenPreparacionBtn.Click += AltaOrdenPreparacion_Click;
+            // 
+            // VolverMenuBtn
+            // 
+            VolverMenuBtn.Location = new Point(53, 215);
+            VolverMenuBtn.Name = "VolverMenuBtn";
+            VolverMenuBtn.Size = new Size(124, 43);
+            VolverMenuBtn.TabIndex = 3;
+            VolverMenuBtn.Text = "Volver al menu principal";
+            VolverMenuBtn.UseVisualStyleBackColor = true;
+            VolverMenuBtn.Click += VolverMenuBtn_Click;
+            // 
             // PreparadorMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(222, 151);
+            ClientSize = new Size(222, 270);
+            Controls.Add(VolverMenuBtn);
+            Controls.Add(AltaOrdenPreparacionBtn);
             Controls.Add(PrepararOrdenBtn);
             Controls.Add(AltaOrdenSeleccionBtn);
             Name = "PreparadorMenuForm";
@@ -68,5 +92,7 @@
 
         private Button AltaOrdenSeleccionBtn;
         private Button PrepararOrdenBtn;
+        private Button AltaOrdenPreparacionBtn;
+        private Button VolverMenuBtn;
     }
 }

@@ -21,21 +21,21 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 new OrdenPreparacion
                 {
                     NumOrdenP = 25462357,
-                    ClienteP = "Mercado Libre",
+                    ClienteP = "GadgetLand",
                     PrioridadP = "Alta",
                     FechaDespacho = new DateTime(2024,5,15)
                 },
                 new OrdenPreparacion
                 {
                     NumOrdenP = 98765432,
-                    ClienteP = "Amazon",
+                    ClienteP = "Moda Urbana",
                     PrioridadP = "Media",
                     FechaDespacho = new DateTime(2024, 5, 16)
                 },
                 new OrdenPreparacion
                 {
                     NumOrdenP = 12345678,
-                    ClienteP = "Walmart",
+                    ClienteP = "Hogar & Estilo",
                     PrioridadP = "Baja",
                     FechaDespacho = new DateTime(2024, 5, 17)
                 },
@@ -70,8 +70,8 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 new OrdenPreparacion
                 {
                     NumOrdenP = 12348765,
-                    ClienteP = "Mueblería ModernaP",
-                    PrioridadP = "MediaP",
+                    ClienteP = "Mueblería Moderna",
+                    PrioridadP = "Media",
                     FechaDespacho = new DateTime(2024, 6, 10)
                 }
             };

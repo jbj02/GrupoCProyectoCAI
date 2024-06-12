@@ -106,7 +106,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             MessageBox.Show("¿Estás seguro que desea dar de alta la/s orden/es de selección?", "Confirmación creación", MessageBoxButtons.YesNo);
         }
 
-        private void DesseleccionarBtn_Click(Object sender, EventArgs e)
+        private void DeseleccionarBtn_Click(Object sender, EventArgs e)
         {
             // Mensaje en caso de que no seleccione ninguna fila
             if (OrdenSeleccionList.SelectedItems.Count == 0)

@@ -1,7 +1,6 @@
+using GrupoCProyectoCAI.Almacenaje.SelecciondeProductos;
 using GrupoCProyectoCAI.Despachador;
 using GrupoCProyectoCAI.Despachador.DespacharOrden;
-using GrupoCProyectoCAI.Estibador;
-using GrupoCProyectoCAI.Estibador.SelecciondeProductos;
 using GrupoCProyectoCAI.Preparador;
 using System.Reflection;
 
@@ -12,13 +11,6 @@ namespace GrupoCProyectoCAI
         public MenuForm()
         {
             InitializeComponent();
-        }
-
-        private void EstibadorBtn_Click(object sender, EventArgs e)
-        {
-            // Abre el Formulario SeleccionProductosForm
-            SeleccionProductosForm seleccionProductosForm = new();
-            seleccionProductosForm.ShowDialog();
         }
 
         private void PreparadorBtn_Click(object sender, EventArgs e)
@@ -40,6 +32,13 @@ namespace GrupoCProyectoCAI
             // Abre el Formulario AltaOrdenPreparacionForm
             AltaOrdenPreparacionForm altaOrdenPreparacionForm = new();
             altaOrdenPreparacionForm.ShowDialog();
+        }
+
+        private void AlmacenajeBtn_Click(object sender, EventArgs e)
+        {
+            // Abre el Formulario SeleccionProductosForm
+            SeleccionProductosForm seleccionProductosForm = new();
+            seleccionProductosForm.ShowDialog();
         }
     }
 }

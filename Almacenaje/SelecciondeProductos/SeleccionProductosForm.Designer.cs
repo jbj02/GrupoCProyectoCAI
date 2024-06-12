@@ -1,4 +1,4 @@
-﻿namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
+﻿namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
 {
     partial class SeleccionProductosForm
     {

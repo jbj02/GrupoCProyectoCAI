@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
+            FechaDespachoCB = new ComboBox();
+            TransportistaCB = new ComboBox();
             label9 = new Label();
-            TransportistaTxt = new TextBox();
             label1 = new Label();
             FiltrarBtn = new Button();
-            FechaDespachoTxt = new TextBox();
             SelecionarBtn = new Button();
             ConfirmarYRemitoBtn = new Button();
             OrdenesPreparadasList = new ListView();
@@ -57,17 +57,33 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(FechaDespachoCB);
+            groupBox2.Controls.Add(TransportistaCB);
             groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(TransportistaTxt);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(FiltrarBtn);
-            groupBox2.Controls.Add(FechaDespachoTxt);
             groupBox2.Location = new Point(12, 18);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(305, 129);
             groupBox2.TabIndex = 107;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filtrar";
+            // 
+            // FechaDespachoCB
+            // 
+            FechaDespachoCB.FormattingEnabled = true;
+            FechaDespachoCB.Location = new Point(22, 82);
+            FechaDespachoCB.Name = "FechaDespachoCB";
+            FechaDespachoCB.Size = new Size(121, 23);
+            FechaDespachoCB.TabIndex = 110;
+            // 
+            // TransportistaCB
+            // 
+            TransportistaCB.FormattingEnabled = true;
+            TransportistaCB.Location = new Point(22, 38);
+            TransportistaCB.Name = "TransportistaCB";
+            TransportistaCB.Size = new Size(121, 23);
+            TransportistaCB.TabIndex = 109;
             // 
             // label9
             // 
@@ -77,13 +93,6 @@
             label9.Size = new Size(74, 15);
             label9.TabIndex = 105;
             label9.Text = "Transportista";
-            // 
-            // TransportistaTxt
-            // 
-            TransportistaTxt.Location = new Point(22, 37);
-            TransportistaTxt.Name = "TransportistaTxt";
-            TransportistaTxt.Size = new Size(132, 23);
-            TransportistaTxt.TabIndex = 104;
             // 
             // label1
             // 
@@ -103,13 +112,6 @@
             FiltrarBtn.Text = "Filtrar";
             FiltrarBtn.UseVisualStyleBackColor = true;
             FiltrarBtn.Click += FiltrarBtn_Click;
-            // 
-            // FechaDespachoTxt
-            // 
-            FechaDespachoTxt.Location = new Point(22, 82);
-            FechaDespachoTxt.Name = "FechaDespachoTxt";
-            FechaDespachoTxt.Size = new Size(132, 23);
-            FechaDespachoTxt.TabIndex = 107;
             // 
             // SelecionarBtn
             // 
@@ -284,7 +286,6 @@
 
         private GroupBox groupBox2;
         private Label label9;
-        private TextBox TransportistaTxt;
         private Button FiltrarBtn;
         private TextBox NumOrdenIntText;
         private TextBox NumOrdExtText;
@@ -311,7 +312,6 @@
         private Button CancelarBoton;
         private ColumnHeader Transportista;
         private Label label1;
-        private TextBox FechaDespachoTxt;
         private Button SelecionarBtn;
         private Label label2;
         private Label label5;
@@ -325,5 +325,7 @@
         private Button SeleccionarTodasBtn;
         private Button CancelarBtn;
         private Button ReestablecerBtn;
+        private ComboBox FechaDespachoCB;
+        private ComboBox TransportistaCB;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace GrupoCProyectoCAI.Atencion_al_Cliente.AltaOrdenPreparacionForm
+﻿namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
 {
     public class Transportista
     {

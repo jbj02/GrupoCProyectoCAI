@@ -1,4 +1,5 @@
-﻿using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
+﻿using GrupoCProyectoCAI.Almacenaje.SelecciondeProductos;
+using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GrupoCProyectoCAI.Estibador.SelecciondeProductos
+namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
 {
     public partial class SeleccionProductosForm : Form
     {

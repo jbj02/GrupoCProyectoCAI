@@ -1,4 +1,4 @@
-﻿namespace GrupoCProyectoCAI.Atencion_al_Cliente.AltaOrdenPreparacionForm
+﻿namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
 {
     public class Ubicacion
     {
@@ -10,4 +10,5 @@
             return $" {X};{Y};{Z}";
         }
     }
+
 }

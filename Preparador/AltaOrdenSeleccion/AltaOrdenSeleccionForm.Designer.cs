@@ -39,7 +39,7 @@
             CantidadOrdenesPreparacion = new ColumnHeader();
             SeleccionarBtn = new Button();
             ConfirmarBtn = new Button();
-            DesseleccionarBtn = new Button();
+            DeseleccionarBtn = new Button();
             CancelarBtn = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -50,9 +50,9 @@
             OrdenPreparacionList.Columns.AddRange(new ColumnHeader[] { NumOrdenP, ClienteP, FechaDespacho, PrioridadP });
             OrdenPreparacionList.FullRowSelect = true;
             OrdenPreparacionList.GridLines = true;
-            OrdenPreparacionList.Location = new Point(24, 30);
+            OrdenPreparacionList.Location = new Point(24, 41);
             OrdenPreparacionList.Name = "OrdenPreparacionList";
-            OrdenPreparacionList.Size = new Size(435, 276);
+            OrdenPreparacionList.Size = new Size(474, 276);
             OrdenPreparacionList.TabIndex = 81;
             OrdenPreparacionList.UseCompatibleStateImageBehavior = false;
             OrdenPreparacionList.View = View.Details;
@@ -65,6 +65,7 @@
             // ClienteP
             // 
             ClienteP.Text = "Cliente";
+            ClienteP.Width = 100;
             // 
             // FechaDespacho
             // 
@@ -81,7 +82,7 @@
             OrdenSeleccionList.Columns.AddRange(new ColumnHeader[] { NumOrdenS, PrioridadS, CantidadOrdenesPreparacion });
             OrdenSeleccionList.FullRowSelect = true;
             OrdenSeleccionList.GridLines = true;
-            OrdenSeleccionList.Location = new Point(523, 30);
+            OrdenSeleccionList.Location = new Point(523, 41);
             OrdenSeleccionList.MultiSelect = false;
             OrdenSeleccionList.Name = "OrdenSeleccionList";
             OrdenSeleccionList.Size = new Size(347, 276);
@@ -106,18 +107,18 @@
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.Location = new Point(364, 310);
+            SeleccionarBtn.Location = new Point(364, 322);
             SeleccionarBtn.Margin = new Padding(3, 2, 3, 2);
             SeleccionarBtn.Name = "SeleccionarBtn";
-            SeleccionarBtn.Size = new Size(95, 32);
+            SeleccionarBtn.Size = new Size(134, 32);
             SeleccionarBtn.TabIndex = 84;
-            SeleccionarBtn.Text = "Seleccionar";
+            SeleccionarBtn.Text = "Seleccionar ordenes";
             SeleccionarBtn.UseVisualStyleBackColor = true;
             SeleccionarBtn.Click += SeleccionarBtn_Click;
             // 
             // ConfirmarBtn
             // 
-            ConfirmarBtn.Location = new Point(658, 355);
+            ConfirmarBtn.Location = new Point(658, 366);
             ConfirmarBtn.Margin = new Padding(3, 2, 3, 2);
             ConfirmarBtn.Name = "ConfirmarBtn";
             ConfirmarBtn.Size = new Size(95, 32);
@@ -126,20 +127,20 @@
             ConfirmarBtn.UseVisualStyleBackColor = true;
             ConfirmarBtn.Click += ConfirmarBtn_Click;
             // 
-            // DesseleccionarBtn
+            // DeseleccionarBtn
             // 
-            DesseleccionarBtn.Location = new Point(764, 311);
-            DesseleccionarBtn.Margin = new Padding(3, 2, 3, 2);
-            DesseleccionarBtn.Name = "DesseleccionarBtn";
-            DesseleccionarBtn.Size = new Size(106, 32);
-            DesseleccionarBtn.TabIndex = 86;
-            DesseleccionarBtn.Text = "Desseleccionar";
-            DesseleccionarBtn.UseVisualStyleBackColor = true;
-            DesseleccionarBtn.Click += DesseleccionarBtn_Click;
+            DeseleccionarBtn.Location = new Point(764, 322);
+            DeseleccionarBtn.Margin = new Padding(3, 2, 3, 2);
+            DeseleccionarBtn.Name = "DeseleccionarBtn";
+            DeseleccionarBtn.Size = new Size(106, 32);
+            DeseleccionarBtn.TabIndex = 86;
+            DeseleccionarBtn.Text = "Deseleccionar";
+            DeseleccionarBtn.UseVisualStyleBackColor = true;
+            DeseleccionarBtn.Click += DeseleccionarBtn_Click;
             // 
             // CancelarBtn
             // 
-            CancelarBtn.Location = new Point(775, 355);
+            CancelarBtn.Location = new Point(775, 366);
             CancelarBtn.Margin = new Padding(3, 2, 3, 2);
             CancelarBtn.Name = "CancelarBtn";
             CancelarBtn.Size = new Size(95, 32);
@@ -153,9 +154,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(24, 9);
             label1.Name = "label1";
-            label1.Size = new Size(133, 15);
+            label1.Size = new Size(365, 15);
             label1.TabIndex = 88;
-            label1.Text = "Ordenes de Preparación";
+            label1.Text = "Órdenes de Preparación (ctrl + click para seleccioanr varias ordenes)";
             // 
             // label2
             // 
@@ -164,17 +165,17 @@
             label2.Name = "label2";
             label2.Size = new Size(120, 15);
             label2.TabIndex = 89;
-            label2.Text = "Ordenes de Selección";
+            label2.Text = "Órdenes de Selección";
             // 
             // AltaOrdenSeleccionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 398);
+            ClientSize = new Size(880, 407);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(CancelarBtn);
-            Controls.Add(DesseleccionarBtn);
+            Controls.Add(DeseleccionarBtn);
             Controls.Add(ConfirmarBtn);
             Controls.Add(SeleccionarBtn);
             Controls.Add(OrdenSeleccionList);
@@ -199,7 +200,7 @@
         private ColumnHeader PrioridadS;
         private Button SeleccionarBtn;
         private Button ConfirmarBtn;
-        private Button DesseleccionarBtn;
+        private Button DeseleccionarBtn;
         private Button CancelarBtn;
         private Label label1;
         private Label label2;
