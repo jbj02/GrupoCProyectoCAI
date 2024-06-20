@@ -32,7 +32,6 @@
             ClienteCmb = new ComboBox();
             ClienteLbl = new Label();
             TransportistaLbl = new Label();
-            TransportistaCmb = new ComboBox();
             FechaDeDespachoDtp = new DateTimePicker();
             FechaDespachoLbl = new Label();
             ProductosList = new ListView();
@@ -48,6 +47,7 @@
             groupBox2 = new GroupBox();
             CantidadNum = new NumericUpDown();
             ProductoCmb = new ComboBox();
+            TransportistaTxt = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CantidadNum).BeginInit();
@@ -67,7 +67,7 @@
             // 
             ClienteCmb.DropDownStyle = ComboBoxStyle.DropDownList;
             ClienteCmb.FormattingEnabled = true;
-            ClienteCmb.Location = new Point(15, 48);
+            ClienteCmb.Location = new Point(14, 45);
             ClienteCmb.Name = "ClienteCmb";
             ClienteCmb.Size = new Size(424, 23);
             ClienteCmb.TabIndex = 140;
@@ -87,19 +87,9 @@
             TransportistaLbl.AutoSize = true;
             TransportistaLbl.Location = new Point(15, 81);
             TransportistaLbl.Name = "TransportistaLbl";
-            TransportistaLbl.Size = new Size(74, 15);
+            TransportistaLbl.Size = new Size(110, 15);
             TransportistaLbl.TabIndex = 143;
-            TransportistaLbl.Text = "Transportista";
-            // 
-            // TransportistaCmb
-            // 
-            TransportistaCmb.DropDownStyle = ComboBoxStyle.DropDownList;
-            TransportistaCmb.FormattingEnabled = true;
-            TransportistaCmb.Location = new Point(15, 99);
-            TransportistaCmb.Name = "TransportistaCmb";
-            TransportistaCmb.Size = new Size(424, 23);
-            TransportistaCmb.TabIndex = 142;
-            TransportistaCmb.SelectedIndexChanged += TransportistaCmb_SelectedIndexChanged;
+            TransportistaLbl.Text = "Transportista (CUIT)";
             // 
             // FechaDeDespachoDtp
             // 
@@ -198,10 +188,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(TransportistaTxt);
             groupBox1.Controls.Add(FechaDeDespachoDtp);
             groupBox1.Controls.Add(TransportistaLbl);
             groupBox1.Controls.Add(FechaDespachoLbl);
-            groupBox1.Controls.Add(TransportistaCmb);
             groupBox1.Controls.Add(ClienteLbl);
             groupBox1.Controls.Add(ClienteCmb);
             groupBox1.Location = new Point(15, 11);
@@ -246,6 +236,13 @@
             ProductoCmb.TabIndex = 144;
             ProductoCmb.SelectedIndexChanged += ProductoCmb_SelectedIndexChanged;
             // 
+            // TransportistaTxt
+            // 
+            TransportistaTxt.Location = new Point(14, 99);
+            TransportistaTxt.Name = "TransportistaTxt";
+            TransportistaTxt.Size = new Size(424, 23);
+            TransportistaTxt.TabIndex = 144;
+            // 
             // AltaOrdenPreparacionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -272,7 +269,6 @@
         private ComboBox ClienteCmb;
         private Label ClienteLbl;
         private Label TransportistaLbl;
-        private ComboBox TransportistaCmb;
         private DateTimePicker FechaDeDespachoDtp;
         private Label FechaDespachoLbl;
         private ListView ProductosList;
@@ -288,5 +284,6 @@
         private ComboBox ProductoCmb;
         private NumericUpDown CantidadNum;
         private ColumnHeader CodigoDeProducto;
+        private TextBox TransportistaTxt;
     }
 }

@@ -1,0 +1,12 @@
+[
+  {
+    "CUIT": "20-11111111-5",
+    "Nombre": "Juan Pérez",
+    "Telefono": "+541112345678"
+  },
+  {
+    "CUIT": "20-22222222-5",
+    "Nombre": "Rodrigo Fernandez",
+    "Telefono": "+541187654321"
+  }
+]

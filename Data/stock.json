@@ -1,0 +1,47 @@
+[
+  {
+    "ProductoCliente": "Mochila20-11111111-5",
+    "Producto": "Mochila",
+    "ClienteCUIT": "20-11111111-5",
+    "Cantidad": 15,
+    "Ubicacion": "abc",
+    "Peso": 5.2,
+    "TipoProducto": "Accesorio"
+  },
+  {
+    "ProductoCliente": "Bolso20-11111111-5",
+    "Producto": "Bolso",
+    "ClienteCUIT": "20-11111111-5",
+    "Cantidad": 8,
+    "Ubicacion": "abc",
+    "Peso": 9.2,
+    "TipoProducto": "Accesorio"
+  },
+  {
+    "ProductoCliente": "Silla20-11111111-5",
+    "Producto": "Silla",
+    "ClienteCUIT": "20-11111111-5",
+    "Cantidad": 12,
+    "Ubicacion": "abc",
+    "Peso": 22.4,
+    "TipoProducto": "Mueble"
+  },
+  {
+    "ProductoCliente": "Mesa20-22222222-5",
+    "Producto": "Mesa",
+    "ClienteCUIT": "20-22222222-5",
+    "Cantidad": 42,
+    "Ubicacion": "dfg",
+    "Peso": 45.6,
+    "TipoProducto": "Mueble"
+  },
+  {
+    "ProductoCliente": "Computadora20-22222222-5",
+    "Producto": "Computadora",
+    "ClienteCUIT": "20-22222222-5",
+    "Cantidad": 6,
+    "Ubicacion": "dfg",
+    "Peso": 28.8,
+    "TipoProducto": "Tecnología"
+  }
+]
