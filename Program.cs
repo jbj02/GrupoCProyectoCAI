@@ -17,9 +17,9 @@ namespace GrupoCProyectoCAI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MenuForm());
-            ArchivoOrdenPreparacion.GrabarDatos();
-            ArchivoStock.GrabarDatos();
-            ArchivoStockProvisorio.GrabarDatos();
+            //ArchivoOrdenPreparacion.GrabarDatos();
+            //ArchivoStock.GrabarDatos();
+            //ArchivoStockProvisorio.GrabarDatos();
         }
     }
 }

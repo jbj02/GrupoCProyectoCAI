@@ -87,33 +87,33 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
         private void FiltrarBtn_Click(object sender, EventArgs e)
         {
             string transportistaFiltro = TransportistaCB.Text.Trim();
-            DateTime fechaDespachoFiltro = DateTime.MinValue;
+            DateTime fechaDespachoFiltro = DateTime.Parse(FechaDespachoCB.Text);
             bool fechaDespachoValida = false;
 
             // Verificar si ambos campos están vacíos
             if (string.IsNullOrEmpty(transportistaFiltro) && string.IsNullOrWhiteSpace(FechaDespachoCB.Text))
             {
-                MessageBox.Show("Debe ingresar al menos uno de los campos: Transportista o Fecha de Despacho.");
+                MessageBox.Show("Debe seleccionar al menos un filtro en Transportista o Fecha de Despacho.");
                 return;
             }
 
-            // Validar y convertir el campo de fecha
-            if (!string.IsNullOrWhiteSpace(FechaDespachoCB.Text))
-            {
-                if (!DateTime.TryParse(FechaDespachoCB.Text, out fechaDespachoFiltro))
-                {
-                    MessageBox.Show("Fecha de despacho inválida. Ingrese una fecha válida (ejemplo: 01/01/2024).");
-                    return;
-                }
+            //// Validar y convertir el campo de fecha
+            //if (!string.IsNullOrWhiteSpace(FechaDespachoCB.Text))
+            //{
+            //    if (!DateTime.TryParse(FechaDespachoCB.Text, out fechaDespachoFiltro))
+            //    {
+            //        MessageBox.Show("Fecha de despacho inválida. Ingrese una fecha válida (ejemplo: 01/01/2024).");
+            //        return;
+            //    }
 
-                bool flagRangoFecha = despacharOrdenModelo.ValidarRangoFecha(fechaDespachoFiltro);
+            //    bool flagRangoFecha = despacharOrdenModelo.ValidarRangoFecha(fechaDespachoFiltro);
 
-                if (!flagRangoFecha)
-                {
-                    MessageBox.Show("La fecha no puede ser menor a hoy.");
-                    return;
-                }
-            }
+            //    if (!flagRangoFecha)
+            //    {
+            //        MessageBox.Show("La fecha no puede ser menor a hoy.");
+            //        return;
+            //    }
+            //}
 
             // Filtra las órdenes según los valores ingresados
             var ordenesFiltradas = despacharOrdenModelo.OrdenesPreparadas.Where(o => (string.IsNullOrWhiteSpace(transportistaFiltro) || o.Transportista.Contains(transportistaFiltro)) &&

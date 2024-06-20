@@ -71,6 +71,7 @@
             // 
             // FechaDespachoCB
             // 
+            FechaDespachoCB.DropDownStyle = ComboBoxStyle.DropDownList;
             FechaDespachoCB.FormattingEnabled = true;
             FechaDespachoCB.Location = new Point(22, 82);
             FechaDespachoCB.Name = "FechaDespachoCB";
@@ -79,6 +80,7 @@
             // 
             // TransportistaCB
             // 
+            TransportistaCB.DropDownStyle = ComboBoxStyle.DropDownList;
             TransportistaCB.FormattingEnabled = true;
             TransportistaCB.Location = new Point(22, 38);
             TransportistaCB.Name = "TransportistaCB";

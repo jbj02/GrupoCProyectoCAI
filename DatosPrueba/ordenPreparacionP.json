@@ -1,0 +1,74 @@
+[
+  {
+    "NroOrden": 12345,
+    "ClienteCUIT": "20345678901",
+    "Estado": "En proceso",
+    "TransportistaCUIT": "30567891234",
+    "FechaDespacho": "2024-06-20T10:30:00",
+    "FechaAlta": "2024-06-19T15:45:00",
+    "ProductosList": [
+      {
+        "Producto": "Camiseta",
+        "Cantidad": 10,
+        "Ubicacion": "Almacén A",
+        "Peso": 0.5,
+        "TipoProducto": "Ropa"
+      },
+      {
+        "Producto": "Zapatos",
+        "Cantidad": 5,
+        "Ubicacion": "Almacén B",
+        "Peso": 1.2,
+        "TipoProducto": "Calzado"
+      }
+    ]
+  },
+  {
+    "NroOrden": 54321,
+    "ClienteCUIT": "50901234567",
+    "Estado": "PendienteDeSeleccion",
+    "TransportistaCUIT": "71345678901",
+    "FechaDespacho": "2024-06-20T11:00:00",
+    "FechaAlta": "2024-06-19T16:20:00",
+    "ProductosList": [
+      {
+        "Producto": "Teléfono móvil",
+        "Cantidad": 8,
+        "Ubicacion": "Almacén F",
+        "Peso": 0.2,
+        "TipoProducto": "Tecnología"
+      },
+      {
+        "Producto": "Gafas de sol",
+        "Cantidad": 15,
+        "Ubicacion": "Almacén G",
+        "Peso": 0.1,
+        "TipoProducto": "Accesorios"
+      }
+    ]
+  },
+  {
+    "NroOrden": 2468,
+    "ClienteCUIT": "61123456789",
+    "Estado": "PendienteDeSeleccion",
+    "TransportistaCUIT": "81567891234",
+    "FechaDespacho": "2024-06-20T12:45:00",
+    "FechaAlta": "2024-06-19T17:10:00",
+    "ProductosList": [
+      {
+        "Producto": "Caja de herramientas",
+        "Cantidad": 3,
+        "Ubicacion": "Almacén E",
+        "Peso": 5.0,
+        "TipoProducto": "Herramientas"
+      },
+      {
+        "Producto": "Botella de vino",
+        "Cantidad": 1,
+        "Ubicacion": "Almacén H",
+        "Peso": 0.75,
+        "TipoProducto": "Bebidas"
+      }
+    ]
+  }
+]

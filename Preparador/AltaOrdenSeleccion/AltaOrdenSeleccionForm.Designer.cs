@@ -32,10 +32,8 @@
             NumOrdenP = new ColumnHeader();
             ClienteP = new ColumnHeader();
             FechaDespacho = new ColumnHeader();
-            PrioridadP = new ColumnHeader();
             OrdenSeleccionList = new ListView();
             NumOrdenS = new ColumnHeader();
-            PrioridadS = new ColumnHeader();
             CantidadOrdenesPreparacion = new ColumnHeader();
             SeleccionarBtn = new Button();
             ConfirmarBtn = new Button();
@@ -47,12 +45,12 @@
             // 
             // OrdenPreparacionList
             // 
-            OrdenPreparacionList.Columns.AddRange(new ColumnHeader[] { NumOrdenP, ClienteP, FechaDespacho, PrioridadP });
+            OrdenPreparacionList.Columns.AddRange(new ColumnHeader[] { NumOrdenP, ClienteP, FechaDespacho });
             OrdenPreparacionList.FullRowSelect = true;
             OrdenPreparacionList.GridLines = true;
             OrdenPreparacionList.Location = new Point(24, 41);
             OrdenPreparacionList.Name = "OrdenPreparacionList";
-            OrdenPreparacionList.Size = new Size(474, 276);
+            OrdenPreparacionList.Size = new Size(398, 276);
             OrdenPreparacionList.TabIndex = 81;
             OrdenPreparacionList.UseCompatibleStateImageBehavior = false;
             OrdenPreparacionList.View = View.Details;
@@ -64,7 +62,7 @@
             // 
             // ClienteP
             // 
-            ClienteP.Text = "Cliente";
+            ClienteP.Text = "Cliente (CUIT)";
             ClienteP.Width = 100;
             // 
             // FechaDespacho
@@ -72,20 +70,15 @@
             FechaDespacho.Text = "Fecha de despacho";
             FechaDespacho.Width = 150;
             // 
-            // PrioridadP
-            // 
-            PrioridadP.Text = "Prioridad";
-            PrioridadP.Width = 80;
-            // 
             // OrdenSeleccionList
             // 
-            OrdenSeleccionList.Columns.AddRange(new ColumnHeader[] { NumOrdenS, PrioridadS, CantidadOrdenesPreparacion });
+            OrdenSeleccionList.Columns.AddRange(new ColumnHeader[] { NumOrdenS, CantidadOrdenesPreparacion });
             OrdenSeleccionList.FullRowSelect = true;
             OrdenSeleccionList.GridLines = true;
             OrdenSeleccionList.Location = new Point(523, 41);
             OrdenSeleccionList.MultiSelect = false;
             OrdenSeleccionList.Name = "OrdenSeleccionList";
-            OrdenSeleccionList.Size = new Size(347, 276);
+            OrdenSeleccionList.Size = new Size(268, 276);
             OrdenSeleccionList.TabIndex = 83;
             OrdenSeleccionList.UseCompatibleStateImageBehavior = false;
             OrdenSeleccionList.View = View.Details;
@@ -95,11 +88,6 @@
             NumOrdenS.Text = "N° de orden";
             NumOrdenS.Width = 140;
             // 
-            // PrioridadS
-            // 
-            PrioridadS.Text = "Prioridad";
-            PrioridadS.Width = 80;
-            // 
             // CantidadOrdenesPreparacion
             // 
             CantidadOrdenesPreparacion.Text = "Cant. Ord. Prep.";
@@ -107,7 +95,7 @@
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.Location = new Point(364, 322);
+            SeleccionarBtn.Location = new Point(288, 322);
             SeleccionarBtn.Margin = new Padding(3, 2, 3, 2);
             SeleccionarBtn.Name = "SeleccionarBtn";
             SeleccionarBtn.Size = new Size(134, 32);
@@ -118,7 +106,7 @@
             // 
             // ConfirmarBtn
             // 
-            ConfirmarBtn.Location = new Point(658, 366);
+            ConfirmarBtn.Location = new Point(579, 366);
             ConfirmarBtn.Margin = new Padding(3, 2, 3, 2);
             ConfirmarBtn.Name = "ConfirmarBtn";
             ConfirmarBtn.Size = new Size(95, 32);
@@ -129,7 +117,7 @@
             // 
             // DeseleccionarBtn
             // 
-            DeseleccionarBtn.Location = new Point(764, 322);
+            DeseleccionarBtn.Location = new Point(685, 322);
             DeseleccionarBtn.Margin = new Padding(3, 2, 3, 2);
             DeseleccionarBtn.Name = "DeseleccionarBtn";
             DeseleccionarBtn.Size = new Size(106, 32);
@@ -140,7 +128,7 @@
             // 
             // CancelarBtn
             // 
-            CancelarBtn.Location = new Point(775, 366);
+            CancelarBtn.Location = new Point(696, 366);
             CancelarBtn.Margin = new Padding(3, 2, 3, 2);
             CancelarBtn.Name = "CancelarBtn";
             CancelarBtn.Size = new Size(95, 32);
@@ -171,7 +159,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(880, 407);
+            ClientSize = new Size(810, 407);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(CancelarBtn);
@@ -194,10 +182,8 @@
         private ColumnHeader NumOrdenP;
         private ColumnHeader ClienteP;
         private ColumnHeader FechaDespacho;
-        private ColumnHeader PrioridadP;
         private ListView OrdenSeleccionList;
         private ColumnHeader NumOrdenS;
-        private ColumnHeader PrioridadS;
         private Button SeleccionarBtn;
         private Button ConfirmarBtn;
         private Button DeseleccionarBtn;

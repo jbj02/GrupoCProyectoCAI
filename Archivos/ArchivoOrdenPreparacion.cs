@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GrupoCProyectoCAI.Despachador;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,13 +11,17 @@ namespace GrupoCProyectoCAI.Archivos
 {
     public static class ArchivoOrdenPreparacion
     {
+        // Expone el archivo con una lista de solo lectura
+        public static ReadOnlyCollection<OrdenPreparacion> OrdenesPreparacion => ordenesPreparacion.AsReadOnly();
+
         private static List<OrdenPreparacion> ordenesPreparacion;
 
         static ArchivoOrdenPreparacion()
         {
-            if (File.Exists(@"Data\ordenPreparacion.json"))
+
+            if (File.Exists(@"DatosPrueba\ordenPreparacionP.json"))
             {
-                var contenido = File.ReadAllText(@"Data\ordenPreparacion.json");
+                var contenido = File.ReadAllText(@"DatosPrueba\ordenPreparacionP.json");
                 ordenesPreparacion = JsonConvert.DeserializeObject<List<OrdenPreparacion>>(contenido);
             }
             else
@@ -24,8 +29,6 @@ namespace GrupoCProyectoCAI.Archivos
                 ordenesPreparacion = new List<OrdenPreparacion>();
             }
         }
-
-        public static ReadOnlyCollection<OrdenPreparacion> OrdenesPreparacion => ordenesPreparacion.AsReadOnly();
 
         public static void AgregarOrdenPreparacion(OrdenPreparacion orden)
         {
@@ -35,7 +38,8 @@ namespace GrupoCProyectoCAI.Archivos
         public static void GrabarDatos()
         {
             var contenido = JsonConvert.SerializeObject(ordenesPreparacion);
-            File.WriteAllText(@"Data\ordenesPreparacion.json", contenido);
+            File.WriteAllText(@"Data\ordenPreparacion.json", contenido);
         }
     }
+
 }
