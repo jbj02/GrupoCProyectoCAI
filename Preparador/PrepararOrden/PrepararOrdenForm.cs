@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoCProyectoCAI.Archivos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,13 +35,12 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
             {
                 var fila = new ListViewItem();
                 // le cargamos los datos a la fila
-                fila.Text = ordenPrepara.NumOrden.ToString();
+                fila.Text = ordenPrepara.NroOrden.ToString();
                 //fila.SubItems.Add(ordenPrepara.NumOrden.ToString());
                 //fila.SubItems.Add(ordenPrepara.TipoProducto);
                 //fila.SubItems.Add(ordenPrepara.Cantidad.ToString());
                 fila.SubItems.Add(ordenPrepara.Estado);
-                fila.SubItems.Add(ordenPrepara.Cliente);
-                fila.SubItems.Add(ordenPrepara.Prioridad);
+                fila.SubItems.Add(ordenPrepara.ClienteCUIT);
                 fila.SubItems.Add(ordenPrepara.FechaAlta.ToString("dd/MM/yyyy"));
                 fila.SubItems.Add(ordenPrepara.FechaDespacho.ToString("dd/MM/yyyy"));
                 fila.Tag = ordenPrepara; // Permite identificar cuál objeto se está utilizando
@@ -61,15 +61,15 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
             }
 
             // Creamos variable que apunte a la orden interna de la fila seleccionada
-            var ordenSeleccionada = (OrdenPrepara)OrdenesPreparacion_List.SelectedItems[0].Tag;
+            var ordenSeleccionada = (OrdenPreparacion)OrdenesPreparacion_List.SelectedItems[0].Tag;
 
 
             //Borra la lista anterior seleccionada
             ProductoList.Items.Clear();
 
-            foreach (var producto in ordenSeleccionada.Productos)
+            foreach (var producto in ordenSeleccionada.ProductosList)
             {
-                ListViewItem item = new ListViewItem(producto.NombreProducto);
+                ListViewItem item = new ListViewItem(producto.Producto);
                 item.SubItems.Add(producto.Cantidad.ToString());
 
                 ProductoList.Items.Add(item);
