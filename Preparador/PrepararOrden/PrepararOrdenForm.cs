@@ -1,4 +1,5 @@
-﻿using GrupoCProyectoCAI.Archivos;
+﻿using GrupoCProyectoCAI.Almacenaje.SelecciondeProductos;
+using GrupoCProyectoCAI.Archivos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +61,7 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
                 return;
             }
 
-            // Creamos variable que apunte a la orden interna de la fila seleccionada
+            // Creamos variable que apunte a la orden de la fila seleccionada
             var ordenSeleccionada = (OrdenPreparacion)OrdenesPreparacion_List.SelectedItems[0].Tag;
 
 
@@ -92,8 +93,26 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
             
             }
             else
-             
-            MessageBox.Show("¿Estás seguro que deseas confirmar?", "Confirmación", MessageBoxButtons.YesNo);
+            {
+                // Creamos variable que apunte a la orden de la fila seleccionada
+                var ordenSeleccionada = (OrdenPreparacion)OrdenesPreparacion_List.SelectedItems[0].Tag;
+
+                DialogResult respuesta = MessageBox.Show($"¿Estás seguro que deseas confirmar el cambio del estado {ordenSeleccionada.NroOrden} a Preparada?", "Confirmación", MessageBoxButtons.YesNo);
+                
+                if (respuesta == DialogResult.Yes)
+                {
+                    // Cambiar el estado de la orden a "Preparada"
+                    ordenSeleccionada.Estado = "Preparada";
+
+                    prepararOrdenModelo.CambiarEstadoOrdenPreparacion(ordenSeleccionada);
+
+                    MessageBox.Show($"Se modificó el estado de la orden {ordenSeleccionada.NroOrden} a Preparada");
+
+                    this.Close();
+   
+                }
+            }          
+         
         }
     }
 }

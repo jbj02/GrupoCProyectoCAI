@@ -1,10 +1,14 @@
-﻿using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
+﻿using GrupoCProyectoCAI.Almacenaje.SelecciondeProductos;
+using GrupoCProyectoCAI.Archivos;
+using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
+using GrupoCProyectoCAI.Preparador.PrepararOrden;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,22 +40,21 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             {
                 // Verifica si la orden no está en la lista de despachadas
                 bool noEstaEnDespachadas = !OrdenesDespachadasList.Items.Cast<ListViewItem>()
-                    .Any(item => ((OrdenPreparacion)item.Tag).NumOrden == ordenpreparada.NumOrden);
+                    .Any(item => ((OrdenPreparacion)item.Tag).NroOrden == ordenpreparada.NroOrden);
 
                 if (noEstaEnDespachadas)
                 {
-                    if (ordenpreparada.Estado == "Preparada")
-                    {
-                        var fila = new ListViewItem();
-                        // Cargamos los datos a la fila
-                        fila.Text = ordenpreparada.NumOrden.ToString();
-                        fila.SubItems.Add(ordenpreparada.Cliente);
-                        fila.SubItems.Add(ordenpreparada.Transportista);
-                        fila.SubItems.Add(ordenpreparada.FechaDespacho.ToString("dd/MM/yyyy"));
-                        fila.Tag = ordenpreparada; // Permite identificar cuál objeto se está utilizando
-                                                   // Agregamos la fila a la lista
-                        OrdenesPreparadasList.Items.Add(fila);
-                    }
+                    
+                    var fila = new ListViewItem();
+                    // Cargamos los datos a la fila
+                    fila.Text = ordenpreparada.NroOrden.ToString();
+                    fila.SubItems.Add(ordenpreparada.ClienteCUIT);
+                    fila.SubItems.Add(ordenpreparada.TransportistaCUIT);
+                    fila.SubItems.Add(ordenpreparada.FechaDespacho.ToString("dd/MM/yyyy"));
+                    fila.Tag = ordenpreparada; // Permite identificar cuál objeto se está utilizando
+                                                // Agregamos la fila a la lista
+                    OrdenesPreparadasList.Items.Add(fila);
+                 
                 }
             }
         }
@@ -63,9 +66,9 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             TransportistaCB.Items.Add("");
             foreach (var orden in despacharOrdenModelo.OrdenesPreparadas)
             {
-                if (transportistasUnicos.Add(orden.Transportista))
+                if (transportistasUnicos.Add(orden.TransportistaCUIT))
                 {
-                    TransportistaCB.Items.Add(orden.Transportista);
+                    TransportistaCB.Items.Add(orden.TransportistaCUIT);
                 }
             }
         }
@@ -97,26 +100,8 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                 return;
             }
 
-            //// Validar y convertir el campo de fecha
-            //if (!string.IsNullOrWhiteSpace(FechaDespachoCB.Text))
-            //{
-            //    if (!DateTime.TryParse(FechaDespachoCB.Text, out fechaDespachoFiltro))
-            //    {
-            //        MessageBox.Show("Fecha de despacho inválida. Ingrese una fecha válida (ejemplo: 01/01/2024).");
-            //        return;
-            //    }
-
-            //    bool flagRangoFecha = despacharOrdenModelo.ValidarRangoFecha(fechaDespachoFiltro);
-
-            //    if (!flagRangoFecha)
-            //    {
-            //        MessageBox.Show("La fecha no puede ser menor a hoy.");
-            //        return;
-            //    }
-            //}
-
             // Filtra las órdenes según los valores ingresados
-            var ordenesFiltradas = despacharOrdenModelo.OrdenesPreparadas.Where(o => (string.IsNullOrWhiteSpace(transportistaFiltro) || o.Transportista.Contains(transportistaFiltro)) &&
+            var ordenesFiltradas = despacharOrdenModelo.OrdenesPreparadas.Where(o => (string.IsNullOrWhiteSpace(transportistaFiltro) || o.TransportistaCUIT.Contains(transportistaFiltro)) &&
                             (string.IsNullOrWhiteSpace(FechaDespachoCB.Text) || o.FechaDespacho.Date == fechaDespachoFiltro.Date)).ToList();
 
             // Actualiza la ListView con las órdenes filtradas
@@ -126,15 +111,15 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             {
                 // Verifica si la orden ya está en la lista de despachadas
                 bool existeEnDespachadas = OrdenesDespachadasList.Items.Cast<ListViewItem>()
-                    .Any(item => ((OrdenPreparacion)item.Tag).NumOrden == orden.NumOrden);
+                    .Any(item => ((OrdenPreparacion)item.Tag).NroOrden == orden.NroOrden);
 
                 if (!existeEnDespachadas)
                 {
                     var item = new ListViewItem(new[]
                     {
-                orden.NumOrden.ToString(),
-                orden.Cliente,
-                orden.Transportista,
+                orden.NroOrden.ToString(),
+                orden.ClienteCUIT,
+                orden.TransportistaCUIT,
                 orden.FechaDespacho.ToString("dd/MM/yyyy"),
             });
 
@@ -159,11 +144,25 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             if (OrdenesDespachadasList.Items.Count == 0)
             {
                 MessageBox.Show("Debe haber por lo menos una órden despachada para confirmarla y generar su remito.");
+                return;
             }
             else
-            {
-                MessageBox.Show("¿Estás seguro que deseas confirmar la orden y generar el/los remito/s?", "Confirmación de orden", MessageBoxButtons.YesNo);
-                OrdenesDespachadasList.Items.Clear();
+            {                
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro que deseas confirmar la/S ordenes y generar el/los remito/s?", "Confirmación de orden", MessageBoxButtons.YesNo);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    foreach (ListViewItem ordenDespacharItem in OrdenesDespachadasList.Items)
+                    {
+                        // Obtener la orden preparada
+                        var ordenPreparada = (OrdenPreparacion)ordenDespacharItem.Tag;                        
+
+                        despacharOrdenModelo.CambiarEstadoOrdenPreparacionYGenerarRemito(ordenPreparada);
+                    }
+
+                    MessageBox.Show("Se modificó el estado de las órdenes a Despachadas y se generaron los remitos.");
+                    this.Close();
+                }
             }
         }
 
@@ -181,9 +180,9 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
             OrdenPreparacion orden = new OrdenPreparacion
             {
-                NumOrden = ordenSeleccionada.NumOrden,
-                Cliente = ordenSeleccionada.Cliente,
-                Transportista = ordenSeleccionada.Transportista,
+                NroOrden = ordenSeleccionada.NroOrden,
+                ClienteCUIT = ordenSeleccionada.ClienteCUIT,
+                TransportistaCUIT = ordenSeleccionada.TransportistaCUIT,
                 Estado = "Despachada",
                 FechaDespacho = ordenSeleccionada.FechaDespacho
             };
@@ -205,9 +204,9 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                 // Crear un objeto OrdenPreparada
                 OrdenPreparacion ordenPreparada = new OrdenPreparacion
                 {
-                    NumOrden = int.Parse(orden.SubItems[0].Text),
-                    Cliente = orden.SubItems[1].Text,
-                    Transportista = orden.SubItems[2].Text,
+                    NroOrden = int.Parse(orden.SubItems[0].Text),
+                    ClienteCUIT = orden.SubItems[1].Text,
+                    TransportistaCUIT = orden.SubItems[2].Text,
                     Estado = "Despachada",
                     FechaDespacho = DateTime.Parse(orden.SubItems[3].Text)
                 };
@@ -237,9 +236,9 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
             OrdenPreparacion orden = new OrdenPreparacion
             {
-                NumOrden = ordenSeleccionada.NumOrden,
-                Cliente = ordenSeleccionada.Cliente,
-                Transportista = ordenSeleccionada.Transportista,
+                NroOrden = ordenSeleccionada.NroOrden,
+                ClienteCUIT = ordenSeleccionada.ClienteCUIT,
+                TransportistaCUIT = ordenSeleccionada.TransportistaCUIT,
                 Estado = "Preparada",
                 FechaDespacho = ordenSeleccionada.FechaDespacho
             };
@@ -260,6 +259,6 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
             TransportistaCB.SelectedIndex = -1;
             FechaDespachoCB.SelectedIndex = -1;
-        }
+        }       
     }
 }

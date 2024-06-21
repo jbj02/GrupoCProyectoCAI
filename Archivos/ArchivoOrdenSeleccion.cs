@@ -31,5 +31,10 @@ namespace GrupoCProyectoCAI.Archivos
             var contenido = JsonConvert.SerializeObject(ordenesSeleccion);
             File.WriteAllText(@"DatosPrueba\ordenSeleccionP.json", contenido);
         }
+
+        public static void AgregarOrdenesSeleccion(OrdenSeleccion orden)
+        {
+            ordenesSeleccion.Add(orden);
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace GrupoCProyectoCAI.Archivos
         public static void GrabarDatos()
         {
             var contenido = JsonConvert.SerializeObject(ordenesPreparacion);
-            File.WriteAllText(@"Data\ordenPreparacion.json", contenido);
+            File.WriteAllText(@"DatosPrueba\ordenPreparacionP.json", contenido);
         }
     }
 

@@ -24,7 +24,25 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
             // Agregar código que solo cargue las que tiene el estado "Seleccionada"
             foreach (var ordenPreparacion in ArchivoOrdenPreparacion.OrdenesPreparacion)
             {
-                OrdenesPreparacion.Add(ordenPreparacion);
+                if(ordenPreparacion.Estado == "Seleccionada")
+                {
+                    OrdenesPreparacion.Add(ordenPreparacion);
+                }                
+            }
+        }
+
+        public void CambiarEstadoOrdenPreparacion(OrdenPreparacion orden)
+        {
+            // Buscar la orden en la lista y actualizar su estado
+            var ordenExistente = ArchivoOrdenPreparacion.OrdenesPreparacion.FirstOrDefault(o => o.NroOrden == orden.NroOrden);
+            if (ordenExistente != null)
+            {
+                ordenExistente.Estado = orden.Estado;
+                //ArchivoOrdenPreparacion.GrabarDatos(); // Guardar los cambios
+            }
+            else
+            {
+                MessageBox.Show($"La orden {orden.NroOrden} no existe en la lista");
             }
         }
     }

@@ -31,10 +31,12 @@ public static class ArchivoStock
     {
         foreach (Stock producto in productos)
         {
-            //se le resta al stock las cantidades provenientes de la órden
             //no se valida si el producto existe ya que en este caso siempre va a existir
-            int indiceExistente = stock.FindIndex(p => p.ProductoCliente == producto.ProductoCliente);
-            stock[indiceExistente].Cantidad = stock[indiceExistente].Cantidad - producto.Cantidad;
+            // Busca el producto en la lista stock
+            Stock productoEnStock = stock.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
+            
+            // Resta la cantidad del producto existente en stock
+            productoEnStock.Cantidad -= producto.Cantidad;
         }
     }
 
@@ -43,4 +45,6 @@ public static class ArchivoStock
         var contenido = JsonConvert.SerializeObject(stock);
         File.WriteAllText(@"Data\stock.json", contenido);
     }
+
+
 }

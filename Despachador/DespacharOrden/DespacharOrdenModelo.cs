@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoCProyectoCAI.Archivos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,99 +14,64 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
         // Creamos un constructor para cargarle datos y probar el prototipo de forma aislada
         public DespacharOrdenModelo()
         {
-            OrdenesPreparadas = new List<OrdenPreparacion>()
-            {
-                new OrdenPreparacion
-                {
-                    NumOrden = 65839573,
-                    Cliente = "Mercado Libre",
-                    Transportista = "Andreani",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024,6,18)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 35673863,
-                    Cliente = "Amazon",
-                    Transportista = "CorreoArgentino",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024,6,20)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 257843,
-                    Cliente = "Coto",
-                    Transportista = "Andreani",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024,6,20)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 12345678,
-                    Cliente = "Walmart",
-                    Transportista = "OCA",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 21)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 87654321,
-                    Cliente = "Falabella",
-                    Transportista = "CorreoArgentino",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 22)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 23456789,
-                    Cliente = "Garbarino",
-                    Transportista = "Andreani",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 23)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 98765432,
-                    Cliente = "Frávega",
-                    Transportista = "OCA",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 24)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 34567890,
-                    Cliente = "Musimundo",
-                    Transportista = "CorreoArgentino",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 25)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 98765431,
-                    Cliente = "Ribeiro",
-                    Transportista = "Andreani",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 26)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 45678901,
-                    Cliente = "Compumundo",
-                    Transportista = "OCA",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 27)
-                }
-            };
+            OrdenesPreparadas = new List<OrdenPreparacion>();
+            // Cargar Lista
+            CargarListaOrdenPreparadas();
         }
 
-        public bool ValidarRangoFecha(DateTime fecha)
+        public void CargarListaOrdenPreparadas()
+        {            
+            // Agregar código que solo cargue las que tiene el estado "Seleccionada"
+            foreach (var ordenPreparacion in ArchivoOrdenPreparacion.OrdenesPreparacion)
+            {
+                // Agregarlas solamente si tiene el Estado "Preparada"
+                if (ordenPreparacion.Estado == "Preparada")
+                {
+                    OrdenesPreparadas.Add(ordenPreparacion);
+                }                
+            }            
+        }
+
+        public void CambiarEstadoOrdenPreparacionYGenerarRemito(OrdenPreparacion ordenPreparada)
         {
-            if(fecha < DateTime.Now)
+            // Buscar la orden en la lista y actualizar su estado
+            var ordenExistente = ArchivoOrdenPreparacion.OrdenesPreparacion.FirstOrDefault(o => o.NroOrden == ordenPreparada.NroOrden);
+
+            // Cambiar el estado a "Despachada"
+            ordenPreparada.Estado = "Despachada";
+
+            // Crear un remito
+            var remito = new Remito
             {
-                return false;
-            }else
+                NroRemito = BuscarUltimoRemito(),
+                clienteCUIT = ordenPreparada.ClienteCUIT,
+                transportistaCUIT = ordenPreparada.TransportistaCUIT,
+                FechaDespacho = ordenPreparada.FechaDespacho,
+                ProductosList = ordenExistente.ProductosList // Es Nulo CORREGIR    
+            };
+            ArchivoRemito.AgregarRemito(remito);
+            
+            if (ordenExistente != null)
             {
-                return true;
+                ordenExistente.Estado = ordenPreparada.Estado;
+                //ArchivoOrdenPreparacion.GrabarDatos(); // Guardar los cambios
+            }
+            else
+            {
+                MessageBox.Show($"La orden {ordenPreparada.NroOrden} no existe en la lista");
+            }
+        }
+
+        public int BuscarUltimoRemito()
+        {
+            if (ArchivoRemito.Remitos.Count != 0)
+            {
+                int ultimoNumero = ArchivoRemito.Remitos[ArchivoRemito.Remitos.Count - 1].NroRemito;
+                return (ultimoNumero + 1);
+            }
+            else
+            {
+                return 0;
             }
         }
     }

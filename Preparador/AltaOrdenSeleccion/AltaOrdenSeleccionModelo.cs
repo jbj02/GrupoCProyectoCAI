@@ -25,9 +25,19 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
         {
             foreach(var ordenPreparacion in ArchivoOrdenPreparacion.OrdenesPreparacion)
             {
-                OrdenesPreparacion.Add(ordenPreparacion);
+                // Agregarlas solamente si tiene el Estado "Preparada"
+                if (ordenPreparacion.Estado == "PendienteDeSeleccion")
+                {
+                    OrdenesPreparacion.Add(ordenPreparacion);
+                }
             }
         }
+
+        public void AgregarOrdenesSeleccion(OrdenSeleccion orden)
+        {
+            ArchivoOrdenSeleccion.AgregarOrdenesSeleccion(orden);
+        }
+
 
         internal int GenerarNumeroOrdenSeleccion()
         {

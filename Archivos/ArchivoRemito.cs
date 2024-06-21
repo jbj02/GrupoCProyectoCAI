@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GrupoCProyectoCAI.Almacenaje.SelecciondeProductos;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,11 @@ namespace GrupoCProyectoCAI.Archivos
         {
             var contenido = JsonConvert.SerializeObject(remitos);
             File.WriteAllText(@"Data\remitos.json", contenido);
+        }
+
+        public static void AgregarRemito(Remito remito)
+        {
+            remitos.Add(remito);
         }
     }
 }

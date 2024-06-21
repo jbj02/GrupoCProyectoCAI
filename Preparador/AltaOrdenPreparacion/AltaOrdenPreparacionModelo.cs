@@ -84,8 +84,10 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
             }
         }
 
-        public void ModificarStocks (List<Stock> productosAfectados)
+        public void ModificarStocks (List<Stock> productosCliente)
         {
+            List<Stock> productosAfectados = new List<Stock>(productosCliente);
+
             ArchivoStockProvisorio.SumarStockProvisorio(productosAfectados);
             ArchivoStock.RestarStock(productosAfectados);
         }

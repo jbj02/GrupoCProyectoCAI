@@ -124,8 +124,9 @@ namespace GrupoCProyectoCAI
                 //primero se le modifica la cantidad al producto activo
                 //cantidad original: la que proviene del stock
                 //cantidad nueva: la seleccionada por el usuario en CantidadNum
-                productoActivo.Cantidad = Convert.ToInt32(CantidadNum.Value);
-                productosSeleccionados.Add(productoActivo);
+                Stock productoParaAgregar = (Stock)productoActivo.Clone();
+                productoParaAgregar.Cantidad = Convert.ToInt32(CantidadNum.Value);
+                productosSeleccionados.Add(productoParaAgregar);
 
                 ActualizarListView();
             }
@@ -215,9 +216,9 @@ namespace GrupoCProyectoCAI
                     NuevaOrden.NroOrden = modelo.BuscarUltimaOrenPreparacion() + 1;
                     NuevaOrden.ClienteCUIT = clienteActivo.CUIT;
                     NuevaOrden.TransportistaCUIT = TransportistaTxt.Text;
-                    NuevaOrden.Estado = "Pendiente de selección";
+                    NuevaOrden.Estado = "PendienteDeSeleccion";
                     NuevaOrden.FechaDespacho = FechaDeDespachoDtp.Value;
-                    NuevaOrden.FechaAlta = DateTime.Now;
+                    NuevaOrden.FechaAlta = DateTime.Now;               
                     NuevaOrden.ProductosList = productosSeleccionados;
                     //se agrega el objeto a la lista
                     modelo.AgregarOrdenPreparacion(NuevaOrden);

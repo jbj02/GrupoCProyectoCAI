@@ -1,4 +1,5 @@
-﻿using GrupoCProyectoCAI.Archivos;
+﻿using GrupoCProyectoCAI.Almacenaje.SelecciondeProductos;
+using GrupoCProyectoCAI.Archivos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -94,6 +95,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             var fila = new ListViewItem();
             fila.Text = nuevaOrdenSeleccion.NroOrden.ToString();
             fila.SubItems.Add(cantidadOrdenesPreparacion.ToString());
+            fila.Tag = nuevaOrdenSeleccion.OrdenPreparacionAsociadas;
 
             // Agregamos fila a la lista
             OrdenSeleccionList.Items.Add(fila);
@@ -110,7 +112,43 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 MessageBox.Show("Debe haber por lo menos una orden selección para crearla.");
             }else
             {
-                MessageBox.Show("¿Estás seguro que desea dar de alta la/s orden/es de selección?", "Confirmación creación", MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro que desea dar de alta la/s orden/es de selección?", "Confirmación creación", MessageBoxButtons.YesNo);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    foreach(ListViewItem ordenSeleccionItem in OrdenSeleccionList.Items)
+                    {
+                        // Crear un objeto OrdenSeleccion
+                        OrdenSeleccion nuevaOrdenSeleccion = new OrdenSeleccion
+                        {
+                            NroOrden = int.Parse(ordenSeleccionItem.SubItems[0].Text),
+                            Estado = "Pendiente" 
+                        };
+
+                        // Obtener las órdenes de preparación asociadas con esta orden de selección
+                        if (ordenSeleccionItem.Tag is List<OrdenPreparacion> ordenesPreparacionAsociadas)
+                        {
+                            foreach (var ordenPreparacion in ordenesPreparacionAsociadas)
+                            {
+                                ordenPreparacion.Estado = "EnSeleccion";
+                                // Agregar la orden de preparación a la orden de selección
+                                nuevaOrdenSeleccion.OrdenPreparacionAsociadas.Add(ordenPreparacion);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron órdenes de preparación asociadas.");
+                        }
+
+                        // Agregar la nueva orden de selección al modelo
+                        ordenesSeleccion.Add(nuevaOrdenSeleccion);
+
+                        modelo.AgregarOrdenesSeleccion(nuevaOrdenSeleccion);
+
+                        MessageBox.Show("Se crearon las ordenes de selección");
+                        this.Close();
+                    }
+                }
             }            
         }
 
