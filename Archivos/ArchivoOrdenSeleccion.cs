@@ -13,14 +13,14 @@ namespace GrupoCProyectoCAI.Archivos
         private static List<OrdenSeleccion> ordenesSeleccion;
         static ArchivoOrdenSeleccion()
         {
-            if (File.Exists(@"Data\ordenesSeleccion.json"))
+            if (File.Exists(@"DatosPrueba\ordenSeleccionP.json"))
             {
-                var contenido = File.ReadAllText(@"Data\ordenSeleccion.json");
+                var contenido = File.ReadAllText(@"DatosPrueba\ordenSeleccionP.json");
                 ordenesSeleccion = JsonConvert.DeserializeObject<List<OrdenSeleccion>>(contenido);
             }
             else
             {
-                ordenesSeleccion = new List<OrdenSeleccion>();
+              ordenesSeleccion = new List<OrdenSeleccion>();
             }
         }
 
@@ -29,7 +29,7 @@ namespace GrupoCProyectoCAI.Archivos
         public static void GrabarDatos()
         {
             var contenido = JsonConvert.SerializeObject(ordenesSeleccion);
-            File.WriteAllText(@"Data\ordenSeleccion.json", contenido);
+            File.WriteAllText(@"DatosPrueba\ordenSeleccionP.json", contenido);
         }
     }
 }

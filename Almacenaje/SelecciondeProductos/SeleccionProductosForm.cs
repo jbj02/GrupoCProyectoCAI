@@ -36,7 +36,7 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
         {
             foreach (var orden in modelo.ordenSeleccion)
             {
-                OrdenSeleccionCmb.Items.Add(orden.NumeroOrden);
+                OrdenSeleccionCmb.Items.Add(orden.NroOrden);
             }
         }
 
@@ -48,13 +48,17 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
                 string num = OrdenSeleccionCmb.SelectedItem.ToString();
                 int numero = Convert.ToInt32(num);
                 var orden = modelo.Buscar(numero);
-                foreach (var detalle in orden.productosAsociados)
+                foreach (var detalle in orden.OrdenPreparacionAsociadas)
                 {
-                    var fila = new ListViewItem();
-                    fila.Text = detalle.Producto;
-                    fila.SubItems.Add(detalle.Cantidades.ToString());
-                    fila.SubItems.Add(detalle.Ubicacion.Ubi());
-                    OrdenExt_List.Items.Add(fila);
+                    foreach(var producto in detalle.ProductosList)
+                    {
+                        var fila = new ListViewItem();
+                        fila.Text = producto.Producto;
+                        fila.SubItems.Add(producto.Cantidad.ToString());
+                        fila.SubItems.Add(producto.Ubicacion);
+                        OrdenExt_List.Items.Add(fila);
+                    }
+                    
                 }
             }
         }
