@@ -9,8 +9,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
     public class OrdenPreparacion
     {
         public int NumOrdenP {  get; set; }
-        public string ClienteP { get; set; }
+        public string ClienteCUIT { get; set; }
         public DateTime FechaDespacho { get; set; }
-        public string PrioridadP { get; set; }
     }
 }

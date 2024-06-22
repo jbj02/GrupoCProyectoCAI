@@ -11,29 +11,29 @@ namespace GrupoCProyectoCAI.Archivos;
 
 public static class ArchivoStock
 {
-    private static List<Stock> stock;
+    private static List<StockEnt> stock;
     static ArchivoStock()
     {
         if (File.Exists(@"Data\stock.json"))
         {
             var contenido = File.ReadAllText(@"Data\stock.json");
-            stock = JsonConvert.DeserializeObject<List<Stock>>(contenido);
+            stock = JsonConvert.DeserializeObject<List<StockEnt>>(contenido);
         }
         else
         {
-            stock = new List<Stock>();
+            stock = new List<StockEnt>();
         }
     }
 
-    public static ReadOnlyCollection<Stock> Stock => new ReadOnlyCollection<Stock>(stock);
+    public static ReadOnlyCollection<StockEnt> Stock => new ReadOnlyCollection<StockEnt>(stock);
 
-    public static void RestarStock(List<Stock> productos)
+    public static void RestarStock(List<StockEnt> productos)
     {
-        foreach (Stock producto in productos)
+        foreach (StockEnt producto in productos)
         {
             //no se valida si el producto existe ya que en este caso siempre va a existir
             // Busca el producto en la lista stock
-            Stock productoEnStock = stock.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
+            StockEnt productoEnStock = stock.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
             
             // Resta la cantidad del producto existente en stock
             productoEnStock.Cantidad -= producto.Cantidad;

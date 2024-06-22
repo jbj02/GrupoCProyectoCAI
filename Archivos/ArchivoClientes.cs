@@ -10,20 +10,20 @@ namespace GrupoCProyectoCAI.Archivos;
 
 public static class ArchivoClientes
 {
-    private static List<Cliente> clientes;
+    private static List<ClienteEnt> clientes;
 
     static ArchivoClientes()
     {
         if (File.Exists(@"Data\clientes.json"))
         {
             var contenido = File.ReadAllText(@"Data\clientes.json");
-            clientes = JsonConvert.DeserializeObject<List<Cliente>>(contenido);
+            clientes = JsonConvert.DeserializeObject<List<ClienteEnt>>(contenido);
         }
         else
         {
-            clientes = new List<Cliente>();
+            clientes = new List<ClienteEnt>();
         }
     }
 
-    public static ReadOnlyCollection<Cliente> Clientes => new ReadOnlyCollection<Cliente>(clientes);
+    public static ReadOnlyCollection<ClienteEnt> Clientes => new ReadOnlyCollection<ClienteEnt>(clientes);
 }

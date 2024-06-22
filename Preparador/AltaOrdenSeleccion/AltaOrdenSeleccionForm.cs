@@ -23,10 +23,10 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
 
         private void AltaOrdenSeleccionForm_Load(object sender, EventArgs e)
         {
-            CargarListaORdenesPrepracion();
+            CargarListaOrdenesPrepracion();
         }
 
-        private void CargarListaORdenesPrepracion()
+        private void CargarListaOrdenesPrepracion()
         {
             OrdenPreparacionList.Items.Clear();
 
@@ -35,9 +35,8 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 var fila = new ListViewItem();
                 // le cargamos los datos a la fila
                 fila.Text = ordenPreparacion.NumOrdenP.ToString();
-                fila.SubItems.Add(ordenPreparacion.ClienteP);
+                fila.SubItems.Add(ordenPreparacion.ClienteCUIT);
                 fila.SubItems.Add(ordenPreparacion.FechaDespacho.ToString("dd/MM/yyyy"));
-                fila.SubItems.Add(ordenPreparacion.PrioridadP);
 
                 // agregamops fila a la lista
                 OrdenPreparacionList.Items.Add(fila);
@@ -72,9 +71,8 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 OrdenPreparacion ordenPreparacion = new OrdenPreparacion
                 {
                     NumOrdenP = int.Parse(orden.SubItems[0].Text),
-                    ClienteP = orden.SubItems[1].Text,
+                    ClienteCUIT = orden.SubItems[1].Text,
                     FechaDespacho = DateTime.Parse(orden.SubItems[2].Text),
-                    PrioridadP = orden.SubItems[3].Text
                 };
 
                 // Añadir la orden de preparación a la lista de órdenes asociadas con la orden de selección
@@ -89,8 +87,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
 
             // Crear y agregar la fila a OrdenSeleccionList
             var fila = new ListViewItem();
-            fila.Text = nuevaOrdenSeleccion.NumOrdenS.ToString();
-            fila.SubItems.Add(modelo.ElegirPrioridad(Prioridades));
+            fila.Text = nuevaOrdenSeleccion.NumOrden.ToString();
             fila.SubItems.Add(cantidadOrdenesPreparacion.ToString());
 
             // Agregamos fila a la lista
@@ -122,7 +119,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             int numeroOrdenSeleccionado = int.Parse(itemSeleccionado.Text);
 
             // Buscar la orden de selección correspondiente
-            OrdenSeleccion ordenSeleccion = ordenesSeleccion.FirstOrDefault(o => o.NumOrdenS == numeroOrdenSeleccionado);
+            OrdenSeleccion ordenSeleccion = ordenesSeleccion.FirstOrDefault(o => o.NumOrden == numeroOrdenSeleccionado);
 
             if (ordenSeleccion != null)
             {
@@ -131,9 +128,8 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 {
                     // Crear un nuevo ListViewItem para OrdenPreparacionList
                     ListViewItem nuevoItem = new ListViewItem(ordenPreparacion.NumOrdenP.ToString());
-                    nuevoItem.SubItems.Add(ordenPreparacion.ClienteP);
+                    nuevoItem.SubItems.Add(ordenPreparacion.ClienteCUIT);
                     nuevoItem.SubItems.Add(ordenPreparacion.FechaDespacho.ToString("d")); // Formato de fecha corto
-                    nuevoItem.SubItems.Add(ordenPreparacion.PrioridadP);
 
                     // Agregar el nuevo item a OrdenPreparacionList
                     OrdenPreparacionList.Items.Add(nuevoItem);

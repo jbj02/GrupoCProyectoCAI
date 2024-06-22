@@ -10,25 +10,25 @@ namespace GrupoCProyectoCAI.Archivos;
 public static class ArchivoStockProvisorio
 {
     //este archivo usa la clase Stock que ya existía, no se crea una nueva porque son las dos iguales
-    private static List<Stock> stockProvisorio;
+    private static List<StockProvisrorioEnt> stockProvisorio;
     static ArchivoStockProvisorio()
     {
         if (File.Exists(@"Data\stockProvisorio.json"))
         {
             var contenido = File.ReadAllText(@"Data\stockProvisorio.json");
-            stockProvisorio = JsonConvert.DeserializeObject<List<Stock>>(contenido);
+            stockProvisorio = JsonConvert.DeserializeObject<List<StockProvisrorioEnt>>(contenido);
         }
         else
         {
-            stockProvisorio = new List<Stock>();
+            stockProvisorio = new List<StockProvisrorioEnt>();
         }
     }
 
-    public static ReadOnlyCollection<Stock> StockProvisorio => new ReadOnlyCollection<Stock>(stockProvisorio);
+    public static ReadOnlyCollection<StockProvisrorioEnt> StockProvisorio => new ReadOnlyCollection<StockProvisrorioEnt>(stockProvisorio);
 
-    public static void SumarStockProvisorio(List<Stock> productos)
+    public static void SumarStockProvisorio(List<StockProvisrorioEnt> productos)
     {
-        foreach (Stock producto in productos)
+        foreach (StockProvisrorioEnt producto in productos)
         {
             int indiceExistente = stockProvisorio.FindIndex(p => p.ProductoCliente == producto.ProductoCliente);
             //si el producto ya existe dentro del stock provisorio
