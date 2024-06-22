@@ -36,7 +36,10 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
         {
             foreach (var orden in modelo.ordenSeleccion)
             {
-                OrdenSeleccionCmb.Items.Add(orden.NroOrden);
+                if (orden.Estado == "pendiente")
+                {
+                    OrdenSeleccionCmb.Items.Add(orden.NroOrden);
+                }
             }
         }
 
@@ -65,13 +68,53 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
 
         private void ConfirmarBtn_Click(object sender, EventArgs e)
         {
+            string error = "";
+            bool flag;
+            
+            foreach (ListViewItem item in OrdenExt_List.Items)
+            {
+                flag = item.Checked;
+                error += ValidarSeleccion(flag) + System.Environment.NewLine;
+            }
+            error += ValidarOrden(OrdenSeleccionCmb.SelectedIndex) + System.Environment.NewLine;
+            error = error.Trim();
+            if (!String.IsNullOrEmpty(error))
+            {
+                MessageBox.Show(error, "Error");
+            }
+            else
+            {
+                DialogResult respuesta = MessageBox.Show("Desea confirmar la orden?", "Mensaje de confirmación", MessageBoxButtons.YesNo); // falta if de si selecciona yes 
+                if (respuesta == DialogResult.Yes)
+                {
+                    OrdenExt_List.Items.Clear();
+                    modelo.ActualizarOrden(OrdenSeleccionCmb.SelectedItem.ToString());
+                    OrdenSeleccionCmb.SelectedIndex = -1;
+                }
+               
+
+                
+            }
             //bool flag = OrdenExt_List.CheckBoxes;
-            
-            MessageBox.Show("Desea confirmar la orden?", "Mensaje de confirmación", MessageBoxButtons.YesNo); // falta if de si selecciona yes 
-            OrdenExt_List.Items.Clear();
-            
-            modelo.ActualizarOrden(OrdenSeleccionCmb.SelectedItem.ToString());
-            OrdenSeleccionCmb.SelectedIndex = -1;
+        }
+        public string ValidarOrden(int index)
+        {
+            string error = "";
+            if (index == -1)
+            {
+                error = "No se ha seleccionado ninguna orden";
+            }
+            return error;
+        }
+        public string ValidarSeleccion(bool item)
+        {
+            string error = "";
+            if (item == false)
+            {
+                error = "No ha seleccionado todos los productos asociados a la orden";
+            }
+          
+            return error;
         }
     }
 }
