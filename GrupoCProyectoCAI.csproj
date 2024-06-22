@@ -34,6 +34,9 @@
     <None Update="DatosPrueba\ordenPreparacionP.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="DatosPrueba\ordenSeleccionP.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

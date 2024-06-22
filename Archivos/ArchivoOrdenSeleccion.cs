@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using GrupoCProyectoCAI.Almacenaje.SelecciondeProductos;
+using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,6 +37,17 @@ namespace GrupoCProyectoCAI.Archivos
         public static void AgregarOrdenesSeleccion(OrdenSeleccionEnt orden)
         {
             ordenesSeleccion.Add(orden);
+        }
+        public static void CambiarEstado(int orden)
+        {
+           foreach (var ord in ordenesSeleccion)
+            {
+                if (ord.NroOrden == orden)
+                {
+                    ord.Estado = "cumplida";
+                    break;
+                }
+            }
         }
     }
 }

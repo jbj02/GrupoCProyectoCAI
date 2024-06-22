@@ -1,7 +1,7 @@
 [
   {
     "NroOrden": 111111,
-    "Estado": "Pendiente",
+    "Estado": "pendiente",
     "OrdenPreparacionAsociadas": [
       {
         "NroOrden": 123,

@@ -1,3 +1,4 @@
+using GrupoCProyectoCAI.Archivos;
 using GrupoCProyectoCAI.Despachador.DespacharOrden;
 using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
 using GrupoCProyectoCAI.Preparador.PrepararOrden;
@@ -16,6 +17,7 @@ namespace GrupoCProyectoCAI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MenuForm());
+            ArchivoOrdenSeleccion.GrabarDatos();
         }
     }
 }

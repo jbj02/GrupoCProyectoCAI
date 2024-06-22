@@ -36,7 +36,10 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
         {
             foreach (var orden in modelo.ordenSeleccion)
             {
-                OrdenSeleccionCmb.Items.Add(orden.NumeroOrden);
+                if (orden.Estado == "pendiente")
+                {
+                    OrdenSeleccionCmb.Items.Add(orden.NumeroOrden);
+                }
             }
         }
 
@@ -48,26 +51,75 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
                 string num = OrdenSeleccionCmb.SelectedItem.ToString();
                 int numero = Convert.ToInt32(num);
                 var orden = modelo.Buscar(numero);
-                foreach (var detalle in orden.productosAsociados)
+                foreach (var detalle in orden.ordenAsociada)
                 {
-                    var fila = new ListViewItem();
-                    fila.Text = detalle.Producto;
-                    fila.SubItems.Add(detalle.Cantidades.ToString());
-                    fila.SubItems.Add(detalle.Ubicacion.Ubi());
-                    OrdenExt_List.Items.Add(fila);
+                    foreach (var producto in detalle.ProductosList)
+                    {
+                        var fila = new ListViewItem();
+                        fila.Text = producto.Producto;
+                        fila.SubItems.Add(producto.Cantidad.ToString());
+                        fila.SubItems.Add(producto.Ubicacion);
+                        OrdenExt_List.Items.Add(fila);
+                    }
+
                 }
             }
         }
 
         private void ConfirmarBtn_Click(object sender, EventArgs e)
         {
-            //bool flag = OrdenExt_List.CheckBoxes;
-            
-            MessageBox.Show("Desea confirmar la orden?", "Mensaje de confirmación", MessageBoxButtons.YesNo); // falta if de si selecciona yes 
-            OrdenExt_List.Items.Clear();
-            
-            modelo.ActualizarOrden(OrdenSeleccionCmb.SelectedItem.ToString());
-            OrdenSeleccionCmb.SelectedIndex = -1;
+            string error = "";
+            bool flag;
+
+            foreach (ListViewItem item in OrdenExt_List.Items)
+            {
+                flag = item.Checked;
+                error += ValidarSeleccion(flag) + System.Environment.NewLine;
+            }
+            error += ValidarOrden(OrdenSeleccionCmb.SelectedIndex) + System.Environment.NewLine;
+            error = error.Trim();
+            if (!String.IsNullOrEmpty(error))
+            {
+                MessageBox.Show(error, "Error");
+            }
+            else
+            {
+                DialogResult respuesta = MessageBox.Show("Desea confirmar la orden?", "Mensaje de confirmación", MessageBoxButtons.YesNo); // falta if de si selecciona yes 
+                if (respuesta == DialogResult.Yes)
+                {
+                    var orden = modelo.Buscar(Convert.ToInt32(OrdenSeleccionCmb.SelectedItem.ToString()));
+                    modelo.orden = orden;
+                    //orden.Estado = "cumplida";
+                    modelo.Confirmar();
+                    OrdenExt_List.Items.Clear();
+                    //modelo.ActualizarOrden(OrdenSeleccionCmb.SelectedItem.ToString());
+                    //modelo.CambiarEstadoOrdenEstado(orden);
+                    OrdenSeleccionCmb.SelectedIndex = -1;
+                    this.Close();
+                }
+
+
+
+            }
+        }
+        public string ValidarOrden(int index)
+        {
+            string error = "";
+            if (index == -1)
+            {
+                error = "No se ha seleccionado ninguna orden";
+            }
+            return error;
+        }
+        public string ValidarSeleccion(bool item)
+        {
+            string error = "";
+            if (item == false)
+            {
+                error = "No ha seleccionado todos los productos asociados a la orden";
+            }
+
+            return error;
         }
     }
 }
