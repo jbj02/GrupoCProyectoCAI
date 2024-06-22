@@ -35,13 +35,21 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
             OrdenSeleccion ord = ordenSeleccion.Find(o => o.NroOrden == orden);
             return ord;
         }
-        public void ActualizarOrden(string orden)
+        public void CambiarEstadoOrdenEstado(OrdenSeleccion orden)
         {
-            int numero = Convert.ToInt32(orden);
-            foreach (var ord in ordenSeleccion)
+            // Buscar la orden en la lista y actualizar su estado
+            var ordenExistente = ArchivoOrdenSeleccion.OrdenSeleccions.FirstOrDefault(o => o.NroOrden == orden.NroOrden);
+            if (ordenExistente != null)
             {
-                // if(numero == (NumeroOrden).ordenSeleccion){}
+                ordenExistente.Estado = orden.Estado;
+                //ArchivoOrdenPreparacion.GrabarDatos(); // Guardar los cambios
+                
+            }
+            else
+            {
+                MessageBox.Show($"La orden {orden.NroOrden} no existe en la lista");
             }
         }
+
     }
 }

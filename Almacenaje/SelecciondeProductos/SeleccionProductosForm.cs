@@ -1,4 +1,5 @@
 ﻿using GrupoCProyectoCAI.Almacenaje.SelecciondeProductos;
+using GrupoCProyectoCAI.Archivos;
 using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
         {
             InitializeComponent();
         }
-
+        //public List <OrdenSeleccion> ordenSeleccionActualizada = new List<OrdenSeleccion>();
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -34,7 +35,12 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
 
         private void SeleccionProductosForm_Load(object sender, EventArgs e)
         {
-            foreach (var orden in modelo.ordenSeleccion)
+            CargarNumeroOrden();
+            //ordenSeleccionActualizada = modelo.ordenSeleccion;
+        }
+        private void CargarNumeroOrden()
+        {
+            foreach (var orden in modelo.ordenSeleccion) //ver si cargar esto lo tiene que hacer el modelo o el form
             {
                 if (orden.Estado == "pendiente")
                 {
@@ -87,9 +93,13 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
                 DialogResult respuesta = MessageBox.Show("Desea confirmar la orden?", "Mensaje de confirmación", MessageBoxButtons.YesNo); // falta if de si selecciona yes 
                 if (respuesta == DialogResult.Yes)
                 {
+                    var orden = modelo.Buscar(Convert.ToInt32(OrdenSeleccionCmb.SelectedItem.ToString()));
+                    orden.Estado = "cumplida";
                     OrdenExt_List.Items.Clear();
-                    modelo.ActualizarOrden(OrdenSeleccionCmb.SelectedItem.ToString());
+                    //modelo.ActualizarOrden(OrdenSeleccionCmb.SelectedItem.ToString());
+                    modelo.CambiarEstadoOrdenEstado(orden);
                     OrdenSeleccionCmb.SelectedIndex = -1;
+                    this.Close();
                 }
                
 
@@ -97,6 +107,7 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
             }
             //bool flag = OrdenExt_List.CheckBoxes;
         }
+        
         public string ValidarOrden(int index)
         {
             string error = "";
