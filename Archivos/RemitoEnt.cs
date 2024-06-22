@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Archivos
 {
-    public class OrdenPreparacion
+    public class RemitoEnt
     {
-        public int NroOrden { get; set; }
-        public string ClienteCUIT { get; set; }
-        public string Estado { get; set; }
-        public string TransportistaCUIT { get; set; }
+        public int NroRemito { get; set; }
+        public string clienteCUIT { get; set; }
+        public string transportistaCUIT { get; set; }
         public DateTime FechaDespacho { get; set; }
-        public DateTime FechaAlta { get; set; }
         public List<Stock> ProductosList { get; set; }
-
     }
 }

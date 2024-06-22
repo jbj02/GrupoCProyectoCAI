@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Archivos
 {
-    public class Stock : ICloneable
+    public class StockEnt
     {
         public string ProductoCliente
         {
@@ -21,10 +21,5 @@ namespace GrupoCProyectoCAI.Archivos
         public string Ubicacion { get; set; }
         public double Peso { get; set; }
         public string TipoProducto { get; set; }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
     }
 }

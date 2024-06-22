@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Archivos
 {
-    public class Cliente
+    public class ClienteEnt
     {
         public string CUIT { get; set; }
         public string Nombre { get; set; }

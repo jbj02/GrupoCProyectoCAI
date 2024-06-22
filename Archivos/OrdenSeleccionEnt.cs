@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Archivos
 {
-    public class OrdenSeleccion
+    public class OrdenSeleccionEnt
     {
         public int NroOrden { get; set; }
         public string Estado { get; set; }
-        public List<OrdenPreparacion> OrdenPreparacionAsociadas { get; set; } = new();
+        public List<OrdenPreparacionEnt> OrdenPreparacionAsociadas { get; set; } = new();
 
         public void DevolverNumeroOrdenSeleccion(int numeroOrdenSeleccion)
         {
             NroOrden = numeroOrdenSeleccion;
-            OrdenPreparacionAsociadas = new List<OrdenPreparacion>();
+            OrdenPreparacionAsociadas = new List<OrdenPreparacionEnt>();
         }
     }
 

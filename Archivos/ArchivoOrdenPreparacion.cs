@@ -12,9 +12,9 @@ namespace GrupoCProyectoCAI.Archivos
     public static class ArchivoOrdenPreparacion
     {
         // Expone el archivo con una lista de solo lectura
-        public static ReadOnlyCollection<OrdenPreparacion> OrdenesPreparacion => ordenesPreparacion.AsReadOnly();
+        public static ReadOnlyCollection<OrdenPreparacionEnt> OrdenesPreparacion => ordenesPreparacion.AsReadOnly();
 
-        private static List<OrdenPreparacion> ordenesPreparacion;
+        private static List<OrdenPreparacionEnt> ordenesPreparacion;
 
         static ArchivoOrdenPreparacion()
         {
@@ -22,15 +22,15 @@ namespace GrupoCProyectoCAI.Archivos
             if (File.Exists(@"DatosPrueba\ordenPreparacionP.json"))
             {
                 var contenido = File.ReadAllText(@"DatosPrueba\ordenPreparacionP.json");
-                ordenesPreparacion = JsonConvert.DeserializeObject<List<OrdenPreparacion>>(contenido);
+                ordenesPreparacion = JsonConvert.DeserializeObject<List<OrdenPreparacionEnt>>(contenido);
             }
             else
             {
-                ordenesPreparacion = new List<OrdenPreparacion>();
+                ordenesPreparacion = new List<OrdenPreparacionEnt>();
             }
         }
 
-        public static void AgregarOrdenPreparacion(OrdenPreparacion orden)
+        public static void AgregarOrdenPreparacion(OrdenPreparacionEnt orden)
         {
             ordenesPreparacion.Add(orden);
         }
