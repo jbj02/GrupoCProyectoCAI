@@ -64,12 +64,8 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
 
                                 ordenPreparacion.Productos.Add(productosOrdenPreparacion);
                             }
-
-
                         }
-
                     }
-
 
                     OrdenesPreparacion.Add(ordenPreparacion);
                 }
@@ -83,7 +79,7 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
 
         public void Confirmar()
         {
-            ArchivoOrdenPreparacion.SeleccionarOrden(OrdenSeleccionada.NumOrden, "Preparada");
+            ArchivoOrdenPreparacion.SeleccionarOrden(OrdenSeleccionada.NumOrden, EstadosOrdenPreparacion.Preparada);
         }
 
     }

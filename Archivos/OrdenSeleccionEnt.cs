@@ -9,7 +9,7 @@ namespace GrupoCProyectoCAI.Archivos
     public class OrdenSeleccionEnt
     {
         public int NroOrden { get; set; }
-        public string Estado { get; set; }
+        public EstadosOrdenSeleccion Estado { get; set; }
         public List<int> OrdenPreparacionAsociadas { get; set; } = new();
 
         /*

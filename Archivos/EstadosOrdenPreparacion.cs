@@ -10,5 +10,6 @@ public enum EstadosOrdenPreparacion
     Pendiente,
     EnSeleccion,
     Seleccionada,
-    Preparada
+    Preparada,
+    Despachada
 }

@@ -25,18 +25,18 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
 
             foreach (var ordenEntidad in ArchivoOrdenPreparacion.OrdenesPreparacion)
             {
-                if (ordenEntidad.Estado == "PendienteDeSeleccion")
+                if (ordenEntidad.Estado == EstadosOrdenPreparacion.Pendiente)
                 {
                     var ordenPreparacion = new OrdenPreparacion
                     {
                         NumOrdenP = ordenEntidad.NroOrden,
                         ClienteCUIT = ordenEntidad.ClienteCUIT,
-                        FechaDespacho = ordenEntidad.FechaDespacho
-                    };
+                        FechaDespacho = ordenEntidad.FechaDespacho,
+                    };             
 
                     OrdenesPreparacion.Add(ordenPreparacion);
-                }                   
-            }          
+                }
+            }
         }
 
         public void AgregarOrdenesSeleccion(OrdenSeleccion orden)
@@ -46,21 +46,20 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             {
                 NroOrden = orden.NumOrden,
                 Estado = orden.Estado,
-                OrdenPreparacionAsociadas = new List<OrdenPreparacionEnt>()
+                OrdenPreparacionAsociadas = orden.OrdenesPreparacionAsociadas.Select(op => op.NumOrdenP).ToList()
             };
 
-            foreach (var ordenPreparacion in orden.OrdenesPreparacionAsociadas)
+            foreach (var ordenP in orden.OrdenesPreparacionAsociadas)
             {
-                var ordenPreparacionEnt = ArchivoOrdenPreparacion.ObtenerOrdenPreparacionPorNumero(ordenPreparacion.NumOrdenP);
+                var ordenPreparacionEnt = ArchivoOrdenPreparacion.ObtenerOrdenPreparacionPorNumero(ordenP.NumOrdenP);
                 if (ordenPreparacionEnt != null)
                 {
-                    ordenSeleccionEnt.OrdenPreparacionAsociadas.Add(ordenPreparacionEnt);
-
-                    ArchivoOrdenPreparacion.SeleccionarOrden(ordenPreparacion.NumOrdenP, "EnSeleccion");
+                    ordenPreparacionEnt.Estado = EstadosOrdenPreparacion.EnSeleccion;
+                    ArchivoOrdenPreparacion.ActualizarOrdenPreparacion(ordenPreparacionEnt);
                 }
                 else
                 {
-                    throw new Exception($"No se encontró la orden de preparación con el número {ordenPreparacion.NumOrdenP}.");
+                    throw new Exception($"No se encontró la orden de preparación con el número {ordenP.NumOrdenP}.");
                 }
             }
 

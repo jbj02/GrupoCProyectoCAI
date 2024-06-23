@@ -44,7 +44,7 @@ namespace GrupoCProyectoCAI.Archivos
             {
                 if (ord.NroOrden == orden)
                 {
-                    ord.Estado = "cumplida";
+                    ord.Estado = EstadosOrdenSeleccion.Cumplida;
                     break;
                 }
             }

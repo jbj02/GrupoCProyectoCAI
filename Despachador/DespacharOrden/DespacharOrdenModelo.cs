@@ -1,4 +1,5 @@
 ﻿using GrupoCProyectoCAI.Archivos;
+using GrupoCProyectoCAI.Preparador.PrepararOrden;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                         NumOrden = ordenEntidad.NroOrden,
                         ClienteCUIT = ordenEntidad.ClienteCUIT,
                         TransportistaCUIT = ordenEntidad.TransportistaCUIT,
-                        FechaDespacho = ordenEntidad.FechaDespacho
+                        FechaDespacho = ordenEntidad.FechaDespacho,
                     };
 
                     OrdenesPreparadas.Add(ordenPreparacion);
@@ -43,7 +44,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                 // Obtener la orden de preparación completa (incluidos los productos)
                 var ordenPreparacion = ArchivoOrdenPreparacion.ObtenerOrdenPreparacionPorNumero(ordenDespachada.NumOrden);
 
-                ArchivoOrdenPreparacion.SeleccionarOrden(ordenDespachada.NumOrden, "Despachada");
+                ArchivoOrdenPreparacion.SeleccionarOrden(ordenDespachada.NumOrden, EstadosOrdenPreparacion.Despachada);
 
                 // Crear un nuevo objeto Remito y asignar los valores requeridos
                 var remitoEnt = new RemitoEnt
@@ -51,23 +52,9 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                     NroRemito = GenerarNumero(),
                     clienteCUIT = ordenDespachada.ClienteCUIT,
                     transportistaCUIT = ordenDespachada.TransportistaCUIT,
-                    FechaDespacho = ordenDespachada.FechaDespacho,
-                    ProductosList = new List<StockEnt>()
+                    FechaDespacho = ordenDespachada.FechaDespacho
                 };
 
-                // Agregar los productos de la orden de preparación al remito
-                foreach (var producto in ordenPreparacion.ProductosList)
-                {
-                    remitoEnt.ProductosList.Add(new StockEnt
-                    {
-                        Producto = producto.Producto,
-                        ClienteCUIT = ordenDespachada.ClienteCUIT,
-                        Cantidad = producto.Cantidad,
-                        Ubicacion = producto.Ubicacion,
-                        Peso = producto.Peso,
-                        TipoProducto = producto.TipoProducto
-                    });
-                }
                 // Agregar la ordenSeleccionEnt a la lista de órdenes de selección en el archivo
                 ArchivoRemito.AgregarRemito(remitoEnt);
             }

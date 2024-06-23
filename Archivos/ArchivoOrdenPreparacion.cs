@@ -41,7 +41,7 @@ namespace GrupoCProyectoCAI.Archivos
             File.WriteAllText(@"Data\ordenPreparacion.json", contenido);
         }
 
-        public static void SeleccionarOrden(int numeroOrden, string estado)
+        public static void SeleccionarOrden(int numeroOrden, EstadosOrdenPreparacion estado)
         {
             foreach(var orden in ordenesPreparacion)
             {
@@ -55,6 +55,19 @@ namespace GrupoCProyectoCAI.Archivos
         public static OrdenPreparacionEnt ObtenerOrdenPreparacionPorNumero(int numOrdenP)
         {
             return ordenesPreparacion.FirstOrDefault(op => op.NroOrden == numOrdenP);
+        }
+
+        public static void ActualizarOrdenPreparacion(OrdenPreparacionEnt ordenActualizada)
+        {
+            var ordenExistente = ObtenerOrdenPreparacionPorNumero(ordenActualizada.NroOrden);
+            if (ordenExistente != null)
+            {
+                ordenExistente.ClienteCUIT = ordenActualizada.ClienteCUIT;
+                ordenExistente.TransportistaCUIT = ordenActualizada.TransportistaCUIT;
+                ordenExistente.FechaDespacho = ordenActualizada.FechaDespacho;
+                ordenExistente.FechaAlta = ordenActualizada.FechaAlta;
+                ordenExistente.Estado = ordenActualizada.Estado;
+            }
         }
     }
 

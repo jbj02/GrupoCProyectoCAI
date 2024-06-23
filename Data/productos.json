@@ -1,0 +1,92 @@
+[
+  {
+    "Producto": "Silla",
+    "Codigo": "A123",
+    "Peso": 5.0,
+    "TipoProducto": "mueble"
+  },
+  {
+    "Producto": "Mesa",
+    "Codigo": "B234",
+    "Peso": 20.5,
+    "TipoProducto": "mueble"
+  },
+  {
+    "Producto": "Lampara",
+    "Codigo": "C345",
+    "Peso": 2.3,
+    "TipoProducto": "mueble"
+  },
+  {
+    "Producto": "Sofa",
+    "Codigo": "D456",
+    "Peso": 45.0,
+    "TipoProducto": "mueble"
+  },
+  {
+    "Producto": "Estante",
+    "Codigo": "E567",
+    "Peso": 15.0,
+    "TipoProducto": "mueble"
+  },
+  {
+    "Producto": "Cama",
+    "Codigo": "K123",
+    "Peso": 50.0,
+    "TipoProducto": "mueble"
+  },
+  {
+    "Producto": "Almohada",
+    "Codigo": "L234",
+    "Peso": 1.0,
+    "TipoProducto": "mueble"
+  },
+  {
+    "Producto": "Televisor",
+    "Codigo": "M345",
+    "Peso": 10.0,
+    "TipoProducto": "electrónico"
+  },
+  {
+    "Producto": "Ventilador",
+    "Codigo": "N456",
+    "Peso": 3.0,
+    "TipoProducto": "electrónico"
+  },
+  {
+    "Producto": "Refrigerador",
+    "Codigo": "O567",
+    "Peso": 60.0,
+    "TipoProducto": "electrónico"
+  },
+  {
+    "Producto": "Laptop",
+    "Codigo": "P678",
+    "Peso": 2.5,
+    "TipoProducto": "electrónico"
+  },
+  {
+    "Producto": "Microondas",
+    "Codigo": "Q789",
+    "Peso": 12.0,
+    "TipoProducto": "electrónico"
+  },
+  {
+    "Producto": "Escritorio",
+    "Codigo": "R890",
+    "Peso": 30.0,
+    "TipoProducto": "mueble"
+  },
+  {
+    "Producto": "Cafetera",
+    "Codigo": "S901",
+    "Peso": 3.5,
+    "TipoProducto": "electrónico"
+  },
+  {
+    "Producto": "Impresora",
+    "Codigo": "T012",
+    "Peso": 8.0,
+    "TipoProducto": "electrónico"
+  }
+]
