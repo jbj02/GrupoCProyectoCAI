@@ -22,23 +22,23 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
             foreach (var ordenEntidad in ArchivoOrdenPreparacion.OrdenesPreparacion)
             {
-                if (ordenEntidad.Estado == "Preparada")
+                if (ordenEntidad.Estado == EstadosOrdenPreparacion.Preparada)
                 {
                     var ordenPreparacion = new OrdenPreparacionD
                     {
                         NumOrden = ordenEntidad.NroOrden,
                         ClienteCUIT = ordenEntidad.ClienteCUIT,
                         TransportistaCUIT = ordenEntidad.TransportistaCUIT,
-                        FechaDespacho = ordenEntidad.FechaDespacho           
+                        FechaDespacho = ordenEntidad.FechaDespacho
                     };
 
                     OrdenesPreparadas.Add(ordenPreparacion);
                 }
-            }            
+            }
         }
         public void Confirmar()
         {
-            foreach(var ordenDespachada in  OrdenesSeleccionadas)
+            foreach (var ordenDespachada in OrdenesSeleccionadas)
             {
                 // Obtener la orden de preparación completa (incluidos los productos)
                 var ordenPreparacion = ArchivoOrdenPreparacion.ObtenerOrdenPreparacionPorNumero(ordenDespachada.NumOrden);
@@ -70,7 +70,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                 }
                 // Agregar la ordenSeleccionEnt a la lista de órdenes de selección en el archivo
                 ArchivoRemito.AgregarRemito(remitoEnt);
-            }            
+            }
         }
 
         internal int GenerarNumero()

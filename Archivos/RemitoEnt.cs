@@ -12,6 +12,6 @@ namespace GrupoCProyectoCAI.Archivos
         public string clienteCUIT { get; set; }
         public string transportistaCUIT { get; set; }
         public DateTime FechaDespacho { get; set; }
-        public List<StockEnt> ProductosList { get; set; }
+        public List<int> Ordenes { get; set; }
     }
 }

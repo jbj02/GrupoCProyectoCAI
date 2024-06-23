@@ -10,11 +10,13 @@ namespace GrupoCProyectoCAI.Archivos
     {
         public int NroOrden { get; set; }
         public string ClienteCUIT { get; set; }
-        public string Estado { get; set; }
+        public EstadosOrdenPreparacion Estado { get; set; }        
         public string TransportistaCUIT { get; set; }
         public DateTime FechaDespacho { get; set; }
         public DateTime FechaAlta { get; set; }
-        public List<StockEnt> ProductosList { get; set; }
-
     }
 }
+
+
+// { NroOrden:1, ClienteCuit:20-33123123-8, Estado="Pendiente", .... FechaAlta=2024-06-23 }
+// { NroOrden:2, ClienteCuit:30-33123123-8, Estado="Pendiente", .... FechaAlta=2024-06-23 }

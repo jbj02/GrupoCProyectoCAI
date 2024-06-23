@@ -10,13 +10,15 @@ namespace GrupoCProyectoCAI.Archivos
     {
         public int NroOrden { get; set; }
         public string Estado { get; set; }
-        public List<OrdenPreparacionEnt> OrdenPreparacionAsociadas { get; set; } = new();
+        public List<int> OrdenPreparacionAsociadas { get; set; } = new();
 
+        /*
         public void DevolverNumeroOrdenSeleccion(int numeroOrdenSeleccion)
         {
             NroOrden = numeroOrdenSeleccion;
             OrdenPreparacionAsociadas = new List<OrdenPreparacionEnt>();
         }
+        */
     }
 
     

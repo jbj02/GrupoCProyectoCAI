@@ -23,7 +23,7 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
 
             foreach (var ordenEntidad in ArchivoOrdenPreparacion.OrdenesPreparacion)
             {
-                if(ordenEntidad.Estado == "Seleccionada")
+                if (ordenEntidad.Estado == EstadosOrdenPreparacion.Seleccionada)
                 {
                     var ordenPreparacion = new OrdenPrepara
                     {
@@ -34,19 +34,45 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
                         Productos = new List<Productos>()
                     };
 
-                    foreach (var producto in ordenEntidad.ProductosList)
+                    foreach (var stockProvisorio in ArchivoStockProvisorio.StockProvisorio)
                     {
-                        var productosOrdenPreparacion = new Productos
-                        {
-                            NombreProducto = producto.Producto,
-                            Cantidad = producto.Cantidad
-                        };
+                        if (stockProvisorio.NroOrden != ordenPreparacion.NumOrden)
+                            continue;
 
-                        ordenPreparacion.Productos.Add(productosOrdenPreparacion);
+                        foreach (var producto in ArchivoProductos.Productos)
+                        {
+                            if (producto.Codigo != stockProvisorio.CodigoProducto)
+                                continue;
+
+                            bool existe = false;
+                            foreach (var productoYaCargados in ordenPreparacion.Productos)
+                            {
+                                if (productoYaCargados.NombreProducto != producto.Producto)
+                                    continue;
+
+                                productoYaCargados.Cantidad += stockProvisorio.Cantidad;
+                                existe = true;
+                            }
+
+                            if (!existe)
+                            {
+                                var productosOrdenPreparacion = new Productos
+                                {
+                                    NombreProducto = producto.Producto,
+                                    Cantidad = stockProvisorio.Cantidad
+                                };
+
+                                ordenPreparacion.Productos.Add(productosOrdenPreparacion);
+                            }
+
+
+                        }
+
                     }
 
+
                     OrdenesPreparacion.Add(ordenPreparacion);
-                }               
+                }
             }
         }
 
@@ -59,6 +85,6 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
         {
             ArchivoOrdenPreparacion.SeleccionarOrden(OrdenSeleccionada.NumOrden, "Preparada");
         }
-        
+
     }
 }

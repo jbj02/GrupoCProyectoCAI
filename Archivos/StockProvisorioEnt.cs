@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,16 @@ namespace GrupoCProyectoCAI.Archivos
 {
     public class StockProvisorioEnt
     {
-        public string ProductoCliente
-        {
-            get
-            {
-                return $"{Producto}{ClienteCUIT}";
-            }
-        }
-        public string Producto { get; set; }
-        public string ClienteCUIT { get; set; }
+        public int NroOrden { get; set; }
+        public string CodigoProducto { get; set; }
         public int Cantidad { get; set; }
         public string Ubicacion { get; set; }
-        public double Peso { get; set; }
-        public string TipoProducto { get; set; }
     }
 }
+
+
+//{ NroOrden:1, CodigoProducto: "REME-RAS", Cantidad:3, Ubicacion: "UBI01" }
+//{ NroOrden:1, CodigoProducto: "REME-RAS", Cantidad:2, Ubicacion: "UBI02" }
+//{ NroOrden:1, CodigoProducto: "TER-MO", Cantidad:4, Ubicacion: "UBI03" }
+//{ NroOrden:1, CodigoProducto: "TER-MO", Cantidad:6, Ubicacion: "UBI10" }
+//{ NroOrden:2, CodigoProducto: "DEST", Cantidad:1, Ubicacion: "UBI04" }
