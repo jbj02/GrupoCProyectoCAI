@@ -9,12 +9,13 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
     public class OrdenSeleccion
     {
         public int NumOrden { get; set; }
-        public int CantidadOrdenPreparacion { get; set; }
+        public string Estado { get; set; }
         public List<OrdenPreparacion> OrdenesPreparacionAsociadas { get; set; }
 
         public OrdenSeleccion(int numeroOrdenSeleccion)
         {
             NumOrden = numeroOrdenSeleccion;
+            Estado = "Pendiente";
             OrdenesPreparacionAsociadas = new List<OrdenPreparacion>();
         }
     }

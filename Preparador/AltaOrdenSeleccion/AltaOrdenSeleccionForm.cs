@@ -48,7 +48,6 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
 
         private void SeleccionarBtn_Click(object sender, EventArgs e)
         {
-            List<string> Prioridades = new();
             var cantidadOrdenesPreparacion = OrdenPreparacionList.SelectedItems.Count;
 
             // Mensaje en caso de que no seleccione ninguna fila
@@ -58,15 +57,11 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 return;
             }
 
-
             // Crear una nueva orden de selección
             OrdenSeleccion nuevaOrdenSeleccion = new OrdenSeleccion(modelo.GenerarNumeroOrdenSeleccion());
 
             foreach (ListViewItem orden in OrdenPreparacionList.SelectedItems)
             {
-                // Se carga la lista Prioridades con las prioridades de las órdenes de Preparación seleccionadas
-                Prioridades.Add(orden.SubItems[3].Text);
-
                 // Crear un objeto OrdenPreparacion
                 OrdenPreparacion ordenPreparacion = new OrdenPreparacion
                 {
@@ -96,12 +91,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
         private void CancelarBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void ConfirmarBtn_Click(Object sender, EventArgs e)
-        {
-            MessageBox.Show("¿Estás seguro que desea dar de alta la/s orden/es de selección?", "Confirmación creación", MessageBoxButtons.YesNo);
-        }
+        }        
 
         private void DeseleccionarBtn_Click(Object sender, EventArgs e)
         {
@@ -144,6 +134,30 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             else
             {
                 MessageBox.Show("No se encontró la orden de preparación correspondiente.");
+            }
+        }
+
+        private void ConfirmarBtn_Click(Object sender, EventArgs e)
+        {
+            if (OrdenSeleccionList.Items.Count == 0)
+            {
+                MessageBox.Show("Debe haber por lo menos una orden selección para crearla.");
+            }
+            else
+            {
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro que desea dar de alta la/s orden/es de selección?", "Confirmación creación", MessageBoxButtons.YesNo);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    foreach (OrdenSeleccion ordenSeleccion in ordenesSeleccion)
+                    {
+                        // Agregar la nueva orden de selección al modelo
+                        modelo.AgregarOrdenesSeleccion(ordenSeleccion);
+                    }
+
+                    MessageBox.Show("Se crearon las órdenes de selección");
+                    this.Close();
+                }
             }
         }
     }

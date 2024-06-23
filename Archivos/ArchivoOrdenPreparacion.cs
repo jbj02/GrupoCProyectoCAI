@@ -40,6 +40,22 @@ namespace GrupoCProyectoCAI.Archivos
             var contenido = JsonConvert.SerializeObject(ordenesPreparacion);
             File.WriteAllText(@"Data\ordenPreparacion.json", contenido);
         }
+
+        public static void SeleccionarOrden(int numeroOrden, string estado)
+        {
+            foreach(var orden in ordenesPreparacion)
+            {
+                if(orden.NroOrden == numeroOrden)
+                {
+                    orden.Estado = estado;
+                }
+            }
+        }
+
+        public static OrdenPreparacionEnt ObtenerOrdenPreparacionPorNumero(int numOrdenP)
+        {
+            return ordenesPreparacion.FirstOrDefault(op => op.NroOrden == numOrdenP);
+        }
     }
 
 }

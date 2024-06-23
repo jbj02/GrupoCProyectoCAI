@@ -38,8 +38,8 @@
             ConfirmarYRemitoBtn = new Button();
             OrdenesPreparadasList = new ListView();
             N_Orden = new ColumnHeader();
-            Cliente = new ColumnHeader();
-            Transportista = new ColumnHeader();
+            ClienteCUIT = new ColumnHeader();
+            TransportistaCUIT = new ColumnHeader();
             FechaDespacho = new ColumnHeader();
             CancelarBtn = new Button();
             label2 = new Label();
@@ -71,6 +71,7 @@
             // 
             // FechaDespachoCB
             // 
+            FechaDespachoCB.DropDownStyle = ComboBoxStyle.DropDownList;
             FechaDespachoCB.FormattingEnabled = true;
             FechaDespachoCB.Location = new Point(22, 82);
             FechaDespachoCB.Name = "FechaDespachoCB";
@@ -79,6 +80,7 @@
             // 
             // TransportistaCB
             // 
+            TransportistaCB.DropDownStyle = ComboBoxStyle.DropDownList;
             TransportistaCB.FormattingEnabled = true;
             TransportistaCB.Location = new Point(22, 38);
             TransportistaCB.Name = "TransportistaCB";
@@ -135,7 +137,7 @@
             // 
             // OrdenesPreparadasList
             // 
-            OrdenesPreparadasList.Columns.AddRange(new ColumnHeader[] { N_Orden, Cliente, Transportista, FechaDespacho });
+            OrdenesPreparadasList.Columns.AddRange(new ColumnHeader[] { N_Orden, ClienteCUIT, TransportistaCUIT, FechaDespacho });
             OrdenesPreparadasList.FullRowSelect = true;
             OrdenesPreparadasList.GridLines = true;
             OrdenesPreparadasList.Location = new Point(12, 196);
@@ -151,15 +153,15 @@
             N_Orden.Text = "N° Orden";
             N_Orden.Width = 90;
             // 
-            // Cliente
+            // ClienteCUIT
             // 
-            Cliente.Text = "Cliente";
-            Cliente.Width = 120;
+            ClienteCUIT.Text = "Cliente (CUIT)";
+            ClienteCUIT.Width = 120;
             // 
-            // Transportista
+            // TransportistaCUIT
             // 
-            Transportista.Text = "Transportista";
-            Transportista.Width = 90;
+            TransportistaCUIT.Text = "Transportista(CUIT)";
+            TransportistaCUIT.Width = 90;
             // 
             // FechaDespacho
             // 
@@ -302,7 +304,7 @@
         private ColumnHeader N_Orden_In;
         private ColumnHeader Tipo_Producto;
         private ColumnHeader Cantidades;
-        private ColumnHeader Cliente;
+        private ColumnHeader ClienteCUIT;
         private ColumnHeader Estado;
         private ColumnHeader FechaDespacho;
 
@@ -310,7 +312,7 @@
 
         private ColumnHeader Fecha_Modificacion;
         private Button CancelarBoton;
-        private ColumnHeader Transportista;
+        private ColumnHeader TransportistaCUIT;
         private Label label1;
         private Button SelecionarBtn;
         private Label label2;

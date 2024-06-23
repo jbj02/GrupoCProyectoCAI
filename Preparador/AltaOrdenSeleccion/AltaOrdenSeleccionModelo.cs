@@ -1,4 +1,6 @@
 ﻿using GrupoCProyectoCAI.Archivos;
+using GrupoCProyectoCAI.Despachador;
+using GrupoCProyectoCAI.Preparador.PrepararOrden;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +23,47 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
 
             foreach (var ordenEntidad in ArchivoOrdenPreparacion.OrdenesPreparacion)
             {
-                var ordenPreparacion = new OrdenPreparacion();
+                if (ordenEntidad.Estado == "PendienteDeSeleccion")
+                {
+                    var ordenPreparacion = new OrdenPreparacion
+                    {
+                        NumOrdenP = ordenEntidad.NroOrden,
+                        ClienteCUIT = ordenEntidad.ClienteCUIT,
+                        FechaDespacho = ordenEntidad.FechaDespacho
+                    };
 
-                ordenPreparacion.NumOrdenP = ordenEntidad.NroOrden;
-                ordenPreparacion.ClienteCUIT = ordenEntidad.ClienteCUIT;
-                ordenPreparacion.FechaDespacho = ordenEntidad.FechaDespacho;
+                    OrdenesPreparacion.Add(ordenPreparacion);
+                }                   
+            }          
+        }
 
-                OrdenesPreparacion.Add(ordenPreparacion);
+        public void AgregarOrdenesSeleccion(OrdenSeleccion orden)
+        {
+            // Crear un nuevo objeto OrdenSeleccionEnt y asignar los valores del objeto OrdenSeleccion
+            var ordenSeleccionEnt = new OrdenSeleccionEnt
+            {
+                NroOrden = orden.NumOrden,
+                Estado = orden.Estado,
+                OrdenPreparacionAsociadas = new List<OrdenPreparacionEnt>()
+            };
+
+            foreach (var ordenPreparacion in orden.OrdenesPreparacionAsociadas)
+            {
+                var ordenPreparacionEnt = ArchivoOrdenPreparacion.ObtenerOrdenPreparacionPorNumero(ordenPreparacion.NumOrdenP);
+                if (ordenPreparacionEnt != null)
+                {
+                    ordenSeleccionEnt.OrdenPreparacionAsociadas.Add(ordenPreparacionEnt);
+
+                    ArchivoOrdenPreparacion.SeleccionarOrden(ordenPreparacion.NumOrdenP, "Seleccionada");
+                }
+                else
+                {
+                    throw new Exception($"No se encontró la orden de preparación con el número {ordenPreparacion.NumOrdenP}.");
+                }
             }
+
+            // Agregar la ordenSeleccionEnt a la lista de órdenes de selección en el archivo
+            ArchivoOrdenSeleccion.AgregarOrdenesSeleccion(ordenSeleccionEnt);
         }
 
         internal int GenerarNumeroOrdenSeleccion()

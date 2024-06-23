@@ -31,11 +31,9 @@
             ConfirmarDatosOrdenBtn = new Button();
             OrdenesPreparacion_List = new ListView();
             N_Orden = new ColumnHeader();
-            Estado = new ColumnHeader();
             Cliente = new ColumnHeader();
-            Prioridad = new ColumnHeader();
-            Fecha_Creacion = new ColumnHeader();
-            Fecha_Entrega = new ColumnHeader();
+            Fecha_Alta = new ColumnHeader();
+            Fecha_Despacho = new ColumnHeader();
             SeleccionarBtn = new Button();
             ProductoList = new ListView();
             Producto = new ColumnHeader();
@@ -52,7 +50,7 @@
             ConfirmarDatosOrdenBtn.BackColor = Color.PaleGreen;
             ConfirmarDatosOrdenBtn.FlatStyle = FlatStyle.Popup;
             ConfirmarDatosOrdenBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            ConfirmarDatosOrdenBtn.Location = new Point(938, 260);
+            ConfirmarDatosOrdenBtn.Location = new Point(746, 260);
             ConfirmarDatosOrdenBtn.Name = "ConfirmarDatosOrdenBtn";
             ConfirmarDatosOrdenBtn.Size = new Size(86, 31);
             ConfirmarDatosOrdenBtn.TabIndex = 95;
@@ -64,14 +62,14 @@
             // OrdenesPreparacion_List
             // 
             OrdenesPreparacion_List.BackColor = SystemColors.GradientActiveCaption;
-            OrdenesPreparacion_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Estado, Cliente, Prioridad, Fecha_Creacion, Fecha_Entrega });
+            OrdenesPreparacion_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Cliente, Fecha_Alta, Fecha_Despacho });
             OrdenesPreparacion_List.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
             OrdenesPreparacion_List.FullRowSelect = true;
             OrdenesPreparacion_List.GridLines = true;
             OrdenesPreparacion_List.Location = new Point(26, 52);
             OrdenesPreparacion_List.MultiSelect = false;
             OrdenesPreparacion_List.Name = "OrdenesPreparacion_List";
-            OrdenesPreparacion_List.Size = new Size(836, 202);
+            OrdenesPreparacion_List.Size = new Size(597, 202);
             OrdenesPreparacion_List.TabIndex = 80;
             OrdenesPreparacion_List.UseCompatibleStateImageBehavior = false;
             OrdenesPreparacion_List.UseWaitCursor = true;
@@ -82,35 +80,23 @@
             N_Orden.Text = "N° Orden";
             N_Orden.Width = 90;
             // 
-            // Estado
-            // 
-            Estado.Text = "Estado";
-            Estado.TextAlign = HorizontalAlignment.Center;
-            Estado.Width = 140;
-            // 
             // Cliente
             // 
             Cliente.Text = "Cliente";
             Cliente.TextAlign = HorizontalAlignment.Center;
             Cliente.Width = 180;
             // 
-            // Prioridad
+            // Fecha_Alta
             // 
-            Prioridad.Text = "Prioridad";
-            Prioridad.TextAlign = HorizontalAlignment.Center;
-            Prioridad.Width = 100;
+            Fecha_Alta.Text = "Fecha de Alta";
+            Fecha_Alta.TextAlign = HorizontalAlignment.Center;
+            Fecha_Alta.Width = 140;
             // 
-            // Fecha_Creacion
+            // Fecha_Despacho
             // 
-            Fecha_Creacion.Text = "Fecha de Alta";
-            Fecha_Creacion.TextAlign = HorizontalAlignment.Center;
-            Fecha_Creacion.Width = 140;
-            // 
-            // Fecha_Entrega
-            // 
-            Fecha_Entrega.Text = " Fecha de Despacho";
-            Fecha_Entrega.TextAlign = HorizontalAlignment.Center;
-            Fecha_Entrega.Width = 180;
+            Fecha_Despacho.Text = " Fecha de Despacho";
+            Fecha_Despacho.TextAlign = HorizontalAlignment.Center;
+            Fecha_Despacho.Width = 180;
             // 
             // SeleccionarBtn
             // 
@@ -118,7 +104,7 @@
             SeleccionarBtn.FlatStyle = FlatStyle.Popup;
             SeleccionarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             SeleccionarBtn.ForeColor = SystemColors.ControlText;
-            SeleccionarBtn.Location = new Point(776, 260);
+            SeleccionarBtn.Location = new Point(537, 260);
             SeleccionarBtn.Name = "SeleccionarBtn";
             SeleccionarBtn.Size = new Size(86, 31);
             SeleccionarBtn.TabIndex = 101;
@@ -134,10 +120,10 @@
             ProductoList.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ProductoList.FullRowSelect = true;
             ProductoList.GridLines = true;
-            ProductoList.Location = new Point(938, 52);
+            ProductoList.Location = new Point(746, 52);
             ProductoList.MultiSelect = false;
             ProductoList.Name = "ProductoList";
-            ProductoList.Size = new Size(260, 202);
+            ProductoList.Size = new Size(259, 202);
             ProductoList.TabIndex = 104;
             ProductoList.UseCompatibleStateImageBehavior = false;
             ProductoList.UseWaitCursor = true;
@@ -160,7 +146,7 @@
             CancelarBtn.FlatStyle = FlatStyle.Popup;
             CancelarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             CancelarBtn.ForeColor = SystemColors.ButtonHighlight;
-            CancelarBtn.Location = new Point(1111, 260);
+            CancelarBtn.Location = new Point(919, 260);
             CancelarBtn.Name = "CancelarBtn";
             CancelarBtn.Size = new Size(86, 31);
             CancelarBtn.TabIndex = 108;
@@ -215,7 +201,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Linen;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1210, 304);
+            ClientSize = new Size(1020, 304);
             Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -239,14 +225,12 @@
         private ColumnHeader N_Orden_Ext;
         private ColumnHeader N_Orden;
         private ColumnHeader Cliente;
-        private ColumnHeader Prioridad;
-        private ColumnHeader Estado;
-        private ColumnHeader Fecha_Creacion;
+        private ColumnHeader Fecha_Alta;
         private Button SeleccionarBtn;
         private Button CancelarBusquedaBtn;
         private TextBox NumeroOrdenInternaBuscarText;
         private Button CancelarBtn;
-        private ColumnHeader Fecha_Entrega;
+        private ColumnHeader Fecha_Despacho;
         private ListView ProductoList;
         private ColumnHeader Producto;
         private ColumnHeader Cantidad;

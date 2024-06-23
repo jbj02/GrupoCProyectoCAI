@@ -32,7 +32,6 @@
             ClienteCmb = new ComboBox();
             ClienteLbl = new Label();
             TransportistaLbl = new Label();
-            TransportistaCmb = new ComboBox();
             FechaDeDespachoDtp = new DateTimePicker();
             FechaDespachoLbl = new Label();
             ProductosList = new ListView();
@@ -45,6 +44,7 @@
             BorrarSeleccionadoBtn = new Button();
             ConfirmarBtn = new Button();
             groupBox1 = new GroupBox();
+            TransportistaTxt = new TextBox();
             groupBox2 = new GroupBox();
             CantidadNum = new NumericUpDown();
             ProductoCmb = new ComboBox();
@@ -90,16 +90,6 @@
             TransportistaLbl.Size = new Size(74, 15);
             TransportistaLbl.TabIndex = 143;
             TransportistaLbl.Text = "Transportista";
-            // 
-            // TransportistaCmb
-            // 
-            TransportistaCmb.DropDownStyle = ComboBoxStyle.DropDownList;
-            TransportistaCmb.FormattingEnabled = true;
-            TransportistaCmb.Location = new Point(15, 99);
-            TransportistaCmb.Name = "TransportistaCmb";
-            TransportistaCmb.Size = new Size(424, 23);
-            TransportistaCmb.TabIndex = 142;
-            TransportistaCmb.SelectedIndexChanged += TransportistaCmb_SelectedIndexChanged;
             // 
             // FechaDeDespachoDtp
             // 
@@ -198,10 +188,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(TransportistaTxt);
             groupBox1.Controls.Add(FechaDeDespachoDtp);
             groupBox1.Controls.Add(TransportistaLbl);
             groupBox1.Controls.Add(FechaDespachoLbl);
-            groupBox1.Controls.Add(TransportistaCmb);
             groupBox1.Controls.Add(ClienteLbl);
             groupBox1.Controls.Add(ClienteCmb);
             groupBox1.Location = new Point(15, 11);
@@ -210,6 +200,13 @@
             groupBox1.TabIndex = 147;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos de la órden";
+            // 
+            // TransportistaTxt
+            // 
+            TransportistaTxt.Location = new Point(14, 99);
+            TransportistaTxt.Name = "TransportistaTxt";
+            TransportistaTxt.Size = new Size(159, 23);
+            TransportistaTxt.TabIndex = 144;
             // 
             // groupBox2
             // 
@@ -272,7 +269,6 @@
         private ComboBox ClienteCmb;
         private Label ClienteLbl;
         private Label TransportistaLbl;
-        private ComboBox TransportistaCmb;
         private DateTimePicker FechaDeDespachoDtp;
         private Label FechaDespachoLbl;
         private ListView ProductosList;
@@ -288,5 +284,6 @@
         private ComboBox ProductoCmb;
         private NumericUpDown CantidadNum;
         private ColumnHeader CodigoDeProducto;
+        private TextBox TransportistaTxt;
     }
 }

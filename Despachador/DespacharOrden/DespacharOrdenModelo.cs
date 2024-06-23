@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoCProyectoCAI.Archivos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,105 +9,97 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 {
     internal class DespacharOrdenModelo
     {
-        public List<OrdenPreparacion> OrdenesPreparadas { get; set; }
+        public List<OrdenPreparacionD> OrdenesPreparadas { get; set; }
+        public List<OrdenPreparacionD> OrdenesSeleccionadas { get; set; }
+
+        // Lista para almacenar los Números De Orden de Seleccion generados previamente
+        public static List<int> numeroOrdenIntGenerados = new List<int>();
 
         // Creamos un constructor para cargarle datos y probar el prototipo de forma aislada
         public DespacharOrdenModelo()
         {
-            OrdenesPreparadas = new List<OrdenPreparacion>()
+            OrdenesPreparadas = new List<OrdenPreparacionD>();
+
+            foreach (var ordenEntidad in ArchivoOrdenPreparacion.OrdenesPreparacion)
             {
-                new OrdenPreparacion
+                if (ordenEntidad.Estado == "Preparada")
                 {
-                    NumOrden = 65839573,
-                    Cliente = "Mercado Libre",
-                    Transportista = "Andreani",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024,6,18)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 35673863,
-                    Cliente = "Amazon",
-                    Transportista = "CorreoArgentino",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024,6,20)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 257843,
-                    Cliente = "Coto",
-                    Transportista = "Andreani",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024,6,20)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 12345678,
-                    Cliente = "Walmart",
-                    Transportista = "OCA",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 21)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 87654321,
-                    Cliente = "Falabella",
-                    Transportista = "CorreoArgentino",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 22)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 23456789,
-                    Cliente = "Garbarino",
-                    Transportista = "Andreani",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 23)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 98765432,
-                    Cliente = "Frávega",
-                    Transportista = "OCA",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 24)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 34567890,
-                    Cliente = "Musimundo",
-                    Transportista = "CorreoArgentino",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 25)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 98765431,
-                    Cliente = "Ribeiro",
-                    Transportista = "Andreani",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 26)
-                },
-                new OrdenPreparacion
-                {
-                    NumOrden = 45678901,
-                    Cliente = "Compumundo",
-                    Transportista = "OCA",
-                    Estado = "Preparada",
-                    FechaDespacho = new DateTime(2024, 6, 27)
+                    var ordenPreparacion = new OrdenPreparacionD
+                    {
+                        NumOrden = ordenEntidad.NroOrden,
+                        ClienteCUIT = ordenEntidad.ClienteCUIT,
+                        TransportistaCUIT = ordenEntidad.TransportistaCUIT,
+                        FechaDespacho = ordenEntidad.FechaDespacho           
+                    };
+
+                    OrdenesPreparadas.Add(ordenPreparacion);
                 }
-            };
+            }            
+        }
+        public void Confirmar()
+        {
+            foreach(var ordenDespachada in  OrdenesSeleccionadas)
+            {
+                // Obtener la orden de preparación completa (incluidos los productos)
+                var ordenPreparacion = ArchivoOrdenPreparacion.ObtenerOrdenPreparacionPorNumero(ordenDespachada.NumOrden);
+
+                ArchivoOrdenPreparacion.SeleccionarOrden(ordenDespachada.NumOrden, "Despachada");
+
+                // Crear un nuevo objeto Remito y asignar los valores requeridos
+                var remitoEnt = new RemitoEnt
+                {
+                    NroRemito = GenerarNumero(),
+                    clienteCUIT = ordenDespachada.ClienteCUIT,
+                    transportistaCUIT = ordenDespachada.TransportistaCUIT,
+                    FechaDespacho = ordenDespachada.FechaDespacho,
+                    ProductosList = new List<StockEnt>()
+                };
+
+                // Agregar los productos de la orden de preparación al remito
+                foreach (var producto in ordenPreparacion.ProductosList)
+                {
+                    remitoEnt.ProductosList.Add(new StockEnt
+                    {
+                        Producto = producto.Producto,
+                        ClienteCUIT = ordenDespachada.ClienteCUIT,
+                        Cantidad = producto.Cantidad,
+                        Ubicacion = producto.Ubicacion,
+                        Peso = producto.Peso,
+                        TipoProducto = producto.TipoProducto
+                    });
+                }
+                // Agregar la ordenSeleccionEnt a la lista de órdenes de selección en el archivo
+                ArchivoRemito.AgregarRemito(remitoEnt);
+            }            
         }
 
-        public bool ValidarRangoFecha(DateTime fecha)
+        internal int GenerarNumero()
         {
-            if(fecha < DateTime.Now)
+            // Crear una instancia de la clase Random
+            Random random = new Random();
+
+            // Generar un nuevo N° de Orden hasta que sea único
+            int NumOrden;
+            do
             {
-                return false;
-            }else
-            {
-                return true;
-            }
+                // Generar 8 dígitos aleatorios
+                int numeros = GenerarNumeros(8);
+                NumOrden = numeros;
+            } while (numeroOrdenIntGenerados.Contains(NumOrden));
+
+            // Agregar el N° de orden interna generado a la lista
+            numeroOrdenIntGenerados.Add(NumOrden);
+
+            // Devolver el N° de orden interna generado
+            return NumOrden;
+        }
+
+        // Método para generar números aleatorios
+        public static int GenerarNumeros(int cantidad)
+        {
+            // Crear una instancia de la clase Random
+            Random random = new Random();
+            return random.Next((int)Math.Pow(10, cantidad));
         }
     }
 }

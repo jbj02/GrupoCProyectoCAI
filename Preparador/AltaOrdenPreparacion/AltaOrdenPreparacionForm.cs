@@ -1,4 +1,6 @@
-﻿using GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion;
+﻿using GrupoCProyectoCAI.Archivos;
+using GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion;
+using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +31,6 @@ namespace GrupoCProyectoCAI
         private void AltaOrdenPreparacionForm_Load(object sender, EventArgs e)
         {
             CargarClientesCMB();
-            CargarTransportistasCMB();
             ConfigurarFechaDeDespachoDTP();
         }
 
@@ -43,19 +44,10 @@ namespace GrupoCProyectoCAI
 
         public void CargarClientesCMB()
         {
-            foreach (var cliente in modelo.clientes)
+            foreach (var cliente in modelo.Clientes)
             {
                 string ClienteNombreCUIT = cliente.Nombre + dataSplitter + cliente.CUIT;
                 ClienteCmb.Items.Add(ClienteNombreCUIT);
-            }
-        }
-
-        public void CargarTransportistasCMB()
-        {
-            foreach (var transportista in modelo.transportistas)
-            {
-                string TransportistaNombreCUIT = transportista.Nombre + dataSplitter + transportista.CUIT;
-                TransportistaCmb.Items.Add(TransportistaNombreCUIT);
             }
         }
 
@@ -63,15 +55,6 @@ namespace GrupoCProyectoCAI
         public Producto productoActivo;
         public Transportista transportistaActivo;
         public List<Producto> productosSeleccionados;
-
-        private void TransportistaCmb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string TransportistaCompleto = TransportistaCmb.SelectedItem.ToString();
-            string[] TransportistaSplit = TransportistaCompleto.Split(dataSplitter);
-            string TransportistaCUIT = TransportistaSplit[1];
-
-            transportistaActivo = modelo.BuscarTransportista(TransportistaCUIT);
-        }
 
         private void ClienteCmb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -184,40 +167,46 @@ namespace GrupoCProyectoCAI
             }
         }
 
-        public int CrearNumeroDeOrden()
-        {
-            Random random = new Random();
-            return random.Next(1, 10000);
-        }
-
         private void ConfirmarBtn_Click(object sender, EventArgs e)
         {
-            if
+            //hay que validar que el CUIT tenga un formato válido
+            if (modelo.ValidarCUIT(TransportistaTxt.Text) == false)
+            {
+                MessageBox.Show("El CUIT no es válido. Debe ser de la siguiente manera: NN-NNNNNNNN-NN", "Error");
+            }
+            //hay que verificar que todos los campos estén completos
+            else if
             (
-                ClienteCmb.SelectedIndex != -1 &&
-                TransportistaCmb.SelectedIndex != -1 &&
-                productosSeleccionados.Count > 0
+                ClienteCmb.SelectedIndex == -1 ||
+                TransportistaTxt.Text.Length == 0 ||
+                productosSeleccionados.Count < 1
             )
+            {
+                MessageBox.Show("Debe completar todos los campos y agregar productos a la lista", "Error");
+            }
+            //si está todo bien...
+            else
             {
                 DialogResult respuesta = MessageBox.Show("¿Estás seguro que desea dar de alta la órden de preparación?", "Confirmar creación", MessageBoxButtons.YesNo);
                 if (respuesta == DialogResult.Yes)
                 {
                     OrdenDePreparacion NuevaOrden = new OrdenDePreparacion();
-                    NuevaOrden.NumeroDeOrden = CrearNumeroDeOrden();
+                    NuevaOrden.NumeroDeOrden = modelo.BuscarUltimaOrenPreparacion() + 1;
                     NuevaOrden.Cliente = clienteActivo.CUIT;
-                    NuevaOrden.Transportista = transportistaActivo.CUIT;
-                    NuevaOrden.Estado = "Pendiente de preparación";
+                    NuevaOrden.Transportista = TransportistaTxt.Text;
+                    NuevaOrden.Estado = "PendienteDeSeleccion";
                     NuevaOrden.FechaDeDespacho = FechaDeDespachoDtp.Value;
                     NuevaOrden.FechaDeAlta = DateTime.Now;
                     NuevaOrden.Productos = productosSeleccionados;
 
+                    modelo.AgregarOrdenPreparacion(NuevaOrden);
+
+                    //se modifican los stocks
+                    modelo.ModificarStocks(NuevaOrden.Productos);
+
                     MessageBox.Show("Se creó la orden número " + NuevaOrden.NumeroDeOrden);
                     this.Close();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Debe completar todos los campos y agregar productos a la lista", "Error");
             }
         }
     }

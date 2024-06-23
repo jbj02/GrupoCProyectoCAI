@@ -1,107 +1,159 @@
-﻿using System;
+﻿using GrupoCProyectoCAI.Archivos;
+using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
 {
     internal class AltaOrdenPreparacionModelo
     {
-        public List<Cliente> clientes { get; set; }
-        public List<Transportista> transportistas { get; set; }
+        public List<Cliente> Clientes { get; set; }
         public AltaOrdenPreparacionModelo()
         {
-            clientes = new List<Cliente>()
-            {
-                new Cliente
-                {
-                    CUIT = "20-11111111-5",
-                    Nombre = "Juan Pérez",
-                    ProductosAsociados = new List<Producto>()
-                    {
-                        new Producto
-                        {
-                            CodigoDeProducto = "0001",
-                            Nombre = "Mochila",
-                            //Peso = 2,
-                            Cantidad = 10,
-                            //Ubicacion = new Ubicacion { X = "pasillo 1", Y = "almacen 1", Z = "sector 1" }
-                        },
-                        new Producto
-                        {
-                            CodigoDeProducto = "0002",
-                            Nombre = "Bolso",
-                            //Peso = 4,
-                            Cantidad = 5,
-                            //Ubicacion = new Ubicacion { X = "pasillo 2", Y = "almacen 2", Z = "sector 2" }
-                        },
-                        new Producto
-                        {
-                            CodigoDeProducto = "0003",
-                            Nombre = "Valija",
-                            //Peso = 8,
-                            Cantidad = 2,
-                            //Ubicacion = new Ubicacion { X = "pasillo 3", Y = "almacen 3", Z = "sector 3" }
-                        }
-                    }
-                },
-                new Cliente
-                {
-                    CUIT = "20-22222222-5",
-                    Nombre = "Mercado Libre LLC",
-                    ProductosAsociados = new List<Producto>()
-                    {
-                        new Producto
-                        {
-                            CodigoDeProducto = "0004",
-                            Nombre = "Computadora",
-                            //Peso = 12,
-                            Cantidad = 45,
-                            //Ubicacion = new Ubicacion { X = "pasillo 1", Y = "almacen 1", Z = "sector 1" }
-                        },
-                        new Producto
-                        {
-                            CodigoDeProducto = "0005",
-                            Nombre = "Silla",
-                            //Peso = 12,
-                            Cantidad = 60,
-                            //Ubicacion = new Ubicacion { X = "pasillo 2", Y = "almacen 2", Z = "sector 2" }
-                        }
-                    }
-                },
-            };
+            Clientes = new List<Cliente>();
 
-            transportistas = new List<Transportista>()
+            foreach (var clienteEntidad in ArchivoClientes.Clientes)
             {
-                new Transportista
+                var nuevoCliente = new Cliente
                 {
-                    CUIT = "20-33333333-5",
-                    Nombre = "Juan Carlos Gonzalez",
-                },
-                new Transportista
+                    CUIT = clienteEntidad.CUIT,
+                    Nombre = clienteEntidad.Nombre,
+                    ProductosAsociados = new List<Producto>()
+                };
+
+                // Buscar productos asociados a este cliente en ArchivoStock
+                var productosCliente = ArchivoStock.Stock.Where(p => p.ClienteCUIT == clienteEntidad.CUIT);
+                foreach (var productoEntidad in productosCliente)
                 {
-                    CUIT = "20-44444444-5",
-                    Nombre = "Fernando Justo",
-                },
-                new Transportista
-                {
-                    CUIT = "20-55555555-5",
-                    Nombre = "Luis Fernandez",
+                    var nuevoProducto = new Producto
+                    {
+                        Nombre = productoEntidad.Producto,
+                        Cantidad = productoEntidad.Cantidad,
+                        CodigoDeProducto = productoEntidad.ProductoCliente
+                    };
+
+                    nuevoCliente.ProductosAsociados.Add(nuevoProducto);
                 }
-            };
+
+                Clientes.Add(nuevoCliente);
+            }
         }
 
         public Cliente BuscarCliente(string cuit)
         {
-            Cliente cliente = clientes.Find(id => id.CUIT == cuit);
+            Cliente cliente = Clientes.Find(id => id.CUIT == cuit);
             return cliente;
         }
 
-        public Transportista BuscarTransportista(string cuit)
+        //public Transportista BuscarTransportista(string cuit)
+        //{
+        //    Transportista transportista = transportistas.Find(id => id.CUIT == cuit);
+        //    return transportista;
+        //}
+
+        public bool ValidarCUIT(string cuit)
         {
-            Transportista transportista = transportistas.Find(id => id.CUIT == cuit);
-            return transportista;
+            string pattern = @"^\d{2}-\d{8}-\d{1}$";
+            Regex regex = new Regex(pattern);
+
+            string pattern2 = @"^\d{2}-\d{8}-\d{2}$";
+            Regex regex2 = new Regex(pattern);
+
+            if (regex2.IsMatch(cuit) == true || regex.IsMatch(cuit) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public int BuscarUltimaOrenPreparacion()
+        {
+            if (ArchivoOrdenPreparacion.OrdenesPreparacion.Count != 0)
+            {
+                int ultimoNumero = ArchivoOrdenPreparacion.OrdenesPreparacion[ArchivoOrdenPreparacion.OrdenesPreparacion.Count - 1].NroOrden;
+                return ultimoNumero;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public void AgregarOrdenPreparacion(OrdenDePreparacion ordenPreparacion)
+        {
+            // Crear un nuevo objeto OrdenSeleccionEnt y asignar los valores del objeto OrdenSeleccion
+            var ordenPreparacionEnt = new OrdenPreparacionEnt
+            {
+                NroOrden = ordenPreparacion.NumeroDeOrden,
+                ClienteCUIT = ordenPreparacion.Cliente,
+                TransportistaCUIT = ordenPreparacion.Transportista,
+                FechaDespacho = ordenPreparacion.FechaDeDespacho,
+                FechaAlta = ordenPreparacion.FechaDeAlta,
+                Estado = ordenPreparacion.Estado,
+                ProductosList = new List<StockEnt>()
+            };
+
+            // Buscar productos en ArchivoStock y agregar los detalles a la orden de preparación
+            foreach (var producto in ordenPreparacion.Productos)
+            {
+                var productoStock = ArchivoStock.Stock.FirstOrDefault(p => p.Producto == producto.Nombre && p.ClienteCUIT == ordenPreparacion.Cliente);
+                if (productoStock != null)
+                {
+                    ordenPreparacionEnt.ProductosList.Add(new StockEnt
+                    {
+                        Producto = productoStock.Producto,
+                        ClienteCUIT = productoStock.ClienteCUIT,
+                        Cantidad = producto.Cantidad,
+                        Ubicacion = productoStock.Ubicacion,
+                        Peso = productoStock.Peso,
+                        TipoProducto = productoStock.TipoProducto
+                    });
+                }
+                else
+                {
+                    // Manejo de error si el producto no se encuentra en el stock
+                    throw new Exception($"Producto {producto.Nombre} no encontrado en el stock para el cliente {ordenPreparacion.Cliente}");
+                }
+            }
+
+
+            // Agregar la ordenSeleccionEnt a la lista de órdenes de selección en el archivo
+            ArchivoOrdenPreparacion.AgregarOrdenPreparacion(ordenPreparacionEnt);            
+        }
+
+        public void ModificarStocks(List<Producto> productosCliente)
+        {
+            List<StockEnt> productosAfectados = new List<StockEnt>();
+
+            foreach (var producto in productosCliente)
+            {
+                var stockProducto = ArchivoStock.Stock.FirstOrDefault(p => p.ProductoCliente == producto.CodigoDeProducto);
+                if (stockProducto != null)
+                {
+                    var productoCompleto = new StockEnt
+                    {
+                        Producto = stockProducto.Producto,
+                        ClienteCUIT = stockProducto.ClienteCUIT,
+                        Cantidad = producto.Cantidad,
+                        Ubicacion = stockProducto.Ubicacion,
+                        Peso = stockProducto.Peso,
+                        TipoProducto = stockProducto.TipoProducto
+                    };
+
+                    productosAfectados.Add(productoCompleto);
+                }
+            }
+
+            ArchivoStockProvisorio.SumarStockProvisorio(productosAfectados);
+            ArchivoStock.RestarStock(productosAfectados);
         }
     }
 }

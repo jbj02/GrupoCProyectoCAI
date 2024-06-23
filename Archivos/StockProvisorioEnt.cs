@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Archivos
 {
-    public class StockProvisrorioEnt
+    public class StockProvisorioEnt
     {
         public string ProductoCliente
         {

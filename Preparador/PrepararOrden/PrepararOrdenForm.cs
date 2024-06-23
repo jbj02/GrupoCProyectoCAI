@@ -35,12 +35,7 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
                 var fila = new ListViewItem();
                 // le cargamos los datos a la fila
                 fila.Text = ordenPrepara.NumOrden.ToString();
-                //fila.SubItems.Add(ordenPrepara.NumOrden.ToString());
-                //fila.SubItems.Add(ordenPrepara.TipoProducto);
-                //fila.SubItems.Add(ordenPrepara.Cantidad.ToString());
-                fila.SubItems.Add(ordenPrepara.Estado);
-                fila.SubItems.Add(ordenPrepara.Cliente);
-                fila.SubItems.Add(ordenPrepara.Prioridad);
+                fila.SubItems.Add(ordenPrepara.ClienteCUIT);
                 fila.SubItems.Add(ordenPrepara.FechaAlta.ToString("dd/MM/yyyy"));
                 fila.SubItems.Add(ordenPrepara.FechaDespacho.ToString("dd/MM/yyyy"));
                 fila.Tag = ordenPrepara; // Permite identificar cuál objeto se está utilizando
@@ -48,8 +43,6 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
                 OrdenesPreparacion_List.Items.Add(fila);
             }
         }
-
-
 
         private void SeleccionarBtn_Click(object sender, EventArgs e)
         {
@@ -61,19 +54,22 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
             }
 
             // Creamos variable que apunte a la orden interna de la fila seleccionada
+            // PASARLO AL MODELOY QUE LO HAGA EL MODELO
             var ordenSeleccionada = (OrdenPrepara)OrdenesPreparacion_List.SelectedItems[0].Tag;
 
+            // Avisamos al modelo cuál fue la orden seleccionada por el usuario
+            prepararOrdenModelo.OrdenSeleccionada = ordenSeleccionada;
 
             //Borra la lista anterior seleccionada
             ProductoList.Items.Clear();
 
+            // PASARLO AL MODELO Y QUE LO HAGA EL MODELO
             foreach (var producto in ordenSeleccionada.Productos)
             {
                 ListViewItem item = new ListViewItem(producto.NombreProducto);
                 item.SubItems.Add(producto.Cantidad.ToString());
 
                 ProductoList.Items.Add(item);
-
             }
 
         }
@@ -92,8 +88,22 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
             
             }
             else
-             
-            MessageBox.Show("¿Estás seguro que deseas confirmar?", "Confirmación", MessageBoxButtons.YesNo);
+            {
+                // Creamos variable que apunte a la orden de la fila seleccionada
+                var ordenSeleccionada = (OrdenPrepara)OrdenesPreparacion_List.SelectedItems[0].Tag;
+
+                DialogResult respuesta = MessageBox.Show($"¿Estás seguro que deseas confirmar el cambio del estado {ordenSeleccionada.NumOrden} a Preparada?", "Confirmación", MessageBoxButtons.YesNo);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    prepararOrdenModelo.Confirmar();
+
+                    MessageBox.Show($"Se modificó el estado de la orden {ordenSeleccionada.NumOrden} a Preparada");
+
+                    this.Close();
+
+                }
+            }            
         }
     }
 }

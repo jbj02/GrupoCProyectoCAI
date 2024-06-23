@@ -72,7 +72,55 @@
     ]
   },
   {
-    "NroOrden": 12345,
+    "NroOrden": 5876985,
+    "ClienteCUIT": "2034567896",
+    "Estado": "Preparada",
+    "TransportistaCUIT": "30567891234",
+    "FechaDespacho": "2024-06-20T10:30:00",
+    "FechaAlta": "2024-06-19T15:45:00",
+    "ProductosList": [
+      {
+        "Producto": "Camiseta",
+        "Cantidad": 10,
+        "Ubicacion": "Almacén A",
+        "Peso": 0.5,
+        "TipoProducto": "Ropa"
+      },
+      {
+        "Producto": "Zapatos",
+        "Cantidad": 5,
+        "Ubicacion": "Almacén B",
+        "Peso": 1.2,
+        "TipoProducto": "Calzado"
+      }
+    ]
+  },
+  {
+    "NroOrden": 4537564,
+    "ClienteCUIT": "2034567890",
+    "Estado": "Preparada",
+    "TransportistaCUIT": "30567891234",
+    "FechaDespacho": "2024-06-20T10:30:00",
+    "FechaAlta": "2024-06-19T15:45:00",
+    "ProductosList": [
+      {
+        "Producto": "Camiseta",
+        "Cantidad": 10,
+        "Ubicacion": "Almacén A",
+        "Peso": 0.5,
+        "TipoProducto": "Ropa"
+      },
+      {
+        "Producto": "Zapatos",
+        "Cantidad": 5,
+        "Ubicacion": "Almacén B",
+        "Peso": 1.2,
+        "TipoProducto": "Calzado"
+      }
+    ]
+  },
+  {
+    "NroOrden": 12988795,
     "ClienteCUIT": "20345678901",
     "Estado": "Preparada",
     "TransportistaCUIT": "30567891234",
@@ -96,55 +144,7 @@
     ]
   },
   {
-    "NroOrden": 12345,
-    "ClienteCUIT": "20345678901",
-    "Estado": "Preparada",
-    "TransportistaCUIT": "30567891234",
-    "FechaDespacho": "2024-06-20T10:30:00",
-    "FechaAlta": "2024-06-19T15:45:00",
-    "ProductosList": [
-      {
-        "Producto": "Camiseta",
-        "Cantidad": 10,
-        "Ubicacion": "Almacén A",
-        "Peso": 0.5,
-        "TipoProducto": "Ropa"
-      },
-      {
-        "Producto": "Zapatos",
-        "Cantidad": 5,
-        "Ubicacion": "Almacén B",
-        "Peso": 1.2,
-        "TipoProducto": "Calzado"
-      }
-    ]
-  },
-  {
-    "NroOrden": 12345,
-    "ClienteCUIT": "20345678901",
-    "Estado": "Preparada",
-    "TransportistaCUIT": "30567891234",
-    "FechaDespacho": "2024-06-20T10:30:00",
-    "FechaAlta": "2024-06-19T15:45:00",
-    "ProductosList": [
-      {
-        "Producto": "Camiseta",
-        "Cantidad": 10,
-        "Ubicacion": "Almacén A",
-        "Peso": 0.5,
-        "TipoProducto": "Ropa"
-      },
-      {
-        "Producto": "Zapatos",
-        "Cantidad": 5,
-        "Ubicacion": "Almacén B",
-        "Peso": 1.2,
-        "TipoProducto": "Calzado"
-      }
-    ]
-  },
-  {
-    "NroOrden": 12345,
+    "NroOrden": 6789,
     "ClienteCUIT": "20345678901",
     "Estado": "Seleccionada",
     "TransportistaCUIT": "30567891234",
@@ -192,7 +192,7 @@
     ]
   },
   {
-    "NroOrden": 12345,
+    "NroOrden": 11111,
     "ClienteCUIT": "20345678901",
     "Estado": "Seleccionada",
     "TransportistaCUIT": "30567891234",

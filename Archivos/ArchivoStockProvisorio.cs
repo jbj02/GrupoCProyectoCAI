@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,42 +11,47 @@ namespace GrupoCProyectoCAI.Archivos;
 public static class ArchivoStockProvisorio
 {
     //este archivo usa la clase Stock que ya existía, no se crea una nueva porque son las dos iguales
-    private static List<StockProvisrorioEnt> stockProvisorio;
+    private static List<StockProvisorioEnt> stockProvisorio;
     static ArchivoStockProvisorio()
     {
         if (File.Exists(@"Data\stockProvisorio.json"))
         {
             var contenido = File.ReadAllText(@"Data\stockProvisorio.json");
-            stockProvisorio = JsonConvert.DeserializeObject<List<StockProvisrorioEnt>>(contenido);
+            stockProvisorio = JsonConvert.DeserializeObject<List<StockProvisorioEnt>>(contenido);
         }
         else
         {
-            stockProvisorio = new List<StockProvisrorioEnt>();
+            stockProvisorio = new List<StockProvisorioEnt>();
         }
     }
 
-    public static ReadOnlyCollection<StockProvisrorioEnt> StockProvisorio => new ReadOnlyCollection<StockProvisrorioEnt>(stockProvisorio);
+    public static ReadOnlyCollection<StockProvisorioEnt> StockProvisorio => new ReadOnlyCollection<StockProvisorioEnt>(stockProvisorio);
 
-    public static void SumarStockProvisorio(List<StockProvisrorioEnt> productos)
+    public static void SumarStockProvisorio(List<StockEnt> productosAfectados)
     {
-        foreach (StockProvisrorioEnt producto in productos)
+        foreach (var producto in productosAfectados)
         {
-            int indiceExistente = stockProvisorio.FindIndex(p => p.ProductoCliente == producto.ProductoCliente);
-            //si el producto ya existe dentro del stock provisorio
-            if (indiceExistente != -1)
+            var stockProvisorioProducto = StockProvisorio.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
+            if (stockProvisorioProducto != null)
             {
-                //se le suman las cantidades de la órden nueva
-                stockProvisorio[indiceExistente].Cantidad += producto.Cantidad;
+                stockProvisorioProducto.Cantidad += producto.Cantidad;
             }
             else
             {
-                //sino, simplemente se agrega todo el producto proveniente de la órden
-                stockProvisorio.Add(producto);
+                stockProvisorio.Add(new StockProvisorioEnt
+                {
+                    Producto = producto.Producto,
+                    ClienteCUIT = producto.ClienteCUIT,
+                    Cantidad = producto.Cantidad,
+                    Ubicacion = producto.Ubicacion,
+                    Peso = producto.Peso,
+                    TipoProducto = producto.TipoProducto
+                });
             }
         }
     }
 
-    public static void GrabarDatos()
+        public static void GrabarDatos()
     {
         var contenido = JsonConvert.SerializeObject(stockProvisorio);
         File.WriteAllText(@"Data\stockProvisorio.json", contenido);

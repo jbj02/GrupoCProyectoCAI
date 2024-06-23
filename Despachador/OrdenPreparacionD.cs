@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Despachador
 {
-    internal class OrdenPreparacion
+    internal class OrdenPreparacionD
     {
         public int NumOrden { get; set; }
-        public string Cliente { get; set; }
+        public string ClienteCUIT { get; set; }
         public string Estado { get; set; }
-        public string Transportista {  get; set; }
+        public string TransportistaCUIT {  get; set; }
         public DateTime FechaDespacho { get; set; }
     }
 }

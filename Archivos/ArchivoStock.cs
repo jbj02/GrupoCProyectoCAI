@@ -27,24 +27,31 @@ public static class ArchivoStock
 
     public static ReadOnlyCollection<StockEnt> Stock => new ReadOnlyCollection<StockEnt>(stock);
 
-    public static void RestarStock(List<StockEnt> productos)
-    {
-        foreach (StockEnt producto in productos)
-        {
-            //no se valida si el producto existe ya que en este caso siempre va a existir
-            // Busca el producto en la lista stock
-            StockEnt productoEnStock = stock.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
-            
-            // Resta la cantidad del producto existente en stock
-            productoEnStock.Cantidad -= producto.Cantidad;
-        }
-    }
-
     public static void GrabarDatos()
     {
         var contenido = JsonConvert.SerializeObject(stock);
         File.WriteAllText(@"Data\stock.json", contenido);
     }
 
+    // Método para restar stock
+    public static void RestarStock(List<StockEnt> productosAfectados)
+    {
+        foreach (var producto in productosAfectados)
+        {
+            var stockProducto = Stock.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
+            if (stockProducto != null)
+            {
+                stockProducto.Cantidad -= producto.Cantidad;
+                if (stockProducto.Cantidad < 0)
+                {
+                    throw new Exception($"El producto {producto.Producto} no tiene suficiente stock disponible.");
+                }
+            }
+            else
+            {
+                throw new Exception($"El producto {producto.Producto} no se encuentra en el stock.");
+            }
+        }
 
+    }
 }
