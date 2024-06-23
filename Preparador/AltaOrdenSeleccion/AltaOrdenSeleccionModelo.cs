@@ -13,6 +13,8 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
     {
         public List<OrdenPreparacion> OrdenesPreparacion { get; set; }
 
+        private List<OrdenSeleccion> ordenesSeleccion = new List<OrdenSeleccion>();
+
         // Lista para almacenar los Números De Orden de Seleccion generados previamente
         public static List<int> numeroOrdenIntGenerados = new List<int>();
 
@@ -93,6 +95,23 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             // Crear una instancia de la clase Random
             Random random = new Random();
             return random.Next((int)Math.Pow(10, cantidad));
+        }
+
+        public void CrearOrdenSeleccion(List<OrdenPreparacion> ordenesSeleccionadas)
+        {
+            var nuevaOrdenSeleccion = new OrdenSeleccion(GenerarNumeroOrdenSeleccion());
+            nuevaOrdenSeleccion.OrdenesPreparacionAsociadas.AddRange(ordenesSeleccionadas);
+            ordenesSeleccion.Add(nuevaOrdenSeleccion);
+        }
+
+        public void EliminarOrdenSeleccion(OrdenSeleccion orden)
+        {
+            ordenesSeleccion.Remove(orden);
+        }
+
+        public List<OrdenSeleccion> ObtenerOrdenesSeleccion()
+        {
+            return ordenesSeleccion;
         }
     }    
 }

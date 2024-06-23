@@ -43,9 +43,6 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             }
         }
 
-        // Lista que contendrá las órdenes de selección
-        List<OrdenSeleccion> ordenesSeleccion = new List<OrdenSeleccion>();
-
         private void SeleccionarBtn_Click(object sender, EventArgs e)
         {
             var cantidadOrdenesPreparacion = OrdenPreparacionList.SelectedItems.Count;
@@ -57,37 +54,39 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 return;
             }
 
-            // Crear una nueva orden de selección
-            OrdenSeleccion nuevaOrdenSeleccion = new OrdenSeleccion(modelo.GenerarNumeroOrdenSeleccion());
-
-            foreach (ListViewItem orden in OrdenPreparacionList.SelectedItems)
+            var ordenesSeleccionadas = OrdenPreparacionList.SelectedItems
+            .Cast<ListViewItem>()
+            .Select(item => new OrdenPreparacion
             {
-                // Crear un objeto OrdenPreparacion
-                OrdenPreparacion ordenPreparacion = new OrdenPreparacion
-                {
-                    NumOrdenP = int.Parse(orden.SubItems[0].Text),
-                    ClienteCUIT = orden.SubItems[1].Text,
-                    FechaDespacho = DateTime.Parse(orden.SubItems[2].Text),
-                };
+                NumOrdenP = int.Parse(item.SubItems[0].Text),
+                ClienteCUIT = item.SubItems[1].Text,
+                FechaDespacho = DateTime.Parse(item.SubItems[2].Text)
+            }).ToList();
 
-                // Añadir la orden de preparación a la lista de órdenes asociadas con la orden de selección
-                nuevaOrdenSeleccion.OrdenesPreparacionAsociadas.Add(ordenPreparacion);
+            modelo.CrearOrdenSeleccion(ordenesSeleccionadas);
 
-                // Se eliminan de la lista OrdenesPreparacionList las que fueron seleccionadas
-                OrdenPreparacionList.Items.Remove(orden);
+            foreach (ListViewItem item in OrdenPreparacionList.SelectedItems)
+            {
+                OrdenPreparacionList.Items.Remove(item);
             }
 
-            // Agregar la nueva orden de selección a la lista de órdenes de selección
-            ordenesSeleccion.Add(nuevaOrdenSeleccion);
-
-            // Crear y agregar la fila a OrdenSeleccionList
-            var fila = new ListViewItem();
-            fila.Text = nuevaOrdenSeleccion.NumOrden.ToString();
-            fila.SubItems.Add(cantidadOrdenesPreparacion.ToString());
-
-            // Agregamos fila a la lista
-            OrdenSeleccionList.Items.Add(fila);
+            CargarListaOrdenesSeleccion();
         }
+
+        private void CargarListaOrdenesSeleccion()
+        {
+            OrdenSeleccionList.Items.Clear();
+            foreach (var ordenSeleccion in modelo.ObtenerOrdenesSeleccion())
+            {
+                var fila = new ListViewItem
+                {
+                    Text = ordenSeleccion.NumOrden.ToString()
+                };
+                fila.SubItems.Add(ordenSeleccion.OrdenesPreparacionAsociadas.Count.ToString());
+                OrdenSeleccionList.Items.Add(fila);
+            }
+        }
+
         private void CancelarBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -109,7 +108,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             int numeroOrdenSeleccionado = int.Parse(itemSeleccionado.Text);
 
             // Buscar la orden de selección correspondiente
-            OrdenSeleccion ordenSeleccion = ordenesSeleccion.FirstOrDefault(o => o.NumOrden == numeroOrdenSeleccionado);
+            OrdenSeleccion ordenSeleccion = modelo.ObtenerOrdenesSeleccion().FirstOrDefault(o => o.NumOrden == numeroOrdenSeleccionado);
 
             if (ordenSeleccion != null)
             {
@@ -125,11 +124,9 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                     OrdenPreparacionList.Items.Add(nuevoItem);
                 }
 
-                // Remover la orden de selección de la lista de órdenes de selección
-                ordenesSeleccion.Remove(ordenSeleccion);
+                modelo.EliminarOrdenSeleccion(ordenSeleccion);
 
-                // Remover el item seleccionado de OrdenSeleccionList
-                OrdenSeleccionList.Items.Remove(itemSeleccionado);
+                CargarListaOrdenesSeleccion();
             }
             else
             {
@@ -149,7 +146,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    foreach (OrdenSeleccion ordenSeleccion in ordenesSeleccion)
+                    foreach (OrdenSeleccion ordenSeleccion in modelo.ObtenerOrdenesSeleccion())
                     {
                         // Agregar la nueva orden de selección al modelo
                         modelo.AgregarOrdenesSeleccion(ordenSeleccion);

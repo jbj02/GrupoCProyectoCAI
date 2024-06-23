@@ -54,24 +54,29 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
             }
 
             // Creamos variable que apunte a la orden interna de la fila seleccionada
-            // PASARLO AL MODELOY QUE LO HAGA EL MODELO
             var ordenSeleccionada = (OrdenPrepara)OrdenesPreparacion_List.SelectedItems[0].Tag;
 
             // Avisamos al modelo cuál fue la orden seleccionada por el usuario
             prepararOrdenModelo.OrdenSeleccionada = ordenSeleccionada;
 
+            CargarProductosDeOrdenSeleccionada();
+        }
+
+        private void CargarProductosDeOrdenSeleccionada()
+        {
             //Borra la lista anterior seleccionada
             ProductoList.Items.Clear();
 
-            // PASARLO AL MODELO Y QUE LO HAGA EL MODELO
-            foreach (var producto in ordenSeleccionada.Productos)
+            var productos = prepararOrdenModelo.ObtenerProductosDeOrdenSeleccionada();
+            if (productos != null)
             {
-                ListViewItem item = new ListViewItem(producto.NombreProducto);
-                item.SubItems.Add(producto.Cantidad.ToString());
-
-                ProductoList.Items.Add(item);
+                foreach (var producto in productos)
+                {
+                    ListViewItem item = new ListViewItem(producto.NombreProducto);
+                    item.SubItems.Add(producto.Cantidad.ToString());
+                    ProductoList.Items.Add(item);
+                }
             }
-
         }
 
         private void CancelarBtn_Click(object sender, EventArgs e)

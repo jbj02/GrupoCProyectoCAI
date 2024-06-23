@@ -50,6 +50,11 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
             }
         }
 
+        public List<Productos> ObtenerProductosDeOrdenSeleccionada()
+        {
+            return OrdenSeleccionada?.Productos;
+        }
+
         public void Confirmar()
         {
             ArchivoOrdenPreparacion.SeleccionarOrden(OrdenSeleccionada.NumOrden, "Preparada");

@@ -85,7 +85,6 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
         {
             string transportistaFiltro = TransportistaCB.Text.Trim();
             DateTime fechaDespachoFiltro = DateTime.MinValue;
-            bool fechaDespachoValida = false;
 
             // Verificar si ambos campos están vacíos
             if (string.IsNullOrEmpty(transportistaFiltro) && string.IsNullOrWhiteSpace(FechaDespachoCB.Text))
@@ -99,7 +98,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             {
                 if (!DateTime.TryParse(FechaDespachoCB.Text, out fechaDespachoFiltro))
                 {
-                    MessageBox.Show("Fecha de despacho inválida. Ingrese una fecha válida (ejemplo: 01/01/2024).");
+                    MessageBox.Show("Fecha de despacho inválida.");
                     return;
                 }
             }
@@ -121,13 +120,15 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                 {
                     var item = new ListViewItem(new[]
                     {
-                orden.NumOrden.ToString(),
-                orden.ClienteCUIT,
-                orden.TransportistaCUIT,
-                orden.FechaDespacho.ToString("dd/MM/yyyy"),
-            });
+                        orden.NumOrden.ToString(),
+                        orden.ClienteCUIT,
+                        orden.TransportistaCUIT,
+                        orden.FechaDespacho.ToString("dd/MM/yyyy"),
+                    })
+                    {
+                        Tag = orden
+                    };
 
-                    item.Tag = orden; // Asignar el objeto OrdenPreparacion al Tag
                     OrdenesPreparadasList.Items.Add(item);
                 }
             }
@@ -143,8 +144,6 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             this.Close();
         }        
 
-        List<OrdenPreparacionD> OrdenesDespachadas = new List<OrdenPreparacionD>();
-
         private void SeleccionarBtn_Click(object sender, EventArgs e)
         {
             // Mensaje en caso de que no seleccione ninguna fila a editar
@@ -158,17 +157,9 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             var ordenSeleccionada = (OrdenPreparacionD)OrdenesPreparadasList.SelectedItems[0].Tag;
 
             // Modificar el estado y mover la orden a la lista de despachadas
-            ordenSeleccionada.Estado = "Despachada";
+            despacharOrdenModelo.SeleccionarOrden(ordenSeleccionada);
 
-            ListViewItem ordenLV = OrdenesPreparadasList.SelectedItems[0];
-
-
-            OrdenesPreparadasList.Items.Remove(ordenLV);
-
-            // agregamops fila a la lista
-            OrdenesDespachadasList.Items.Add(ordenLV);
-
-            OrdenesDespachadas.Add(ordenSeleccionada);
+            MoverOrdenAListaDespachadas(ordenSeleccionada);
         }
 
         private void SeleccionarTodasBtn_Click(object sender, EventArgs e)
@@ -177,16 +168,10 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             {
                 var ordenDespachada = (OrdenPreparacionD)orden.Tag;
 
-                // Modificar el estado y mover la orden a la lista de despachadas
-                ordenDespachada.Estado = "Despachada";
-
-                // Se eliminan de la lista OrdenesPreparacionList
-                OrdenesPreparadasList.Items.Remove(orden);
+                despacharOrdenModelo.SeleccionarOrden(ordenDespachada);
 
                 // Se agrega a la lista OrdenesDespachadasList
-                OrdenesDespachadasList.Items.Add(orden);
-
-                OrdenesDespachadas.Add(ordenDespachada);            
+                OrdenesDespachadasList.Items.Add(orden);            
             }
         }
 
@@ -201,18 +186,32 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
             // Obtener la orden seleccionada y modificar su estado
             var ordenSeleccionada = (OrdenPreparacionD)OrdenesDespachadasList.SelectedItems[0].Tag;
-            ordenSeleccionada.Estado = "Preparada";
+            despacharOrdenModelo.DeseleccionarOrden(ordenSeleccionada);
+            MoverOrdenAListaPreparadas(ordenSeleccionada);
+        }
 
-            ListViewItem ordenLV = OrdenesDespachadasList.SelectedItems[0];
+        private void MoverOrdenAListaDespachadas(OrdenPreparacionD orden)
+        {
+            var item = OrdenesPreparadasList.Items.Cast<ListViewItem>()
+                .FirstOrDefault(i => ((OrdenPreparacionD)i.Tag).NumOrden == orden.NumOrden);
 
-            OrdenesDespachadasList.Items.Remove(ordenLV);
+            if (item != null)
+            {
+                OrdenesPreparadasList.Items.Remove(item);
+                OrdenesDespachadasList.Items.Add(item);
+            }
+        }
 
-            // agregamops fila a la lista
-            OrdenesPreparadasList.Items.Add(ordenLV);
+        private void MoverOrdenAListaPreparadas(OrdenPreparacionD orden)
+        {
+            var item = OrdenesDespachadasList.Items.Cast<ListViewItem>()
+                .FirstOrDefault(i => ((OrdenPreparacionD)i.Tag).NumOrden == orden.NumOrden);
 
-            // Eliminar la orden seleccionada de la lista de OrdenesDespachadas
-            OrdenesDespachadas.Remove(ordenSeleccionada);
-
+            if (item != null)
+            {
+                OrdenesDespachadasList.Items.Remove(item);
+                OrdenesPreparadasList.Items.Add(item);
+            }
         }
 
         private void ReestablecerBtn_Click(object sender, EventArgs e)
@@ -235,7 +234,8 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    despacharOrdenModelo.OrdenesSeleccionadas = OrdenesDespachadas;
+                    despacharOrdenModelo.OrdenesSeleccionadas = OrdenesDespachadasList.Items.Cast<ListViewItem>()
+                .Select(item => (OrdenPreparacionD)item.Tag).ToList();
                     despacharOrdenModelo.Confirmar();
 
                     MessageBox.Show("Se modificó el estado de las órdenes a Despachadas y se generaron los remitos.");
@@ -244,5 +244,6 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                     
             }
         }
+
     }
 }

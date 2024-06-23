@@ -53,7 +53,6 @@ namespace GrupoCProyectoCAI
 
         public Cliente clienteActivo;
         public Producto productoActivo;
-        public Transportista transportistaActivo;
         public List<Producto> productosSeleccionados;
 
         private void ClienteCmb_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,7 +68,7 @@ namespace GrupoCProyectoCAI
             {
                 //se extrae el cuit del string de cliente ("Cliente1;20-11111111-5" ==> "20-11111111-5")
                 string ClienteCompleto = ClienteCmb.SelectedItem.ToString();
-                string[] ClienteSplit = ClienteCompleto.Split(dataSplitter);
+                string[] ClienteSplit = ClienteCompleto.Split(new string[] { dataSplitter }, StringSplitOptions.None);
                 string ClienteCUIT = ClienteSplit[1];
 
                 clienteActivo = modelo.BuscarCliente(ClienteCUIT);
@@ -194,7 +193,7 @@ namespace GrupoCProyectoCAI
                     NuevaOrden.NumeroDeOrden = modelo.BuscarUltimaOrenPreparacion() + 1;
                     NuevaOrden.Cliente = clienteActivo.CUIT;
                     NuevaOrden.Transportista = TransportistaTxt.Text;
-                    NuevaOrden.Estado = "PendienteAltaSeleccion";
+                    NuevaOrden.Estado = "PendienteDeSeleccion";
                     NuevaOrden.FechaDeDespacho = FechaDeDespachoDtp.Value;
                     NuevaOrden.FechaDeAlta = DateTime.Now;
                     NuevaOrden.Productos = productosSeleccionados;

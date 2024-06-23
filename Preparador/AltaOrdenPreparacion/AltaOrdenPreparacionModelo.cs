@@ -46,15 +46,8 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
 
         public Cliente BuscarCliente(string cuit)
         {
-            Cliente cliente = Clientes.Find(id => id.CUIT == cuit);
-            return cliente;
+            return Clientes.Find(id => id.CUIT == cuit);
         }
-
-        //public Transportista BuscarTransportista(string cuit)
-        //{
-        //    Transportista transportista = transportistas.Find(id => id.CUIT == cuit);
-        //    return transportista;
-        //}
 
         public bool ValidarCUIT(string cuit)
         {
@@ -64,14 +57,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
             string pattern2 = @"^\d{2}-\d{8}-\d{2}$";
             Regex regex2 = new Regex(pattern);
 
-            if (regex2.IsMatch(cuit) == true || regex.IsMatch(cuit) == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return regex.IsMatch(cuit) || regex2.IsMatch(cuit);
         }
 
         public int BuscarUltimaOrenPreparacion()

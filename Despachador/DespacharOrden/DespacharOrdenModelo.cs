@@ -10,7 +10,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
     internal class DespacharOrdenModelo
     {
         public List<OrdenPreparacionD> OrdenesPreparadas { get; set; }
-        public List<OrdenPreparacionD> OrdenesSeleccionadas { get; set; }
+        public List<OrdenPreparacionD> OrdenesSeleccionadas { get; set; } = new List<OrdenPreparacionD>();
 
         // Lista para almacenar los Números De Orden de Seleccion generados previamente
         public static List<int> numeroOrdenIntGenerados = new List<int>();
@@ -100,6 +100,18 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             // Crear una instancia de la clase Random
             Random random = new Random();
             return random.Next((int)Math.Pow(10, cantidad));
+        }
+
+        public void SeleccionarOrden(OrdenPreparacionD orden)
+        {
+            orden.Estado = "Despachada";
+            OrdenesSeleccionadas.Add(orden);
+        }
+
+        public void DeseleccionarOrden(OrdenPreparacionD orden)
+        {
+            orden.Estado = "Preparada";
+            OrdenesSeleccionadas.Remove(orden);
         }
     }
 }
