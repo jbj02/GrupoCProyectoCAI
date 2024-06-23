@@ -54,7 +54,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 {
                     ordenSeleccionEnt.OrdenPreparacionAsociadas.Add(ordenPreparacionEnt);
 
-                    ArchivoOrdenPreparacion.SeleccionarOrden(ordenPreparacion.NumOrdenP, "Seleccionada");
+                    ArchivoOrdenPreparacion.SeleccionarOrden(ordenPreparacion.NumOrdenP, "EnSeleccion");
                 }
                 else
                 {

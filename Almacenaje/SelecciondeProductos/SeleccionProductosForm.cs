@@ -22,11 +22,6 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
             InitializeComponent();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CancelarBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,12 +29,9 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
 
         private void SeleccionProductosForm_Load(object sender, EventArgs e)
         {
-            foreach (var orden in modelo.ordenSeleccion)
+            foreach (var orden in modelo.OrdenesSeleccion)
             {
-                if (orden.Estado == "pendiente")
-                {
-                    OrdenSeleccionCmb.Items.Add(orden.NumeroOrden);
-                }
+                OrdenSeleccionCmb.Items.Add(orden.NumeroOrden);
             }
         }
 
@@ -97,9 +89,6 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
                     OrdenSeleccionCmb.SelectedIndex = -1;
                     this.Close();
                 }
-
-
-
             }
         }
         public string ValidarOrden(int index)

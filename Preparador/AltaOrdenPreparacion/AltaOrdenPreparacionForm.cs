@@ -194,7 +194,7 @@ namespace GrupoCProyectoCAI
                     NuevaOrden.NumeroDeOrden = modelo.BuscarUltimaOrenPreparacion() + 1;
                     NuevaOrden.Cliente = clienteActivo.CUIT;
                     NuevaOrden.Transportista = TransportistaTxt.Text;
-                    NuevaOrden.Estado = "PendienteDeSeleccion";
+                    NuevaOrden.Estado = "PendienteAltaSeleccion";
                     NuevaOrden.FechaDeDespacho = FechaDeDespachoDtp.Value;
                     NuevaOrden.FechaDeAlta = DateTime.Now;
                     NuevaOrden.Productos = productosSeleccionados;

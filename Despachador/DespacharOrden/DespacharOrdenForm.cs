@@ -238,7 +238,8 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                     despacharOrdenModelo.OrdenesSeleccionadas = OrdenesDespachadas;
                     despacharOrdenModelo.Confirmar();
 
-                    OrdenesDespachadasList.Items.Clear();
+                    MessageBox.Show("Se modificó el estado de las órdenes a Despachadas y se generaron los remitos.");
+                    this.Close();
                 }
                     
             }
