@@ -252,9 +252,11 @@
             Controls.Add(groupBox1);
             Controls.Add(ConfirmarBtn);
             Controls.Add(CancelarBtn);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "AltaOrdenPreparacionForm";
-            Text = "AltaOrdenPreparacionForm";
+            Text = "Alta Orden Preparacion Pampazon S.A";
             Load += AltaOrdenPreparacionForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

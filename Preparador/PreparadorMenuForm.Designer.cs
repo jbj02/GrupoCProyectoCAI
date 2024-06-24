@@ -36,7 +36,7 @@
             // 
             // AltaOrdenSeleccionBtn
             // 
-            AltaOrdenSeleccionBtn.Location = new Point(44, 73);
+            AltaOrdenSeleccionBtn.Location = new Point(85, 73);
             AltaOrdenSeleccionBtn.Name = "AltaOrdenSeleccionBtn";
             AltaOrdenSeleccionBtn.Size = new Size(144, 48);
             AltaOrdenSeleccionBtn.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // PrepararOrdenBtn
             // 
-            PrepararOrdenBtn.Location = new Point(44, 127);
+            PrepararOrdenBtn.Location = new Point(85, 127);
             PrepararOrdenBtn.Name = "PrepararOrdenBtn";
             PrepararOrdenBtn.Size = new Size(144, 49);
             PrepararOrdenBtn.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // AltaOrdenPreparacionBtn
             // 
-            AltaOrdenPreparacionBtn.Location = new Point(44, 12);
+            AltaOrdenPreparacionBtn.Location = new Point(85, 12);
             AltaOrdenPreparacionBtn.Name = "AltaOrdenPreparacionBtn";
             AltaOrdenPreparacionBtn.Size = new Size(144, 55);
             AltaOrdenPreparacionBtn.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // VolverMenuBtn
             // 
-            VolverMenuBtn.Location = new Point(53, 215);
+            VolverMenuBtn.Location = new Point(94, 215);
             VolverMenuBtn.Name = "VolverMenuBtn";
             VolverMenuBtn.Size = new Size(124, 43);
             VolverMenuBtn.TabIndex = 3;
@@ -78,13 +78,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(222, 270);
+            ClientSize = new Size(317, 270);
             Controls.Add(VolverMenuBtn);
             Controls.Add(AltaOrdenPreparacionBtn);
             Controls.Add(PrepararOrdenBtn);
             Controls.Add(AltaOrdenSeleccionBtn);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "PreparadorMenuForm";
-            Text = "PreparadorMenuForm";
+            Text = "Preparador Pampazon S.A";
             ResumeLayout(false);
         }
 

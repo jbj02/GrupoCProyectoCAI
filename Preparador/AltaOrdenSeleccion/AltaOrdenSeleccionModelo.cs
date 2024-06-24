@@ -16,7 +16,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
         private List<OrdenSeleccion> ordenesSeleccion = new List<OrdenSeleccion>();
 
         // Lista para almacenar los Números De Orden de Seleccion generados previamente
-        public static List<int> numeroOrdenIntGenerados = new List<int>();
+        public static int UltimoNumeroOrdenSeleccion { get; private set; }
 
         // Creamos un constructor para cargarle datos
         public AltaOrdenSeleccionModelo()
@@ -37,6 +37,8 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                     OrdenesPreparacion.Add(ordenPreparacion);
                 }
             }
+
+            UltimoNumeroOrdenSeleccion = BuscarUltimaOrdenSeleccion();
         }
 
         public void AgregarOrdenesSeleccion(OrdenSeleccion orden)
@@ -67,38 +69,51 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             ArchivoOrdenSeleccion.AgregarOrdenesSeleccion(ordenSeleccionEnt);
         }
 
-        internal int GenerarNumeroOrdenSeleccion()
-        {
-            // Crear una instancia de la clase Random
-            Random random = new Random();
+        //internal int GenerarNumeroOrdenSeleccion()
+        //{
+        //    // Crear una instancia de la clase Random
+        //    Random random = new Random();
 
-            // Generar un nuevo N° de Orden hasta que sea único
-            int NumOrden;
-            do
+        //    // Generar un nuevo N° de Orden hasta que sea único
+        //    int NumOrden;
+        //    do
+        //    {
+        //        // Generar 8 dígitos aleatorios
+        //        int numeros = GenerarNumeros(8);
+        //        NumOrden = numeros;
+        //    } while (numeroOrdenIntGenerados.Contains(NumOrden));
+
+        //    // Agregar el N° de orden interna generado a la lista
+        //    numeroOrdenIntGenerados.Add(NumOrden);
+
+        //    // Devolver el N° de orden interna generado
+        //    return NumOrden;
+        //}
+
+        //// Método para generar números aleatorios
+        //public static int GenerarNumeros(int cantidad)
+        //{
+        //    // Crear una instancia de la clase Random
+        //    Random random = new Random();
+        //    return random.Next((int)Math.Pow(10, cantidad));
+        //}
+
+        public int BuscarUltimaOrdenSeleccion()
+        {
+            if (ArchivoOrdenSeleccion.OrdenSeleccions.Count != 0)
             {
-                // Generar 8 dígitos aleatorios
-                int numeros = GenerarNumeros(8);
-                NumOrden = numeros;
-            } while (numeroOrdenIntGenerados.Contains(NumOrden));
-
-            // Agregar el N° de orden interna generado a la lista
-            numeroOrdenIntGenerados.Add(NumOrden);
-
-            // Devolver el N° de orden interna generado
-            return NumOrden;
-        }
-
-        // Método para generar números aleatorios
-        public static int GenerarNumeros(int cantidad)
-        {
-            // Crear una instancia de la clase Random
-            Random random = new Random();
-            return random.Next((int)Math.Pow(10, cantidad));
+                return ArchivoOrdenSeleccion.OrdenSeleccions.Max(o => o.NroOrden);
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public void CrearOrdenSeleccion(List<OrdenPreparacion> ordenesSeleccionadas)
         {
-            var nuevaOrdenSeleccion = new OrdenSeleccion(GenerarNumeroOrdenSeleccion());
+            int nuevoNumeroOrden = ++UltimoNumeroOrdenSeleccion;
+            var nuevaOrdenSeleccion = new OrdenSeleccion(nuevoNumeroOrden);
             nuevaOrdenSeleccion.OrdenesPreparacionAsociadas.AddRange(ordenesSeleccionadas);
             ordenesSeleccion.Add(nuevaOrdenSeleccion);
         }

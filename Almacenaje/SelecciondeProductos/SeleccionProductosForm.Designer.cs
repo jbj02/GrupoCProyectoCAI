@@ -36,6 +36,7 @@
             CancelarBtn = new Button();
             OrdenSeleccionCmb = new ComboBox();
             label1 = new Label();
+            SeleccionarTodo = new Button();
             SuspendLayout();
             // 
             // OrdenExt_List
@@ -69,12 +70,12 @@
             // 
             // ConfirmarBtn
             // 
-            ConfirmarBtn.Location = new Point(327, 357);
+            ConfirmarBtn.Location = new Point(210, 414);
             ConfirmarBtn.Margin = new Padding(3, 2, 3, 2);
             ConfirmarBtn.Name = "ConfirmarBtn";
             ConfirmarBtn.Size = new Size(116, 31);
             ConfirmarBtn.TabIndex = 136;
-            ConfirmarBtn.Text = "Confirmar Todo";
+            ConfirmarBtn.Text = "Confirmar";
             ConfirmarBtn.UseVisualStyleBackColor = true;
             ConfirmarBtn.Click += ConfirmarBtn_Click;
             // 
@@ -91,6 +92,7 @@
             // 
             // OrdenSeleccionCmb
             // 
+            OrdenSeleccionCmb.DropDownStyle = ComboBoxStyle.DropDownList;
             OrdenSeleccionCmb.FormattingEnabled = true;
             OrdenSeleccionCmb.Location = new Point(49, 38);
             OrdenSeleccionCmb.Name = "OrdenSeleccionCmb";
@@ -107,19 +109,33 @@
             label1.TabIndex = 139;
             label1.Text = "Orden de seleccion";
             // 
+            // SeleccionarTodo
+            // 
+            SeleccionarTodo.Location = new Point(327, 357);
+            SeleccionarTodo.Margin = new Padding(3, 2, 3, 2);
+            SeleccionarTodo.Name = "SeleccionarTodo";
+            SeleccionarTodo.Size = new Size(116, 31);
+            SeleccionarTodo.TabIndex = 140;
+            SeleccionarTodo.Text = "Seleccionar Todo";
+            SeleccionarTodo.UseVisualStyleBackColor = true;
+            SeleccionarTodo.Click += SeleccionarTodo_Click;
+            // 
             // SeleccionProductosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(500, 467);
+            Controls.Add(SeleccionarTodo);
             Controls.Add(label1);
             Controls.Add(OrdenSeleccionCmb);
             Controls.Add(CancelarBtn);
             Controls.Add(ConfirmarBtn);
             Controls.Add(OrdenExt_List);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "SeleccionProductosForm";
-            Text = "SeleccionProductosForm";
+            Text = "Seleccion Productos Pampazon S.A";
             Load += SeleccionProductosForm_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -135,5 +151,6 @@
         private Button CancelarBtn;
         private ComboBox OrdenSeleccionCmb;
         private Label label1;
+        private Button SeleccionarTodo;
     }
 }

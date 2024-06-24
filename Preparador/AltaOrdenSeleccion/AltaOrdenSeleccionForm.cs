@@ -142,7 +142,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             }
             else
             {
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro que desea dar de alta la/s orden/es de selección?", "Confirmación creación", MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro que desea dar de alta la/s orden/es de selección?", "Pampazon S.A", MessageBoxButtons.YesNo);
 
                 if (respuesta == DialogResult.Yes)
                 {
@@ -152,7 +152,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                         modelo.AgregarOrdenesSeleccion(ordenSeleccion);
                     }
 
-                    MessageBox.Show("Se crearon las órdenes de selección");
+                    MessageBox.Show($"Se crearon las órdenes de selección", "Pampazon S.A");
                     this.Close();
                 }
             }

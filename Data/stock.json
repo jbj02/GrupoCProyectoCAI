@@ -1,38 +1,122 @@
 [
   {
-    "CodigoProducto": "FOU123",
-    "ClienteCUIT": "20-11111111-5",
-    "Ubicacion": "4,11,2",
-    "Cantidad": 100
+    "CodigoProducto": "MAR739281",
+    "ClienteCUIT": "20-29387456-3",
+    "Ubicacion": "17,33,12",
+    "Cantidad": 58
   },
   {
-    "CodigoProducto": "FOU456",
-    "ClienteCUIT": "20-11111111-5",
-    "Ubicacion": "8,5,1",
-    "Cantidad": 50
+    "CodigoProducto": "DES481723",
+    "ClienteCUIT": "20-29387456-3",
+    "Ubicacion": "2,24,45",
+    "Cantidad": 74
   },
   {
-    "CodigoProducto": "FOU789",
-    "ClienteCUIT": "20-11111111-5",
-    "Ubicacion": "12,17,3",
-    "Cantidad": 75
+    "CodigoProducto": "SIE839201",
+    "ClienteCUIT": "27-31827465-2",
+    "Ubicacion": "5,19,28",
+    "Cantidad": 45
   },
   {
-    "CodigoProducto": "EIG321",
-    "ClienteCUIT": "20-22222222-5",
-    "Ubicacion": "3,9,5",
-    "Cantidad": 30
+    "CodigoProducto": "TAL456298",
+    "ClienteCUIT": "27-31827465-2",
+    "Ubicacion": "9,13,37",
+    "Cantidad": 93
   },
   {
-    "CodigoProducto": "EIG654",
-    "ClienteCUIT": "20-22222222-5",
-    "Ubicacion": "7,4,2",
-    "Cantidad": 20
+    "CodigoProducto": "PAL948276",
+    "ClienteCUIT": "23-26587412-1",
+    "Ubicacion": "22,15,8",
+    "Cantidad": 62
   },
   {
-    "CodigoProducto": "EIG987",
-    "ClienteCUIT": "20-22222222-5",
-    "Ubicacion": "3,5,6",
-    "Cantidad": 15
+    "CodigoProducto": "LLA372819",
+    "ClienteCUIT": "23-26587412-1",
+    "Ubicacion": "12,29,16",
+    "Cantidad": 31
+  },
+  {
+    "CodigoProducto": "ALI193874",
+    "ClienteCUIT": "20-22938475-9",
+    "Ubicacion": "33,7,44",
+    "Cantidad": 86
+  },
+  {
+    "CodigoProducto": "CIN123987",
+    "ClienteCUIT": "20-22938475-9",
+    "Ubicacion": "14,48,22",
+    "Cantidad": 21
+  },
+  {
+    "CodigoProducto": "TEL458721",
+    "ClienteCUIT": "27-30592847-4",
+    "Ubicacion": "3,37,40",
+    "Cantidad": 59
+  },
+  {
+    "CodigoProducto": "REF374829",
+    "ClienteCUIT": "27-30592847-4",
+    "Ubicacion": "29,11,3",
+    "Cantidad": 77
+  },
+  {
+    "CodigoProducto": "LAP938475",
+    "ClienteCUIT": "23-28571649-6",
+    "Ubicacion": "47,6,18",
+    "Cantidad": 68
+  },
+  {
+    "CodigoProducto": "SMA102938",
+    "ClienteCUIT": "23-28571649-6",
+    "Ubicacion": "30,22,5",
+    "Cantidad": 39
+  },
+  {
+    "CodigoProducto": "TAB847593",
+    "ClienteCUIT": "20-30198274-0",
+    "Ubicacion": "10,25,33",
+    "Cantidad": 94
+  },
+  {
+    "CodigoProducto": "AUR284759",
+    "ClienteCUIT": "20-30198274-0",
+    "Ubicacion": "18,34,12",
+    "Cantidad": 55
+  },
+  {
+    "CodigoProducto": "IMP384756",
+    "ClienteCUIT": "27-29183745-1",
+    "Ubicacion": "36,20,41",
+    "Cantidad": 81
+  },
+  {
+    "CodigoProducto": "ESC847295",
+    "ClienteCUIT": "27-29183745-1",
+    "Ubicacion": "23,44,29",
+    "Cantidad": 29
+  },
+  {
+    "CodigoProducto": "SIL102938",
+    "ClienteCUIT": "23-27485913-8",
+    "Ubicacion": "25,49,7",
+    "Cantidad": 17
+  },
+  {
+    "CodigoProducto": "LAM284756",
+    "ClienteCUIT": "23-27485913-8",
+    "Ubicacion": "31,9,46",
+    "Cantidad": 70
+  },
+  {
+    "CodigoProducto": "ALF384756",
+    "ClienteCUIT": "20-31274856-5",
+    "Ubicacion": "40,13,36",
+    "Cantidad": 63
+  },
+  {
+    "CodigoProducto": "SOF847293",
+    "ClienteCUIT": "20-31274856-5",
+    "Ubicacion": "19,27,4",
+    "Cantidad": 52
   }
 ]

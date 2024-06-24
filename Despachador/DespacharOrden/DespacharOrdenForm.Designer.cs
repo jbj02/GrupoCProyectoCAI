@@ -275,8 +275,10 @@
             Controls.Add(groupBox2);
             Controls.Add(ConfirmarYRemitoBtn);
             Controls.Add(OrdenesPreparadasList);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "DespacharOrdenForm";
-            Text = "DespacharOrdenForm";
+            Text = "Despachar Orden Pampazon S.A";
             Load += DespacharOrdenForm_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();

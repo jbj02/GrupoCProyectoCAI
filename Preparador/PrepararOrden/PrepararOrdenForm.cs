@@ -97,13 +97,13 @@ namespace GrupoCProyectoCAI.Preparador.PrepararOrden
                 // Creamos variable que apunte a la orden de la fila seleccionada
                 var ordenSeleccionada = (OrdenPrepara)OrdenesPreparacion_List.SelectedItems[0].Tag;
 
-                DialogResult respuesta = MessageBox.Show($"¿Estás seguro que deseas confirmar el cambio del estado {ordenSeleccionada.NumOrden} a Preparada?", "Confirmación", MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show($"¿Estás seguro que deseas confirmar el cambio del estado {ordenSeleccionada.NumOrden} a Preparada?", "Pampazon S.A", MessageBoxButtons.YesNo);
 
                 if (respuesta == DialogResult.Yes)
                 {
                     prepararOrdenModelo.Confirmar();
 
-                    MessageBox.Show($"Se modificó el estado de la orden {ordenSeleccionada.NumOrden} a Preparada");
+                    MessageBox.Show($"Se modificó el estado de la orden {ordenSeleccionada.NumOrden} a Preparada", "Pampazon S.A");
 
                     this.Close();
 

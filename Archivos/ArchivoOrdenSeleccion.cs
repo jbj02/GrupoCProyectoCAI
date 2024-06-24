@@ -15,9 +15,9 @@ namespace GrupoCProyectoCAI.Archivos
         private static List<OrdenSeleccionEnt> ordenesSeleccion;
         static ArchivoOrdenSeleccion()
         {
-            if (File.Exists(@"DatosPrueba\ordenSeleccionP.json"))
+            if (File.Exists(@"Data\ordenesSeleccion.json"))
             {
-                var contenido = File.ReadAllText(@"DatosPrueba\ordenSeleccionP.json");
+                var contenido = File.ReadAllText(@"Data\ordenesSeleccion.json");
                 ordenesSeleccion = JsonConvert.DeserializeObject<List<OrdenSeleccionEnt>>(contenido);
             }
             else

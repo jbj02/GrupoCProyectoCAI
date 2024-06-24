@@ -168,9 +168,11 @@
             Controls.Add(SeleccionarBtn);
             Controls.Add(OrdenSeleccionList);
             Controls.Add(OrdenPreparacionList);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "AltaOrdenSeleccionForm";
-            Text = "AltaOrdenSeleccion";
+            Text = "Alta Orden Seleccion Pampazon S.A";
             Load += AltaOrdenSeleccionForm_Load;
             ResumeLayout(false);
             PerformLayout();

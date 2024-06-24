@@ -40,5 +40,10 @@ namespace GrupoCProyectoCAI
             SeleccionProductosForm seleccionProductosForm = new();
             seleccionProductosForm.ShowDialog();
         }
+
+        private void SalirSistemaBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

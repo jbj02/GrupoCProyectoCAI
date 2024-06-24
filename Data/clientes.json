@@ -1,12 +1,52 @@
 [
   {
-    "CUIT": "20-11111111-5",
-    "Nombre": "Juan Pérez",
+    "CUIT": "20-29387456-3",
+    "Nombre": "Ana Gutierrez",
+    "Telefono": "+541176543210"
+  },
+  {
+    "CUIT": "27-31827465-2",
+    "Nombre": "Lucas Perez",
+    "Telefono": "+541198765432"
+  },
+  {
+    "CUIT": "23-26587412-1",
+    "Nombre": "Mariana Lopez",
     "Telefono": "+541112345678"
   },
   {
-    "CUIT": "20-22222222-5",
-    "Nombre": "Rodrigo Fernandez",
+    "CUIT": "20-22938475-9",
+    "Nombre": "Juan Martinez",
+    "Telefono": "+541123456789"
+  },
+  {
+    "CUIT": "27-30592847-4",
+    "Nombre": "Carla Ramirez",
+    "Telefono": "+541198123456"
+  },
+  {
+    "CUIT": "23-28571649-6",
+    "Nombre": "Federico Sanchez",
+    "Telefono": "+541176789012"
+  },
+  {
+    "CUIT": "20-30198274-0",
+    "Nombre": "Lucia Castro",
     "Telefono": "+541187654321"
+  },
+  {
+    "CUIT": "27-29183745-1",
+    "Nombre": "Matias Ortiz",
+    "Telefono": "+541198112233"
+  },
+  {
+    "CUIT": "23-27485913-8",
+    "Nombre": "Sofia Diaz",
+    "Telefono": "+541123123123"
+  },
+  {
+    "CUIT": "20-31274856-5",
+    "Nombre": "Hernan Alvarez",
+    "Telefono": "+541154321098"
   }
 ]

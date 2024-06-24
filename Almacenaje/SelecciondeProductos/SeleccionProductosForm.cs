@@ -76,7 +76,7 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
             }
             else
             {
-                DialogResult respuesta = MessageBox.Show("Desea confirmar la orden?", "Mensaje de confirmación", MessageBoxButtons.YesNo); // falta if de si selecciona yes 
+                DialogResult respuesta = MessageBox.Show("Desea confirmar la orden?", "Pampazon S.A", MessageBoxButtons.YesNo); // falta if de si selecciona yes 
                 if (respuesta == DialogResult.Yes)
                 {
                     var orden = modelo.Buscar(Convert.ToInt32(OrdenSeleccionCmb.SelectedItem.ToString()));
@@ -87,6 +87,7 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
                     //modelo.ActualizarOrden(OrdenSeleccionCmb.SelectedItem.ToString());
                     //modelo.CambiarEstadoOrdenEstado(orden);
                     OrdenSeleccionCmb.SelectedIndex = -1;
+                    MessageBox.Show($"Se ha actualizado el estado de la orden {orden.NumeroOrden}", "Pampazon S.A");
                     this.Close();
                 }
             }
@@ -109,6 +110,14 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
             }
 
             return error;
+        }
+
+        private void SeleccionarTodo_Click(object sender, EventArgs e)
+        {
+            foreach(ListViewItem item in OrdenExt_List.Items)
+            {
+                item.Checked = true;
+            }
         }
     }
 }

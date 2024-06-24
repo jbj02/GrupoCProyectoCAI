@@ -39,6 +39,18 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
         }
         public void Confirmar()
         {
+            foreach(var ordenDespachada in OrdenesSeleccionadas)
+            {
+                // Buscar la orden en la lista y actualizar su estado
+                var ordenExistente = ArchivoOrdenPreparacion.OrdenesPreparacion.FirstOrDefault(o => o.NroOrden == ordenDespachada.NumOrden);
+
+                if (ordenExistente != null)
+                {
+                    ordenExistente.Estado = EstadosOrdenPreparacion.Despachada;
+                }                
+            }
+            
+
             // Utilizaremos un diccionario para almacenar remitos por cliente (utilizando CUIT como clave única)
             Dictionary<string, RemitoEnt> remitosPorCliente = new Dictionary<string, RemitoEnt>();
 

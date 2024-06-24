@@ -31,11 +31,12 @@
             AlmacenajeBtn = new Button();
             PreparadorBtn = new Button();
             DespachadorBtn = new Button();
+            SalirSistemaBtn = new Button();
             SuspendLayout();
             // 
             // AlmacenajeBtn
             // 
-            AlmacenajeBtn.Location = new Point(307, 159);
+            AlmacenajeBtn.Location = new Point(103, 66);
             AlmacenajeBtn.Name = "AlmacenajeBtn";
             AlmacenajeBtn.Size = new Size(152, 23);
             AlmacenajeBtn.TabIndex = 0;
@@ -45,7 +46,7 @@
             // 
             // PreparadorBtn
             // 
-            PreparadorBtn.Location = new Point(307, 188);
+            PreparadorBtn.Location = new Point(103, 37);
             PreparadorBtn.Name = "PreparadorBtn";
             PreparadorBtn.Size = new Size(152, 23);
             PreparadorBtn.TabIndex = 3;
@@ -55,7 +56,7 @@
             // 
             // DespachadorBtn
             // 
-            DespachadorBtn.Location = new Point(307, 217);
+            DespachadorBtn.Location = new Point(103, 95);
             DespachadorBtn.Name = "DespachadorBtn";
             DespachadorBtn.Size = new Size(152, 23);
             DespachadorBtn.TabIndex = 4;
@@ -63,16 +64,29 @@
             DespachadorBtn.UseVisualStyleBackColor = true;
             DespachadorBtn.Click += DespachadorBtn_Click;
             // 
+            // SalirSistemaBtn
+            // 
+            SalirSistemaBtn.Location = new Point(117, 134);
+            SalirSistemaBtn.Name = "SalirSistemaBtn";
+            SalirSistemaBtn.Size = new Size(119, 27);
+            SalirSistemaBtn.TabIndex = 5;
+            SalirSistemaBtn.Text = "Salir del sistema";
+            SalirSistemaBtn.UseVisualStyleBackColor = true;
+            SalirSistemaBtn.Click += SalirSistemaBtn_Click;
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(347, 229);
+            Controls.Add(SalirSistemaBtn);
             Controls.Add(DespachadorBtn);
             Controls.Add(PreparadorBtn);
             Controls.Add(AlmacenajeBtn);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "MenuForm";
-            Text = "MenuForm";
+            Text = "Menu Pampazon S.A";
             ResumeLayout(false);
         }
 
@@ -80,5 +94,6 @@
         private Button AlmacenajeBtn;
         private Button PreparadorBtn;
         private Button DespachadorBtn;
+        private Button SalirSistemaBtn;
     }
 }

@@ -231,7 +231,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             }
             else
             {
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro que deseas confirmar la/s ordenes y generar el/los remito/s?", "Confirmación de orden", MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro que deseas confirmar la/s ordenes y generar el/los remito/s?", "Pampazon S.A", MessageBoxButtons.YesNo);
 
                 if (respuesta == DialogResult.Yes)
                 {
@@ -253,7 +253,7 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                         mensaje.AppendLine($"- Número de Orden: {orden.NumOrden}, Número de Remito: {ArchivoRemito.Remitos.LastOrDefault(r => r.NroOrdenes.Contains(orden.NumOrden))?.NroRemito}");
                     }
 
-                    MessageBox.Show(mensaje.ToString());
+                    MessageBox.Show(mensaje.ToString(), "Pampazon S.A");
 
                     this.Close();
                 }

@@ -186,7 +186,7 @@ namespace GrupoCProyectoCAI
             //si está todo bien...
             else
             {
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro que desea dar de alta la órden de preparación?", "Confirmar creación", MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro que desea dar de alta la órden de preparación?", "Pampazon S.A", MessageBoxButtons.YesNo);
                 if (respuesta == DialogResult.Yes)
                 {
                     OrdenDePreparacion NuevaOrden = new OrdenDePreparacion();
@@ -203,7 +203,7 @@ namespace GrupoCProyectoCAI
                     //se modifican los stocks
                     modelo.ModificarStocks(NuevaOrden.Productos, NuevaOrden.Cliente, NuevaOrden.NumeroDeOrden);
 
-                    MessageBox.Show("Se creó la orden número " + NuevaOrden.NumeroDeOrden);
+                    MessageBox.Show("Se creó la orden número " + NuevaOrden.NumeroDeOrden, "Pampazon S.A");
                     this.Close();
                 }
             }

@@ -19,9 +19,9 @@ namespace GrupoCProyectoCAI.Archivos
         static ArchivoOrdenPreparacion()
         {
 
-            if (File.Exists(@"DatosPrueba\ordenPreparacionP.json"))
+            if (File.Exists(@"Data\ordenPreparacion.json"))
             {
-                var contenido = File.ReadAllText(@"DatosPrueba\ordenPreparacionP.json");
+                var contenido = File.ReadAllText(@"Data\ordenPreparacion.json");
                 ordenesPreparacion = JsonConvert.DeserializeObject<List<OrdenPreparacionEnt>>(contenido);
             }
             else

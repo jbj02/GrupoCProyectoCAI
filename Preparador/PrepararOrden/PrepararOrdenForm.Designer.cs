@@ -123,7 +123,7 @@
             ProductoList.Location = new Point(746, 52);
             ProductoList.MultiSelect = false;
             ProductoList.Name = "ProductoList";
-            ProductoList.Size = new Size(259, 202);
+            ProductoList.Size = new Size(246, 202);
             ProductoList.TabIndex = 104;
             ProductoList.UseCompatibleStateImageBehavior = false;
             ProductoList.UseWaitCursor = true;
@@ -138,7 +138,7 @@
             // 
             Cantidad.Text = "Cantidad";
             Cantidad.TextAlign = HorizontalAlignment.Center;
-            Cantidad.Width = 150;
+            Cantidad.Width = 100;
             // 
             // CancelarBtn
             // 
@@ -146,7 +146,7 @@
             CancelarBtn.FlatStyle = FlatStyle.Popup;
             CancelarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             CancelarBtn.ForeColor = SystemColors.ButtonHighlight;
-            CancelarBtn.Location = new Point(919, 260);
+            CancelarBtn.Location = new Point(906, 260);
             CancelarBtn.Name = "CancelarBtn";
             CancelarBtn.Size = new Size(86, 31);
             CancelarBtn.TabIndex = 108;
@@ -201,7 +201,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Linen;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1020, 304);
+            ClientSize = new Size(1017, 304);
             Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -211,8 +211,10 @@
             Controls.Add(ConfirmarDatosOrdenBtn);
             Controls.Add(SeleccionarBtn);
             Controls.Add(OrdenesPreparacion_List);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "PrepararOrdenForm";
-            Text = "PrepararOrdenForm";
+            Text = "Preparar Orden Pampazon S.A";
             UseWaitCursor = true;
             Load += PrepararOrdenForm_Load;
             ResumeLayout(false);
