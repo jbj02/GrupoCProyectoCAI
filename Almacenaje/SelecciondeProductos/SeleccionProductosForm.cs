@@ -43,17 +43,34 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
                 string num = OrdenSeleccionCmb.SelectedItem.ToString();
                 int numero = Convert.ToInt32(num);
                 var orden = modelo.Buscar(numero);
+
                 foreach (var detalle in orden.ordenAsociada)
                 {
                     foreach (var producto in detalle.productos)
                     {
+                        bool existe = false;
+
+                        foreach (var itemEnLista in OrdenExt_List.Items.Cast<ListViewItem>())
+                        {
+                            if (itemEnLista.Text == producto.Producto && itemEnLista.SubItems[2].Text == producto.Ubicacion)
+                            {
+                                itemEnLista.SubItems[1].Text = (int.Parse(itemEnLista.SubItems[1].Text) + producto.Cantidades).ToString();
+                                existe = true;
+                                break;
+                            }
+                        }
+
+                        if (existe)
+                        {
+                            continue;
+                        }
+
                         var fila = new ListViewItem();
                         fila.Text = producto.Producto;
                         fila.SubItems.Add(producto.Cantidades.ToString());
                         fila.SubItems.Add(producto.Ubicacion);
                         OrdenExt_List.Items.Add(fila);
                     }
-
                 }
             }
         }
@@ -114,7 +131,7 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
 
         private void SeleccionarTodo_Click(object sender, EventArgs e)
         {
-            foreach(ListViewItem item in OrdenExt_List.Items)
+            foreach (ListViewItem item in OrdenExt_List.Items)
             {
                 item.Checked = true;
             }

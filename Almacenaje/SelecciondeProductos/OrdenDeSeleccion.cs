@@ -12,12 +12,5 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
         public int NumeroOrden { get; set; }
         public List<OrdenPreparacion> ordenAsociada { get; set; }
         public string Estado { get; set; }
-        //public OrdenDeSeleccion()
-       
-        //{
-
-          //  productosAsociados = new List<Productos>();
-       // }
-
     }
 }
