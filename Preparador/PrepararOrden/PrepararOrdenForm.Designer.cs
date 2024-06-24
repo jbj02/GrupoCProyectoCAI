@@ -43,13 +43,14 @@
             label1 = new Label();
             button1 = new Button();
             label2 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // ConfirmarDatosOrdenBtn
             // 
-            ConfirmarDatosOrdenBtn.BackColor = Color.PaleGreen;
+            ConfirmarDatosOrdenBtn.BackColor = SystemColors.Control;
             ConfirmarDatosOrdenBtn.FlatStyle = FlatStyle.Popup;
-            ConfirmarDatosOrdenBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            ConfirmarDatosOrdenBtn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ConfirmarDatosOrdenBtn.Location = new Point(746, 260);
             ConfirmarDatosOrdenBtn.Name = "ConfirmarDatosOrdenBtn";
             ConfirmarDatosOrdenBtn.Size = new Size(86, 31);
@@ -61,9 +62,9 @@
             // 
             // OrdenesPreparacion_List
             // 
-            OrdenesPreparacion_List.BackColor = SystemColors.GradientActiveCaption;
+            OrdenesPreparacion_List.BackColor = SystemColors.Window;
             OrdenesPreparacion_List.Columns.AddRange(new ColumnHeader[] { N_Orden, Cliente, Fecha_Alta, Fecha_Despacho });
-            OrdenesPreparacion_List.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            OrdenesPreparacion_List.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             OrdenesPreparacion_List.FullRowSelect = true;
             OrdenesPreparacion_List.GridLines = true;
             OrdenesPreparacion_List.Location = new Point(26, 52);
@@ -100,9 +101,9 @@
             // 
             // SeleccionarBtn
             // 
-            SeleccionarBtn.BackColor = Color.LightGray;
+            SeleccionarBtn.BackColor = SystemColors.Control;
             SeleccionarBtn.FlatStyle = FlatStyle.Popup;
-            SeleccionarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            SeleccionarBtn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             SeleccionarBtn.ForeColor = SystemColors.ControlText;
             SeleccionarBtn.Location = new Point(537, 260);
             SeleccionarBtn.Name = "SeleccionarBtn";
@@ -115,9 +116,10 @@
             // 
             // ProductoList
             // 
-            ProductoList.BackColor = SystemColors.GradientActiveCaption;
+            ProductoList.BackColor = SystemColors.Window;
             ProductoList.Columns.AddRange(new ColumnHeader[] { Producto, Cantidad });
-            ProductoList.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ProductoList.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ProductoList.ForeColor = SystemColors.WindowText;
             ProductoList.FullRowSelect = true;
             ProductoList.GridLines = true;
             ProductoList.Location = new Point(746, 52);
@@ -142,10 +144,10 @@
             // 
             // CancelarBtn
             // 
-            CancelarBtn.BackColor = Color.IndianRed;
+            CancelarBtn.BackColor = SystemColors.Control;
             CancelarBtn.FlatStyle = FlatStyle.Popup;
-            CancelarBtn.Font = new Font("Arial", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            CancelarBtn.ForeColor = SystemColors.ButtonHighlight;
+            CancelarBtn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            CancelarBtn.ForeColor = SystemColors.ActiveCaptionText;
             CancelarBtn.Location = new Point(906, 260);
             CancelarBtn.Name = "CancelarBtn";
             CancelarBtn.Size = new Size(86, 31);
@@ -186,22 +188,35 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.LightBlue;
-            label2.Font = new Font("Arial", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(26, 31);
             label2.Name = "label2";
-            label2.Size = new Size(178, 17);
+            label2.Size = new Size(133, 15);
             label2.TabIndex = 111;
             label2.Text = "Ordenes de Preparación";
             label2.UseWaitCursor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(746, 31);
+            label3.Name = "label3";
+            label3.Size = new Size(111, 15);
+            label3.TabIndex = 112;
+            label3.Text = "Productos de orden";
+            label3.UseWaitCursor = true;
             // 
             // PrepararOrdenForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Linen;
+            BackColor = SystemColors.Control;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(1017, 304);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -239,5 +254,6 @@
         private Label label1;
         private Button button1;
         private Label label2;
+        private Label label3;
     }
 }
