@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "NroOrden": 1,
+    "ClienteCUIT": "20-31274856-5",
+    "Estado": 3,
+    "TransportistaCUIT": "20-43890567-5",
+    "FechaDespacho": "2024-06-26T14:33:49",
+    "FechaAlta": "2024-06-24T14:34:47.6864285-03:00"
+  },
+  {
+    "NroOrden": 2,
+    "ClienteCUIT": "23-27485913-8",
+    "Estado": 2,
+    "TransportistaCUIT": "20-59409783-6",
+    "FechaDespacho": "2024-06-25T14:34:53",
+    "FechaAlta": "2024-06-24T14:35:31.1629156-03:00"
+  },
+  {
+    "NroOrden": 3,
+    "ClienteCUIT": "20-22938475-9",
+    "Estado": 1,
+    "TransportistaCUIT": "20-40758473-6",
+    "FechaDespacho": "2024-06-24T14:53:05.8975592-03:00",
+    "FechaAlta": "2024-06-24T14:53:35.3399487-03:00"
+  },
+  {
+    "NroOrden": 4,
+    "ClienteCUIT": "27-30592847-4",
+    "Estado": 0,
+    "TransportistaCUIT": "20-40990567-5",
+    "FechaDespacho": "2024-06-24T14:54:04.7696289-03:00",
+    "FechaAlta": "2024-06-24T14:55:05.633779-03:00"
+  },
+  {
+    "NroOrden": 5,
+    "ClienteCUIT": "23-26587412-1",
+    "Estado": 0,
+    "TransportistaCUIT": "20-40748932-5",
+    "FechaDespacho": "2024-06-24T14:55:55.7674989-03:00",
+    "FechaAlta": "2024-06-24T14:56:23.310846-03:00"
+  },
+  {
+    "NroOrden": 6,
+    "ClienteCUIT": "23-26587412-1",
+    "Estado": 3,
+    "TransportistaCUIT": "20-39689432-5",
+    "FechaDespacho": "2024-06-28T14:57:26",
+    "FechaAlta": "2024-06-24T14:57:56.2611002-03:00"
+  }
+]

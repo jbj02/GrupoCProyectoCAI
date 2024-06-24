@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "NroOrden": 3,
+    "Estado": 0,
+    "OrdenPreparacionAsociadas": [ 3 ]
+  }
+]
