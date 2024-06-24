@@ -45,7 +45,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
             var ordenSeleccionEnt = new OrdenSeleccionEnt
             {
                 NroOrden = orden.NumOrden,
-                Estado = orden.Estado,
+                Estado = EstadosOrdenSeleccion.Pendiente,
                 OrdenPreparacionAsociadas = orden.OrdenesPreparacionAsociadas.Select(op => op.NumOrdenP).ToList()
             };
 
@@ -55,7 +55,7 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion
                 if (ordenPreparacionEnt != null)
                 {
                     ordenPreparacionEnt.Estado = EstadosOrdenPreparacion.EnSeleccion;
-                    ArchivoOrdenPreparacion.ActualizarOrdenPreparacion(ordenPreparacionEnt);
+                    //ArchivoOrdenPreparacion.ActualizarOrdenPreparacion(ordenPreparacionEnt);
                 }
                 else
                 {

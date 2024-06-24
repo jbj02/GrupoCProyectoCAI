@@ -52,8 +52,12 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
                     NroRemito = GenerarNumero(),
                     clienteCUIT = ordenDespachada.ClienteCUIT,
                     transportistaCUIT = ordenDespachada.TransportistaCUIT,
-                    FechaDespacho = ordenDespachada.FechaDespacho
+                    FechaDespacho = ordenDespachada.FechaDespacho,
+                    NroOrdenes = new List<int> { ordenDespachada.NumOrden }
                 };
+
+                // Agregar la orden al remito
+                remitoEnt.NroOrdenes.Add(ordenDespachada.NumOrden);
 
                 // Agregar la ordenSeleccionEnt a la lista de órdenes de selección en el archivo
                 ArchivoRemito.AgregarRemito(remitoEnt);
