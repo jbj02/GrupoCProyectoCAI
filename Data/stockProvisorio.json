@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "NroOrden": 1,
+    "CodigoProducto": "ALF384756",
+    "Cantidad": 25,
+    "Ubicacion": "40,13,36"
+  },
+  {
+    "NroOrden": 1,
+    "CodigoProducto": "SOF847293",
+    "Cantidad": 3,
+    "Ubicacion": "19,27,4"
+  },
+  {
+    "NroOrden": 2,
+    "CodigoProducto": "SIL102938",
+    "Cantidad": 5,
+    "Ubicacion": "25,49,7"
+  },
+  {
+    "NroOrden": 2,
+    "CodigoProducto": "LAM284756",
+    "Cantidad": 10,
+    "Ubicacion": "31,9,46"
+  },
+  {
+    "NroOrden": 3,
+    "CodigoProducto": "ALI193874",
+    "Cantidad": 11,
+    "Ubicacion": "33,7,44"
+  },
+  {
+    "NroOrden": 3,
+    "CodigoProducto": "CIN123987",
+    "Cantidad": 17,
+    "Ubicacion": "14,48,22"
+  },
+  {
+    "NroOrden": 4,
+    "CodigoProducto": "TEL458721",
+    "Cantidad": 10,
+    "Ubicacion": "3,37,40"
+  },
+  {
+    "NroOrden": 4,
+    "CodigoProducto": "REF374829",
+    "Cantidad": 10,
+    "Ubicacion": "29,11,3"
+  },
+  {
+    "NroOrden": 5,
+    "CodigoProducto": "PAL948276",
+    "Cantidad": 8,
+    "Ubicacion": "22,15,8"
+  },
+  {
+    "NroOrden": 5,
+    "CodigoProducto": "LLA372819",
+    "Cantidad": 14,
+    "Ubicacion": "12,29,16"
+  },
+  {
+    "NroOrden": 6,
+    "CodigoProducto": "PAL948276",
+    "Cantidad": 1,
+    "Ubicacion": "22,15,8"
+  },
+  {
+    "NroOrden": 6,
+    "CodigoProducto": "LLA372819",
+    "Cantidad": 5,
+    "Ubicacion": "12,29,16"
+  }
+]
