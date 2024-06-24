@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GrupoCProyectoCAI.Archivos;
-internal class ProductoEnt
+public class ProductoEnt
 {
     public string Producto { get; set; }
     public string Codigo { get; set; }   

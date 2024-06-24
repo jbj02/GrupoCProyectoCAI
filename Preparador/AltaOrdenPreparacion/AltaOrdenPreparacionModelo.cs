@@ -27,14 +27,15 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
                 };
 
                 // Buscar productos asociados a este cliente en ArchivoStock
-                var productosCliente = ArchivoStock.Stock.Where(p => p.ClienteCUIT == clienteEntidad.CUIT);
-                foreach (var productoEntidad in productosCliente)
+                var stockCliente = ArchivoStock.Stock.Where(p => p.ClienteCUIT == clienteEntidad.CUIT);
+                foreach (var stockEntidad in stockCliente)
                 {
+                    string nombreABuscar = ArchivoProductos.Productos.First(p => p.Codigo == stockEntidad.CodigoProducto).Producto;
                     var nuevoProducto = new Producto
                     {
-                        Nombre = productoEntidad.Producto,
-                        Cantidad = productoEntidad.Cantidad,
-                        CodigoDeProducto = productoEntidad.ProductoCliente
+                        Nombre = nombreABuscar,
+                        Cantidad = stockEntidad.Cantidad,
+                        CodigoDeProducto = stockEntidad.CodigoProducto
                     };
 
                     nuevoCliente.ProductosAsociados.Add(nuevoProducto);
@@ -82,13 +83,13 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
                 ClienteCUIT = ordenPreparacion.Cliente,
                 TransportistaCUIT = ordenPreparacion.Transportista,
                 FechaDespacho = ordenPreparacion.FechaDeDespacho,
-                FechaAlta = ordenPreparacion.FechaDeAlta,
-                Estado = ordenPreparacion.Estado,
-                ProductosList = new List<StockEnt>()
+                FechaAlta = DateTime.Now,
+                Estado = EstadosOrdenPreparacion.Pendiente,
+                //ProductosList = new List<StockEnt>()
             };
 
             // Buscar productos en ArchivoStock y agregar los detalles a la orden de preparación
-            foreach (var producto in ordenPreparacion.Productos)
+            /*foreach (var producto in ordenPreparacion.Productos)
             {
                 var productoStock = ArchivoStock.Stock.FirstOrDefault(p => p.Producto == producto.Nombre && p.ClienteCUIT == ordenPreparacion.Cliente);
                 if (productoStock != null)
@@ -108,38 +109,57 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
                     // Manejo de error si el producto no se encuentra en el stock
                     throw new Exception($"Producto {producto.Nombre} no encontrado en el stock para el cliente {ordenPreparacion.Cliente}");
                 }
-            }
+            }*/
 
 
             // Agregar la ordenSeleccionEnt a la lista de órdenes de selección en el archivo
             ArchivoOrdenPreparacion.AgregarOrdenPreparacion(ordenPreparacionEnt);            
         }
 
-        public void ModificarStocks(List<Producto> productosCliente)
+        public void ModificarStocks(List<Producto> productosCliente, string clienteCUIT, int nroOrden)
         {
-            List<StockEnt> productosAfectados = new List<StockEnt>();
+            List<StockEnt> stockARestar = new List<StockEnt>();
 
             foreach (var producto in productosCliente)
             {
-                var stockProducto = ArchivoStock.Stock.FirstOrDefault(p => p.ProductoCliente == producto.CodigoDeProducto);
+                var stockProducto = ArchivoStock.Stock.FirstOrDefault(p => p.ProductoCliente == $"{producto.CodigoDeProducto}{clienteCUIT}");
                 if (stockProducto != null)
                 {
                     var productoCompleto = new StockEnt
                     {
-                        Producto = stockProducto.Producto,
-                        ClienteCUIT = stockProducto.ClienteCUIT,
+                        ClienteCUIT = clienteCUIT,
                         Cantidad = producto.Cantidad,
                         Ubicacion = stockProducto.Ubicacion,
-                        Peso = stockProducto.Peso,
-                        TipoProducto = stockProducto.TipoProducto
+                        CodigoProducto = producto.CodigoDeProducto
                     };
 
-                    productosAfectados.Add(productoCompleto);
+                    stockARestar.Add(productoCompleto);
+                }
+            }
+            
+            ArchivoStock.RestarStock(stockARestar);
+
+
+            List<StockProvisorioEnt> stockProvASumar = new List<StockProvisorioEnt>();
+
+            foreach (var producto in productosCliente)
+            {
+                var stockProducto = ArchivoStock.Stock.FirstOrDefault(p => p.ProductoCliente == $"{producto.CodigoDeProducto}{clienteCUIT}");
+                if (stockProducto != null)
+                {
+                    var productoCompleto = new StockProvisorioEnt
+                    {
+                        NroOrden = nroOrden,
+                        Cantidad = producto.Cantidad,
+                        Ubicacion = stockProducto.Ubicacion,
+                        CodigoProducto = producto.CodigoDeProducto
+                    };
+
+                    stockProvASumar.Add(productoCompleto);
                 }
             }
 
-            ArchivoStockProvisorio.SumarStockProvisorio(productosAfectados);
-            ArchivoStock.RestarStock(productosAfectados);
+            ArchivoStockProvisorio.SumarStockProvisorio(stockProvASumar);
         }
     }
 }

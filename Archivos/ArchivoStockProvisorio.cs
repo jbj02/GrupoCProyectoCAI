@@ -27,11 +27,11 @@ public static class ArchivoStockProvisorio
 
     public static ReadOnlyCollection<StockProvisorioEnt> StockProvisorio => new ReadOnlyCollection<StockProvisorioEnt>(stockProvisorio);
 
-    public static void SumarStockProvisorio(List<StockEnt> productosAfectados)
+    public static void SumarStockProvisorio(List<StockProvisorioEnt> productosAfectados)
     {
         foreach (var producto in productosAfectados)
         {
-            var stockProvisorioProducto = StockProvisorio.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
+            /*var stockProvisorioProducto = StockProvisorio.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
             if (stockProvisorioProducto != null)
             {
                 stockProvisorioProducto.Cantidad += producto.Cantidad;
@@ -47,11 +47,12 @@ public static class ArchivoStockProvisorio
                     Peso = producto.Peso,
                     TipoProducto = producto.TipoProducto
                 });
-            }
+            }*/
+            stockProvisorio.Add(producto);
         }
     }
 
-        public static void GrabarDatos()
+    public static void GrabarDatos()
     {
         var contenido = JsonConvert.SerializeObject(stockProvisorio);
         File.WriteAllText(@"Data\stockProvisorio.json", contenido);

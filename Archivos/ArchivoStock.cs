@@ -39,18 +39,7 @@ public static class ArchivoStock
         foreach (var producto in productosAfectados)
         {
             var stockProducto = Stock.FirstOrDefault(p => p.ProductoCliente == producto.ProductoCliente);
-            if (stockProducto != null)
-            {
-                stockProducto.Cantidad -= producto.Cantidad;
-                if (stockProducto.Cantidad < 0)
-                {
-                    throw new Exception($"El producto {producto.Producto} no tiene suficiente stock disponible.");
-                }
-            }
-            else
-            {
-                throw new Exception($"El producto {producto.Producto} no se encuentra en el stock.");
-            }
+            stockProducto.Cantidad -= producto.Cantidad;
         }
 
     }

@@ -193,15 +193,15 @@ namespace GrupoCProyectoCAI
                     NuevaOrden.NumeroDeOrden = modelo.BuscarUltimaOrenPreparacion() + 1;
                     NuevaOrden.Cliente = clienteActivo.CUIT;
                     NuevaOrden.Transportista = TransportistaTxt.Text;
-                    NuevaOrden.Estado = "PendienteDeSeleccion";
+                    //NuevaOrden.Estado = "Pendiente";
                     NuevaOrden.FechaDeDespacho = FechaDeDespachoDtp.Value;
-                    NuevaOrden.FechaDeAlta = DateTime.Now;
+                    //NuevaOrden.FechaDeAlta = DateTime.Now;
                     NuevaOrden.Productos = productosSeleccionados;
 
                     modelo.AgregarOrdenPreparacion(NuevaOrden);
 
                     //se modifican los stocks
-                    modelo.ModificarStocks(NuevaOrden.Productos);
+                    modelo.ModificarStocks(NuevaOrden.Productos, NuevaOrden.Cliente, NuevaOrden.NumeroDeOrden);
 
                     MessageBox.Show("Se creó la orden número " + NuevaOrden.NumeroDeOrden);
                     this.Close();
