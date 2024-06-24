@@ -1,3 +1,278 @@
 [
-
+  {
+    "NroOrden": 4738,
+    "CodigoProducto": "FOU123",
+    "Cantidad": 5,
+    "Ubicacion": "12,5,23"
+  },
+  {
+    "NroOrden": 4738,
+    "CodigoProducto": "FOU456",
+    "Cantidad": 10,
+    "Ubicacion": "4,16,7"
+  },
+  {
+    "NroOrden": 4738,
+    "CodigoProducto": "FOU789",
+    "Cantidad": 2,
+    "Ubicacion": "19,8,11"
+  },
+  {
+    "NroOrden": 8217,
+    "CodigoProducto": "EIG321",
+    "Cantidad": 3,
+    "Ubicacion": "3,21,18"
+  },
+  {
+    "NroOrden": 8217,
+    "CodigoProducto": "EIG654",
+    "Cantidad": 7,
+    "Ubicacion": "14,10,1"
+  },
+  {
+    "NroOrden": 8217,
+    "CodigoProducto": "EIG987",
+    "Cantidad": 12,
+    "Ubicacion": "22,6,15"
+  },
+  {
+    "NroOrden": 3950,
+    "CodigoProducto": "THR234",
+    "Cantidad": 15,
+    "Ubicacion": "2,13,25"
+  },
+  {
+    "NroOrden": 3950,
+    "CodigoProducto": "THR567",
+    "Cantidad": 8,
+    "Ubicacion": "24,17,9"
+  },
+  {
+    "NroOrden": 3950,
+    "CodigoProducto": "THR890",
+    "Cantidad": 20,
+    "Ubicacion": "20,1,4"
+  },
+  {
+    "NroOrden": 1502,
+    "CodigoProducto": "ONE123",
+    "Cantidad": 25,
+    "Ubicacion": "10,22,16"
+  },
+  {
+    "NroOrden": 1502,
+    "CodigoProducto": "ONE456",
+    "Cantidad": 10,
+    "Ubicacion": "5,12,2"
+  },
+  {
+    "NroOrden": 1502,
+    "CodigoProducto": "ONE789",
+    "Cantidad": 30,
+    "Ubicacion": "21,3,14"
+  },
+  {
+    "NroOrden": 6734,
+    "CodigoProducto": "SIX123",
+    "Cantidad": 11,
+    "Ubicacion": "8,24,6"
+  },
+  {
+    "NroOrden": 6734,
+    "CodigoProducto": "SIX456",
+    "Cantidad": 22,
+    "Ubicacion": "23,11,13"
+  },
+  {
+    "NroOrden": 6734,
+    "CodigoProducto": "SIX789",
+    "Cantidad": 33,
+    "Ubicacion": "7,4,10"
+  },
+  {
+    "NroOrden": 9821,
+    "CodigoProducto": "NIN123",
+    "Cantidad": 4,
+    "Ubicacion": "17,9,22"
+  },
+  {
+    "NroOrden": 9821,
+    "CodigoProducto": "NIN456",
+    "Cantidad": 14,
+    "Ubicacion": "3,15,24"
+  },
+  {
+    "NroOrden": 9821,
+    "CodigoProducto": "NIN789",
+    "Cantidad": 24,
+    "Ubicacion": "25,20,5"
+  },
+  {
+    "NroOrden": 4056,
+    "CodigoProducto": "FOU123",
+    "Cantidad": 13,
+    "Ubicacion": "1,19,12"
+  },
+  {
+    "NroOrden": 4056,
+    "CodigoProducto": "FOU456",
+    "Cantidad": 18,
+    "Ubicacion": "16,2,21"
+  },
+  {
+    "NroOrden": 4056,
+    "CodigoProducto": "FOU789",
+    "Cantidad": 27,
+    "Ubicacion": "25,14,3"
+  },
+  {
+    "NroOrden": 7382,
+    "CodigoProducto": "SEV123",
+    "Cantidad": 8,
+    "Ubicacion": "15,7,20"
+  },
+  {
+    "NroOrden": 7382,
+    "CodigoProducto": "SEV456",
+    "Cantidad": 19,
+    "Ubicacion": "18,23,8"
+  },
+  {
+    "NroOrden": 7382,
+    "CodigoProducto": "SEV789",
+    "Cantidad": 28,
+    "Ubicacion": "6,13,17"
+  },
+  {
+    "NroOrden": 1298,
+    "CodigoProducto": "ONE234",
+    "Cantidad": 9,
+    "Ubicacion": "11,25,4"
+  },
+  {
+    "NroOrden": 1298,
+    "CodigoProducto": "ONE567",
+    "Cantidad": 21,
+    "Ubicacion": "9,10,23"
+  },
+  {
+    "NroOrden": 1298,
+    "CodigoProducto": "ONE890",
+    "Cantidad": 32,
+    "Ubicacion": "19,6,2"
+  },
+  {
+    "NroOrden": 3647,
+    "CodigoProducto": "THR345",
+    "Cantidad": 5,
+    "Ubicacion": "18,3,7"
+  },
+  {
+    "NroOrden": 3647,
+    "CodigoProducto": "THR678",
+    "Cantidad": 17,
+    "Ubicacion": "12,21,1"
+  },
+  {
+    "NroOrden": 3647,
+    "CodigoProducto": "THR901",
+    "Cantidad": 25,
+    "Ubicacion": "24,8,19"
+  },
+  {
+    "NroOrden": 9843,
+    "CodigoProducto": "NIN543",
+    "Cantidad": 15,
+    "Ubicacion": "13,16,25"
+  },
+  {
+    "NroOrden": 9843,
+    "CodigoProducto": "NIN876",
+    "Cantidad": 20,
+    "Ubicacion": "22,17,11"
+  },
+  {
+    "NroOrden": 9843,
+    "CodigoProducto": "NIN109",
+    "Cantidad": 35,
+    "Ubicacion": "2,5,18"
+  },
+  {
+    "NroOrden": 5629,
+    "CodigoProducto": "FIV432",
+    "Cantidad": 3,
+    "Ubicacion": "21,14,22"
+  },
+  {
+    "NroOrden": 5629,
+    "CodigoProducto": "FIV765",
+    "Cantidad": 12,
+    "Ubicacion": "10,23,20"
+  },
+  {
+    "NroOrden": 5629,
+    "CodigoProducto": "FIV098",
+    "Cantidad": 27,
+    "Ubicacion": "1,3,9"
+  },
+  {
+    "NroOrden": 7632,
+    "CodigoProducto": "SEV321",
+    "Cantidad": 18,
+    "Ubicacion": "16,24,14"
+  },
+  {
+    "NroOrden": 7632,
+    "CodigoProducto": "SEV654",
+    "Cantidad": 23,
+    "Ubicacion": "2,18,12"
+  },
+  {
+    "NroOrden": 7632,
+    "CodigoProducto": "SEV987",
+    "Cantidad": 31,
+    "Ubicacion": "8,4,23"
+  },
+  {
+    "NroOrden": 9184,
+    "CodigoProducto": "NIN432",
+    "Cantidad": 25,
+    "Ubicacion": "7,19,16"
+  },
+  {
+    "NroOrden": 9184,
+    "CodigoProducto": "NIN765",
+    "Cantidad": 22,
+    "Ubicacion": "11,15,24"
+  },
+  {
+    "NroOrden": 9184,
+    "CodigoProducto": "NIN098",
+    "Cantidad": 33,
+    "Ubicacion": "25,9,13"
+  },
+  {
+    "NroOrden": 2345,
+    "CodigoProducto": "TWO543",
+    "Cantidad": 12,
+    "Ubicacion": "6,1,5"
+  },
+  {
+    "NroOrden": 2345,
+    "CodigoProducto": "TWO876",
+    "Cantidad": 15,
+    "Ubicacion": "17,2,6"
+  },
+  {
+    "NroOrden": 2345,
+    "CodigoProducto": "TWO109",
+    "Cantidad": 20,
+    "Ubicacion": "4,25,3"
+  },
+  {
+    "NroOrden": 8567,
+    "CodigoProducto": "EIG234",
+    "Cantidad": 14,
+    "Ubicacion": "19,6,8"
+  }
 ]

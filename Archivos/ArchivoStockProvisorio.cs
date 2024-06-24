@@ -52,6 +52,12 @@ public static class ArchivoStockProvisorio
         }
     }
 
+    // Método para eliminar el stock provisorio asociado a una orden despachada
+    public static void EliminarStockProvisorio(int numeroOrden)
+    {
+        stockProvisorio.RemoveAll(sp => sp.NroOrden == numeroOrden);
+    }
+
     public static void GrabarDatos()
     {
         var contenido = JsonConvert.SerializeObject(stockProvisorio);

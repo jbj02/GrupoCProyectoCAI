@@ -14,10 +14,6 @@ namespace GrupoCProyectoCAI.Archivos
         public string Ubicacion { get; set; }
         public int Cantidad { get; set; }
 
-
-
-
-
         public string ProductoCliente
         {
             get

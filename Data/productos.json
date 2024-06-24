@@ -1,92 +1,206 @@
 [
   {
-    "Producto": "Silla",
-    "Codigo": "A123",
-    "Peso": 5.0,
-    "TipoProducto": "mueble"
+    "Producto": "Martillo",
+    "Codigo": "FOU123",
+    "Peso": 1.2,
+    "TipoProducto": "Herramientas"
   },
   {
-    "Producto": "Mesa",
-    "Codigo": "B234",
-    "Peso": 20.5,
-    "TipoProducto": "mueble"
+    "Producto": "Destornillador",
+    "Codigo": "FOU456",
+    "Peso": 0.8,
+    "TipoProducto": "Herramientas"
   },
   {
-    "Producto": "Lampara",
-    "Codigo": "C345",
-    "Peso": 2.3,
-    "TipoProducto": "mueble"
+    "Producto": "Sierra",
+    "Codigo": "FOU789",
+    "Peso": 1.5,
+    "TipoProducto": "Herramientas"
   },
   {
-    "Producto": "Sofa",
-    "Codigo": "D456",
-    "Peso": 45.0,
-    "TipoProducto": "mueble"
+    "Producto": "Monitor",
+    "Codigo": "EIG321",
+    "Peso": 3.2,
+    "TipoProducto": "Electrónicos"
   },
   {
-    "Producto": "Estante",
-    "Codigo": "E567",
-    "Peso": 15.0,
-    "TipoProducto": "mueble"
+    "Producto": "Teclado",
+    "Codigo": "EIG654",
+    "Peso": 0.9,
+    "TipoProducto": "Electrónicos"
   },
   {
-    "Producto": "Cama",
-    "Codigo": "K123",
-    "Peso": 50.0,
-    "TipoProducto": "mueble"
+    "Producto": "Mouse",
+    "Codigo": "EIG987",
+    "Peso": 0.3,
+    "TipoProducto": "Electrónicos"
   },
   {
-    "Producto": "Almohada",
-    "Codigo": "L234",
-    "Peso": 1.0,
-    "TipoProducto": "mueble"
+    "Producto": "Camiseta",
+    "Codigo": "THR234",
+    "Peso": 0.2,
+    "TipoProducto": "Ropa"
   },
   {
-    "Producto": "Televisor",
-    "Codigo": "M345",
-    "Peso": 10.0,
-    "TipoProducto": "electrónico"
+    "Producto": "Pantalón",
+    "Codigo": "THR567",
+    "Peso": 0.5,
+    "TipoProducto": "Ropa"
   },
   {
-    "Producto": "Ventilador",
-    "Codigo": "N456",
-    "Peso": 3.0,
-    "TipoProducto": "electrónico"
+    "Producto": "Zapatos",
+    "Codigo": "THR890",
+    "Peso": 0.7,
+    "TipoProducto": "Ropa"
   },
   {
-    "Producto": "Refrigerador",
-    "Codigo": "O567",
-    "Peso": 60.0,
-    "TipoProducto": "electrónico"
+    "Producto": "Libro",
+    "Codigo": "ONE123",
+    "Peso": 0.6,
+    "TipoProducto": "Libros"
   },
   {
-    "Producto": "Laptop",
-    "Codigo": "P678",
-    "Peso": 2.5,
-    "TipoProducto": "electrónico"
+    "Producto": "Cuaderno",
+    "Codigo": "ONE456",
+    "Peso": 0.3,
+    "TipoProducto": "Libros"
   },
   {
-    "Producto": "Microondas",
-    "Codigo": "Q789",
-    "Peso": 12.0,
-    "TipoProducto": "electrónico"
+    "Producto": "Pluma",
+    "Codigo": "ONE789",
+    "Peso": 0.1,
+    "TipoProducto": "Libros"
   },
   {
-    "Producto": "Escritorio",
-    "Codigo": "R890",
-    "Peso": 30.0,
-    "TipoProducto": "mueble"
+    "Producto": "Tornillo",
+    "Codigo": "SIX123",
+    "Peso": 0.01,
+    "TipoProducto": "Ferretería"
   },
   {
-    "Producto": "Cafetera",
-    "Codigo": "S901",
-    "Peso": 3.5,
-    "TipoProducto": "electrónico"
+    "Producto": "Clavo",
+    "Codigo": "SIX456",
+    "Peso": 0.02,
+    "TipoProducto": "Ferretería"
+  },
+  {
+    "Producto": "Llave",
+    "Codigo": "SIX789",
+    "Peso": 0.5,
+    "TipoProducto": "Ferretería"
+  },
+  {
+    "Producto": "Cámara",
+    "Codigo": "NIN123",
+    "Peso": 0.4,
+    "TipoProducto": "Electrónicos"
+  },
+  {
+    "Producto": "Batería",
+    "Codigo": "NIN456",
+    "Peso": 0.2,
+    "TipoProducto": "Electrónicos"
+  },
+  {
+    "Producto": "Cargador",
+    "Codigo": "NIN789",
+    "Peso": 0.3,
+    "TipoProducto": "Electrónicos"
+  },
+  {
+    "Producto": "Monitor",
+    "Codigo": "EIG234",
+    "Peso": 0.9,
+    "TipoProducto": "Electrónicos"
   },
   {
     "Producto": "Impresora",
-    "Codigo": "T012",
-    "Peso": 8.0,
-    "TipoProducto": "electrónico"
+    "Codigo": "SEV123",
+    "Peso": 5.0,
+    "TipoProducto": "Oficina"
+  },
+  {
+    "Producto": "Escáner",
+    "Codigo": "SEV456",
+    "Peso": 3.5,
+    "TipoProducto": "Oficina"
+  },
+  {
+    "Producto": "Papel",
+    "Codigo": "SEV789",
+    "Peso": 0.2,
+    "TipoProducto": "Oficina"
+  },
+  {
+    "Producto": "Gorra",
+    "Codigo": "ONE234",
+    "Peso": 0.1,
+    "TipoProducto": "Accesorios"
+  },
+  {
+    "Producto": "Bufanda",
+    "Codigo": "ONE567",
+    "Peso": 0.3,
+    "TipoProducto": "Accesorios"
+  },
+  {
+    "Producto": "Reloj",
+    "Codigo": "ONE890",
+    "Peso": 0.4,
+    "TipoProducto": "Accesorios"
+  },
+  {
+    "Producto": "Lámpara",
+    "Codigo": "THR345",
+    "Peso": 1.0,
+    "TipoProducto": "Iluminación"
+  },
+  {
+    "Producto": "Mesa",
+    "Codigo": "THR678",
+    "Peso": 15.0,
+    "TipoProducto": "Muebles"
+  },
+  {
+    "Producto": "Silla",
+    "Codigo": "THR901",
+    "Peso": 5.0,
+    "TipoProducto": "Muebles"
+  },
+  {
+    "Producto": "Teléfono",
+    "Codigo": "NIN543",
+    "Peso": 0.35,
+    "TipoProducto": "Electrónicos"
+  },
+  {
+    "Producto": "Tablet",
+    "Codigo": "NIN876",
+    "Peso": 0.5,
+    "TipoProducto": "Electrónicos"
+  },
+  {
+    "Producto": "Smartwatch",
+    "Codigo": "NIN109",
+    "Peso": 0.1,
+    "TipoProducto": "Electrónicos"
+  },
+  {
+    "Producto": "Caja de herramientas",
+    "Codigo": "FIV432",
+    "Peso": 2.5,
+    "TipoProducto": "Herramientas"
+  },
+  {
+    "Producto": "Taladro",
+    "Codigo": "FIV765",
+    "Peso": 1.8,
+    "TipoProducto": "Herramientas"
+  },
+  {
+    "Producto": "Generador eléctrico",
+    "Codigo": "FIV098",
+    "Peso": 15.0,
+    "TipoProducto": "Herramientas"
   }
 ]

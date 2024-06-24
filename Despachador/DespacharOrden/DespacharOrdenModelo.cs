@@ -39,28 +39,41 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
         }
         public void Confirmar()
         {
+            // Utilizaremos un diccionario para almacenar remitos por cliente (utilizando CUIT como clave única)
+            Dictionary<string, RemitoEnt> remitosPorCliente = new Dictionary<string, RemitoEnt>();
+
             foreach (var ordenDespachada in OrdenesSeleccionadas)
             {
-                // Obtener la orden de preparación completa (incluidos los productos)
-                var ordenPreparacion = ArchivoOrdenPreparacion.ObtenerOrdenPreparacionPorNumero(ordenDespachada.NumOrden);
-
-                ArchivoOrdenPreparacion.SeleccionarOrden(ordenDespachada.NumOrden, EstadosOrdenPreparacion.Despachada);
-
-                // Crear un nuevo objeto Remito y asignar los valores requeridos
-                var remitoEnt = new RemitoEnt
+                // Verificar si ya existe un remito para este cliente
+                if (!remitosPorCliente.ContainsKey(ordenDespachada.ClienteCUIT))
                 {
-                    NroRemito = GenerarNumero(),
-                    clienteCUIT = ordenDespachada.ClienteCUIT,
-                    transportistaCUIT = ordenDespachada.TransportistaCUIT,
-                    FechaDespacho = ordenDespachada.FechaDespacho,
-                    NroOrdenes = new List<int> { ordenDespachada.NumOrden }
-                };
+                    // Si no existe, creamos un nuevo remito para este cliente
+                    var remitoEnt = new RemitoEnt
+                    {
+                        NroRemito = GenerarNumero(),
+                        clienteCUIT = ordenDespachada.ClienteCUIT,
+                        transportistaCUIT = ordenDespachada.TransportistaCUIT,
+                        FechaDespacho = ordenDespachada.FechaDespacho,
+                        NroOrdenes = new List<int> { ordenDespachada.NumOrden }
+                    };
 
-                // Agregar la orden al remito
-                remitoEnt.NroOrdenes.Add(ordenDespachada.NumOrden);
+                    // Agregamos este remito al diccionario de remitos por cliente
+                    remitosPorCliente.Add(ordenDespachada.ClienteCUIT, remitoEnt);
+                }
+                else
+                {
+                    // Si ya existe un remito para este cliente, simplemente agregamos la orden despachada al remito existente
+                    remitosPorCliente[ordenDespachada.ClienteCUIT].NroOrdenes.Add(ordenDespachada.NumOrden);
+                }
 
-                // Agregar la ordenSeleccionEnt a la lista de órdenes de selección en el archivo
-                ArchivoRemito.AgregarRemito(remitoEnt);
+                // Eliminar el stock provisorio asociado a esta orden despachada
+                ArchivoStockProvisorio.EliminarStockProvisorio(ordenDespachada.NumOrden);
+            }
+
+            // Ahora guardamos todos los remitos creados en el archivo de remitos
+            foreach (var remito in remitosPorCliente.Values)
+            {
+                ArchivoRemito.AgregarRemito(remito);
             }
         }
 

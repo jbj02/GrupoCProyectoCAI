@@ -1,47 +1,38 @@
 [
   {
-    "ProductoCliente": "Mochila20-11111111-5",
-    "Producto": "Mochila",
+    "CodigoProducto": "FOU123",
     "ClienteCUIT": "20-11111111-5",
-    "Cantidad": 15,
-    "Ubicacion": "abc",
-    "Peso": 5.2,
-    "TipoProducto": "Accesorio"
+    "Ubicacion": "4,11,2",
+    "Cantidad": 100
   },
   {
-    "ProductoCliente": "Bolso20-11111111-5",
-    "Producto": "Bolso",
+    "CodigoProducto": "FOU456",
     "ClienteCUIT": "20-11111111-5",
-    "Cantidad": 8,
-    "Ubicacion": "abc",
-    "Peso": 9.2,
-    "TipoProducto": "Accesorio"
+    "Ubicacion": "8,5,1",
+    "Cantidad": 50
   },
   {
-    "ProductoCliente": "Silla20-11111111-5",
-    "Producto": "Silla",
+    "CodigoProducto": "FOU789",
     "ClienteCUIT": "20-11111111-5",
-    "Cantidad": 12,
-    "Ubicacion": "abc",
-    "Peso": 22.4,
-    "TipoProducto": "Mueble"
+    "Ubicacion": "12,17,3",
+    "Cantidad": 75
   },
   {
-    "ProductoCliente": "Mesa20-22222222-5",
-    "Producto": "Mesa",
+    "CodigoProducto": "EIG321",
     "ClienteCUIT": "20-22222222-5",
-    "Cantidad": 42,
-    "Ubicacion": "dfg",
-    "Peso": 45.6,
-    "TipoProducto": "Mueble"
+    "Ubicacion": "3,9,5",
+    "Cantidad": 30
   },
   {
-    "ProductoCliente": "Computadora20-22222222-5",
-    "Producto": "Computadora",
+    "CodigoProducto": "EIG654",
     "ClienteCUIT": "20-22222222-5",
-    "Cantidad": 6,
-    "Ubicacion": "dfg",
-    "Peso": 28.8,
-    "TipoProducto": "Tecnolog�a"
+    "Ubicacion": "7,4,2",
+    "Cantidad": 20
+  },
+  {
+    "CodigoProducto": "EIG987",
+    "ClienteCUIT": "20-22222222-5",
+    "Ubicacion": "3,5,6",
+    "Cantidad": 15
   }
 ]

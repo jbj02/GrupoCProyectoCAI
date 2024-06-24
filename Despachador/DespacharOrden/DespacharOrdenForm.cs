@@ -1,4 +1,5 @@
-﻿using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
+﻿using GrupoCProyectoCAI.Archivos;
+using GrupoCProyectoCAI.Preparador.AltaOrdenSeleccion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -230,15 +231,30 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
             }
             else
             {
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro que deseas confirmar la/S ordenes y generar el/los remito/s?", "Confirmación de orden", MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro que deseas confirmar la/s ordenes y generar el/los remito/s?", "Confirmación de orden", MessageBoxButtons.YesNo);
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    despacharOrdenModelo.OrdenesSeleccionadas = OrdenesDespachadasList.Items.Cast<ListViewItem>()
-                .Select(item => (OrdenPreparacionD)item.Tag).ToList();
+                    // Obtener las órdenes despachadas desde la lista de items
+                    var ordenesDespachadas = OrdenesDespachadasList.Items.Cast<ListViewItem>()
+                                                .Select(item => (OrdenPreparacionD)item.Tag)
+                                                .ToList();
+
+                    // Confirmar las órdenes despachadas y generar remitos
+                    despacharOrdenModelo.OrdenesSeleccionadas = ordenesDespachadas;
                     despacharOrdenModelo.Confirmar();
 
-                    MessageBox.Show("Se modificó el estado de las órdenes a Despachadas y se generaron los remitos.");
+                    // Mostrar un mensaje con los números de las órdenes despachadas y sus remitos asociados
+                    StringBuilder mensaje = new StringBuilder();
+                    mensaje.AppendLine("Se generaron los remitos para las siguientes órdenes despachadas:");
+
+                    foreach (var orden in ordenesDespachadas)
+                    {
+                        mensaje.AppendLine($"- Número de Orden: {orden.NumOrden}, Número de Remito: {ArchivoRemito.Remitos.LastOrDefault(r => r.NroOrdenes.Contains(orden.NumOrden))?.NroRemito}");
+                    }
+
+                    MessageBox.Show(mensaje.ToString());
+
                     this.Close();
                 }
                     

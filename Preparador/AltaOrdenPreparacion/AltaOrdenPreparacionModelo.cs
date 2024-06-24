@@ -30,15 +30,18 @@ namespace GrupoCProyectoCAI.Preparador.AltaOrdenPreparacion
                 var stockCliente = ArchivoStock.Stock.Where(p => p.ClienteCUIT == clienteEntidad.CUIT);
                 foreach (var stockEntidad in stockCliente)
                 {
-                    string nombreABuscar = ArchivoProductos.Productos.First(p => p.Codigo == stockEntidad.CodigoProducto).Producto;
-                    var nuevoProducto = new Producto
+                    var productoEncontrado = ArchivoProductos.Productos.FirstOrDefault(p => p.Codigo == stockEntidad.CodigoProducto);
+                    if (productoEncontrado != null) // Verificar si se encontró un producto
                     {
-                        Nombre = nombreABuscar,
-                        Cantidad = stockEntidad.Cantidad,
-                        CodigoDeProducto = stockEntidad.CodigoProducto
-                    };
+                        var nuevoProducto = new Producto
+                        {
+                            Nombre = productoEncontrado.Producto,
+                            Cantidad = stockEntidad.Cantidad,
+                            CodigoDeProducto = stockEntidad.CodigoProducto
+                        };
 
-                    nuevoCliente.ProductosAsociados.Add(nuevoProducto);
+                        nuevoCliente.ProductosAsociados.Add(nuevoProducto);
+                    }
                 }
 
                 Clientes.Add(nuevoCliente);

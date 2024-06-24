@@ -39,27 +39,39 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
 
                         // ordenAsociada = ordenEnt.OrdenPreparacionAsociadas
                     };
-                    foreach (var ordenA in ArchivoOrdenPreparacion.OrdenesPreparacion)
+
+                    // Filtrar las órdenes de preparación asociadas a la orden de selección actual
+                    var ordenesPreparacionAsociadas = ArchivoOrdenPreparacion.OrdenesPreparacion
+                        .Where(op => ordenEnt.OrdenPreparacionAsociadas.Contains(op.NroOrden))
+                        .ToList();
+                    foreach (var ordenA in ordenesPreparacionAsociadas)
                     {
                         var ordenPrep = new OrdenPreparacion
                         {
                             NumOrdenP = ordenA.NroOrden,
                             productos = new List<Productos>()
                         };
-                        foreach (var product in ArchivoStockProvisorio.StockProvisorio)
+
+                        // Filtrar los productos del stock provisorio asociados a la orden de preparación actual
+                        var productosAsociados = ArchivoStockProvisorio.StockProvisorio
+                            .Where(sp => sp.NroOrden == ordenA.NroOrden)
+                            .ToList();
+
+                        foreach (var product in productosAsociados)
                         {
                             var x = ArchivoProductos.Productos.FirstOrDefault(p => p.Codigo == product.CodigoProducto);
-                            var producto = new Productos
+                            if (x != null)
                             {
-
-                                Producto = x.Producto,
-                                Cantidades = product.Cantidad,
-                                Ubicacion = product.Ubicacion,
-
-
-                            };
+                                var producto = new Productos
+                                {
+                                    Producto = x.Producto,
+                                    Cantidades = product.Cantidad,
+                                    Ubicacion = product.Ubicacion
+                                };
+                                ordenPrep.productos.Add(producto);
+                            }
                         }
-
+                        ordenSeleccion.ordenAsociada.Add(ordenPrep);
                     }
 
                     OrdenesSeleccion.Add(ordenSeleccion);

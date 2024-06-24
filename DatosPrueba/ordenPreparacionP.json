@@ -1,1 +1,130 @@
-[]
+[
+  {
+    "NroOrden": 4738,
+    "ClienteCUIT": "34-12345678-9",
+    "Estado": "Pendiente",
+    "TransportistaCUIT": "45-98765432-1",
+    "FechaDespacho": "2024-07-15T10:30:00",
+    "FechaAlta": "2024-06-24T08:00:00"
+  },
+  {
+    "NroOrden": 8217,
+    "ClienteCUIT": "12-87654321-0",
+    "Estado": "Pendiente",
+    "TransportistaCUIT": "21-23456789-4",
+    "FechaDespacho": "2024-08-10T09:00:00",
+    "FechaAlta": "2024-06-25T11:00:00"
+  },
+  {
+    "NroOrden": 3950,
+    "ClienteCUIT": "23-34567890-1",
+    "Estado": "Pendiente",
+    "TransportistaCUIT": "34-12345678-5",
+    "FechaDespacho": "2024-07-25T15:45:00",
+    "FechaAlta": "2024-06-26T13:30:00"
+  },
+  {
+    "NroOrden": 1502,
+    "ClienteCUIT": "45-09876543-2",
+    "Estado": "Pendiente",
+    "TransportistaCUIT": "54-87654321-6",
+    "FechaDespacho": "2024-08-05T14:15:00",
+    "FechaAlta": "2024-06-27T10:00:00"
+  },
+  {
+    "NroOrden": 6734,
+    "ClienteCUIT": "34-56789012-3",
+    "Estado": "EnSeleccion",
+    "TransportistaCUIT": "12-34567890-7",
+    "FechaDespacho": "2024-07-20T16:30:00",
+    "FechaAlta": "2024-06-28T09:00:00"
+  },
+  {
+    "NroOrden": 9821,
+    "ClienteCUIT": "23-23456789-4",
+    "Estado": "EnSeleccion",
+    "TransportistaCUIT": "34-09876543-2",
+    "FechaDespacho": "2024-08-15T10:45:00",
+    "FechaAlta": "2024-06-29T12:00:00"
+  },
+  {
+    "NroOrden": 4056,
+    "ClienteCUIT": "12-34567890-1",
+    "Estado": "EnSeleccion",
+    "TransportistaCUIT": "21-56789012-3",
+    "FechaDespacho": "2024-07-30T13:00:00",
+    "FechaAlta": "2024-06-30T08:30:00"
+  },
+  {
+    "NroOrden": 7382,
+    "ClienteCUIT": "54-76543210-9",
+    "Estado": "EnSeleccion",
+    "TransportistaCUIT": "45-23456789-4",
+    "FechaDespacho": "2024-08-25T14:45:00",
+    "FechaAlta": "2024-07-01T10:15:00"
+  },
+  {
+    "NroOrden": 1298,
+    "ClienteCUIT": "21-67890123-4",
+    "Estado": "Seleccionada",
+    "TransportistaCUIT": "34-09876543-2",
+    "FechaDespacho": "2024-07-25T11:30:00",
+    "FechaAlta": "2024-07-02T13:00:00"
+  },
+  {
+    "NroOrden": 3647,
+    "ClienteCUIT": "23-45678901-5",
+    "Estado": "Seleccionada",
+    "TransportistaCUIT": "21-23456789-4",
+    "FechaDespacho": "2024-08-10T16:00:00",
+    "FechaAlta": "2024-07-03T08:15:00"
+  },
+  {
+    "NroOrden": 9843,
+    "ClienteCUIT": "12-67890123-4",
+    "Estado": "Seleccionada",
+    "TransportistaCUIT": "34-76543210-9",
+    "FechaDespacho": "2024-07-20T09:30:00",
+    "FechaAlta": "2024-07-04T11:45:00"
+  },
+  {
+    "NroOrden": 5629,
+    "ClienteCUIT": "45-09876543-1",
+    "Estado": "Seleccionada",
+    "TransportistaCUIT": "12-34567890-7",
+    "FechaDespacho": "2024-08-15T14:00:00",
+    "FechaAlta": "2024-07-05T09:00:00"
+  },
+  {
+    "NroOrden": 7632,
+    "ClienteCUIT": "34-56789012-3",
+    "Estado": "Preparada",
+    "TransportistaCUIT": "45-23456789-1",
+    "FechaDespacho": "2024-07-15T10:00:00",
+    "FechaAlta": "2024-07-06T08:00:00"
+  },
+  {
+    "NroOrden": 9184,
+    "ClienteCUIT": "21-67890123-4",
+    "Estado": "Preparada",
+    "TransportistaCUIT": "23-45678901-5",
+    "FechaDespacho": "2024-08-05T13:30:00",
+    "FechaAlta": "2024-07-07T11:00:00"
+  },
+  {
+    "NroOrden": 2345,
+    "ClienteCUIT": "12-98765432-1",
+    "Estado": "Preparada",
+    "TransportistaCUIT": "34-56789012-3",
+    "FechaDespacho": "2024-07-25T14:45:00",
+    "FechaAlta": "2024-07-08T09:30:00"
+  },
+  {
+    "NroOrden": 8567,
+    "ClienteCUIT": "23-34567890-1",
+    "Estado": "Preparada",
+    "TransportistaCUIT": "21-98765432-1",
+    "FechaDespacho": "2024-08-20T11:15:00",
+    "FechaAlta": "2024-07-09T10:45:00"
+  }
+]
