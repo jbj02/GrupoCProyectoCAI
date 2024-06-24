@@ -66,7 +66,7 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
             foreach (ListViewItem item in OrdenExt_List.Items)
             {
                 flag = item.Checked;
-                error += ValidarSeleccion(flag) + System.Environment.NewLine;
+                error = ValidarSeleccion(flag) + System.Environment.NewLine;
             }
             error += ValidarOrden(OrdenSeleccionCmb.SelectedIndex) + System.Environment.NewLine;
             error = error.Trim();
