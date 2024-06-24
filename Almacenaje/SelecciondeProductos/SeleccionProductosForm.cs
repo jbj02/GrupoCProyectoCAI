@@ -45,11 +45,11 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
                 var orden = modelo.Buscar(numero);
                 foreach (var detalle in orden.ordenAsociada)
                 {
-                    foreach (var producto in detalle.ProductosList)
+                    foreach (var producto in detalle.productos)
                     {
                         var fila = new ListViewItem();
                         fila.Text = producto.Producto;
-                        fila.SubItems.Add(producto.Cantidad.ToString());
+                        fila.SubItems.Add(producto.Cantidades.ToString());
                         fila.SubItems.Add(producto.Ubicacion);
                         OrdenExt_List.Items.Add(fila);
                     }

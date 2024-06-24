@@ -10,7 +10,7 @@ namespace GrupoCProyectoCAI.Almacenaje.SelecciondeProductos
     internal class OrdenDeSeleccion
     {
         public int NumeroOrden { get; set; }
-        public List<OrdenPreparacionEnt> ordenAsociada { get; set; }
+        public List<OrdenPreparacion> ordenAsociada { get; set; }
         public string Estado { get; set; }
         //public OrdenDeSeleccion()
        
