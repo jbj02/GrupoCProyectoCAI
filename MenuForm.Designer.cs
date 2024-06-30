@@ -78,7 +78,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(347, 229);
+            ClientSize = new Size(347, 199);
             Controls.Add(SalirSistemaBtn);
             Controls.Add(DespachadorBtn);
             Controls.Add(PreparadorBtn);

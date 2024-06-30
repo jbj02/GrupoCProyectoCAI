@@ -178,7 +178,8 @@ namespace GrupoCProyectoCAI
             (
                 ClienteCmb.SelectedIndex == -1 ||
                 TransportistaTxt.Text.Length == 0 ||
-                productosSeleccionados.Count < 1
+                productosSeleccionados.Count < 1 ||
+                productosSeleccionados == null
             )
             {
                 MessageBox.Show("Debe completar todos los campos y agregar productos a la lista", "Error");

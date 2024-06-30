@@ -171,8 +171,19 @@ namespace GrupoCProyectoCAI.Despachador.DespacharOrden
 
                 despacharOrdenModelo.SeleccionarOrden(ordenDespachada);
 
-                // Se agrega a la lista OrdenesDespachadasList
-                OrdenesDespachadasList.Items.Add(orden);            
+                // Crea una nueva instancia de ListViewItem para representar la orden despachada
+                var nuevaFila = new ListViewItem();
+                nuevaFila.Text = orden.Text; // Copia el número de orden (u otro dato relevante)
+                nuevaFila.SubItems.Add(orden.SubItems[1].Text); // Copia el ClienteCUIT
+                nuevaFila.SubItems.Add(orden.SubItems[2].Text); // Copia el TransportistaCUIT
+                nuevaFila.SubItems.Add(orden.SubItems[3].Text); // Copia la FechaDespacho
+                nuevaFila.Tag = ordenDespachada; // Asigna el objeto ordenDespachada
+
+                // Agrega la nueva fila a la lista OrdenesDespachadasList
+                OrdenesDespachadasList.Items.Add(nuevaFila);
+
+                // Elimina la orden de la lista OrdenesPreparadasList
+                OrdenesPreparadasList.Items.Remove(orden);
             }
         }
 
